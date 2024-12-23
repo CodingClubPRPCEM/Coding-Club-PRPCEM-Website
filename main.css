@@ -1,0 +1,407 @@
+/* main.css */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-padding-top: 80px; /* Adjust this to match your navbar height */
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: #b8dcfc; /* Background color for navbar */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Initially set position to relative */
+  top: 0; /* Stick to the top */
+  z-index: 9999; /* Ensure navbar is always on top */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+  
+
+}
+
+/* Left Navbar */
+.navbar .nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-left .logo-img {
+  height: 40px; /* Adjust logo size */
+  margin-right: 10px; /* Adjust space between logo and text */
+}
+
+.navbar .nav-left .logo-text {
+  color: #7867b9; /* Text color for Coding Club */
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Right Navbar */
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-right .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-right .nav-links li a {
+  color: #7867b9; /* Text color for all navbar links */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  position: relative; /* For underline effect */
+  transition: color 0.3s;
+}
+
+/* Apply underline effect only to links with class 'underline-effect' */
+.navbar .nav-right .nav-links li a.underline-effect:hover {
+  color: #ed246d;
+}
+
+.navbar .nav-right .nav-links li a.underline-effect:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ed246d;
+  transition: width 0.3s;
+}
+
+.navbar .nav-right .nav-links li a.underline-effect:hover:after {
+  width: 100%; /* Full width underline on hover */
+}
+
+/* Join Us button styles */
+.navbar .nav-right .cta {
+  background-color: #ed246d;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.navbar .nav-right .cta:hover {
+  background-color: #c91e5e;
+}
+
+/* Remove underline effect from Join Us */
+.navbar .nav-right .cta.no-underline {
+  text-decoration: none; /* No underline */
+  color: #b8dcfc;
+}
+
+.navbar .nav-right .cta.no-underline:hover {
+  text-decoration: none; /* No underline on hover */
+}
+
+/* Sticky Navbar Styles - Color change on scroll */
+.sticky-nav {
+  position: fixed; /* Fix navbar at the top when scrolling */
+  top: 0;
+  width: 100%;
+  background-color: #333; /* Dark background when sticky */
+  color: #fff; /* Change text color to white when sticky */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for the sticky navbar */
+}
+
+.sticky-nav .nav-links li a {
+  color: #fff; /* Change navbar link color to white when sticky */
+}
+
+/* Hero Section Styles */
+.hero {
+  background: url('/images/hero.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  height: 80vh; /* Adjust hero section height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero .btn-primary {
+  background-color: #ed246d;
+  color: #b8dcfc;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.hero .btn-primary:hover {
+  background-color: #c91e5e;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.header{
+  position: sticky;
+  top:0;
+}
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+#about {
+  background: linear-gradient(
+    rgba(49, 194, 185, 0.68), /* Blue overlay with 68% opacity */
+      rgba(0, 0, 255, 0.4)
+    ),
+    url('/images/college-photo.jpg') no-repeat center center/cover; /* Replace with your image path */
+  color: #fff; /* Text color */
+  height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+#about .content {
+  width: 50%; /* Take up half the section */
+  padding: 2rem;
+  text-align: left; /* Align text to the left */
+}
+
+#about h2 {
+  font-size: 3rem; /* Larger heading size */
+  margin-bottom: 1.5rem;
+  color: #ed246d; /* Accent color for heading */
+}
+
+#about p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Member Images Section */
+#about .images {
+  width: 50%; /* Take up the other half of the section */
+  display: flex;
+  flex-wrap: wrap; /* Allow images to wrap if needed */
+  justify-content: center;
+  gap: 1rem; /* Add space between images */
+}
+
+#about .images img {
+  width: 100px; /* Adjust size for member images */
+  height: 100px;
+  border-radius: 50%; /* Make images circular */
+  object-fit: cover; /* Ensure the images are properly cropped */
+  border: 2px solid #fff; /* Add a white border */
+}
+#events {
+  background: linear-gradient(
+    rgba(65, 13, 13, 0.6), /* Black overlay with 60% opacity */ 
+    rgb(5 8 32 / 60%) /* Same overlay at bottom */
+    ),
+    url('/images/events.png') no-repeat center center/cover; /* Replace with your image path */
+  color: #fff; /* Text color */
+  height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+#events .content {
+  width: 50%; /* Left half for text content */
+  padding: 2rem;
+  text-align: left;
+}
+
+#events h2 {
+  font-size: 3rem; /* Large heading size */
+  margin-bottom: 1.5rem;
+  color: #ed246d; /* Accent color for heading */
+}
+
+#events p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+#events .cards {
+  width: 50%; /* Right half for event cards */
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap */
+  gap: 1rem; /* Space between cards */
+  justify-content: center;
+}
+
+#events .card {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  border-radius: 10px;
+  width: 200px; /* Card width */
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#events .card:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow on hover */
+}
+
+#events .card img {
+  width: 100%;
+  border-radius: 5px; /* Rounded image corners */
+  margin-bottom: 0.5rem;
+}
+
+#events .card h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+#events .card p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+#tech-blog {
+  padding: 4rem 2rem;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+#tech-blog h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.blog-categories ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.blog-categories ul li {
+  list-style-type: none;
+}
+
+.blog-categories ul li a {
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.blog-categories ul li a:hover {
+  color: #007bff;
+}
+
+.category-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  text-align: left;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.post-card h4 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.post-card a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-excerpt {
+  font-size: 1rem;
+  color: #777;
+  margin: 1rem 0;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 2px solid #007bff;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.read-more:hover {
+  color: #0056b3;
+  border-color: #0056b3;
+}
+.card:hover {
+    transform: scale(1.05);
+    overflow: hidden;
+}
