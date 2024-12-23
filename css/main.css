@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background: linear-gradient(var(--deep-blue), black);
@@ -15,7 +15,7 @@ body {
 
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url('https://codingclubprpcem.github.io/image-hosting-/hero.jpg') no-repeat center center/cover;
+    url('https://codingclubprpcem.github.io/image-hosting-/hro.jpg') no-repeat center center/cover;
   height: 100vh;
 }
 
