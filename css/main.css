@@ -85,3 +85,9 @@ body {
   transform: scale(1.05);
   z-index: 1;
 }
+
+#leadership .col-md-4::before {
+  background: var(--deep-blue);
+  color: white;
+  border: none;
+} 
