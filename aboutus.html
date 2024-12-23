@@ -6,150 +6,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coding Club PRPCEM</title>
   <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-  <link rel="stylesheet" href="https://codingclubprpcem.github.io/image-hosting-/main.css">
-  <script src="index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">Coding Club PRPCEM</a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li><a href="about.html" class="active">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>About Us</h1>
-                <p>Meet the minds and hearts behind the success of Coding Club PRPCEM.</p>
-            </div>
-        </section>
-
-        <section class="team-section">
-            <div class="container">
-                <h2>The Pillars of PRPCEM</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/chairman.jpg" alt="Chairman">
-                        <h3>Chairman</h3>
-                        <p>Dr. [Chairman Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/vice_chairman.jpg" alt="Vice Chairman">
-                        <h3>Vice Chairman</h3>
-                        <p>Mr. [Vice Chairman Name]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="team-section">
-            <div class="container">
-                <h2>Leadership</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/director.jpg" alt="Director">
-                        <h3>Director</h3>
-                        <p>Dr. [Director Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/principal.jpg" alt="Principal">
-                        <h3>Principal</h3>
-                        <p>Dr. [Principal Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/dean_student_welfare.jpg" alt="Dean Student Welfare">
-                        <h3>Dean - Student Welfare</h3>
-                        <p>Prof. [Dean Name]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="team-section">
-            <div class="container">
-                <h2>Faculty Coordinator</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/faculty_coordinator.jpg" alt="Faculty Coordinator">
-                        <h3>Faculty Coordinator</h3>
-                        <p>Prof. [Faculty Coordinator Name]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="team-section">
-            <div class="container">
-                <h2>Website Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/team_lead.jpg" alt="Team Lead">
-                        <h3>Team Lead</h3>
-                        <p>[Lead Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/frontend_developer.jpg" alt="Frontend Developer">
-                        <h3>Frontend Developer</h3>
-                        <p>[Frontend Developer Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/backend_developer.jpg" alt="Backend Developer">
-                        <h3>Backend Developer</h3>
-                        <p>[Backend Developer Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/ui_ux_designer.jpg" alt="UI/UX Designer">
-                        <h3>UI/UX Designer</h3>
-                        <p>[Designer Name]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="team-section">
-            <div class="container">
-                <h2>Rest of the Coding Club Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/member1.jpg" alt="Team Member">
-                        <h3>Team Member</h3>
-                        <p>[Member 1 Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/member2.jpg" alt="Team Member">
-                        <h3>Team Member</h3>
-                        <p>[Member 2 Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/member3.jpg" alt="Team Member">
-                        <h3>Team Member</h3>
-                        <p>[Member 3 Name]</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/member4.jpg" alt="Team Member">
-                        <h3>Team Member</h3>
-                        <p>[Member 4 Name]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Coding Club PRPCEM. All rights reserved.</p>
+  <!-- Navigation Bar -->
+  <header class="sticky-top bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
+          <span>Coding Club</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link text-cyan" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html">Hackathon</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="gdg.html">GDGC</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="mlsc.html">MLSC</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="techblog.html">Tech Blog</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="contactus.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="#join" class="btn btn-primary rounded-pill">Join Us</a></li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </nav>
+  </header>
+  <section id="about" class="py-5 text-light" style="background: linear-gradient(to right, #7867b9, #ed246d);">
+    <div class="container text-center">
+      <h1 class="display-4 mb-4">About Us</h1>
+      <p class="lead">
+        Welcome to the Coding Club at PRPCEM! We are a vibrant community dedicated to fostering creativity, innovation, and collaboration in technology. Whether you're a beginner or an experienced coder, our club provides a platform to explore, learn, and excel.
+      </p>
+      <p>
+        Through hackathons, workshops, and regular coding sessions, we aim to empower students to make meaningful contributions to the tech world.
+      </p>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section id="pillars" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center text-dark mb-5">Meet Our Pillars</h2>
+      <div class="row justify-content-center text-center">
+      <!-- Replace placeholders with actual details -->
+      <div class="col-md-4">
+   <img src="https://codingclubprpcem.github.io/image-hosting-/chairman.png" alt="Leader 1" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+        <h5 class="text-dark">Shri. Pravin Pote Patil</h5>
+        <p>Chairman , PRPGEI</p>
+      </div>
+      <div class="col-md-4">
+        <img</div> <img src="https://codingclubprpcem.github.io/image-hosting-/vice-chairman.png" alt="Leader 2" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+        <h5 class="text-dark">Shri. Shreyash Dada Pote Patil</h5>
+        <p>Mentor, Coding Club</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section 2 -->
+  <section id="leadership" class="py-5" style="background: linear-gradient(to right, #ff7e5f, #feb47b);">
+    <div class="container">
+      <h2 class="text-center text-light mb-5">Our Leadership</h2>
+      <div class="row justify-content-center text-center">
+        <div class="col-md-4">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/director.jpg" alt="Principal" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+          <h5 class="text-light">
+            Dr. Prakash M. Khodke</h5>
+          <p class="text-light">Director, PRPCEM</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/principal_new.jpg" alt="Director" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+          <h5 class="text-light">
+            Dr. P. M. Jawandhiya</h5>
+          <p class="text-light">Principal, PRPCEM</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/director.jpg" alt="Student Welfare" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+          <h5 class="text-light">Dr. Sunpreet Kaur Nanda</h5>
+          <p class="text-light">Student Welfare Dean, PRPCEM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goa</div>ls and Vision -->
+  <section id="vision" class="py-5 text-light" style="background: linear-gradient(to right, #ed246d, #7867b9);">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Goals & Vision</h2>
+      <p class="lead text-center">
+        We envision a future where every student has the opportunity to master coding and create solutions that impact the world positively. Our goals include:
+      </p>
+      <ul class="list-group list-group-flush text-dark mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Organizing hands-on workshops and hackathons</li>
+        <li class="list-group-item">Providing mentorship for tech enthusiasts</li>
+        <li class="list-group-item">Building projects that solve real-world problems</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      <p>&copy; 2024 Coding Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
