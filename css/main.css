@@ -129,7 +129,7 @@ body {
 
 /* Hero Section Styles */
 .hero {
-  background: url('/images/hero.jpg') no-repeat center center/cover;
+  background: url('https://codingclubprpcem.github.io/image-hosting-/hero.jpg') no-repeat center center/cover;
   color: #fff;
   text-align: center;
   height: 80vh; /* Adjust hero section height */
@@ -195,7 +195,7 @@ footer {
     rgba(49, 194, 185, 0.68), /* Blue overlay with 68% opacity */
       rgba(0, 0, 255, 0.4)
     ),
-    url('/images/college-photo.jpg') no-repeat center center/cover; /* Replace with your image path */
+    url('https://codingclubprpcem.github.io/image-hosting-/college-photo.jpg') no-repeat center center/cover; /* Replace with your image path */
   color: #fff; /* Text color */
   height: 100vh; /* Full screen height */
   display: flex;
@@ -242,7 +242,7 @@ footer {
     rgba(65, 13, 13, 0.6), /* Black overlay with 60% opacity */ 
     rgb(5 8 32 / 60%) /* Same overlay at bottom */
     ),
-    url('/images/events.png') no-repeat center center/cover; /* Replace with your image path */
+    url('https://codingclubprpcem.github.io/image-hosting-/events.png') no-repeat center center/cover; /* Replace with your image path */
   color: #fff; /* Text color */
   height: 100vh; /* Full screen height */
   display: flex;
