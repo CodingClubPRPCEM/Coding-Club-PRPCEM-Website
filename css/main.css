@@ -91,3 +91,14 @@ body {
   color: white;
   border: none;
 } 
+.col-md-3 {
+  position: relative; /* Ensure the pop out effect is positioned relative to the card */
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.col-md-3:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
