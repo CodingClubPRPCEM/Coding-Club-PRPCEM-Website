@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Club - Home</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="index.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <header class="header">
+    <nav class="navbar clearfix">
+      <div class="nav-left">
+        <img src="/images/logo1.png" alt="Logo" class="logo-img">
+        <a href="#" class="logo-text">Coding Club</a> <!-- Added "Coding Club" text here -->
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="/" class="underline-effect">Home</a></li>
+          <li><a href="#about" class="underline-effect">About Us</a></li>
+          <li><a href="#events" class="underline-effect">Events</a></li>
+          <li><a href="#blog" class="underline-effect">Tech Blog</a></li>
+          <li><a href="#hackathon" class="underline-effect">Hackathon</a></li>
+          <li><a href="#contact" class="underline-effect">Contact Us</a></li>
+          <li><a href="#join" class="cta no-underline">Join Us</a></li> <!-- Join Us button with no underline effect -->
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Welcome to Coding Club</h1>
+      <p>Empowering coders to innovate, learn, and grow together.</p>
+      <a href="#join" class="btn-primary">Join Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Welcome to the Coding Club! Our mission is to foster innovation, collaboration, and growth among tech
+        enthusiasts.
+        Stay tuned for exciting projects, events, and opportunities to explore the ever-evolving world of technology.
+      </p>
+    </div>
+  </section>
+  <section id="events">
+    <div class="content">
+      <h2>Our Events</h2>
+      <p>
+        Join us in celebrating innovation and creativity at our various events.
+        From coding marathons to tech talks, we aim to inspire and connect
+        individuals passionate about technology.
+      </p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <img src="/images/event1.jpg" alt="Event 1">
+        <h3>Hackathon 2024</h3>
+        <p>Experience the thrill of problem-solving and teamwork in our annual hackathon.</p>
+      </div>
+      <div class="card">
+        <img src="/images/event2.jpg" alt="Event 2">
+        <h3>Tech Talk</h3>
+        <p>Learn from industry leaders and gain valuable insights into emerging trends.</p>
+      </div>
+      <div class="card">
+        <img src="/images/event3.jpg" alt="Event 3">
+        <h3>Workshop</h3>
+        <p>Hands-on sessions designed to boost your technical skills.</p>
+      </div>
+      <div class="card">
+        <img src="/images/event4.jpg" alt="Event 4">
+        <h3>Community Meetup</h3>
+        <p>Connect, collaborate, and share ideas with fellow enthusiasts.</p>
+      </div>
+    </div>
+  </section>
+  <section id="tech-blog">
+    <div class="container">
+      <h2>Tech Blog</h2>
+
+      <!-- Categories -->
+      <div class="blog-categories">
+        <ul>
+          <li><a href="#webdev">Web Development</a></li>
+          <li><a href="#datascience">Data Science</a></li>
+          <li><a href="#programming">Programming Languages</a></li>
+          <li><a href="#emerging-tech">Emerging Technologies</a></li>
+        </ul>
+      </div>
+
+      <!-- Web Development Posts -->
+      <div id="webdev" class="category-posts">
+        <h3>Web Development</h3>
+        <div class="post-card">
+          <img src="/images/webdev-post.jpg" alt="Web Development Post">
+          <h4><a href="webdev-post.html">Building Scalable Web Applications</a></h4>
+          <p class="post-excerpt">Learn how to create scalable web applications using modern frameworks like React and
+            Django...</p>
+          <a href="webdev-post.html" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <!-- Data Science Posts -->
+      <div id="datascience" class="category-posts">
+        <h3>Data Science</h3>
+        <div class="post-card">
+          <img src="/images/datascience-post.jpg" alt="Data Science Post">
+          <h4><a href="datascience-post.html">Understanding Machine Learning Algorithms</a></h4>
+          <p class="post-excerpt">Explore the various machine learning algorithms and their applications in real-world
+            scenarios...</p>
+          <a href="datascience-post.html" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <!-- Programming Languages Posts -->
+      <div id="programming" class="category-posts">
+        <h3>Programming Languages</h3>
+        <div class="post-card">
+          <img src="/images/programming-post.jpg" alt="Programming Post">
+          <h4><a href="programming-post.html">Deep Dive into Python for Data Analysis</a></h4>
+          <p class="post-excerpt">This post covers how to use Python for efficient data analysis with libraries like
+            Pandas and NumPy...</p>
+          <a href="programming-post.html" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <!-- Emerging Technologies Posts -->
+      <div id="emerging-tech" class="category-posts">
+        <h3>Emerging Technologies</h3>
+        <div class="post-card">
+          <img src="/images/emerging-tech-post.jpg" alt="Emerging Tech Post">
+          <h4><a href="emerging-tech-post.html">Exploring the Future of AI and Quantum Computing</a></h4>
+          <p class="post-excerpt">An introduction to AI and Quantum Computing, and how they will shape the future of
+            technology...</p>
+          <a href="emerging-tech-post.html" class="read-more">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Coding Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
