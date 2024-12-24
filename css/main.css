@@ -3,6 +3,7 @@
   --cyan: #00BFFF;
   --magenta: #FF4081;
   --yellow: #FFD700;
+  --pink: #FF1493; /* Added pink color variable */
 }
 
 body {
@@ -13,12 +14,18 @@ body {
   color: white;
 }
 
+/* Hero Section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
     url('https://codingclubprpcem.github.io/image-hosting-/hro.jpg') no-repeat center center/cover;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
+/* Text Cyan */
 .text-cyan {
   color: var(--cyan);
 }
@@ -27,14 +34,39 @@ body {
   color: var(--magenta);
 }
 
+/* Button Primary */
 .btn-primary {
   background-color: var(--cyan);
   border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
   background-color: var(--magenta);
-  
+  transform: scale(1.05);
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: transparent; /* Transparent by default */
+  z-index: 1030;
+  font-size: 1.1rem;
+  position: fixed; /* Fixed position for scroll effect */
+  width: 100%;
+  padding: 0.8rem 1rem;
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
+}
+
+.navbar.scrolled {
+  background-color: var(--deep-blue); /* Black when scrolled */
+}
+
+.navbar .navbar-nav {
+  margin-left: auto;
 }
 
 .navbar a {
@@ -42,30 +74,94 @@ body {
   color: white;
   padding: 0.5rem 1rem;
   position: relative;
-  float: left;
+  display: inline-block;
 }
 
-.navbar a::after {
+/* Underline effect color changed to pink and made bold */
+.navbar .nav-link {
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.navbar .nav-link::after {
   content: '';
   position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
   bottom: 0;
-  left: 0;
-  background-color: var(--cyan);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  left: 50%;
+  width: 0;
+  height: 3px; /* Increased height for bold effect */
+  background-color: var(--pink); /* Changed underline color to pink */
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
-.navbar a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.navbar .nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Navbar Join Us Button (Smaller Size) */
+.nav-join {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;  /* Slightly smaller font size */
+  text-decoration: none;
+  color: white;
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-join:hover {
+  background-color: var(--magenta);
+  transform: scale(1.05);
+}
+
+/* Coding Club Larger Font */
+.navbar .coding-club {
+  font-size: 1.3rem; /* Increased font size */
+  font-weight: bold;
+}
+
+/* Clubs Dropdown */
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  z-index: 1050;
+  background-color: var(--deep-blue);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  padding: 0.3rem 0;
+  min-width: 160px;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: var(--cyan);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--magenta);
+  color: white;
 }
 
 /* Shine effect on hover */
 .col-md-4 {
-  position: relative; /* Ensure the pop out effect is positioned relative to the card */
+  position: relative;
   transition: transform 0.3s ease-in-out;
   z-index: 0;
 }
@@ -75,13 +171,8 @@ body {
   z-index: 1;
 }
 
-#leadership .col-md-4::before {
-  background: var(--deep-blue);
-  color: white;
-  border: none;
-} 
 .col-md-3 {
-  position: relative; /* Ensure the pop out effect is positioned relative to the card */
+  position: relative;
   transition: transform 0.3s ease-in-out;
   z-index: 0;
 }
@@ -91,22 +182,16 @@ body {
   z-index: 1;
 }
 
-/* Fix z-index for the navbar */
-.navbar {
-  z-index: 1030;
-  font-size: larger /* Ensure the navbar is always on top */
+/* Footer */
+footer {
+  background-color: var(--deep-blue);
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
 
-/* Ensure the dropdown menu appears properly */
-/* Dropdown Menu Styling */
-.dropdown-menu {
-  z-index: 1050;
-  background-color: var(--deep-blue);
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  border-radius: 6px; /* Slightly rounded corners */
-  padding: 0.3rem 0; /* Reduced vertical padding */
-  min-width: 150px; /* Adjust width for compactness */
+footer p {
+  margin: 0;
 }
 
 /* Individual Dropdown Items */
@@ -129,20 +214,3 @@ body {
   text-align: center; /* Center align items for better balance */
 }
 
-/*Hackathon .css*/
-.video-section {
-  height: 100vh;
-  overflow: hidden;
-}
-.video-section video {
-  object-fit: cover;
-  height: 100vh;
-}
-.overlay-text {
-  z-index: 10;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: black;
-  border-radius: 50%;
-}
