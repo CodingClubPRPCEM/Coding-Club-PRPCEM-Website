@@ -81,26 +81,26 @@
         </section>
 <!-- Timer Section -->
 <section id="timer" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timer.jpg'); background-size: cover; background-position: center;">
-    <div class="container" style="backdrop-filter: blur(5px);">
-        <h2 class="display-5 mb-4">Hackathon Countdown</h2>
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Hackathon Countdown</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="countdown d-flex justify-content-around">
                     <div class="time-box">
-                        <span id="days" class="display-4"></span>
-                        <p class="lead">Days</p>
+                        <span id="days" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Days</p>
                     </div>
                     <div class="time-box">
-                        <span id="hours" class="display-4"></span>
-                        <p class="lead">Hours</p>
+                        <span id="hours" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Hours</p>
                     </div>
                     <div class="time-box">
-                        <span id="minutes" class="display-4"></span>
-                        <p class="lead">Minutes</p>
+                        <span id="minutes" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Minutes</p>
                     </div>
                     <div class="time-box">
-                        <span id="seconds" class="display-4"></span>
-                        <p class="lead">Seconds</p>
+                        <span id="seconds" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Seconds</p>
                     </div>
                 </div>
             </div>
@@ -128,205 +128,277 @@
                 </div>
             </section>
             <!-- Problem Statements Section -->
-<section id="ProblemStatements" class="py-5">
-                <div class="container">
-                    <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
-                    <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="true">Hardware</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab" aria-controls="software" aria-selected="false">Software</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="problemStatementTabsContent">
-                        <div class="tab-pane fade show active" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
-                            <div class="row mt-4">
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH1</h5>
-                                            <p class="card-text">Smart Education: Monitoring System for classroom session in skill training program.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH2</h5>
-                                            <p class="card-text">BioTech / HealthTech: Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH3</h5>
-                                            <p class="card-text">AI-Healthcare systems: Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH4</h5>
-                                            <p class="card-text">Smart Automation: System to check the healthiness of earthing system and alert staff in case of any malfunction.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH5</h5>
-                                            <p class="card-text">Smart Farming system: Farmer Assistance and Support Solutions.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH6</h5>
-                                            <p class="card-text">Intelligent Automation: Designing Innovative Products for Empowering the Delivery Workforce.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMH7</h5>
-                                            <p class="card-text">Students Innovation (Hardware-Innovative, Creative and Impactful solutions).</p>
-                                        </div>
-                                    </div>
-                                </div>
+<section id="ProblemStatements" class="py-5" style="height: 600px; overflow-y: auto; background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
+        <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="true">Hardware</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab" aria-controls="software" aria-selected="false">Software</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="problemStatementTabsContent">
+            <div class="tab-pane fade show active" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH1</h5>
+                                <p class="card-text">Smart Education: Monitoring System for classroom session in skill training program.</p>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
-                            <div class="row mt-4">
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS1</h5>
-                                            <p class="card-text">AI enabled Clean & Green Technology: Solutions could be in the form of waste segregation, disposal, and improve sanitization system.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS2</h5>
-                                            <p class="card-text">Fitness & Sports: Ideas that can boost fitness activities and assist in keeping fit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS3</h5>
-                                            <p class="card-text">Smart Automation: Urban areas often face significant traffic congestion, especially at intersections where multiple routes converge.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS4</h5>
-                                            <p class="card-text">Educational Game: Challenges your creative minds to conceptualize and develop unique toys & games.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS5</h5>
-                                            <p class="card-text">Smart Education: Development of an educational game (web-based and mobile-based) on groundwater conservation and management.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS6</h5>
-                                            <p class="card-text">AI Enabled Education: Smart Competency Diagnostic and Candidate Profile Score Calculator.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS7</h5>
-                                            <p class="card-text">Agriculture, FoodTech & Rural Development: AI-Driven Crop Disease Prediction and Management System.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS8</h5>
-                                            <p class="card-text">Smart farming & Agriculture Development: Assured Contract Farming System for Stable Market Access.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS9</h5>
-                                            <p class="card-text">Blockchain & security: Fake social media accounts and their detection.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS10</h5>
-                                            <p class="card-text">AI driven Smart Education: AI-based Personalized Career Guidance Platform.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS11</h5>
-                                            <p class="card-text">Health care System: Virtual Healthcare Assistant for Rural Areas.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS12</h5>
-                                            <p class="card-text">Cyber Security: Fraud Detection in E-commerce Transactions.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS13</h5>
-                                            <p class="card-text">Clean & Green Technology: Use of Digital Knowledge Sharing Platform like Wikis on sharing of water efficient techniques and methods for minimizing water scarcity.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS14</h5>
-                                            <p class="card-text">Smart Education: Create an Annual Report Portal for institute where all the departmental reports can be integrated and customized.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="card-title">PRPCEMS15</h5>
-                                            <p class="card-text">Students Innovation (Software-Innovative, Creative and Impactful solutions).</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH2</h5>
+                                <p class="card-text">BioTech / HealthTech: Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH3</h5>
+                                <p class="card-text">AI-Healthcare systems: Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH4</h5>
+                                <p class="card-text">Smart Automation: System to check the healthiness of earthing system and alert staff in case of any malfunction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH5</h5>
+                                <p class="card-text">Smart Farming system: Farmer Assistance and Support Solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH6</h5>
+                                <p class="card-text">Intelligent Automation: Designing Innovative Products for Empowering the Delivery Workforce.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH7</h5>
+                                <p class="card-text">Students Innovation (Hardware-Innovative, Creative and Impactful solutions).</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS1</h5>
+                                <p class="card-text">AI enabled Clean & Green Technology: Solutions could be in the form of waste segregation, disposal, and improve sanitization system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS2</h5>
+                                <p class="card-text">Fitness & Sports: Ideas that can boost fitness activities and assist in keeping fit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS3</h5>
+                                <p class="card-text">Smart Automation: Urban areas often face significant traffic congestion, especially at intersections where multiple routes converge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS4</h5>
+                                <p class="card-text">Educational Game: Challenges your creative minds to conceptualize and develop unique toys & games.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS5</h5>
+                                <p class="card-text">Smart Education: Development of an educational game (web-based and mobile-based) on groundwater conservation and management.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS6</h5>
+                                <p class="card-text">AI Enabled Education: Smart Competency Diagnostic and Candidate Profile Score Calculator.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS7</h5>
+                                <p class="card-text">Agriculture, FoodTech & Rural Development: AI-Driven Crop Disease Prediction and Management System.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS8</h5>
+                                <p class="card-text">Smart farming & Agriculture Development: Assured Contract Farming System for Stable Market Access.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS9</h5>
+                                <p class="card-text">Blockchain & security: Fake social media accounts and their detection.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS10</h5>
+                                <p class="card-text">AI driven Smart Education: AI-based Personalized Career Guidance Platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS11</h5>
+                                <p class="card-text">Health care System: Virtual Healthcare Assistant for Rural Areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS12</h5>
+                                <p class="card-text">Cyber Security: Fraud Detection in E-commerce Transactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS13</h5>
+                                <p class="card-text">Clean & Green Technology: Use of Digital Knowledge Sharing Platform like Wikis on sharing of water efficient techniques and methods for minimizing water scarcity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS14</h5>
+                                <p class="card-text">Smart Education: Create an Annual Report Portal for institute where all the departmental reports can be integrated and customized.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS15</h5>
+                                <p class="card-text">Students Innovation (Software-Innovative, Creative and Impactful solutions).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>ss
+</section>
+<!-- Schedule Section -->
+<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/schedule.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Event Schedule</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Opening Ceremony</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td>Keynote Speech</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>Team Formation</td>
+                        </tr>
+                        <tr>
+                            <td>01:00 PM</td>
+                            <td>Lunch Break</td>
+                        </tr>
+                        <tr>
+                            <td>02:00 PM</td>
+                            <td>Hackathon Begins</td>
+                        </tr>
+                        <tr>
+                            <td>06:00 PM</td>
+                            <td>Workshop: AI in Healthcare</td>
+                        </tr>
+                        <tr>
+                            <td>08:00 PM</td>
+                            <td>Dinner Break</td>
+                        </tr>
+                        <tr>
+                            <td>09:00 PM</td>
+                            <td>Resume Hacking</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 AM</td>
+                            <td>Midnight Snack</td>
+                        </tr>
+                        <tr>
+                            <td>08:00 AM</td>
+                            <td>Breakfast</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Project Submission</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>Judging & Demos</td>
+                        </tr>
+                        <tr>
+                            <td>02:00 PM</td>
+                            <td>Closing Ceremony</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
     // Set the date we're counting down to
     var countDownDate = new Date("Jan 20, 2025 10:00:00").getTime();
