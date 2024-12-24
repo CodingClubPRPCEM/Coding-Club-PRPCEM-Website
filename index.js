@@ -31,3 +31,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#problemStatementTabs button');
+    const tabContent = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const activeContent = document.querySelector('.tab-pane.show.active .shuffle-cards');
+
+            if (activeContent) {
+                activeContent.classList.add('fade-out');
+                setTimeout(() => {
+                    activeContent.classList.remove('fade-out');
+                    activeContent.classList.add('fade-in');
+                }, 500);
+            }
+        });
+    });
+});
