@@ -51,6 +51,7 @@ body {
 }
 
 /* Navbar Styling */
+/* Navbar Styling */
 .navbar {
   background-color: transparent; /* Transparent by default */
   z-index: 1030;
@@ -59,11 +60,13 @@ body {
   width: 100%;
   padding: 0.8rem 1rem;
   transition: background-color 0.3s ease; /* Smooth transition for background change */
+  top: 0; /* Locked to the top */
 }
 
 .navbar.scrolled {
-  background-color: var(--deep-blue); /* Black when scrolled */
+  background-color: var(--deep-blue); /* Solid color when scrolled */
 }
+
 
 .navbar .navbar-nav {
   margin-left: auto;

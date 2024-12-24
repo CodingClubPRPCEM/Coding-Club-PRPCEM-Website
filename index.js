@@ -18,4 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
   
+  // Detect scroll event
+  window.onscroll = function() {
+    // Get the navbar element
+    const navbar = document.querySelector('.navbar');
+
+    // Check if the page has scrolled past a certain point (e.g., 50px)
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled'); // Add 'scrolled' class when scrolled
+    } else {
+      navbar.classList.remove('scrolled'); // Remove 'scrolled' class when at the top
+    }
+  };
 
