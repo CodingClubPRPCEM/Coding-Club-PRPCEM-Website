@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector('.navbar');
-  const navLinks = document.querySelectorAll('.navbar li a');
-  const nav = document.querySelector('.nav');
+  
+  // Initial navbar color settings
+  navbar.style.backgroundColor = 'transparent';
+  navbar.style.color = 'white';  // Initially white text
 
-  // Listen to the scroll event
   window.addEventListener('scroll', function () {
       if (window.scrollY > 50) {
-          // When scrolling down, change navbar's background and text color
-          navbar.style.backgroundColor = 'rgba(255, 255, 255,0)'; // Transparent white background
-          navbar.style.color = 'black';  // Change text color to black when scrolling down
+          navbar.style.backgroundColor = 'black';  // Navbar turns black when scrolled
+          navbar.style.color = 'white';  // Text stays white when scrolled
       } else {
-          // When at the top, restore the original background and text color
-          navbar.style.backgroundColor = '#b8dcfc'; // Set background to original color when at the top
-          navbar.style.color = 'white'; // Set text color to white when at the top
+          navbar.style.backgroundColor = 'transparent';  // Navbar is transparent when at the top
+          navbar.style.color = 'white';  // Text stays white at the top
       }
   });
 });
-
-  

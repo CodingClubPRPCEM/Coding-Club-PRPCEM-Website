@@ -25,6 +25,7 @@ body {
   text-align: center;
   position: relative;
 }
+
 /* Hero Section Content */
 .hero-content {
   z-index: 1;
@@ -37,8 +38,6 @@ body {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-
-
 
 /* Text Cyan */
 .text-cyan {
@@ -84,32 +83,32 @@ body {
   margin-left: auto;
 }
 
+/* Navbar Link Styling */
 .navbar a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline by default */
   color: white;
   padding: 0.5rem 1rem;
   position: relative;
-  display: inline-block;
 }
+
 .navbar a:hover {
   color: var(--cyan);
 }
 
-/* Underline effect color changed to pink and made bold */
 .navbar .nav-link {
   color: white;
   position: relative;
-  display: inline-block;
   padding-bottom: 5px;
 }
 
+/* Navbar Link Underline Effect */
 .navbar .nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 3px; /* Increased height for bold effect */
+  height: 3px;
   background-color: var(--pink); /* Changed underline color to pink */
   transition: width 0.3s ease, left 0.3s ease;
 }
@@ -237,3 +236,5 @@ footer p {
     font-size: 1rem;
   }
 }
+
+
