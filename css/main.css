@@ -37,17 +37,6 @@ body {
   
 }
 
-#aboutus{
-  background: linear-gradient(
-    rgba(49, 194, 185, 0.68), /* Blue overlay with 68% opacity */
-      rgba(0, 0, 255, 0.4)
-    ),
-    url('https://codingclubprpcem.github.io/image-hosting-/college-photo.jpg') no-repeat center center/cover; /* Replace with your image path */
-  height: 100vh; /* Full screen height */
-  display: flex;
-  align-items: center;
-  padding: 2rem;
-}
 .navbar a {
   text-decoration: none;
   color: white;
@@ -100,5 +89,43 @@ body {
 .col-md-3:hover {
   transform: scale(1.05);
   z-index: 1;
+}
+
+/* Fix z-index for the navbar */
+.navbar {
+  z-index: 1030;
+  font-size: larger /* Ensure the navbar is always on top */
+}
+
+/* Ensure the dropdown menu appears properly */
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  z-index: 1050;
+  background-color: var(--deep-blue);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 6px; /* Slightly rounded corners */
+  padding: 0.3rem 0; /* Reduced vertical padding */
+  min-width: 150px; /* Adjust width for compactness */
+}
+
+/* Individual Dropdown Items */
+.dropdown-item {
+  color: var(--cyan);
+  padding: 0.2rem 0.8rem; /* Reduced padding for shorter height */
+  font-size: 0.85rem; /* Slightly smaller text size */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.dropdown-item:hover {
+  background-color: var(--magenta);
+  color: white;
+}
+
+/* Optional: Align Dropdown Content */
+.navbar .dropdown-menu {
+  margin-top: 0.3rem; /* Tighten spacing between navbar and dropdown */
+  text-align: center; /* Center align items for better balance */
 }
 
