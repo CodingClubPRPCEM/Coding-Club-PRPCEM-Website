@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Club PRPCEM</title>
+  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/timer.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+    <header class="sticky-top bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
+            <span>Coding Club</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="#About">About</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="Rules.html">Rules</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="#ProblemStatements">Problem Statements</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="#Schedule">Schedule</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="#FAQ">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="Gallery.html">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link text-cyan" href="#ContactUs">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<!-- Video Section -->
+        <section class="video-section position-relative">
+            <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
+                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
+                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
+                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <div class="overlay-text position-absolute top-50 start-50 translate-middle text-center text-white bg-dark bg-opacity-50 p-4 rounded">
+                    <h1 class="display-4">Welcome to the Hackathon</h1>
+                    <p class="lead">Join us for an exciting event full of coding challenges and innovation.</p>
+                    <button class="btn btn-primary btn-lg me-2">Register Now</button>
+                    <button class="btn btn-secondary btn-lg">Learn More</button>
+                </div>
+            </div>
+        </section>
+<!-- Timer Section -->
+<section id="timer" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timer.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px);">
+        <h2 class="display-5 mb-4">Hackathon Countdown</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="countdown d-flex justify-content-around">
+                    <div class="time-box">
+                        <span id="days" class="display-4"></span>
+                        <p class="lead">Days</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours" class="display-4"></span>
+                        <p class="lead">Hours</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes" class="display-4"></span>
+                        <p class="lead">Minutes</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds" class="display-4"></span>
+                        <p class="lead">Seconds</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </section>
+            <!-- About Section -->
+            <section id="About" class="py-5 position-relative" style="height: 600px; background-image: url('https://codingclubprpcem.github.io/image-hosting-/abouthack.jpg'); background-size: cover; background-position: center;">
+                <div class="container position-relative text-white" style="height: 100%; backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+                    <div class="row align-items-center" style="height: 100%;">
+                        <div class="col-md-6" style="height: 100%;">
+                            <div class="text-light" style="position: relative; left: -20px; height: 100%;">
+                                <h2><strong>About the Hackathon</strong></h2>
+                                <br>
+                                <p class="lead"><strong>The PRPCEM Hackathon 2025 is an exciting event where participants will engage in coding challenges, collaborate with peers, and innovate solutions to real-world problems.</strong></p>
+                                <h1><strong>Welcome to PRPCEM HACKATHON 2025</strong></h1>
+                                <p><strong>Join us for an unforgettable experience filled with learning, creativity, and fun. Whether you're a beginner or an experienced coder, there's something for everyone!</strong></p>
+                                <button class="btn btn-primary">Contact Us</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center" style="height: 100%;">
+                            <img src="https://codingclubprpcem.github.io/image-hosting-/events.png" alt="Hackathon Image" class="img-fluid rounded shadow" style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Problem Statements Section -->
+            <section id="ProblemStatements" class="py-5">
+                <div class="container">
+                    <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
+                    <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="true">Hardware</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab" aria-controls="software" aria-selected="false">Software</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="problemStatementTabsContent">
+                        <div class="tab-pane fade show active" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
+                            <div class="row mt-4">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hardware Problem Statement 1</h5>
+                                            <p class="card-text">Description of the first hardware problem statement. Participants will need to solve this challenge using their hardware skills.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hardware Problem Statement 2</h5>
+                                            <p class="card-text">Description of the second hardware problem statement. This challenge will test the participants' ability to innovate and think critically.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hardware Problem Statement 3</h5>
+                                            <p class="card-text">Description of the third hardware problem statement. Participants will need to collaborate and come up with creative solutions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
+                            <div class="row mt-4">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Software Problem Statement 1</h5>
+                                            <p class="card-text">Description of the first software problem statement. Participants will need to solve this challenge using their coding skills.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Software Problem Statement 2</h5>
+                                            <p class="card-text">Description of the second software problem statement. This challenge will test the participants' ability to innovate and think critically.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Software Problem Statement 3</h5>
+                                            <p class="card-text">Description of the third software problem statement. Participants will need to collaborate and come up with creative solutions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 20, 2025 10:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the elements with id="days", "hours", "minutes", "seconds"
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

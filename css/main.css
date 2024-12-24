@@ -129,3 +129,20 @@ body {
   text-align: center; /* Center align items for better balance */
 }
 
+/*Hackathon .css*/
+.video-section {
+  height: 100vh;
+  overflow: hidden;
+}
+.video-section video {
+  object-fit: cover;
+  height: 100vh;
+}
+.overlay-text {
+  z-index: 10;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  border-radius: 50%;
+}
