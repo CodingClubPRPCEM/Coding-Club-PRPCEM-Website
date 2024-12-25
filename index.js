@@ -15,10 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   });
 });
-<<<<<<< HEAD
-=======
 
-  
   // Detect scroll event
   window.onscroll = function() {
     // Get the navbar element
