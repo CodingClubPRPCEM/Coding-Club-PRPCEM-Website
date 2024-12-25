@@ -41,44 +41,20 @@
       </nav>
     </header>
 <!-- Video Section -->
-        <section class="video-section position-relative">
-            <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
-                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item">
-                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
-                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="carousel-item">
-                        <video class="d-block w-100" autoplay loop muted style="filter: blur(5px);">
-                            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-                <div class="overlay-text position-absolute top-50 start-50 translate-middle text-center text-white bg-dark bg-opacity-50 p-4 rounded">
-                    <h1 class="display-4">Welcome to the Hackathon</h1>
-                    <p class="lead">Join us for an exciting event full of coding challenges and innovation.</p>
-                    <button class="btn btn-primary btn-lg me-2">Register Now</button>
-                    <button class="btn btn-secondary btn-lg">Learn More</button>
-                </div>
-            </div>
-        </section>
+<section id="home" class="hero d-flex align-items-center justify-content-center text-center text-light position-relative">
+    <video autoplay muted loop playsinline class="position-absolute w-100 h-100" style="object-fit: cover; z-index: -1;">
+      <source src="https://codingclubprpcem.github.io/image-hosting-/video/video2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content text-center" style=" padding:15px; border-radius:10px; backdrop-filter:blur(10px);">
+      <h1 class="display-4">Hacakathon' 25</h1>
+      <p class="lead">At Coding Club, we ignite creativity and foster innovation through coding. Whether you're a beginner or an expert, we offer an inspiring environment for all to learn, collaborate, and make an impact. Join us as we create the future, one line of code at a time!</p>
+      <div class="mt-4">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1OmQPWILgjggn0qwV3tCaNQUr9HeGLC31oWRwxfjqI2Xu7Q/viewform?usp=sf_link" class="btn btn-primary btn-lg rounded-pill me-3">Register Now</a>
+        <a href="" class="btn btn-outline-light btn-lg rounded-pill">Learn More</a>
+      </div>
+    </div>
+  </section>
 <!-- Timer Section -->
 <section id="timer" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timer.jpg'); background-size: cover; background-position: center;">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
@@ -108,26 +84,25 @@
             </div>
             </section>
             <!-- About Section -->
-            <section id="About" class="py-5 position-relative" style="height: 600px; background-image: url('https://codingclubprpcem.github.io/image-hosting-/abouthack.jpg'); background-size: cover; background-position: center;">
-                <div class="container position-relative text-white" style="height: 100%; backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
-                    <div class="row align-items-center" style="height: 100%;">
-                        <div class="col-md-6" style="height: 100%;">
-                            <div class="text-light" style="position: relative; left: -20px; height: 100%;">
+            <section id="About" class="py-5 position-relative" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/abouthack.jpg'); background-size: cover; background-position: center;">
+                <div class="container position-relative text-white" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="text-light">
                                 <h2><strong>About the Hackathon</strong></h2>
                                 <br>
-                                <p class="lead"><strong>The PRPCEM Hackathon 2025 is an exciting event where participants will engage in coding challenges, collaborate with peers, and innovate solutions to real-world problems.</strong></p>
                                 <h1><strong>Welcome to PRPCEM HACKATHON 2025</strong></h1>
-                                <p><strong>Join us for an unforgettable experience filled with learning, creativity, and fun. Whether you're a beginner or an experienced coder, there's something for everyone!</strong></p>
+                                <p><strong>Our hackathon is a unique opportunity for students to showcase their skills, learn from industry experts, and collaborate with peers. With exciting challenges, valuable prizes, and a supportive community, you won't want to miss this event!</strong></p>
                                 <button class="btn btn-primary">Contact Us</button>
                             </div>
                         </div>
-                        <div class="col-md-6 text-center" style="height: 100%;">
-                            <img src="https://codingclubprpcem.github.io/image-hosting-/events.png" alt="Hackathon Image" class="img-fluid rounded shadow" style="max-width: 100%; height: auto;">
+                        <div class="col-md-6 text-center">
+                            <img src="https://codingclubprpcem.github.io/image-hosting-/events.png" alt="Hackathon Image" class="img-fluid rounded shadow">
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Problem Statements Section -->
+           <!-- Problem Statements Section -->
 <section id="ProblemStatements" class="py-5" style="height: 600px; overflow-y: auto; background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
         <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
@@ -328,7 +303,7 @@
     </div>
 </section>
 <!-- Schedule Section -->
-<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/schedule.jpg'); background-size: cover; background-position: center; height: 800px; overflow-y: auto;">
+<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/schedule.jpg');">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
         <h2 class="display-5 mb-4 fw-bold">Event Schedule</h2>
         <div class="row justify-content-center">
