@@ -28,6 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-cyan" href="#prizes">Prizes</a></li>
               <li class="nav-item"><a class="nav-link text-cyan" href="#About">About</a></li>
               <li class="nav-item"><a class="nav-link text-cyan" href="Rules.html">Rules</a></li>
               <li class="nav-item"><a class="nav-link text-cyan" href="#ProblemStatements">Problem Statements</a></li>
@@ -55,6 +56,54 @@
       </div>
     </div>
   </section>
+<!-- Prize Section -->
+<section id="prizes" class="py-5 text-center text-white" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/prizes.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Prizes</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="h-100 shadow-sm  position-relative">
+                
+                        <h5 class="card-title">First Prize 🥇</h5>
+                        <p class="card-text display-4" id="first-prize">₹51,000</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="h-100 shadow-sm  position-relative">
+                    
+                        <h5 class="card-title">Second Prize 🥈</h5>
+                        <p class="card-text display-4" id="second-prize">₹31,000</p>
+            
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="h-100 shadow-sm  position-relative">
+                
+                        <h5 class="card-title">Third Prize 🥉</h5>
+                        <p class="card-text display-4" id="third-prize">₹11,000</p>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transform = "translateY(50px)";
+            setTimeout(() => {
+                card.style.transition = "all 0.5s ease-in-out";
+                card.style.opacity = 1;
+                card.style.transform = "translateY(0)";
+            }, index * 200);
+        });
+    });
+</script>
 <!-- Timer Section -->
 <section id="timer" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timer.jpg'); background-size: cover; background-position: center;">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
@@ -104,7 +153,7 @@
                 </div>
             </section>
            <!-- Problem Statements Section -->
-<section id="ProblemStatements" class="py-5" style="height: 600px; overflow-y: auto; background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
+<section id="ProblemStatements" class="py-5" style=" overflow-y: auto; background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
         <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
         <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
@@ -304,7 +353,7 @@
     </div>
 </section>
 <!-- Schedule Section -->
-<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/schedule.jpg');">
+<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg');">
     <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
         <h2 class="display-5 mb-4 fw-bold">Event Schedule</h2>
         <div class="row justify-content-center">
@@ -521,6 +570,76 @@
         }
     }, 1000);
 </script>
+<!-- FAQ Section -->
+<!-- FAQ Section -->
+<section id="FAQ" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        What is a hackathon?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        A hackathon is an event where programmers, designers, and developers collaborate intensively on software projects.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Who can participate?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Anyone with an interest in coding, design, or development can participate, regardless of skill level.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What should I bring?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Bring your laptop, charger, and any other tools you need for coding and development.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .accordion-button::after {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .accordion-button:not(.collapsed)::after {
+        transform: rotate(180deg);
+    }
+
+    .accordion-body {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
