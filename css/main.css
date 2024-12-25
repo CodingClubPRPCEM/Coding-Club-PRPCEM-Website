@@ -3,7 +3,7 @@
   --cyan: #00BFFF;
   --magenta: #FF4081;
   --yellow: #FFD700;
-  --pink: #FF1493; /* Added pink color variable */
+  --pink: #FF1493;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
   text-align: center;
   position: relative;
 }
-/* Hero Section Content */
+
 .hero-content {
   z-index: 1;
   text-align: center;
@@ -38,9 +38,6 @@ body {
   line-height: 1.6;
 }
 
-
-
-/* Text Cyan */
 .text-cyan {
   color: var(--cyan);
 }
@@ -49,11 +46,10 @@ body {
   color: var(--magenta);
 }
 
-/* Button Primary */
 .btn-primary {
   background-color: var(--cyan);
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   font-size: 1.1rem;
   text-transform: uppercase;
   border-radius: 50px;
@@ -66,22 +62,20 @@ body {
 }
 
 /* Navbar Styling */
-/* Navbar Styling */
 .navbar {
-  background-color: transparent; /* Transparent by default */
+  background-color: transparent;
   z-index: 1030;
   font-size: 1.1rem;
-  position: fixed; /* Fixed position for scroll effect */
+  position: fixed;
   width: 100%;
   padding: 0.8rem 1rem;
-  transition: background-color 0.3s ease; /* Smooth transition for background change */
-  top: 0; /* Locked to the top */ 
+  transition: background-color 0.3s ease;
+  top: 0;
 }
 
 .navbar.scrolled {
-  background-color: var(--deep-blue); /* Solid color when scrolled */
+  background-color: var(--deep-blue);
 }
-
 
 .navbar .navbar-nav {
   margin-left: auto;
@@ -94,15 +88,13 @@ body {
   position: relative;
   display: inline-block;
 }
+
 .navbar a:hover {
   color: var(--cyan);
 }
 
-/* Underline effect color changed to pink and made bold */
 .navbar .nav-link {
   color: white;
-  position: relative;
-  display: inline-block;
   padding-bottom: 5px;
 }
 
@@ -112,8 +104,8 @@ body {
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 3px; /* Increased height for bold effect */
-  background-color: var(--pink); /* Changed underline color to pink */
+  height: 3px;
+  background-color: var(--pink);
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -122,10 +114,9 @@ body {
   left: 0;
 }
 
-/* Navbar Join Us Button (Smaller Size) */
 .nav-join {
   padding: 0.7rem 1.5rem;
-  font-size: 1rem;  /* Slightly smaller font size */
+  font-size: 1rem;
   text-decoration: none;
   color: white;
   background-color: var(--cyan);
@@ -139,13 +130,11 @@ body {
   transform: scale(1.05);
 }
 
-/* Coding Club Larger Font */
 .navbar .coding-club {
-  font-size: 1.5rem; /* Increased font size */
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Clubs Dropdown */
 .navbar .dropdown {
   position: relative;
 }
@@ -180,74 +169,452 @@ body {
   color: white;
 }
 
-/* Shine effect on hover */
-.col-md-4 {
+/* Events Section */
+.events-section {
   position: relative;
-  transition: transform 0.3s ease-in-out;
-  z-index: 0;
-}
-
-.col-md-4:hover {
-  transform: scale(1.05);
-  z-index: 1;
-}
-
-.col-md-3 {
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  z-index: 0;
-}
-
-.col-md-3:hover {
-  transform: scale(1.05);
-  z-index: 1;
-}
-
-/* Footer */
-footer {
-  background-color: var(--deep-blue);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/eventsgallery.jpg');
+  background-size: cover;
+  background-position: center;
   color: white;
+  padding: 30px 0;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.events-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.event-card {
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+.event-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.event-content h2 {
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.event-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-content .btn-primary {
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+}
+
+.event-content .btn-primary:hover {
+  background-color: var(--pink);
+}
+
+/* Events Gallery Section */
+.events-hero {
+  background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/eventhero.jpg') no-repeat center center/cover;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 1rem;
+  position: relative;
 }
 
-footer p {
+.events-hero h1,
+.events-hero p {
+  z-index: 1;
+  color: #00bfff;
+  font-weight:bold;
+  
+  text-align: center;
+}
+
+:root {
+  --deep-blue: #1B1F3B;
+  --cyan: #00BFFF;
+  --magenta: #FF4081;
+  --yellow: #FFD700;
+  --pink: #FF1493;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
+  padding: 0;
+  background: linear-gradient(var(--deep-blue), black);
+  color: white;
 }
 
-/* Individual Dropdown Items */
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url('https://codingclubprpcem.github.io/image-hosting-/hro.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-content p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.text-cyan {
+  color: var(--cyan);
+}
+
+.text-cyan:hover {
+  color: var(--magenta);
+}
+
+.btn-primary {
+  background-color: var(--cyan);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--magenta);
+  transform: scale(1.05);
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: transparent;
+  z-index: 1030;
+  font-size: 1.1rem;
+  position: fixed;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  transition: background-color 0.3s ease;
+  top: 0;
+}
+
+.navbar.scrolled {
+  background-color: var(--deep-blue);
+}
+
+.navbar .navbar-nav {
+  margin-left: auto;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  color: var(--cyan);
+}
+
+.navbar .nav-link {
+  color: white;
+  padding-bottom: 5px;
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--pink);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-join {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-join:hover {
+  background-color: var(--magenta);
+  transform: scale(1.05);
+}
+
+.navbar .coding-club {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  z-index: 1050;
+  background-color: var(--deep-blue);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  padding: 0.3rem 0;
+  min-width: 160px;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .dropdown-item {
   color: var(--cyan);
-  padding: 0.2rem 0.8rem; /* Reduced padding for shorter height */
-  font-size: 0.85rem; /* Slightly smaller text size */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover Effect */
 .dropdown-item:hover {
   background-color: var(--magenta);
   color: white;
 }
 
-/* Optional: Align Dropdown Content */
-.navbar .dropdown-menu {
-  margin-top: 0.3rem; /* Tighten spacing between navbar and dropdown */
-  text-align: center; /* Center align items for better balance */
+/* Contact Section */
+.contact {
+  position: relative;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/contactus.jpg') no-repeat center center/cover;
 }
 
-/*Add Problem Statement*/ 
-.shuffle-cards {
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+.contact h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #00bfff; 
+}
+
+.contact p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  font-weight: lighter;
+}
+
+.social-media h3,
+.contact-list h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00bfff /* Yellow for the subheadings */
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 2.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  border-radius: 50%;
+  margin: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background-color: var(--magenta);
+  transform: scale(1.1);
+}
+
+/* Contact List Cards */
+.contact-items {
   display: flex;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
-  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.shuffle-cards.fade-out {
-  opacity: 0;
-  transform: scale(0.9);
+.contact-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.shuffle-cards.fade-in {
-  opacity: 1;
-  transform: scale(1);
+.contact-item:hover {
+  transform: scale(1.05);
+  background-color: var(--cyan);
+  box-shadow: 0px 15px 30px rgba(0, 191, 255, 0.6);
+}
+
+.contact-item h4 {
+  font-size: 1.3em;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover h4 {
+  color: var(--deep-blue);
+}
+
+.contact-item p {
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover p {
+  color: white;
+}
+
+
+/* Footer Styling */
+.footer {
+  background-color: var(--deep-blue);
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+}
+
+.footer-links, .footer-social {
+  text-align: center;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-size: 1.2em;
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1em;
+}
+
+.footer-links a:hover {
+  color: var(--magenta);
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.footer-social .social-icon {
+  font-size: 1.5em;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.footer-social .social-icon:hover {
+  background-color: var(--magenta);
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
 }
