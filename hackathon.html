@@ -81,26 +81,26 @@
         </section>
 <!-- Timer Section -->
 <section id="timer" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timer.jpg'); background-size: cover; background-position: center;">
-    <div class="container" style="backdrop-filter: blur(5px);">
-        <h2 class="display-5 mb-4">Hackathon Countdown</h2>
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Hackathon Countdown</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="countdown d-flex justify-content-around">
                     <div class="time-box">
-                        <span id="days" class="display-4"></span>
-                        <p class="lead">Days</p>
+                        <span id="days" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Days</p>
                     </div>
                     <div class="time-box">
-                        <span id="hours" class="display-4"></span>
-                        <p class="lead">Hours</p>
+                        <span id="hours" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Hours</p>
                     </div>
                     <div class="time-box">
-                        <span id="minutes" class="display-4"></span>
-                        <p class="lead">Minutes</p>
+                        <span id="minutes" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Minutes</p>
                     </div>
                     <div class="time-box">
-                        <span id="seconds" class="display-4"></span>
-                        <p class="lead">Seconds</p>
+                        <span id="seconds" class="display-4 fw-bold"></span>
+                        <p class="lead fw-bold">Seconds</p>
                     </div>
                 </div>
             </div>
@@ -128,77 +128,380 @@
                 </div>
             </section>
             <!-- Problem Statements Section -->
-            <section id="ProblemStatements" class="py-5">
-                <div class="container">
-                    <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
-                    <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="true">Hardware</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab" aria-controls="software" aria-selected="false">Software</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="problemStatementTabsContent">
-                        <div class="tab-pane fade show active" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
-                            <div class="row mt-4">
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Hardware Problem Statement 1</h5>
-                                            <p class="card-text">Description of the first hardware problem statement. Participants will need to solve this challenge using their hardware skills.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Hardware Problem Statement 2</h5>
-                                            <p class="card-text">Description of the second hardware problem statement. This challenge will test the participants' ability to innovate and think critically.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Hardware Problem Statement 3</h5>
-                                            <p class="card-text">Description of the third hardware problem statement. Participants will need to collaborate and come up with creative solutions.</p>
-                                        </div>
-                                    </div>
-                                </div>
+<section id="ProblemStatements" class="py-5" style="height: 600px; overflow-y: auto; background-image: url('https://codingclubprpcem.github.io/image-hosting-/ps.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 text-center">Problem Statements</h2>
+        <ul class="nav nav-tabs justify-content-center" id="problemStatementTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="true">Hardware</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab" aria-controls="software" aria-selected="false">Software</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="problemStatementTabsContent">
+            <div class="tab-pane fade show active" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH1</h5>
+                                <p class="card-text">Smart Education: Monitoring System for classroom session in skill training program.</p>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
-                            <div class="row mt-4">
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Software Problem Statement 1</h5>
-                                            <p class="card-text">Description of the first software problem statement. Participants will need to solve this challenge using their coding skills.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Software Problem Statement 2</h5>
-                                            <p class="card-text">Description of the second software problem statement. This challenge will test the participants' ability to innovate and think critically.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Software Problem Statement 3</h5>
-                                            <p class="card-text">Description of the third software problem statement. Participants will need to collaborate and come up with creative solutions.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH2</h5>
+                                <p class="card-text">BioTech / HealthTech: Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH3</h5>
+                                <p class="card-text">AI-Healthcare systems: Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH4</h5>
+                                <p class="card-text">Smart Automation: System to check the healthiness of earthing system and alert staff in case of any malfunction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH5</h5>
+                                <p class="card-text">Smart Farming system: Farmer Assistance and Support Solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH6</h5>
+                                <p class="card-text">Intelligent Automation: Designing Innovative Products for Empowering the Delivery Workforce.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMH7</h5>
+                                <p class="card-text">Students Innovation (Hardware-Innovative, Creative and Impactful solutions).</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS1</h5>
+                                <p class="card-text">AI enabled Clean & Green Technology: Solutions could be in the form of waste segregation, disposal, and improve sanitization system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS2</h5>
+                                <p class="card-text">Fitness & Sports: Ideas that can boost fitness activities and assist in keeping fit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS3</h5>
+                                <p class="card-text">Smart Automation: Urban areas often face significant traffic congestion, especially at intersections where multiple routes converge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS4</h5>
+                                <p class="card-text">Educational Game: Challenges your creative minds to conceptualize and develop unique toys & games.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS5</h5>
+                                <p class="card-text">Smart Education: Development of an educational game (web-based and mobile-based) on groundwater conservation and management.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS6</h5>
+                                <p class="card-text">AI Enabled Education: Smart Competency Diagnostic and Candidate Profile Score Calculator.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS7</h5>
+                                <p class="card-text">Agriculture, FoodTech & Rural Development: AI-Driven Crop Disease Prediction and Management System.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS8</h5>
+                                <p class="card-text">Smart farming & Agriculture Development: Assured Contract Farming System for Stable Market Access.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS9</h5>
+                                <p class="card-text">Blockchain & security: Fake social media accounts and their detection.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS10</h5>
+                                <p class="card-text">AI driven Smart Education: AI-based Personalized Career Guidance Platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS11</h5>
+                                <p class="card-text">Health care System: Virtual Healthcare Assistant for Rural Areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS12</h5>
+                                <p class="card-text">Cyber Security: Fraud Detection in E-commerce Transactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS13</h5>
+                                <p class="card-text">Clean & Green Technology: Use of Digital Knowledge Sharing Platform like Wikis on sharing of water efficient techniques and methods for minimizing water scarcity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS14</h5>
+                                <p class="card-text">Smart Education: Create an Annual Report Portal for institute where all the departmental reports can be integrated and customized.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">PRPCEMS15</h5>
+                                <p class="card-text">Students Innovation (Software-Innovative, Creative and Impactful solutions).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Schedule Section -->
+<section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/schedule.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
+        <h2 class="display-5 mb-4 fw-bold">Event Schedule</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">1</span></div>
+                        <div class="timeline-time">19th Dec 2024 - 13th Jan 2025</div>
+                        <div class="timeline-content">Registration Phase: Participants must complete their registration on the website by the end date.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">2</span></div>
+                        <div class="timeline-time">After 13th Jan 2025</div>
+                        <div class="timeline-content">Joining the WhatsApp Group: Registered participants will be added to the official WhatsApp group for updates and communication. The PPT format will be shared in the WhatsApp group.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">3</span></div>
+                        <div class="timeline-time">Immediately after joining the WhatsApp group</div>
+                        <div class="timeline-content">Preparing the PPT: Participants will work on their PowerPoint presentations based on the provided format.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">4</span></div>
+                        <div class="timeline-time">13th Jan 2025</div>
+                        <div class="timeline-content">PPT Submission Deadline: All PPTs must be submitted by this date via the designated platform or email.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">5</span></div>
+                        <div class="timeline-time">14th & 15th Jan 2025</div>
+                        <div class="timeline-content">Online Evaluation of PPTs & Presentations: Online evaluation of the PPTs will occur on these dates.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">6</span></div>
+                        <div class="timeline-time">19th Jan 2025</div>
+                        <div class="timeline-content">Top Teams Shortlisted: The top teams will be shortlisted for the Grand Finale round.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">7</span></div>
+                        <div class="timeline-time">10:00 AM</div>
+                        <div class="timeline-content">Event Start: The grand finale event will begin.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">8</span></div>
+                        <div class="timeline-time">11:00 AM – 1:00 PM</div>
+                        <div class="timeline-content">Inaugural Session: Official inauguration of the Techelons hackathon.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">9</span></div>
+                        <div class="timeline-time">1:00 PM – 3:00 PM</div>
+                        <div class="timeline-content">Round 1: Project Evaluation: Projects will be evaluated, and participants may be asked to add features or answer questions. Some participants may be eliminated based on project evaluation.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">10</span></div>
+                        <div class="timeline-time">4:00 PM – 5:00 PM</div>
+                        <div class="timeline-content">Final Round: Evaluation & Results: Final evaluation of shortlisted projects, followed by result announcements.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon"><span class="timeline-number">11</span></div>
+                        <div class="timeline-time">5:00 PM</div>
+                        <div class="timeline-content">Event Conclusion: Hackathon concludes with the result announcement at the Unmesh 2025 ceremony.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+        list-style: none;
+    }
+
+    .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #fff;
+        left: 50%;
+        margin-left: -2px;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin: 20px 0;
+        padding-left: 50%;
+        clear: both;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 50%;
+        text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon {
+        top: -29px;
+        right: 210px;
+        text-align: center;
+    }
+
+    .timeline-item:nth-child(even) .timeline-icon {
+        right: calc(50% - 20px);
+        left: auto;
+        
+    }
+
+    .timeline-item .timeline-time {
+        position: absolute;
+        left: -170px;
+        text-align: right;
+        padding-right: 20px;
+        top: 0;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-time {
+        left: auto;
+        right: -170px;
+        text-align: left;
+    }
+
+    .timeline-item .timeline-icon {
+        position: absolute;
+        background: #fff;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .timeline-item .timeline-content {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #fff;
+        position: relative;
+    }
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    window.addEventListener('scroll', function() {
+        var items = document.querySelectorAll('.timeline-item');
+        items.forEach(function(item) {
+            var rect = item.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                item.classList.add('show');
+            }
+        });
+    });
+</script>
+
 <script>
     // Set the date we're counting down to
     var countDownDate = new Date("Jan 20, 2025 10:00:00").getTime();
