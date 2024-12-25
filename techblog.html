@@ -10,22 +10,51 @@
 </head>
 
 <body>
+  <!-- Work in Progress Banner -->
+  <div class="alert alert-warning text-center" role="alert">
+    This page is a work in progress. Check back soon for updates!
+  </div>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">Coding Club</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Tech Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-        </ul>
+  <header class="sticky-top bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center coding-club" href="#">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2"
+            style="height: 40px;">
+          <span>Coding Club</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link navbar-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="hackathon.html">Hackathon</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle navbar-link" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Clubs
+              </a>
+              <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item text-cyan" href="gdg.html">GDGC</a></li>
+                <li><a class="dropdown-item text-cyan" href="mlsc.html">MLSC</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="index.html#events-hero">Events</a></li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="techblog.html">Tech Blog</a></li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="consitution.html">Consitution</a></li>
+            <li class="nav-item"><a class="nav-link navbar-link" href="index.html#contact">Contact Us</a></li>
+            <li class="nav-item">
+              <a href="#join" class="btn btn-primary btn-sm rounded-pill nav-join">Join Us</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Carousel Section -->
   <div id="techBlogCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
