@@ -233,6 +233,7 @@ body {
 .event-content .btn-primary {
   background-color: var(--cyan);
   border: none;
+
   border-radius: 5px;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -244,7 +245,7 @@ body {
 
 /* Events Gallery Section */
 .events-hero {
-  background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/eventhero.jpg') no-repeat center center/cover;
+  background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   height: 40vh;
   display: flex;
   justify-content: center;
