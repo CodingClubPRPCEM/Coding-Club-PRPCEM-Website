@@ -167,53 +167,7 @@
             </div>
         </section>
 
-        <script defer>
-            window.addEventListener('load', function() {
-                const problemStatements = {
-                    hardware: [
-                    { id: 'PRPCEMH1', text: 'Smart Education: Monitoring System for classroom session in skill training program.' },
-                    { id: 'PRPCEMH2', text: 'BioTech / HealthTech: Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.' },
-                    { id: 'PRPCEMH3', text: 'AI-Healthcare systems: Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.' },
-                    { id: 'PRPCEMH4', text: 'Smart Automation: System to check the healthiness of earthing system and alert staff in case of any malfunction.' },
-                    { id: 'PRPCEMH5', text: 'Smart Farming system: Farmer Assistance and Support Solutions.' },
-                    { id: 'PRPCEMH6', text: 'Intelligent Automation: Designing Innovative Products for Empowering the Delivery Workforce.' },
-                    { id: 'PRPCEMH7', text: 'Students Innovation (Hardware-Innovative, Creative and Impactful solutions).' }
-                ],
-                software: [
-                    { id: 'PRPCEMS1', text: 'AI enabled Clean & Green Technology: Solutions could be in the form of waste segregation, disposal, and improve sanitization system.' },
-                    { id: 'PRPCEMS2', text: 'Fitness & Sports: Ideas that can boost fitness activities and assist in keeping fit.' },
-                    { id: 'PRPCEMS3', text: 'Smart Automation: Urban areas often face significant traffic congestion, especially at intersections where multiple routes converge.' },
-                    { id: 'PRPCEMS4', text: 'Educational Game: Challenges your creative minds to conceptualize and develop unique toys & games.' },
-                    { id: 'PRPCEMS5', text: 'Smart Education: Development of an educational game (web-based and mobile-based) on groundwater conservation and management.' },
-                    { id: 'PRPCEMS6', text: 'AI Enabled Education: Smart Competency Diagnostic and Candidate Profile Score Calculator.' },
-                    { id: 'PRPCEMS7', text: 'Agriculture, FoodTech & Rural Development: AI-Driven Crop Disease Prediction and Management System.' },
-                    { id: 'PRPCEMS8', text: 'Smart farming & Agriculture Development: Assured Contract Farming System for Stable Market Access.' },
-                    { id: 'PRPCEMS9', text: 'Blockchain & security: Fake social media accounts and their detection.' },
-                    { id: 'PRPCEMS10', text: 'AI driven Smart Education: AI-based Personalized Career Guidance Platform.' },
-                    { id: 'PRPCEMS11', text: 'Health care System: Virtual Healthcare Assistant for Rural Areas.' },
-                    { id: 'PRPCEMS12', text: 'Cyber Security: Fraud Detection in E-commerce Transactions.' },
-                    { id: 'PRPCEMS13', text: 'Clean & Green Technology: Use of Digital Knowledge Sharing Platform like Wikis on sharing of water efficient techniques and methods for minimizing water scarcity.' },
-                    { id: 'PRPCEMS14', text: 'Smart Education: Create an Annual Report Portal for institute where all the departmental reports can be integrated and customized.' },
-                    { id: 'PRPCEMS15', text: 'Students Innovation (Software-Innovative, Creative and Impactful solutions).' }
-                ]
-            };
 
-            function generateProblemCards(type) {
-                return problemStatements[type].map(statement => `
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm bg-light">
-                            <div class="card-body">
-                                <h5 class="card-title">${statement.id}</h5>
-                                <p class="card-text">${statement.text}</p>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-                document.getElementById('hardware-cards').innerHTML = generateProblemCards('hardware');
-                document.getElementById('software-cards').innerHTML = generateProblemCards('software');
-            });
-        </script>
         
 <!-- Schedule Section -->
 <section id="Schedule" class="py-5 text-white text-center" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/timeline.jpg');background-size: cover; background-position: center;">
@@ -559,6 +513,7 @@
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="index.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
