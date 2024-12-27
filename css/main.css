@@ -619,3 +619,113 @@ body {
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
+
+.back-to-top {
+  z-index: 1000;
+}
+
+            .card { background-color: rgba(255, 255, 255, 0.9) !important; }
+            .nav-tabs .nav-link { color: white; }
+            .nav-tabs .nav-link.active { background-color: rgba(255, 255, 255, 0.1); color: white; }
+
+
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+        list-style: none;
+    }
+
+    .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #fff;
+        left: 50%;
+        margin-left: -2px;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin: 20px 0;
+        padding-left: 47%;
+        clear: both;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 52%;
+        text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon {
+        left: calc(50% - 36px);
+        right: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-icon {
+        right: calc(50% - 3px);
+        left: auto;
+    }
+
+    .timeline-item .timeline-icon {
+        position: absolute;
+        background: #fff;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .timeline-item .timeline-content {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #fff;
+        position: relative;
+        text-align: center;
+    }
+
+    .timeline-item .timeline-time {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    
+
+.accordion-button::after {
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+.accordion-button:hover {
+background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.accordion-body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
