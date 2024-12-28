@@ -166,6 +166,95 @@
                 </div>
             </div>
         </section>
+        <!-- Custom Script for Problem Statements -->
+        <script>
+        const problemStatements = {
+            hardware: [
+                ['PRPCEMH1', 'Smart Education: Monitoring System for classroom session in skill training program.'],
+                ['PRPCEMH2', 'BioTech / HealthTech: Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.'],
+                ['PRPCEMH3', 'AI-Healthcare systems: Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.'],
+                ['PRPCEMH4', 'Smart Automation: System to check the healthiness of earthing system and alert staff in case of any malfunction.'],
+                ['PRPCEMH5', 'Smart Farming system: Farmer Assistance and Support Solutions.'],
+                ['PRPCEMH6', 'Intelligent Automation: Designing Innovative Products for Empowering the Delivery Workforce.'],
+                ['PRPCEMH7', 'Students Innovation (Hardware-Innovative, Creative and Impactful solutions).']
+            ],
+            software: [
+                ['PRPCEMS1', 'AI enabled Clean & Green Technology: Solutions could be in the form of waste segregation, disposal, and improve sanitization system.'],
+                ['PRPCEMS2', 'Fitness & Sports: Ideas that can boost fitness activities and assist in keeping fit.'],
+                ['PRPCEMS3', 'Smart Automation: Urban areas often face significant traffic congestion, especially at intersections where multiple routes converge.'],
+                ['PRPCEMS4', 'Educational Game: Challenges your creative minds to conceptualize and develop unique toys & games.'],
+                ['PRPCEMS5', 'Smart Education: Development of an educational game (web-based and mobile-based) on groundwater conservation and management.'],
+                ['PRPCEMS6', 'AI Enabled Education: Smart Competency Diagnostic and Candidate Profile Score Calculator.'],
+                ['PRPCEMS7', 'Agriculture, FoodTech & Rural Development: AI-Driven Crop Disease Prediction and Management System.'],
+                ['PRPCEMS8', 'Smart farming & Agriculture Development: Assured Contract Farming System for Stable Market Access.'],
+                ['PRPCEMS9', 'Blockchain & security: Fake social media accounts and their detection.'],
+                ['PRPCEMS10', 'AI driven Smart Education: AI-based Personalized Career Guidance Platform.'],
+                ['PRPCEMS11', 'Health care System: Virtual Healthcare Assistant for Rural Areas.'],
+                ['PRPCEMS12', 'Cyber Security: Fraud Detection in E-commerce Transactions.'],
+                ['PRPCEMS13', 'Clean & Green Technology: Use of Digital Knowledge Sharing Platform like Wikis on sharing of water efficient techniques and methods for minimizing water scarcity.'],
+                ['PRPCEMS14', 'Smart Education: Create an Annual Report Portal for institute where all the departmental reports can be integrated and customized.'],
+                ['PRPCEMS15', 'Students Innovation (Software-Innovative, Creative and Impactful solutions).']
+            ]
+        };
+
+        function generateProblemCards(type) {
+            const fragment = document.createDocumentFragment();
+            const template = document.createElement('template');
+            
+            problemStatements[type].forEach(([id, text]) => {
+                template.innerHTML = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">${id}</h5>
+                                <p class="card-text">${text}</p>
+                            </div>
+                        </div>
+                    </div>
+                `.trim();
+                fragment.appendChild(template.content.firstElementChild);
+            });
+            
+            return fragment;
+        }
+
+        // Use requestIdleCallback for non-critical initialization
+        window.requestIdleCallback = window.requestIdleCallback || function(cb) {
+            return setTimeout(cb, 1);
+        };
+
+        requestIdleCallback(() => {
+            const hardwareContainer = document.getElementById('hardware-cards');
+            const softwareContainer = document.getElementById('software-cards');
+            
+            hardwareContainer.appendChild(generateProblemCards('hardware'));
+            softwareContainer.appendChild(generateProblemCards('software'));
+            
+            // Optimized animation handler using requestAnimationFrame
+            const tabHandler = (e) => {
+                const targetPane = document.querySelector(e.target.dataset.bsTarget);
+                if (!targetPane) return;
+                
+                const cards = [...targetPane.querySelectorAll('.card')];
+                cards.forEach((card, i) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(50px)';
+                    
+                    requestAnimationFrame(() => {
+                        card.style.transition = 'all 0.5s ease-in-out';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, i * 100);
+                    });
+                });
+            };
+
+            document.querySelectorAll('.nav-link').forEach(tab => 
+                tab.addEventListener('click', tabHandler, { passive: true })
+            );
+        });
+        </script>
 
 
         
