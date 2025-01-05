@@ -138,9 +138,9 @@
     <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 text-light">
                     <h5 class="border-bottom pb-2 mb-4">About Us</h5>
-                    <p class="text-muted">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
+                    <p style="color: white;">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
@@ -214,10 +214,28 @@
     <script src="index.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-    <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top">
+    <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top" style="display: none;">
         ↑ Back to Top
     </a>
     
+    <script>
+        const backToTopButton = document.querySelector('.back-to-top');
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
     </body>
     </html>
+    
     

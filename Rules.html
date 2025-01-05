@@ -9,49 +9,154 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/timer.css">
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-brand span {
+      color: #00ffff;
+    }
+
+    .nav-link {
+      color: #00ffff !important;
+    }
+
+    .nav-link:hover {
+      color: #17a2b8 !important;
+    }
+
+    .section-header {
+      background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .section-header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      padding: 60px 0;
+    }
+
+    .section-content h2 {
+      color: #343a40;
+      margin-bottom: 30px;
+    }
+
+    .list-group-item {
+      background-color: #ffffff;
+      border: 1px solid #dee2e6;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .list-group-item:hover {
+      transform: scale(1.05);
+      background-color: #f8f9fa;
+    }
+
+    .alert-warning {
+      background-color: #ffc107;
+      color: #343a40;
+    }
+
+    .bg-light {
+      background-color: #f8f9fa !important;
+    }
+
+    .bg-dark {
+      background-color: #343a40 !important;
+    }
+
+    .text-primary {
+      color: #00ffff !important;
+    }
+
+    .text-light {
+      color: #f8f9fa !important;
+    }
+
+    .footer {
+      background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 60px 0;
+    }
+
+    .footer a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #17a2b8;
+    }
+
+    .social-icon-footer {
+      transition: all 0.3s ease;
+    }
+
+    .social-icon-footer:hover {
+      color: #00ffff !important;
+      transform: translateY(-5px);
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navigation Bar -->
-    <header class="sticky-top bg-dark">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
-            <span>Coding Club</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#prizes">Prizes</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#About">About</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="Rules.html">Rules</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#ProblemStatements">Problem Statements</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#Schedule">Schedule</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#FAQ">FAQ</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="gallery.html">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link text-cyan" href="hackathon.html#contact">Contact Us</a></li>
-            </ul>
-          </div>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
+          <span>Coding Club</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="hackathon.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#prizes">Prizes</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#About">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="Rules.html">Rules</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#ProblemStatements">Problem Statements</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#Schedule">Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#FAQ">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="hackathon.html#contact">Contact Us</a></li>
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Rules Section -->
-    <section class="container my-5 mt-5 pt-5" style="background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;">
-      <div class="text-center mb-5">
+  <!-- Rules Section -->
+  <section class="section-header">
+    <div class="container">
       <h1 class="display-4">Techelons 25</h1>
       <p class="lead">Hosted by P.R. Pote Patil College of Engineering & Management</p>
-      </div>
-      <div class="alert alert-warning" role="alert">  
-        Please note that rules are subject to change. The organizers have full authority to make modifications as necessary.
-      </div>
-      <div class="mb-5">
+    </div>
+  </section>
+
+  <section class="section-content container my-5">
+    <div class="alert alert-warning" role="alert">
+      Please note that rules are subject to change. The organizers have full authority to make modifications as necessary.
+    </div>
+    <div class="mb-5">
       <h2 class="text-primary">Timeline & Schedule</h2>
       <ul class="list-group">
         <li class="list-group-item">Registration: December 20 2024 - January 12 2025</li>
@@ -60,158 +165,198 @@
         <li class="list-group-item">Presentation & Evaluation: January 13 2025 - January 14 2025</li>
         <li class="list-group-item">Grand Finale: January 20 2025</li>
       </ul>
-      </div>
+    </div>
 
-      <div class="mb-5">
+    <div class="mb-5">
       <h2 class="text-primary">Rules & Regulations</h2>
       <div class="mb-3">
         <h4>General Rules</h4>
         <ul class="list-group">
-        <li class="list-group-item">All participants must register before the deadline.</li>
-        <li class="list-group-item">Participants must be present for all rounds.</li>
-        <li class="list-group-item">Participants must bring their own laptops.</li>
-        <li class="list-group-item">Participants must adhere to the schedule.</li>
-        <li class="list-group-item">Participants must follow the guidelines provided.</li>
-        <li class="list-group-item">Teams can have a minimum of 3 members.</li>
-        <li class="list-group-item">Teams can have a maximum of 5 members.</li>
-        <li class="list-group-item">Participants must adhere to the code of conduct.</li>
+          <li class="list-group-item">All participants must register before the deadline.</li>
+          <li class="list-group-item">Participants must be present for all rounds.</li>
+          <li class="list-group-item">Participants must bring their own laptops.</li>
+          <li class="list-group-item">Participants must adhere to the schedule.</li>
+          <li class="list-group-item">Participants must follow the guidelines provided.</li>
+          <li class="list-group-item">Teams can have a minimum of 3 members.</li>
+          <li class="list-group-item">Teams can have a maximum of 5 members.</li>
+          <li class="list-group-item">Participants must adhere to the code of conduct.</li>
         </ul>
       </div>
       <div class="mb-3">
         <h4>Submission Rules</h4>
         <ul class="list-group">
-        <li class="list-group-item">All submissions must be made through the google form.</li>
-        <li class="list-group-item">Late submissions will not be accepted.</li>
-        <li class="list-group-item">Ensure your project is well-documented.</li>
+          <li class="list-group-item">All submissions must be made through the google form.</li>
+          <li class="list-group-item">Late submissions will not be accepted.</li>
+          <li class="list-group-item">Ensure your project is well-documented.</li>
         </ul>
       </div>
       <div class="mb-3">
         <h4>Judging Criteria</h4>
         <ul class="list-group">
-        <li class="list-group-item">Innovation and creativity.</li>
-        <li class="list-group-item">Technical complexity.</li>
-        <li class="list-group-item">Presentation and clarity.</li>
+          <li class="list-group-item">Innovation and creativity.</li>
+          <li class="list-group-item">Technical complexity.</li>
+          <li class="list-group-item">Presentation and clarity.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="text-primary">Join Us for an Exciting Journey!</h2>
+      <p>Don't miss out on the opportunity to showcase your skills and win amazing prizes. Register now and be part of Techelons 25!</p>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container my-5">
+      <div class="mb-5">
+        <h2 class="text-primary">Event Information</h2>
+        <p>The Hackathon will be conducted in 2 phases:</p>
+        <ul class="list-group mb-3">
+          <li class="list-group-item">
+            <strong>Phase 1:</strong> PPT evaluation round where participants get shortlisted for the finale.
+            <ul>
+              <li>Round 1: Online PPT presentation round.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <strong>Phase 2:</strong> Grand Finale round with 2 sub rounds
+            <ul>
+              <li>Round 2: Project evaluation round for prizes at PRPCEM Amravati.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Participants who get shortlisted for the finale round have to pay Rs. 250 as a Registration cost (using QR Code provided on website and flyer) for the final round.</p>
       </div>
-    </section>
 
-    <section class="bg-light py-5">
-      <div class="container text-center">
-        <h2 class="text-primary">Join Us for an Exciting Journey!</h2>
-        <p>Don't miss out on the opportunity to showcase your skills and win amazing prizes. Register now and be part of Techelons 25!</p>
-      </div>
-    </section>
-
-    <section class="bg-dark text-light py-5" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-      <section class="container my-5">
-        <div class="mb-5">
-          <h2 class="text-primary">Event Information</h2>
-          <p>The Hackathon will be conducted in 2 phases:</p>
-          <ul class="list-group mb-3">
-            <li class="list-group-item">
-              <strong>Phase 1:</strong> PPT evaluation round where participants get shortlisted for the finale.
-              <ul>
-                <li>Round 1: Online PPT presentation round.</li>
-              </ul>
-            </li>
-            <li class="list-group-item">
-              <strong>Phase 2:</strong> Grand Finale round with 2 sub rounds
-              <ul>
-                <li>Round 2: Project evaluation round for prizes at PRPCEM Amravati.</li>
-              </ul>
-            </li>
-          </ul>
-          <p>Participants who get shortlisted for the finale round have to pay Rs. 250 as a Registration cost (using QR Code provided on website and flyer) for the final round.</p>
-        </div>
-
-        <div class="mb-5">
-          <h2 class="text-primary">Rules & Regulations</h2>
-          <ul class="list-group">
-            <li class="list-group-item">It is mandatory for all participants to join the WhatsApp group (link given on the Registration form) where instructions will be provided.</li>
-            <li class="list-group-item">Any one member should be present at their table throughout the hackathons.</li>
-            <li class="list-group-item">You have to work on the same idea and solution you submitted in phase 1.</li>
-            <li class="list-group-item">You have to submit your code by 5:00 P.M. on 20th January 2024.</li>
-            <li class="list-group-item">All code developed during the hackathon must be original work.</li>
-            <li class="list-group-item">Seek help from mentors/organizers, but no cross-team collaboration is allowed.</li>
-            <li class="list-group-item">Each team presents to the judging panel (demonstrating functionality, features, and innovation).</li>
-            <li class="list-group-item">Submit code and project documentation before the deadline only.</li>
-            <li class="list-group-item">Share code and projects with the community after the hackathon (open-sourcing encouraged).</li>
-            <li class="list-group-item">Respectful and inclusive behavior is expected. Harassment or discrimination will not be tolerated.</li>
-            <li class="list-group-item">Prizes for winning teams are based on judging criteria.</li>
-            <li class="list-group-item">Organizers' and judges' decisions are final. Arbitration processes may apply for disagreements.</li>
-            <li class="list-group-item">Organizers reserve the right to modify rules, format, or prizes (with clear communication).</li>
-            <li class="list-group-item">You may be asked to consent to using your photos/videos/project details for promotion.</li>
-            <li class="list-group-item">Three prizes are awarded (1st, 2nd, and 3rd) based on overall performance.</li>
-            <li class="list-group-item">Team has to bring their own laptop, required software and equipment, only support power supply will be provided from organizers.</li>
-            <li class="list-group-item">Evaluation time (1st – After 1 Hr. start of event and 2nd 1 Hr. Before end of event) is also included.</li>
-          </ul>
-        </div>
-      </section>
-    </section>
-
-    <!-- Add animations -->
-    <style>
-      .list-group-item {
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .list-group-item:hover {
-        transform: scale(1.05);
-      }
-
-      .text-primary {
-        animation: fadeIn 2s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    </style>
-  <footer class="bg-dark text-light py-5" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h5>About Us</h5>
-          <p>We are a community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey!</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h5>Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="hackathon.html" class="text-light">Home</a></li>
-            <li><a href="hackathon.html#prizes" class="text-light">Prizes</a></li>
-            <li><a href="hackathon.html#About" class="text-light">About</a></li>
-            <li><a href="Rules.html" class="text-light">Rules</a></li>
-            <li><a href="hackathon.html#ProblemStatements" class="text-light">Problem Statements</a></li>
-            <li><a href="hackathon.html#Schedule" class="text-light">Schedule</a></li>
-            <li><a href="hackathon.html#FAQ" class="text-light">FAQ</a></li>
-            <li><a href="gallery.html" class="text-light">Gallery</a></li>
-            <li><a href="hackathon.html#contact" class="text-light">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h5>Follow Us</h5>
-          <div class="d-flex">
-            <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="text-light me-3">
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://www.instagram.com/codingclub_prpcem?igsh=NmMybTRxeWsxYWRj" class="text-light me-3">
-              <i class="fab fa-instagram fa-2x"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-2">
-        <p>&copy; 2023 Coding Club PRPCEM. All rights reserved.</p>
+      <div class="mb-5">
+        <h2 class="text-primary">Rules & Regulations</h2>
+        <ul class="list-group">
+          <li class="list-group-item">It is mandatory for all participants to join the WhatsApp group (link given on the Registration form) where instructions will be provided.</li>
+          <li class="list-group-item">Any one member should be present at their table throughout the hackathons.</li>
+          <li class="list-group-item">You have to work on the same idea and solution you submitted in phase 1.</li>
+          <li class="list-group-item">You have to submit your code by 5:00 P.M. on 20th January 2024.</li>
+          <li class="list-group-item">All code developed during the hackathon must be original work.</li>
+          <li class="list-group-item">Seek help from mentors/organizers, but no cross-team collaboration is allowed.</li>
+          <li class="list-group-item">Each team presents to the judging panel (demonstrating functionality, features, and innovation).</li>
+          <li class="list-group-item">Submit code and project documentation before the deadline only.</li>
+          <li class="list-group-item">Share code and projects with the community after the hackathon (open-sourcing encouraged).</li>
+          <li class="list-group-item">Respectful and inclusive behavior is expected. Harassment or discrimination will not be tolerated.</li>
+          <li class="list-group-item">Prizes for winning teams are based on judging criteria.</li>
+          <li class="list-group-item">Organizers' and judges' decisions are final. Arbitration processes may apply for disagreements.</li>
+          <li class="list-group-item">Organizers reserve the right to modify rules, format, or prizes (with clear communication).</li>
+          <li class="list-group-item">You may be asked to consent to using your photos/videos/project details for promotion.</li>
+          <li class="list-group-item">Three prizes are awarded (1st, 2nd, and 3rd) based on overall performance.</li>
+          <li class="list-group-item">Team has to bring their own laptop, required software and equipment, only support power supply will be provided from organizers.</li>
+          <li class="list-group-item">Evaluation time (1st – After 1 Hr. start of event and 2nd 1 Hr. Before end of event) is also included.</li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </section>
 </body>
+
 </html>
+    <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
+      <div class="container">
+          <div class="row g-4">
+              <div class="col-md-4 mb-4 text-light">
+                  <h5 class="border-bottom pb-2 mb-4">About Us</h5>
+                  <p style="color: white;">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li class="mb-2"><a href="hackathon.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                      <li class="mb-2"><a href="hackathon.html#prizes" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Prizes</a></li>
+                      <li class="mb-2"><a href="hackathon.html#About" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>About</a></li>
+                      <li class="mb-2"><a href="Rules.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Rules</a></li>
+                      <li class="mb-2"><a href="hackathon.html#ProblemStatements" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Problem Statements</a></li>
+                      <li class="mb-2"><a href="hackathon.html#Schedule" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Schedule</a></li>
+                      <li class="mb-2"><a href="hackathon.html#FAQ" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>FAQ</a></li>
+                      <li class="mb-2"><a href="gallery.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Gallery</a></li>
+                      <li class="mb-2"><a href="hackathon.html#contact" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Contact Us</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5 class="border-bottom pb-2 mb-4">Connect With Us</h5>
+                  <div class="d-flex gap-3">
+                      <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="text-light social-icon-footer">
+                          <i class="fab fa-linkedin fa-2x"></i>
+                      </a>
+                      <a href="https://www.instagram.com/codingclub_prpcem?igsh=NmMybTRxeWsxYWRj" class="text-light social-icon-footer">
+                          <i class="fab fa-instagram fa-2x"></i>
+                      </a>
+                      <a href="https://www.youtube.com/@Coding_Club_PRPCEM" class="text-light social-icon-footer">
+                          <i class="fab fa-youtube fa-2x"></i>
+                      </a>
+                      <a href="https://x.com/CodingClubPRPCE" class="text-light social-icon-footer">
+                          <i class="fab fa-x-twitter fa-2x"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center mt-4 pt-4 border-top">
+              <p class="mb-0">&copy; 2024 Coding Club PRPCEM. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+  
+  <style>
+      .hover-effect:hover {
+          color: #00ffff !important;
+          transform: translateX(5px);
+          transition: all 0.3s ease;
+      }
+      
+      .social-icon-footer {
+          transition: all 0.3s ease;
+      }
+      
+      .social-icon-footer:hover {
+          color: #00ffff !important;
+          transform: translateY(-5px);
+      }
+  
+      body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
+  
+      footer {
+          margin-top: auto;
+      }
+  </style>
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+  <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top" style="display: none;">
+      ↑ Back to Top
+  </a>
+  
+  <script>
+      const backToTopButton = document.querySelector('.back-to-top');
+  
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+              backToTopButton.style.display = 'block';
+          } else {
+              backToTopButton.style.display = 'none';
+          }
+      });
+  
+      backToTopButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  </script>
+  
+  </body>
+  </html>
+  
