@@ -106,15 +106,13 @@
 
     <!-- Presentation Section -->
     <section class="presentation-section flex-grow-1">
-
         <div class="container">
-        
             <div class="alert alert-warning" role="alert">
                 📢 Attention teams! The team ID will be provided via email to the respective team leaders. Till then make your ppt and keep ready! 🎯
             </div>
             <div class="alert alert-info text-center" role="alert">
                 <p>Download the presentation template:</p>
-                <a href="https://codingclubprpcem.github.io/image-hosting-/ppt/HACKATHON_2025_PRESENTATION_FORMAT.pptx" 
+                <a href="https://codingclubprpcem.github.io/image-hosting-/ppt/HACKATHON_2025_PRESENTATION_FORMAT_FINAL.pptx" 
                    class="btn btn-primary">
                     <i class="fas fa-download"></i> Download PPT Template
                 </a>
@@ -123,7 +121,7 @@
                 <div class="col-md-8">
                     <div class="presentation-container" style="backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.5); padding: 50px; border-radius: 10px;">
                         <h2 class="text-center mb-4">Hackathon Presentation Format</h2>
-                        <iframe src="https://1drv.ms/p/c/076fbffa92cf6304/IQRwtEWnlexiTpyGQYDIX8bRAatX9036Zb47Z1h4zuxdzxE?em=2&amp;wdAr=1.7777777777777777" 
+                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://codingclubprpcem.github.io/image-hosting-/ppt/HACKATHON_2025_PRESENTATION_FORMAT_FINAL.pptx" 
                                 width="100%" 
                                 height="500px" 
                                 frameborder="0">
@@ -134,18 +132,15 @@
                 </div>
             </div>
         </div>
-
-
     </section>
-
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 text-light">
                     <h5 class="border-bottom pb-2 mb-4">About Us</h5>
-                    <p class="text-muted">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
+                    <p style="color: white;">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
@@ -219,10 +214,28 @@
     <script src="index.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-    <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top">
+    <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top" style="display: none;">
         ↑ Back to Top
     </a>
     
+    <script>
+        const backToTopButton = document.querySelector('.back-to-top');
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
     </body>
     </html>
+    
     
