@@ -6,121 +6,101 @@
   <title>Coding Club PRPCEM</title>
   <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/banner.png" type="image/png" sizes="192x192">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/timer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <meta property="og:title" content="Coding Club PRPCEM">
   <meta property="og:description" content="Join Coding Club PRPCEM to ignite creativity and foster innovation through coding.">
   <meta property="og:image" content="https://codingclubprpcem.github.io/image-hosting-/logo1.png">
   <meta property="og:url" content="https://codingclubprpcem.github.io">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/timer.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     .navbar {
       background-color: transparent;
       transition: background-color 0.3s ease;
     }
-
     .navbar.scrolled {
       background-color: #343a40 !important;
     }
-
-    .navbar-brand span {
-      color: #00ffff;
-    }
-
-    .nav-link {
+    .navbar-brand span, .nav-link {
       color: #00ffff !important;
     }
-
     .nav-link:hover {
       color: #17a2b8 !important;
     }
-
-    .section-header {
+    .section-header, .footer {
       background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
       color: white;
       padding: 100px 0;
       text-align: center;
     }
-
     .section-header h1 {
       font-size: 3rem;
       margin-bottom: 20px;
     }
-
     .section-header p {
       font-size: 1.2rem;
     }
-
     .section-content {
       padding: 60px 0;
     }
-
     .section-content h2 {
       color: #343a40;
       margin-bottom: 30px;
     }
-
     .list-group-item {
       background-color: #ffffff;
       border: 1px solid #dee2e6;
       transition: transform 0.3s ease-in-out;
     }
-
     .list-group-item:hover {
       transform: scale(1.05);
       background-color: #f8f9fa;
     }
-
     .alert-warning {
       background-color: #ffc107;
       color: #343a40;
     }
-
     .bg-light {
       background-color: #f8f9fa !important;
     }
-
     .bg-dark {
       background-color: #343a40 !important;
     }
-
     .text-primary {
       color: #00ffff !important;
     }
-
     .text-light {
       color: #f8f9fa !important;
     }
-
-    .footer {
-      background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 60px 0;
-    }
-
     .footer a {
       color: #00ffff;
       text-decoration: none;
     }
-
     .footer a:hover {
       color: #17a2b8;
     }
-
     .social-icon-footer {
       transition: all 0.3s ease;
     }
-
     .social-icon-footer:hover {
       color: #00ffff !important;
       transform: translateY(-5px);
+    }
+    .hover-effect:hover {
+      color: #00ffff !important;
+      transform: translateX(5px);
+      transition: all 0.3s ease;
+    }
+    footer {
+      margin-top: auto;
     }
   </style>
 </head>
@@ -146,13 +126,13 @@
                 Club
               </a>
               <ul class="dropdown-menu" aria-labelledby="clubDropdown">
-                <li><a class="dropdown-item" href="mlsc.html">MLSC</a></li>
-                <li><a class="dropdown-item" href="gdg.html">GDGC</a></li>
+                <li><a class="dropdown-item" href="inprogress.html">MLSC</a></li>
+                <li><a class="dropdown-item" href="c">GDGC</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#events-hero">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="techblog.html">Tech Post</a></li>
+            <li class="nav-item"><a class="nav-link" href="inprogress.html">Tech Post</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
             <li class="nav-item"><a class="nav-link btn btn-primary text-light" href="index.html#join">Join Us</a></li>
           </ul>
@@ -182,7 +162,7 @@
     </div>
   </section>
 
-  <section id="events-hero" class="events-hero d-flex align-items-center justify-content-center text-center text-light position-relative" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/eventhero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <section id="events-hero" class="events-her</section>o d-flex align-items-center justify-content-center text-center text-light position-relative" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/eventhero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <h1 class="display-4">Events Gallery</h1>
     <p class="lead">Dive into our exciting lineup of events!</p>
   </section>
@@ -280,7 +260,7 @@
             <i class="fab fa-instagram"></i>
           </a>
         </div>
-        <!-- <div class="contact-item">
+        <div class="contact-item">
           <h4><strong>Sujal Bhugul</strong></h4>
           <p>Email: <a href="mailto:sujalbhugul08@gmail.com">sujalbhugul08@gmail.com</a></p>
           <p>Phone: <strong>+919322733751</strong></p>
@@ -290,8 +270,8 @@
           <a href="https://www.instagram.com/sujalbhugul/" class="social-icon">
             <i class="fab fa-instagram"></i>
           </a>
-        </div> -->
-        <div class="contact-item">
+        </div>
+                <div class="contact-item">
           <h4><strong>Tushar Ahuja</strong></h4>
           <p>Email: <a href="mailto:ahuja.tushar.m@gmail.com">ahuja.tushar.m@gmail.com</a></p>
           <p>Phone: <strong>+919322675891</strong></p>
@@ -302,7 +282,7 @@
             <i class="fab fa-instagram"></i>
           </a>
         </div>
-        <!-- <div class="contact-item">
+        <div class="contact-item">
           <h4><strong>Aman Asthana</strong></h4>
           <p>Email: <a href="mailto:amanasthana431@gmail.com">amanasthana431@gmail.com</a></p>
           <p>Phone: <strong>+919359539232</strong></p>
@@ -312,7 +292,7 @@
           <a href="https://www.instagram.com/aman._.asthana/" class="social-icon">
             <i class="fab fa-instagram"></i>
           </a>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
@@ -326,10 +306,10 @@
     <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
       <div class="container">
           <div class="row g-4">
-              <div class="col-md-4 mb-4">
-                  <h5 class="border-bottom pb-2 mb-4">About Us</h5>
-                  <p class="text-muted">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
-              </div>
+                <div class="col-md-4 mb-4 text-light">
+                  <h5 class="border-bottom pb-2 mb-4">About Coding Club PRPCEM</h5>
+                  <p style="color: white;">Coding Club PRPCEM is a vibrant community of tech enthusiasts dedicated to fostering innovation and creativity through coding. We organize events, workshops, and hackathons to help students enhance their skills, collaborate on projects, and make a positive impact in the tech world. Join us and be a part of our exciting journey!</p>
+                </div>
               <div class="col-md-4 mb-4">
                   <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
                   <ul class="list-unstyled">
