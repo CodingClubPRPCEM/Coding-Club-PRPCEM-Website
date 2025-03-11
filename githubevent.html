@@ -274,15 +274,62 @@
                                                             </div>
                                                         </section>        
                                                         <!-- Registration -->
-                                                        <section class="section-content container mx-auto py-12" data-aos="fade-up">
-                                                            <h2 class="text-center">Registration</h2>
-                                                            <p class="text-center">Ticket Price: ₹50</p>
-                                                            <p class="text-center">Limited Seats Available</p>
-                                                            <div class="d-flex justify-content-center"></div>
-                                                                <a href="https://konfhub.com/gitandgithubworkshopbycodinglclubprpcem" class="btn btn-primary me-2" style="animation: pulse 2s infinite;">Register Now</a>
+                                                        <section class="section-content container mx-auto py-12" data-aos="fade-up" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%); padding: 20px; border-radius: 10px; color: white;">
+                                                            <h2 class="text-center mb-4" style="font-size: 2.5rem; font-weight: bold;">Registration</h2>
+                                                            <p class="text-center" style="font-size: 1.2rem;">Ticket Price: ₹50</p>
+                                                            <p class="text-center" style="font-size: 1.2rem;">Limited Seats Available</p>
+                                                            <div class="d-flex justify-content-center mb-4">
+                                                                <a href="https://konfhub.com/gitandgithubworkshopbycodinglclubprpcem" class="btn btn-primary me-2" style="animation: pulse 2s infinite; font-size: 1.2rem; padding: 10px 20px;">Register Now</a>
                                                             </div>
-                                                            <p class="mt-3 text-center">For any queries, contact us at <a href="mailto:info@codingclubprpcem.com">info@codingclubprpcem.com</a></p>
+                                                            <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;">Steps to Register on KonfHub</h3>
+                                                            <ol class="text-center steps-list" style="list-style-type: none; padding-left: 0; font-size: 1.1rem;">
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">Click on the "Register Now" button above.</li>
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">You will be redirected to the KonfHub registration page.</li>
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">Fill in your personal details and contact information.</li>
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">Select the number of tickets you want to purchase.</li>
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">Proceed to payment and complete the transaction.</li>
+                                                                <li class="mb-2 step-item" style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">You will receive a confirmation email with your ticket details.</li>
+                                                            </ol>
+                                                            <p class="mt-3 text-center" style="font-size: 1.1rem;">For any queries, contact us at <a href="mailto:coding_club@prpotepatilengg.ac.in" class="text-light" style="text-decoration: underline;">coding_club@prpotepatilengg.ac.in</a></p>
                                                         </section>
+
+                                                        <style>
+                                                            .steps-list {
+                                                                counter-reset: step-counter;
+                                                            }
+                                                            .step-item {
+                                                                position: relative;
+                                                                margin-bottom: 20px;
+                                                                animation: slideIn 1s ease-in-out;
+                                                            }
+                                                            .step-item::before {
+                                                                counter-increment: step-counter;
+                                                                content: counter(step-counter);
+                                                                position: absolute;
+                                                                left: -40px;
+                                                                top: 50%;
+                                                                transform: translateY(-50%);
+                                                                background: #007bff;
+                                                                color: white;
+                                                                width: 30px;
+                                                                height: 30px;
+                                                                border-radius: 50%;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                justify-content: center;
+                                                                font-weight: bold;
+                                                            }
+                                                            @keyframes slideIn {
+                                                                from {
+                                                                    opacity: 0;
+                                                                    transform: translateX(-100px);
+                                                                }
+                                                                to {
+                                                                    opacity: 1;
+                                                                    transform: translateX(0);
+                                                                }
+                                                            }
+                                                        </style>
 <!-- FAQ Section -->
 <section class="section-content container" data-aos="fade-up">
     <h2 class="text-center">FAQs</h2>
@@ -439,9 +486,9 @@
                         </div>
                     </div>
                     <div class="text-center mt-4 pt-4 border-top">
-                        <p class="mb-0">&copy; 2024 Coding Club PRPCEM. All rights reserved.</p>
-                    </div>
-                </div>
+                        <p class="mb-0">&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+                        <p class="mb-0">Page made by <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" class="text-light">Karamveer Singh Oberoi</a>.</p>
+                    </div>        </div>
             </footer>
 
             <a href="#" class="back-to-top btn btn-primary position-fixed bottom-0 end-0 m-3" aria-label="Back to Top" style="display: none;">
