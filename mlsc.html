@@ -1,171 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLSC PRPCEM</title>
+    <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/timer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
         }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
+
+        .navbar {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
         }
-        h1 {
-            color: #333;
+
+        .navbar.scrolled {
+            background-color: #343a40 !important;
         }
-        p {
-            color: #666;
+
+        .navbar-brand span {
+            color: #00ffff;
         }
-        .footer {
-            margin-top: 20px;
-            color: #999;
-        }
-        .section {
-            margin: 20px 0;
-        }
-        .team-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px;
-        }
-        .team-member img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-        }
-        .team-member h3 {
-            margin: 10px 0 5px;
-            color: #333;
-        }
-        .team-member p {
-            margin: 0;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Microsoft Learn Student Club PRPCEM</h1>
-        <p>Welcome to the official page of the Microsoft Learn Student Club at PRPCEM. Join us to learn, share, and grow together!</p>
-    </div>
-    <div class="container section">
-        <h2>About Us</h2>
-        <p>The Microsoft Learn Student Club (MLSC) at PRPCEM is a community of students passionate about technology and learning. We organize events, workshops, and hackathons to help students enhance their skills and knowledge.</p>
-    </div>
-    <div class="container section">
-        <h2>Events</h2>
-        <p>Stay tuned for our upcoming events and workshops. We have exciting sessions planned for you!</p>
-    </div>
-    <div class="container section">
-        <h2>Our Team</h2>
-        <div class="team-member">
-            <img src="path/to/image.jpg" alt="Team Member">
-            <h3>John Doe</h3>
-            <p>President</p>
-        </div>
-        <div class="team-member">
-            <img src="path/to/image.jpg" alt="Team Member">
-            <h3>Jane Smith</h3>
-            <p>Vice President</p>
-        </div>
-        <!-- Add more team members as needed -->
-    </div>
-    <div class="container section">
-        <h2>Contact Us</h2>
-        <p>Email: mlsc@prpcem.edu</p>
-        <p>Follow us on social media for the latest updates!</p>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4 mb-4">
-                    <h5 class="border-bottom pb-2 mb-4">About Us</h5>
-                    <p class="text-muted">We are a vibrant community of passionate coders dedicated to fostering innovation and creativity through coding. Join us and be part of an inspiring journey towards technological excellence!</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
-                    <ul class="list-unstyled">
-                          <li class="mb-2"><a href="index.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
-                          <li class="mb-2"><a href="hackathon.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Hackathon</a></li>
-                          <li class="mb-2"><a href="gdg.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>GDGC</a></li>
-                          <li class="mb-2"><a href="mlsc.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>MLSC</a></li>
-                          <li class="mb-2"><a href="aboutus.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
-                          <li class="mb-2"><a href="index.html#events-hero" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Events</a></li>
-                          <li class="mb-2"><a href="techblog.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Tech Blog</a></li>
-                          <li class="mb-2"><a href="consitution.html" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Constitution</a></li>
-                          <li class="mb-2"><a href="index.html#contact" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Contact Us</a></li>
-                          <li class="mb-2"><a href="index.html#join" class="text-light text-decoration-none hover-effect"><i class="fas fa-chevron-right me-2"></i>Join Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="border-bottom pb-2 mb-4">Connect With Us</h5>
-                    <div class="d-flex gap-3">
-                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="text-light social-icon-footer">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        <a href="https://www.instagram.com/codingclub_prpcem?igsh=NmMybTRxeWsxYWRj" class="text-light social-icon-footer">
-                            <i class="fab fa-instagram fa-2x"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" class="text-light social-icon-footer">
-                            <i class="fab fa-youtube fa-2x"></i>
-                        </a>
-                        <a href="https://x.com/CodingClubPRPCE" class="text-light social-icon-footer">
-                            <i class="fab fa-x-twitter fa-2x"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4 pt-4 border-top">
-                <p class="mb-0">&copy; 2024 Coding Club PRPCEM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <style>
-        .hover-effect:hover {
+
+        .nav-link {
             color: #00ffff !important;
-            transform: translateX(5px);
-            transition: all 0.3s ease;
         }
-        
+
+        .nav-link:hover {
+            color: #17a2b8 !important;
+        }
+
+        .section-header {
+            background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+        }
+
+        .section-content {
+            padding: 60px 0;
+        }
+
+        .section-content h2 {
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        .list-group-item {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .list-group-item:hover {
+            transform: scale(1.05);
+            background-color: #f8f9fa;
+        }
+
+        .alert-warning {
+            background-color: #ffc107;
+            color: #343a40;
+        }
+
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+
+        .bg-dark {
+            background-color: #343a40 !important;
+        }
+
+        .text-primary {
+            color: #00ffff !important;
+        }
+
+        .text-light {
+            color: #f8f9fa !important;
+        }
+
+        .footer {
+            background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #17a2b8;
+        }
+
         .social-icon-footer {
             transition: all 0.3s ease;
         }
-        
+
         .social-icon-footer:hover {
             color: #00ffff !important;
             transform: translateY(-5px);
         }
-    
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-    
-        footer {
-            margin-top: auto;
-        }
     </style>
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="sticky-top"></header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container"></div>
+                <a class="navbar-brand d-flex align-items-center" href="#"></a>
+                    <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span>Coding Club</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto"></ul>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="hackathon.html">Hackathon 25</a></li>
+                        <li class="nav-item dropdown"></li>
+                            <a class="nav-link dropdown-toggle" href="#" id="clubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Club
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="clubDropdown"></ul>
+                                <li><a class="dropdown-item" href="mlsc.html">MLSC</a></li>
+                                <li><a class="dropdown-item" href="gdg.html">GDGC</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#events-hero">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="techblog.html">Tech Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary text-light" href="index.html#join">Join Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center justify-content-center text-center text-light position-relative"></section>
+        <video autoplay muted loop playsinline class="position-absolute w-100 h-100" style="object-fit: cover; z-index: -1;"></video>
+            <source src="https://codingclubprpcem.github.io/image-hosting-/Untitled design.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content text-center"></div>
+            <h1 class="display-4">Microsoft Learn Student Club PRPCEM</h1>
+            <p class="lead">Welcome to the official page of the Microsoft Learn Student Club at PRPCEM. Join us to learn, share, and grow together!</p>
+            <div class="mt-4"></div>
+                <a href="#join" class="btn btn-primary btn-lg rounded-pill me-3">Join Now</a>
+                <a href="#events" class="btn btn-outline-light btn-lg rounded-pill">Explore Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section-content" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>The Microsoft Learn Student Club (MLSC) at PRPCEM is a community of students passionate about technology and learning. We organize events, workshops, and hackathons to help students enhance their skills and knowledge.</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section-content" id="events">
+        <div class="container">
+            <h2>Events</h2>
+            <p>Stay tuned for our upcoming events and workshops. We have exciting sessions planned for you!</p>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="section-content" id="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="row">
+                <div class="col-md-4 team-member">
+                    <img src="path/to/image.jpg" alt="Team Member">
+                    <h3>John Doe</h3>
+                    <p>President</p>
+                </div>
+                <div class="col-md-4 team-member">
+                    <img src="path/to/image.jpg" alt="Team Member">
+                    <h3>Jane Smith</h3>
+                    <p>Vice President</p>
+                </div>
+                <!-- Add more team members as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="section-content" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: mlsc@prpcem.edu</p>
+            <p>Follow us on social media for the latest updates!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; margin-top: auto;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 mb-4 text-light">
+                    <h5 class="border-bottom pb-2 mb-4">About Coding Club PRPCEM</h5>
+                    <p style="color: white;">Coding Club PRPCEM is a vibrant community of tech enthusiasts dedicated to fostering innovation and creativity through coding. We organize events, workshops, and hackathons to help students enhance their skills, collaborate on projects, and make a positive impact in the tech world. Join us and be a part of our exciting journey!</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="border-bottom pb-2 mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <!-- Add quick links here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
-</html></div>
+
+</html></ul>
