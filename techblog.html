@@ -1,53 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coding Club PRPCEM</title>
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/banner.png" type="image/png" sizes="192x192">
-  <meta property="og:title" content="Coding Club PRPCEM">
-  <meta property="og:description" content="Join Coding Club PRPCEM to ignite creativity and foster innovation through coding.">
-  <meta property="og:image" content="https://codingclubprpcem.github.io/image-hosting-/logo1.png">
-  <meta property="og:url" content="https://codingclubprpcem.github.io">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/timer.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    <link rel="stylesheet" href="css/blog-style.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo">
+                <span class="brand-text">
+                    <span class="brand-primary">Coding</span>
+                    <span class="brand-secondary">Club</span>
+                    <span class="brand-accent">PRPCEM</span>
+                </span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="aboutus.html" class="nav-link" data-text="About">About</a>
+                <a href="index.html#events" class="nav-link" data-text="Events">Events</a>
+                <a href="index.html#projects" class="nav-link" data-text="Projects">Projects</a>
+                <a href="techblog.html" class="nav-link" data-text="Blog">Blog</a>
+                <a href="index.html#contact" class="nav-link" data-text="Contact">Contact</a>
+                <a href="index.html#join" class="nav-btn">Join Club</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    .navbar.scrolled {
-      background-color: #343a40 !important;
-    }
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">&lt;Tech</span>
+                    <span class="title-line highlight">Blog /&gt;</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Insights, tutorials, and thoughts from our <span class="accent">coding community</span>
+                </p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search articles..." id="blogSearch">
+                    <button type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .navbar-brand span {
-      color: #00ffff;
-    }
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">/* </span>
+                    Featured Article
+                    <span class="title-decoration"> */</span>
+                </h2>
+            </div>
+            
+            <article class="featured-post">
+                <div class="post-image">
+                    <div class="image-overlay">
+                        <div class="post-category">AI & Machine Learning</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="author">
+                            <i class="fas fa-user"></i>
+                            Tushar Ahuja
+                        </span>
+                        <span class="date">
+                            <i class="fas fa-calendar"></i>
+                            July 25, 2025
+                        </span>
+                        <span class="read-time">
+                            <i class="fas fa-clock"></i>
+                            8 min read
+                        </span>
+                    </div>
+                    <h2>Building Your First AI Chatbot: A Complete Guide</h2>
+                    <p>Discover how to create an intelligent chatbot using Python, TensorFlow, and natural language processing. This comprehensive tutorial covers everything from setting up your development environment to deploying your chatbot to production.</p>
+                    <div class="post-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">NLP</span>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        <span>Read Full Article</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
 
-    .nav-link {
-      color: #00ffff !important;
-    }
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="categories-filter">
+                <button class="category-btn active" data-category="all">All Posts</button>
+                <button class="category-btn" data-category="web-dev">Web Development</button>
+                <button class="category-btn" data-category="ai-ml">AI & ML</button>
+                <button class="category-btn" data-category="mobile">Mobile Dev</button>
+                <button class="category-btn" data-category="devops">DevOps</button>
+                <button class="category-btn" data-category="tutorials">Tutorials</button>
+            </div>
+        </div>
+    </section>
 
-    .nav-link:hover {
-      color: #17a2b8 !important;
-    }
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="posts-grid" id="postsGrid">
+                <!-- Web Development Posts -->
+                <article class="blog-card" data-category="web-dev">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">Web Development</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Aman Asthana</span>
+                            <span class="date">July 20, 2025</span>
+                        </div>
+                        <h3>Modern React Patterns: Hooks, Context, and Beyond</h3>
+                        <p>Explore advanced React patterns that will make your applications more maintainable and performant. Learn about custom hooks, context optimization, and state management strategies.</p>
+                        <div class="card-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Hooks</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">6 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
 
-    .section-header {
-      background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 100px 0;
-      text-align: center;
+                <!-- AI/ML Posts -->
+                <article class="blog-card" data-category="ai-ml">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">AI & Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Priya Sharma</span>
+                            <span class="date">July 18, 2025</span>
+                        </div>
+                        <h3>Computer Vision with OpenCV: Object Detection Made Simple</h3>
+                        <p>Learn how to implement real-time object detection using OpenCV and Python. This tutorial covers setup, implementation, and optimization techniques for better performance.</p>
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">10 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Mobile Development -->
+                <article class="blog-card" data-category="mobile">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fab fa-flutter"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">Mobile Development</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Rahul Patel</span>
+                            <span class="date">July 15, 2025</span>
+                        </div>
+                        <h3>Flutter vs React Native: Choosing the Right Framework</h3>
+                        <p>A comprehensive comparison of Flutter and React Native to help you choose the best framework for your next mobile project. Performance, ecosystem, and developer experience analyzed.</p>
+                        <div class="card-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">React Native</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">12 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- DevOps -->
+                <article class="blog-card" data-category="devops">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">DevOps</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Arjun Singh</span>
+                            <span class="date">July 12, 2025</span>
+                        </div>
+                        <h3>Docker and Kubernetes: Container Orchestration Essentials</h3>
+                        <p>Master container orchestration with this practical guide to Docker and Kubernetes. Learn about deployments, services, scaling, and best practices for production environments.</p>
+                        <div class="card-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">DevOps</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">15 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tutorial -->
+                <article class="blog-card" data-category="tutorials">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">Tutorial</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Sneha Gupta</span>
+                            <span class="date">July 10, 2025</span>
+                        </div>
+                        <h3>Git Workflow: From Beginner to Pro</h3>
+                        <p>Master Git with this step-by-step tutorial covering basic commands, branching strategies, merge conflicts, and advanced workflows for team collaboration.</p>
+                        <div class="card-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">Version Control</span>
+                            <span class="tag">Tutorial</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">8 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Web Development -->
+                <article class="blog-card" data-category="web-dev">
+                    <div class="card-image">
+                        <div class="image-placeholder">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <span class="category">Web Development</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="author">Kiran Kumar</span>
+                            <span class="date">July 8, 2025</span>
+                        </div>
+                        <h3>Building Scalable APIs with Node.js and Express</h3>
+                        <p>Learn to build robust, scalable REST APIs using Node.js and Express. This guide covers middleware, authentication, database integration, and performance optimization.</p>
+                        <div class="card-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">API</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="read-time">11 min read</span>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="btn-primary load-more-btn">
+                    <i class="fas fa-plus"></i>
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated with Our Latest Posts</h2>
+                    <p>Subscribe to our newsletter and get the latest tech insights, tutorials, and industry trends delivered to your inbox.</p>
+                </div>
+                <div class="newsletter-form">
+                    <form class="subscribe-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Subscribe
+                            </button>
+                        </div>
+                        <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo">
+                        <h3>Coding Club PRPCEM</h3>
+                        <p>Empowering students through technology and innovation</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="techblog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="#" data-category="web-dev">Web Development</a></li>
+                        <li><a href="#" data-category="ai-ml">AI & Machine Learning</a></li>
+                        <li><a href="#" data-category="mobile">Mobile Development</a></li>
+                        <li><a href="#" data-category="devops">DevOps</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> by the Coding Club team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/modern-script.js"></script>
+    <script src="js/blog-script.js"></script>
+</body>
+</html>
     }
 
     .section-header h1 {

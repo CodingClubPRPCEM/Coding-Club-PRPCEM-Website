@@ -1,52 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coding Club PRPCEM</title>
-  <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/timer.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo">
+                <span class="brand-text">
+                    <span class="brand-primary">Coding</span>
+                    <span class="brand-secondary">Club</span>
+                    <span class="brand-accent">PRPCEM</span>
+                </span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="aboutus.html" class="nav-link" data-text="About">About</a>
+                <a href="index.html#events" class="nav-link" data-text="Events">Events</a>
+                <a href="index.html#projects" class="nav-link" data-text="Projects">Projects</a>
+                <a href="index.html#team" class="nav-link" data-text="Team">Team</a>
+                <a href="index.html#contact" class="nav-link" data-text="Contact">Contact</a>
+                <a href="index.html#join" class="nav-btn">Join Club</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    .navbar.scrolled {
-      background-color: #343a40 !important;
-    }
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">&lt;About</span>
+                    <span class="title-line highlight">Coding Club PRPCEM /&gt;</span>
+                </h1>
+                <p class="hero-subtitle">
+                    We are a community of passionate <span class="accent">developers</span>, 
+                    <span class="accent">innovators</span>, and <span class="accent">dreamers</span>
+                    building the future through code
+                </p>
+            </div>
+        </div>
+    </section>
 
-    .navbar-brand span {
-      color: #00ffff;
-    }
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2>Our Mission</h2>
+                    <div class="code-snippet">
+                        <pre><code><span class="keyword">function</span> <span class="function">ourMission</span>() {
+  <span class="keyword">return</span> {
+    <span class="property">empowerStudents</span>: <span class="string">true</span>,
+    <span class="property">fosterInnovation</span>: <span class="string">true</span>,
+    <span class="property">buildCommunity</span>: <span class="string">true</span>,
+    <span class="property">createImpact</span>: <span class="string">true</span>
+  };
+}</code></pre>
+                    </div>
+                    <p>To empower students with cutting-edge programming skills, foster innovation through collaborative projects, and create a thriving community of tech enthusiasts who will shape the future of technology.</p>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2>Our Vision</h2>
+                    <div class="code-snippet">
+                        <pre><code><span class="keyword">const</span> <span class="variable">vision</span> = {
+  <span class="property">goal</span>: <span class="string">'Leading tech hub'</span>,
+  <span class="property">impact</span>: <span class="string">'Global reach'</span>,
+  <span class="property">innovation</span>: <span class="string">'Cutting-edge'</span>,
+  <span class="property">community</span>: <span class="string">'United & Strong'</span>
+};</code></pre>
+                    </div>
+                    <p>To become the leading technology hub in our region, producing skilled developers who contribute to global innovation while maintaining a strong, supportive community that celebrates learning and creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .nav-link {
-      color: #00ffff !important;
-    }
+    <!-- What We Do -->
+    <section class="what-we-do">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">/* </span>
+                    What We Do
+                    <span class="title-decoration"> */</span>
+                </h2>
+                <p class="section-subtitle">Transforming ideas into reality through code</p>
+            </div>
+            
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Workshops & Training</h3>
+                    </div>
+                    <div class="activity-content">
+                        <ul>
+                            <li>Programming languages (Python, JavaScript, Java, C++)</li>
+                            <li>Web development (Frontend & Backend)</li>
+                            <li>Mobile app development</li>
+                            <li>AI/ML and Data Science</li>
+                            <li>Cloud computing and DevOps</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Competitions & Hackathons</h3>
+                    </div>
+                    <div class="activity-content">
+                        <ul>
+                            <li>Annual HackFest competitions</li>
+                            <li>Coding challenges and contests</li>
+                            <li>National and international hackathons</li>
+                            <li>Problem-solving competitions</li>
+                            <li>Innovation showcases</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Project Development</h3>
+                    </div>
+                    <div class="activity-content">
+                        <ul>
+                            <li>Collaborative open-source projects</li>
+                            <li>Real-world problem solutions</li>
+                            <li>Industry partnership projects</li>
+                            <li>Research and development initiatives</li>
+                            <li>Startup incubation support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Building</h3>
+                    </div>
+                    <div class="activity-content">
+                        <ul>
+                            <li>Regular meetups and tech talks</li>
+                            <li>Mentorship programs</li>
+                            <li>Industry expert sessions</li>
+                            <li>Networking events</li>
+                            <li>Knowledge sharing sessions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .nav-link:hover {
-      color: #17a2b8 !important;
-    }
+    <!-- Our Journey -->
+    <section class="our-journey">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">// </span>
+                    Our Journey
+                    <span class="title-decoration"> */</span>
+                </h2>
+                <p class="section-subtitle">From humble beginnings to tech excellence</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2020 - Foundation</h3>
+                            <p>Coding Club PRPCEM was founded with a vision to create a vibrant tech community. Started with 25 enthusiastic members and a passion for coding.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2021 - First Hackathon</h3>
+                            <p>Organized our first major hackathon with 100+ participants from various colleges. This marked the beginning of our journey in competitive programming.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2022 - Recognition</h3>
+                            <p>Received recognition as the "Best Student Tech Community" in the region. Our members won multiple national-level competitions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2023 - Global Reach</h3>
+                            <p>Expanded our reach with international collaborations. Launched online workshops and connected with tech communities worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2024 - Innovation Hub</h3>
+                            <p>Established as a premier innovation hub with 500+ active members, multiple successful startups, and industry partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <h3>2025 - Future Forward</h3>
+                            <p>Continuing our mission to push boundaries in technology education, AI innovation, and building the next generation of tech leaders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .section-header {
-      background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 100px 0;
-      text-align: center;
-    }
+    <!-- Values -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">&lt;!-- </span>
+                    Our Values
+                    <span class="title-decoration"> --&gt;</span>
+                </h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly seek new ways to solve problems and push the boundaries of what's possible with technology.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of teamwork and knowledge sharing to achieve extraordinary results together.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning</h3>
+                    <p>We foster a culture of continuous learning and growth, always staying curious and open to new ideas.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>We approach every project and challenge with genuine enthusiasm and dedication to excellence.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Impact</h3>
+                    <p>We strive to create meaningful solutions that make a positive difference in our community and beyond.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest standards of honesty, transparency, and ethical behavior in all our activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    .section-header h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+    <!-- Join Call to Action -->
+    <section class="join-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Be Part of Our Story?</h2>
+                <p>Join our community of innovators and help us shape the future of technology</p>
+                <div class="cta-buttons">
+                    <a href="index.html#join" class="btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Join Our Club
+                    </a>
+                    <a href="index.html#contact" class="btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo">
+                        <h3>Coding Club PRPCEM</h3>
+                        <p>Empowering students through technology and innovation</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#team">Team</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Code Samples</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> by the Coding Club team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/modern-script.js"></script>
+</body>
+</html>
 
     .section-header p {
       font-size: 1.2rem;

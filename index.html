@@ -1,203 +1,685 @@
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Club PRPCEM</title>
-    <link rel="icon" href="https://codingclubprpcem.github.io/image-hosting-/logo1.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/timer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #f8f9fa;
-      }
-      .navbar {
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-      }
+    <title>Coding Club PRPCEM | Where Innovation Meets Code</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+</head>
 
-      .navbar.scrolled {
-        background-color: #343a40 !important;
-      }
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo">
+                <span class="brand-text">
+                    <span class="brand-primary">Coding</span>
+                    <span class="brand-secondary">Club</span>
+                    <span class="brand-accent">PRPCEM</span>
+                </span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link" data-text="Home">Home</a>
+                <a href="#about" class="nav-link" data-text="About">About</a>
+                <a href="#events" class="nav-link" data-text="Events">Events</a>
+                <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
+                <a href="#team" class="nav-link" data-text="Team">Team</a>
+                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+                <a href="#join" class="nav-btn">Join Club</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-      .navbar-brand span {
-        color: #00ffff;
-      }
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn-close"></span>
+                        <span class="btn-minimize"></span>
+                        <span class="btn-maximize"></span>
+                    </div>
+                    <div class="terminal-title">coding_club_prpcem.exe</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="code-line">
+                        <span class="prompt">$</span>
+                        <span class="typed-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">&lt;Welcome to</span>
+                <span class="title-line highlight">Coding Club PRPCEM /&gt;</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Where <span class="accent">innovation</span> meets <span class="accent">code</span>, 
+                and <span class="accent">dreams</span> become <span class="accent">reality</span>
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('about')">
+                    <i class="fas fa-code"></i>
+                    Explore
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('join')">
+                    <i class="fas fa-users"></i>
+                    Join Us
+                </button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Events</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-icon" style="--delay: 0s">{ }</div>
+            <div class="floating-icon" style="--delay: 1s">&lt;/&gt;</div>
+            <div class="floating-icon" style="--delay: 2s">( )</div>
+            <div class="floating-icon" style="--delay: 3s">[ ]</div>
+            <div class="floating-icon" style="--delay: 4s">;</div>
+        </div>
+    </section>
 
-      .nav-link {
-        color: #00ffff !important;
-      }
-
-      .nav-link:hover {
-        color: #17a2b8 !important;
-      }
-
-      .section-header {
-        background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
-        color: white;
-        padding: 100px 0;
-        text-align: center;
-      }
-
-      .section-header h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-      }
-
-      .section-header p {
-        font-size: 1.2rem;
-      }
-
-      .section-content {
-        padding: 60px 0;
-      }
-
-      .section-content h2 {
-        color: #343a40;
-        margin-bottom: 30px;
-      }
-
-      .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #dee2e6;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .list-group-item:hover {
-        transform: scale(1.05);
-        background-color: #f8f9fa;
-      }
-
-      .alert-warning {
-        background-color: #ffc107;
-        color: #343a40;
-      }
-
-      .bg-light {
-        background-color: #f8f9fa !important;
-      }
-
-      .bg-dark {
-        background-color: #343a40 !important;
-      }
-
-      .text-primary {
-        color: #00ffff !important;
-      }
-
-      .text-light {
-        color: #f8f9fa !important;
-      }
-
-      .footer {
-        background: url('https://codingclubprpcem.github.io/image-hosting-/footer.jpg') no-repeat center center/cover;
-        color: white;
-        padding: 60px 0;
-      }
-
-      .footer a {
-        color: #00ffff;
-        text-decoration: none;
-      }
-
-      .footer a:hover {
-        color: #17a2b8;
-      }
-
-      .social-icon-footer {
-        transition: all 0.3s ease;
-      }
-
-      .social-icon-footer:hover {
-        color: #00ffff !important;
-        transform: translateY(-5px);
-      }
-    </style>
-  </head>
-
-  <body>
-    <body style="margin-top: -49px;">
-
-    <!-- Navigation Bar -->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-          <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="https://codingclubprpcem.github.io/image-hosting-/logo1.png" alt="Logo" class="me-2" style="height: 40px;">
-            <span>Coding Club</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="hackathon.html">Hackathon 25</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="clubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Club
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="clubDropdown">
-                  <li><a class="dropdown-item" href="mlsc.html">MLSC</a></li>
-                  <li><a class="dropdown-item" href="gdg.html">GDGC</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="index.html#events-hero">Events</a></li>
-              <li class="nav-item"><a class="nav-link" href="techblog.html">Tech Post</a></li>
-              <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link btn btn-primary text-light" href="index.html#join">Join Us</a></li>
-            </ul>
-          </div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">// </span>
+                    About Us
+                    <span class="title-decoration"> */</span>
+                </h2>
+                <p class="section-subtitle">Building the future, one line of code at a time</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="file-name">about_us.js</span>
+                            <div class="code-actions">
+                                <i class="fas fa-copy"></i>
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="code-content">
+                            <div class="line">
+                                <span class="line-number">1</span>
+                                <span class="code"><span class="keyword">const</span> <span class="variable">codingClub</span> = {</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">2</span>
+                                <span class="code">  <span class="property">mission</span>: <span class="string">'Fostering innovation and creativity'</span>,</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">3</span>
+                                <span class="code">  <span class="property">vision</span>: <span class="string">'Leading tech revolution'</span>,</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">4</span>
+                                <span class="code">  <span class="property">values</span>: [<span class="string">'collaboration'</span>, <span class="string">'learning'</span>, <span class="string">'innovation'</span>]</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">5</span>
+                                <span class="code">};</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Learn & Code</h3>
+                        <p>Master programming languages, frameworks, and cutting-edge technologies</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaborate</h3>
+                        <p>Work with like-minded peers on exciting projects and hackathons</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Innovate</h3>
+                        <p>Transform ideas into reality through technology and creativity</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </nav>
-    </header>
-
-
-    <!-- Hero Section -->
-    <!-- Hero Section -->
-    <section id="home"
-      class="hero d-flex align-items-center justify-content-center text-center text-light position-relative">
-      <video autoplay muted loop playsinline class="position-absolute w-100 h-100"
-        style="object-fit: cover; z-index: -1;">
-        <source src="https://codingclubprpcem.github.io/image-hosting-/Untitled design.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="hero-content text-center">
-        <h1 class="display-4">Welcome to Coding Club</h1>
-        <p class="lead">At Coding Club, we ignite creativity and foster innovation through coding. Whether you're a
-          beginner or an expert, we offer an inspiring environment for all to learn, collaborate, and make an impact. Join
-          us as we create the future, one line of code at a time!</p>
-        <div class="mt-4">
-          <a href="#join" class="btn btn-primary btn-lg rounded-pill me-3">Join Now</a>
-          <a href="#events" class="btn btn-outline-light btn-lg rounded-pill">Explore Events</a>
-        </div>
-      </div>
     </section>
-
-    <section id="events-hero" class="events-hero d-flex align-items-cen ter justify-content-center text-center text-light position-relative" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/eventhero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-      <h1 class="display-4">Events Gallery</h1>
-      <p class="lead">Dive into our exciting lineup of events!</p>
-    </section>
-
 
     <!-- Events Section -->
-    <section class="events-section py-5 events-section-background" id="events" style="background-image: url('https://codingclubprpcem.github.io/image-hosting-/eventsgallery.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-      <div class="container">
-        <div class="event-card d-flex flex-lg-row flex-column align-items-center">
-          <img src="https://codingclubprpcem.github.io/image-hosting-/githubevent.png" alt="Codethon 2024" class="event-image">
-          <div class="event-content">
-            <h2>Master Git & GitHub: From Basics to Portfolio Deployment 2025</h2>
-            <p>
-              Join us for an interactive hands-on workshop on Git & GitHub, where you'll learn version control, collaboration techniques, and portfolio building. Get practical experience with GitHub Copilot, contribute to open source, and unlock the GitHub Student Developer Pack.
-            </p>
-              <a href="githubevent.html" class="btn btn-primary">Learn More</a>
-          </div>
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">/* </span>
+                    Upcoming Events
+                    <span class="title-decoration"> */</span>
+                </h2>
+                <p class="section-subtitle">Join us for exciting coding adventures</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card featured">
+                    <div class="event-image">
+                        <div class="event-overlay">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">AUG</span>
+                            <span class="day">15</span>
+                        </div>
+                        <h3>Git & GitHub Mastery Workshop</h3>
+                        <p>Learn version control, collaboration, and open source contribution</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Tech Lab</span>
+                        </div>
+                        <button class="event-btn">Register Now</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-overlay">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">SEP</span>
+                            <span class="day">01</span>
+                        </div>
+                        <h3>HackFest 2025</h3>
+                        <p>48-hour coding marathon to solve real-world problems</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 9:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Campus</span>
+                        </div>
+                        <button class="event-btn">Register Now</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-overlay">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">SEP</span>
+                            <span class="day">20</span>
+                        </div>
+                        <h3>AI/ML Bootcamp</h3>
+                        <p>Dive into artificial intelligence and machine learning</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 10:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> CS Department</span>
+                        </div>
+                        <button class="event-btn">Register Now</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">&lt;!-- </span>
+                    Our Projects
+                    <span class="title-decoration"> --&gt;</span>
+                </h2>
+                <p class="section-subtitle">Innovation through collaboration</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Smart Campus Portal</h3>
+                    <p>An integrated platform for students to access campus services, events, and resources</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>AI Study Assistant</h3>
+                    <p>Machine learning powered chatbot to help students with their academic queries</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Flask</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Event Manager App</h3>
+                    <p>Cross-platform mobile app for managing and discovering campus events</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Dart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">/** </span>
+                    Meet Our Team
+                    <span class="title-decoration"> **/</span>
+                </h2>
+                <p class="section-subtitle">The minds behind the magic</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-overlay">
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Tushar Ahuja</h3>
+                        <p class="team-role">Club President</p>
+                        <p class="team-desc">Full-stack developer passionate about creating innovative solutions</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-overlay">
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Aman Asthana</h3>
+                        <p class="team-role">Technical Lead</p>
+                        <p class="team-desc">AI/ML enthusiast working on cutting-edge technologies</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Django</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="team-overlay">
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Johnson</h3>
+                        <p class="team-role">Design Lead</p>
+                        <p class="team-desc">Creative designer bridging the gap between design and development</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">UI/UX</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="join">
+        <div class="container">
+            <div class="join-content">
+                <div class="join-text">
+                    <h2>Ready to Start Your Coding Journey?</h2>
+                    <p>Join our community of passionate developers, innovators, and tech enthusiasts. 
+                       Let's build the future together!</p>
+                    
+                    <div class="join-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Access to exclusive workshops and events</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Mentorship from industry professionals</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Collaborative project opportunities</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Access to coding resources and materials</span>
+                        </div>
+                    </div>
+                    
+                    <div class="join-buttons">
+                        <button class="btn-primary" onclick="openJoinModal()">
+                            <i class="fas fa-user-plus"></i>
+                            Join Now
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-envelope"></i>
+                            Get in Touch
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="join-visual">
+                    <div class="code-animation">
+                        <div class="code-line animate-line">
+                            <span class="keyword">function</span> 
+                            <span class="function">joinClub</span>() {
+                        </div>
+                        <div class="code-line animate-line" style="--delay: 0.5s">
+                            &nbsp;&nbsp;<span class="keyword">const</span> 
+                            <span class="variable">journey</span> = 
+                            <span class="string">'amazing'</span>;
+                        </div>
+                        <div class="code-line animate-line" style="--delay: 1s">
+                            &nbsp;&nbsp;<span class="keyword">return</span> 
+                            <span class="variable">journey</span>;
+                        </div>
+                        <div class="code-line animate-line" style="--delay: 1.5s">};</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">// </span>
+                    Get In Touch
+                    <span class="title-decoration"> */</span>
+                </h2>
+                <p class="section-subtitle">Let's connect and create something amazing</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>codingclub@prpcem.ac.in</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 9322675891</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>P.R. Pote Patil College of Engineering & Management, Amravati</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form class="form">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo">
+                        <h3>Coding Club PRPCEM</h3>
+                        <p>Empowering students through technology and innovation</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Code Samples</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> by the Coding Club team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <span class="close" onclick="closeJoinModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="join-form">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinRoll" required>
+                        <label for="joinRoll">Roll Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterest" required></textarea>
+                        <label for="joinInterest">Programming Interests</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/modern-script.js"></script>
+</body>
+</html>
         <!-- Event 1 -->
         <div class="event-card d-flex flex-lg-row flex-column align-items-center">
           <img src="https://codingclubprpcem.github.io/image-hosting-/lgogo-removebg-preview (1).png" alt="Hackathon 2025" class="event-image">
