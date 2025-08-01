@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>About Us | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/mobile-style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-bg" id="particle-bg"></div>
+    
+    <!-- Futuristic Navigation -->
+    <nav class="cyber-nav" id="cyberNav">
+        <div class="nav-container">
+            <!-- Logo with Holographic Effect -->
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo">
+                    <div class="logo-hologram"></div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">CODING CLUB</span>
+                    <span class="brand-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            
+            <!-- Neural Network Navigation -->
+            <div class="neural-nav">
+                <div class="nav-nodes">
+                    <a href="index.html" class="nav-node" data-page="home">
+                        <div class="node-core">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Home</span>
+                    </a>
+                    
+                    <a href="about.html" class="nav-node active" data-page="about">
+                        <div class="node-core">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">About</span>
+                    </a>
+                    
+                    <a href="events.html" class="nav-node" data-page="events">
+                        <div class="node-core">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Events</span>
+                    </a>
+                    
+                    <a href="projects.html" class="nav-node" data-page="projects">
+                        <div class="node-core">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Projects</span>
+                    </a>
+                    
+                    <a href="team.html" class="nav-node" data-page="team">
+                        <div class="node-core">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Team</span>
+                    </a>
+                    
+                    <a href="contact.html" class="nav-node" data-page="contact">
+                        <div class="node-core">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Contact</span>
+                    </a>
+                </div>
+                
+                <!-- Enhanced Nav Tools -->
+                <div class="nav-tools">
+                    <div class="search-container">
+                        <button class="search-trigger" id="searchTrigger">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" placeholder="Search..." id="navSearch">
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                
+                <!-- Neural Connections -->
+                <svg class="neural-connections" viewBox="0 0 800 100">
+                    <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+                    <defs>
+                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+                <div class="toggle-lines">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </div>
+                <div class="toggle-circuit"></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Neural Menu -->
+        <div class="mobile-neural-menu" id="mobileNeuralMenu">
+            <div class="menu-container">
+                <div class="menu-nodes">
+                    <a href="index.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-home"></i></div>
+                        <span>Home</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="about.html" class="mobile-node active">
+                        <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+                        <span>About</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="events.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <span>Events</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="projects.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-code"></i></div>
+                        <span>Projects</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="team.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-users"></i></div>
+                        <span>Team</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="contact.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-envelope"></i></div>
+                        <span>Contact</span>
+                        <div class="node-trail"></div>
+                    </a>
+                </div>
+                
+                <div class="menu-footer">
+                    <div class="social-nodes">
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <button class="quantum-join-btn" onclick="openJoinModal()">
+                        <span class="btn-text">Join Club</span>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-info-circle"></i>
+                        About Us
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    About <span class="title-gradient">Us</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Discover our mission, vision, and the passionate community behind Coding Club PRPCEM
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="code-matrix" id="codeMatrix"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero About Section -->
+        <section class="about-hero-section">
+            <div class="section-container">
+                <div class="about-hero-grid">
+                    <div class="about-hero-content">
+                        <div class="section-badge">
+                            <i class="fas fa-heart"></i>
+                            <span>Who We Are</span>
+                        </div>
+                        <h2 class="section-title">
+                            Building the <span class="text-gradient">Future</span> of Technology
+                        </h2>
+                        <p class="hero-description">
+                            Coding Club PRPCEM is more than just a coding community – we're a family of passionate developers, innovators, and dreamers who believe in the power of technology to transform lives and solve global challenges. Since our inception, we've been at the forefront of technological education and innovation.
+                        </p>
+                        
+                        <div class="hero-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Learn by Doing</h4>
+                                    <p>Hands-on projects and real-world applications</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Community Driven</h4>
+                                    <p>Collaborative learning and peer support</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Innovation First</h4>
+                                    <p>Cutting-edge technologies and emerging trends</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <button class="btn-primary" onclick="scrollToSection('mission-vision-section')">
+                                <i class="fas fa-compass"></i>
+                                <span>Our Mission</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openJoinModal()">
+                                <i class="fas fa-plus"></i>
+                                <span>Join Community</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="about-hero-visual">
+                        <div class="visual-container">
+                            <div class="floating-cards">
+                                <div class="tech-card" style="--delay: 0s">
+                                    <i class="fab fa-react"></i>
+                                    <span>React</span>
+                                </div>
+                                <div class="tech-card" style="--delay: 0.5s">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tech-card" style="--delay: 1s">
+                                    <i class="fab fa-node-js"></i>
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="tech-card" style="--delay: 1.5s">
+                                    <i class="fab fa-docker"></i>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="tech-card" style="--delay: 2s">
+                                    <i class="fas fa-brain"></i>
+                                    <span>AI/ML</span>
+                                </div>
+                                <div class="tech-card" style="--delay: 2.5s">
+                                    <i class="fab fa-aws"></i>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="central-logo">
+                                <img src="images/logo1.png" alt="Coding Club PRPCEM">
+                                <div class="logo-rings">
+                                    <div class="ring ring-1"></div>
+                                    <div class="ring ring-2"></div>
+                                    <div class="ring ring-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text">Scroll to discover more</span>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision-section">
+            <div class="section-container">
+                <div class="mission-vision-grid">
+                    <div class="mission-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-target"></i>
+                            </div>
+                            <h3>Our Mission</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>To create an inclusive and dynamic environment where students can explore, learn, and master cutting-edge technologies while building meaningful connections and contributing to the global tech community.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="mission-points">
+                                <div class="point">
+                                    <i class="fas fa-check"></i>
+                                    <span>Foster Innovation</span>
+                                </div>
+                                <div class="point">
+                                    <i class="fas fa-check"></i>
+                                    <span>Build Community</span>
+                                </div>
+                                <div class="point">
+                                    <i class="fas fa-check"></i>
+                                    <span>Share Knowledge</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Our Vision</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>To be the leading technological innovation hub that produces skilled developers, ethical leaders, and creative problem-solvers who will shape the future of technology and make a positive impact on society.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="vision-goals">
+                                <div class="goal">
+                                    <div class="goal-number">2030</div>
+                                    <div class="goal-text">Leading Tech Hub</div>
+                                </div>
+                                <div class="goal">
+                                    <div class="goal-number">1000+</div>
+                                    <div class="goal-text">Alumni Network</div>
+                                </div>
+                                <div class="goal">
+                                    <div class="goal-number">100+</div>
+                                    <div class="goal-text">Industry Partners</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mission Statement Terminal -->
+            <div class="mission-statement">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-red"></span>
+                            <span class="btn-yellow"></span>
+                            <span class="btn-green"></span>
+                        </div>
+                        <span class="terminal-title">about-us.js</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <span class="code">
+                                <span class="keyword">const</span> 
+                                <span class="variable">aboutUs</span> = {
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <span class="code">
+                                &nbsp;&nbsp;<span class="property">mission</span>: 
+                                <span class="string">"Empower through technology"</span>,
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <span class="code">
+                                &nbsp;&nbsp;<span class="property">vision</span>: 
+                                <span class="string">"Leading tech innovation hub"</span>,
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <span class="code">
+                                &nbsp;&nbsp;<span class="property">founded</span>: 
+                                <span class="number">2020</span>,
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <span class="code">
+                                &nbsp;&nbsp;<span class="property">members</span>: 
+                                <span class="number">500</span>,
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">6</span>
+                            <span class="code">
+                                &nbsp;&nbsp;<span class="property">values</span>: [
+                                <span class="string">"innovation"</span>, 
+                                <span class="string">"collaboration"</span>, 
+                                <span class="string">"excellence"</span>]
+                            </span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">7</span>
+                            <span class="code">};</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-showcase-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Our Impact</span>
+                    </div>
+                    <h2 class="section-title">
+                        Numbers That <span class="text-gradient">Speak</span> Volumes
+                    </h2>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="500">0</div>
+                            <div class="stat-label">Active Members</div>
+                            <div class="stat-description">Passionate developers from all branches</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="150">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                            <div class="stat-description">Real-world applications and solutions</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="75">0</div>
+                            <div class="stat-label">Events Hosted</div>
+                            <div class="stat-description">Workshops, hackathons, and tech talks</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="25">0</div>
+                            <div class="stat-label">Awards Won</div>
+                            <div class="stat-description">Recognition in competitions and events</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="200">0</div>
+                            <div class="stat-label">Alumni Placed</div>
+                            <div class="stat-description">In top tech companies worldwide</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Industry Partners</div>
+                            <div class="stat-description">Collaborations and internship opportunities</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="values-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-gem"></i>
+                        <span>Core Values</span>
+                    </div>
+                    <h2 class="section-title">
+                        What <span class="text-gradient">Drives</span> Us Forward
+                    </h2>
+                    <p class="section-description">
+                        Our values form the foundation of everything we do, guiding our decisions and shaping our community culture.
+                    </p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Innovation</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>We foster creativity and encourage innovative thinking to solve real-world problems through technology and cutting-edge solutions.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">AI Projects</span>
+                                <span class="example-tag">IoT Solutions</span>
+                                <span class="example-tag">Web3 Development</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Collaboration</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Building a strong network of like-minded individuals who support, learn from, and grow together in their coding journey.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">Team Projects</span>
+                                <span class="example-tag">Peer Learning</span>
+                                <span class="example-tag">Open Source</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Learning</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Continuous learning and skill development through workshops, hackathons, peer collaboration, and hands-on experience.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">Workshops</span>
+                                <span class="example-tag">Mentorship</span>
+                                <span class="example-tag">Certifications</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Excellence</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Striving for excellence in everything we do, from code quality to community building and project delivery.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">Best Practices</span>
+                                <span class="example-tag">Code Reviews</span>
+                                <span class="example-tag">Quality First</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Inclusivity</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Creating an inclusive environment where everyone feels welcome, regardless of their background, skill level, or experience.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">Diversity</span>
+                                <span class="example-tag">Accessibility</span>
+                                <span class="example-tag">Equal Opportunity</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="card-background"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Integrity</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Maintaining the highest standards of ethics, transparency, and honesty in all our interactions and projects.</p>
+                            <div class="value-examples">
+                                <span class="example-tag">Ethical AI</span>
+                                <span class="example-tag">Data Privacy</span>
+                                <span class="example-tag">Transparency</span>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Journey Section -->
+        <section class="journey-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Our Journey</span>
+                    </div>
+                    <h2 class="section-title">
+                        The <span class="text-gradient">Evolution</span> of Innovation
+                    </h2>
+                    <p class="section-description">
+                        From humble beginnings to becoming a recognized tech community, here's how we've grown and evolved over the years.
+                    </p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-flag"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020</div>
+                            <h3>Foundation & Vision</h3>
+                            <p>Coding Club PRPCEM was founded with a vision to create a platform for students passionate about technology and programming. Started with just 20 founding members.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">20 Members</span>
+                                <span class="achievement">First Workshop</span>
+                                <span class="achievement">GitHub Organization</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-rocket"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2021</div>
+                            <h3>First Major Milestone</h3>
+                            <p>Organized our first major hackathon "CodeFest 2021", attracting participants from multiple colleges and establishing our presence in the tech community.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">100+ Participants</span>
+                                <span class="achievement">₹25K Prize Pool</span>
+                                <span class="achievement">5 Partner Companies</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-users"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022</div>
+                            <h3>Community Expansion</h3>
+                            <p>Reached 200+ active members and launched our mentorship program, connecting seniors with juniors for knowledge transfer and career guidance.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">200+ Members</span>
+                                <span class="achievement">Mentorship Program</span>
+                                <span class="achievement">Weekly Workshops</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-trophy"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023</div>
+                            <h3>Recognition & Growth</h3>
+                            <p>Won multiple inter-college competitions and established partnerships with leading tech companies for workshops, internships, and placement opportunities.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">15 Competition Wins</span>
+                                <span class="achievement">20 Industry Partners</span>
+                                <span class="achievement">100+ Placements</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-star"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h3>Innovation Hub</h3>
+                            <p>Transformed into a full-fledged innovation hub with state-of-the-art facilities and launched our open-source project initiative and startup incubation program.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">Innovation Lab</span>
+                                <span class="achievement">Open Source Projects</span>
+                                <span class="achievement">Startup Incubator</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-infinity"></i>
+                            <div class="marker-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025</div>
+                            <h3>Future Forward</h3>
+                            <p>Expanding our reach with AI/ML workshops, cloud computing initiatives, and preparing the next generation for emerging technologies like quantum computing and blockchain.</p>
+                            <div class="timeline-achievements">
+                                <span class="achievement">AI/ML Focus</span>
+                                <span class="achievement">Cloud Computing</span>
+                                <span class="achievement">Quantum Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Why Choose Us</span>
+                    </div>
+                    <h2 class="section-title">
+                        What Makes Us <span class="text-gradient">Different</span>
+                    </h2>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Mentorship Program</h3>
+                        <p>One-on-one guidance from industry professionals and senior students to accelerate your learning journey.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Industry Connections</h3>
+                        <p>Direct access to job opportunities, internships, and networking with top tech companies and startups.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Real Projects</h3>
+                        <p>Work on actual industry projects and open-source contributions that matter and build your portfolio.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Skill Certification</h3>
+                        <p>Earn recognized certifications and badges for completing courses, projects, and contributing to the community.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Leadership Opportunities</h3>
+                        <p>Take on leadership roles, organize events, and develop management skills alongside technical expertise.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Startup Support</h3>
+                        <p>Access to our incubation program, funding opportunities, and resources to turn your ideas into reality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <!-- Background Effects -->
+        <div class="footer-particles"></div>
+        <div class="footer-grid"></div>
+        
+        <div class="footer-main">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM">
+                    <div class="logo-glow"></div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="75">0</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Mentors</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i>About</a>
+                    <a href="events.html"><i class="fas fa-calendar"></i>Events</a>
+                    <a href="projects.html"><i class="fas fa-code"></i>Projects</a>
+                    <a href="team.html"><i class="fas fa-users"></i>Team</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-book"></i>Documentation</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i>Tutorials</a>
+                    <a href="#"><i class="fab fa-github"></i>GitHub</a>
+                    <a href="#"><i class="fas fa-blog"></i>Blog</a>
+                    <a href="#"><i class="fas fa-download"></i>Downloads</a>
+                    <a href="#"><i class="fas fa-question-circle"></i>FAQ</a>
+                </div>
+            </div>
+            
+            <!-- Connect -->
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-grid">
+                    <a href="#" class="social-item" data-platform="github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="discord">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter-signup">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <span>&copy; 2024 Coding Club PRPCEM. All rights reserved.</span>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span>Built with</span>
+                <div class="tech-icons">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                    <i class="fab fa-git-alt" title="Git"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/enhanced-navigation.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

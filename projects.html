@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Projects | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/mobile-style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-bg" id="particle-bg"></div>
+    
+    <!-- Futuristic Navigation -->
+    <nav class="cyber-nav" id="cyberNav">
+        <div class="nav-container">
+            <!-- Logo with Holographic Effect -->
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo">
+                    <div class="logo-hologram"></div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">CODING CLUB</span>
+                    <span class="brand-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            
+            <!-- Neural Network Navigation -->
+            <div class="neural-nav">
+                <div class="nav-nodes">
+                    <a href="index.html" class="nav-node" data-page="home">
+                        <div class="node-core">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Home</span>
+                    </a>
+                    
+                    <a href="about.html" class="nav-node" data-page="about">
+                        <div class="node-core">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">About</span>
+                    </a>
+                    
+                    <a href="events.html" class="nav-node" data-page="events">
+                        <div class="node-core">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Events</span>
+                    </a>
+                    
+                    <a href="projects.html" class="nav-node active" data-page="projects">
+                        <div class="node-core">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Projects</span>
+                    </a>
+                    
+                    <a href="team.html" class="nav-node" data-page="team">
+                        <div class="node-core">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Team</span>
+                    </a>
+                    
+                    <a href="contact.html" class="nav-node" data-page="contact">
+                        <div class="node-core">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Contact</span>
+                    </a>
+                </div>
+                
+                <!-- Enhanced Nav Tools -->
+                <div class="nav-tools">
+                    <div class="search-container">
+                        <button class="search-trigger" id="searchTrigger">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" placeholder="Search..." id="navSearch">
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                
+                <!-- Neural Connections -->
+                <svg class="neural-connections" viewBox="0 0 800 100">
+                    <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+                    <defs>
+                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+                <div class="toggle-lines">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </div>
+                <div class="toggle-circuit"></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Neural Menu -->
+        <div class="mobile-neural-menu" id="mobileNeuralMenu">
+            <div class="menu-container">
+                <div class="menu-nodes">
+                    <a href="index.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-home"></i></div>
+                        <span>Home</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="about.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+                        <span>About</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="events.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <span>Events</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="projects.html" class="mobile-node active">
+                        <div class="node-icon"><i class="fas fa-code"></i></div>
+                        <span>Projects</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="team.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-users"></i></div>
+                        <span>Team</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="contact.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-envelope"></i></div>
+                        <span>Contact</span>
+                        <div class="node-trail"></div>
+                    </a>
+                </div>
+                
+                <div class="menu-footer">
+                    <div class="social-nodes">
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <button class="quantum-join-btn" onclick="openJoinModal()">
+                        <span class="btn-text">Join Club</span>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-code"></i>
+                        Projects
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Our <span class="title-gradient">Projects</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Explore the innovative projects developed by our talented community members
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="project-code-visual" id="projectCode"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Project Stats -->
+        <section class="project-stats">
+            <div class="section-container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Total Projects</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="25">0</div>
+                            <div class="stat-label">Open Source</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-label">Active Repos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="200">0</div>
+                            <div class="stat-label">GitHub Stars</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Filters -->
+        <section class="project-filters">
+            <div class="section-container">
+                <div class="filter-container">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">
+                            <i class="fas fa-list"></i>
+                            All Projects
+                        </button>
+                        <button class="filter-tab" data-filter="web">
+                            <i class="fas fa-globe"></i>
+                            Web Apps
+                        </button>
+                        <button class="filter-tab" data-filter="mobile">
+                            <i class="fas fa-mobile-alt"></i>
+                            Mobile Apps
+                        </button>
+                        <button class="filter-tab" data-filter="ai">
+                            <i class="fas fa-brain"></i>
+                            AI/ML
+                        </button>
+                        <button class="filter-tab" data-filter="opensource">
+                            <i class="fab fa-osi"></i>
+                            Open Source
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Project -->
+        <section class="featured-project-section">
+            <div class="section-container">
+                <div class="featured-project">
+                    <div class="project-showcase">
+                        <div class="project-screen">
+                            <div class="screen-header">
+                                <div class="screen-buttons">
+                                    <span class="btn-red"></span>
+                                    <span class="btn-yellow"></span>
+                                    <span class="btn-green"></span>
+                                </div>
+                                <div class="screen-url">https://campus-portal.prpcem.ac.in</div>
+                            </div>
+                            <div class="screen-content">
+                                <div class="mock-website">
+                                    <div class="website-header"></div>
+                                    <div class="website-nav"></div>
+                                    <div class="website-content">
+                                        <div class="content-block"></div>
+                                        <div class="content-block"></div>
+                                        <div class="content-sidebar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-float-elements">
+                            <div class="float-code">
+                                <span class="code-line">const campus = new Portal()</span>
+                                <span class="code-line">campus.init()</span>
+                            </div>
+                            <div class="float-stats">
+                                <i class="fas fa-star"></i>
+                                <span>42 Stars</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-info">
+                        <div class="project-badge featured">
+                            <i class="fas fa-crown"></i>
+                            <span>Featured Project</span>
+                        </div>
+                        
+                        <h2 class="project-title">Smart Campus Portal</h2>
+                        <p class="project-description">
+                            A comprehensive platform that revolutionizes campus life by integrating academic services, 
+                            event management, resource booking, and student communication in one seamless experience.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Real-time notifications</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Resource booking system</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Event management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Student portal integration</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack-large">
+                            <div class="tech-category">
+                                <span class="category-label">Frontend</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag react">React</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="category-label">Backend</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag nodejs">Node.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <a href="#" class="action-btn primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Live Demo</span>
+                            </a>
+                            <a href="#" class="action-btn secondary">
+                                <i class="fab fa-github"></i>
+                                <span>View Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>All Projects</span>
+                    </div>
+                    <h2 class="section-title">
+                        Innovation in <span class="text-gradient">Action</span>
+                    </h2>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card" data-category="ai">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>AI Study Assistant</h3>
+                            <p>Machine learning powered chatbot to help students with their academic queries and provide personalized learning paths.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>28</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>12</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>156</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag python">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Flask</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="project-card" data-category="mobile">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Event Manager App</h3>
+                            <p>Cross-platform mobile app for managing and discovering campus events with real-time notifications and interactive features.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>35</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>8</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>203</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag flutter">Flutter</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Dart</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Analytics Dashboard</h3>
+                            <p>Real-time analytics dashboard for tracking student performance, engagement metrics, and campus activity insights.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>19</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>6</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>89</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag vue">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="project-card" data-category="opensource">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fab fa-osi"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Code Share Platform</h3>
+                            <p>Open-source platform for students to share code snippets, collaborate on projects, and learn from each other's solutions.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>67</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>23</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>432</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag svelte">Svelte</span>
+                                <span class="tech-tag">Go</span>
+                                <span class="tech-tag">Redis</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Coding Games Hub</h3>
+                            <p>Interactive web platform with coding challenges, algorithm visualizations, and competitive programming practice.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>41</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>15</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>267</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag angular">Angular</span>
+                                <span class="tech-tag">Three.js</span>
+                                <span class="tech-tag">WebSocket</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="project-card" data-category="ai">
+                        <div class="card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Smart Image Classifier</h3>
+                            <p>Deep learning model for classifying and organizing campus photos automatically with facial recognition features.</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>22</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>7</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>134</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag python">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribute Section -->
+        <section class="contribute-section">
+            <div class="section-container">
+                <div class="contribute-container">
+                    <div class="contribute-content">
+                        <div class="section-badge">
+                            <i class="fab fa-github"></i>
+                            <span>Get Involved</span>
+                        </div>
+                        <h3>Want to Contribute?</h3>
+                        <p>Join our open-source community and contribute to exciting projects. Whether you're a beginner or an expert, there's always room for collaboration and learning.</p>
+                        
+                        <div class="contribute-stats">
+                            <div class="contribute-stat">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Active Contributors</div>
+                            </div>
+                            <div class="contribute-stat">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Commits This Month</div>
+                            </div>
+                            <div class="contribute-stat">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Languages Used</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contribute-actions">
+                            <a href="https://github.com/CodingClubPRPCEM" class="contribute-btn primary" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>Visit GitHub</span>
+                            </a>
+                            <button class="contribute-btn secondary" onclick="openJoinModal()">
+                                <i class="fas fa-users"></i>
+                                <span>Join Community</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="contribute-visual">
+                        <div class="github-graph">
+                            <div class="graph-grid">
+                                <div class="graph-row">
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                </div>
+                                <div class="graph-row">
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                </div>
+                                <div class="graph-row">
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell"></div>
+                                    <div class="graph-cell active"></div>
+                                    <div class="graph-cell active"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <!-- Background Effects -->
+        <div class="footer-particles"></div>
+        <div class="footer-grid"></div>
+        
+        <div class="footer-main">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM">
+                    <div class="logo-glow"></div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="75">0</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Mentors</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i>About</a>
+                    <a href="events.html"><i class="fas fa-calendar"></i>Events</a>
+                    <a href="projects.html"><i class="fas fa-code"></i>Projects</a>
+                    <a href="team.html"><i class="fas fa-users"></i>Team</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-book"></i>Documentation</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i>Tutorials</a>
+                    <a href="#"><i class="fab fa-github"></i>GitHub</a>
+                    <a href="#"><i class="fas fa-blog"></i>Blog</a>
+                    <a href="#"><i class="fas fa-download"></i>Downloads</a>
+                    <a href="#"><i class="fas fa-question-circle"></i>FAQ</a>
+                </div>
+            </div>
+            
+            <!-- Connect -->
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-grid">
+                    <a href="#" class="social-item" data-platform="github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="discord">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter-signup">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <span>&copy; 2024 Coding Club PRPCEM. All rights reserved.</span>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span>Built with</span>
+                <div class="tech-icons">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                    <i class="fab fa-git-alt" title="Git"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/enhanced-navigation.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

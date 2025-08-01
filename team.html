@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Team | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/mobile-style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-bg" id="particle-bg"></div>
+    
+    <!-- Futuristic Navigation -->
+    <nav class="cyber-nav" id="cyberNav">
+        <div class="nav-container">
+            <!-- Logo with Holographic Effect -->
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo">
+                    <div class="logo-hologram"></div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">CODING CLUB</span>
+                    <span class="brand-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            
+            <!-- Neural Network Navigation -->
+            <div class="neural-nav">
+                <div class="nav-nodes">
+                    <a href="index.html" class="nav-node" data-page="home">
+                        <div class="node-core">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Home</span>
+                    </a>
+                    
+                    <a href="about.html" class="nav-node" data-page="about">
+                        <div class="node-core">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">About</span>
+                    </a>
+                    
+                    <a href="events.html" class="nav-node" data-page="events">
+                        <div class="node-core">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Events</span>
+                    </a>
+                    
+                    <a href="projects.html" class="nav-node" data-page="projects">
+                        <div class="node-core">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Projects</span>
+                    </a>
+                    
+                    <a href="team.html" class="nav-node active" data-page="team">
+                        <div class="node-core">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Team</span>
+                    </a>
+                    
+                    <a href="contact.html" class="nav-node" data-page="contact">
+                        <div class="node-core">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Contact</span>
+                    </a>
+                </div>
+                
+                <!-- Enhanced Nav Tools -->
+                <div class="nav-tools">
+                    <div class="search-container">
+                        <button class="search-trigger" id="searchTrigger">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" placeholder="Search..." id="navSearch">
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                
+                <!-- Neural Connections -->
+                <svg class="neural-connections" viewBox="0 0 800 100">
+                    <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+                    <defs>
+                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+                <div class="toggle-lines">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </div>
+                <div class="toggle-circuit"></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Neural Menu -->
+        <div class="mobile-neural-menu" id="mobileNeuralMenu">
+            <div class="menu-container">
+                <div class="menu-nodes">
+                    <a href="index.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-home"></i></div>
+                        <span>Home</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="about.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+                        <span>About</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="events.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <span>Events</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="projects.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-code"></i></div>
+                        <span>Projects</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="team.html" class="mobile-node active">
+                        <div class="node-icon"><i class="fas fa-users"></i></div>
+                        <span>Team</span>
+                        <div class="node-trail"></div>
+                    </a>
+                    <a href="contact.html" class="mobile-node">
+                        <div class="node-icon"><i class="fas fa-envelope"></i></div>
+                        <span>Contact</span>
+                        <div class="node-trail"></div>
+                    </a>
+                </div>
+                
+                <div class="menu-footer">
+                    <div class="social-nodes">
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <button class="quantum-join-btn" onclick="openJoinModal()">
+                        <span class="btn-text">Join Club</span>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-users"></i>
+                        Team
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Our <span class="title-gradient">Team</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Meet the passionate individuals behind Coding Club PRPCEM who make everything possible
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="team-network-visual" id="teamNetwork"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Team Overview -->
+        <section class="team-overview">
+            <div class="section-container">
+                <div class="overview-grid">
+                    <div class="overview-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Core Leaders</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Department Heads</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Active Mentors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Departments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Leadership -->
+        <section class="leadership-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Leadership</span>
+                    </div>
+                    <h2 class="section-title">
+                        Core <span class="text-gradient">Leadership</span> Team
+                    </h2>
+                    <p class="section-subtitle">
+                        The visionaries guiding our club towards excellence and innovation
+                    </p>
+                </div>
+                
+                <div class="leadership-grid">
+                    <div class="leader-card president">
+                        <div class="card-background"></div>
+                        <div class="leader-avatar">
+                            <div class="avatar-image">
+                                <img src="images/IMG_9390.JPG" alt="Karamveer Singh Oberoi">
+                            </div>
+                            <div class="status-indicator online"></div>
+                            <div class="role-badge">
+                                <i class="fas fa-crown"></i>
+                                <span>President</span>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-info">
+                            <h3>Karamveer Singh Oberoi</h3>
+                            <p class="leader-title">Club President</p>
+                            <p class="leader-bio">Leading the club with vision and passion for technology innovation. Driving strategic initiatives and fostering a culture of excellence.</p>
+                            
+                            <div class="leader-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2 Years Leadership</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>15+ Projects Led</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-tags">
+                                <span class="skill leadership">Leadership</span>
+                                <span class="skill fullstack">Full Stack</span>
+                                <span class="skill ai">AI/ML</span>
+                                <span class="skill strategy">Strategy</span>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" target="_blank" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/karamveeroberoi" target="_blank" class="social-link instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="mailto:karamoberoi19@gmail.com" class="social-link email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="leader-card tech-lead">
+                        <div class="card-background"></div>
+                        <div class="leader-avatar">
+                            <div class="avatar-image">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="status-indicator online"></div>
+                            <div class="role-badge">
+                                <i class="fas fa-cog"></i>
+                                <span>Tech Lead</span>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-info">
+                            <h3>Sujal Bhugul</h3>
+                            <p class="leader-title">Technical Lead</p>
+                            <p class="leader-bio">Driving technical excellence and mentoring fellow developers. Overseeing architecture decisions and code quality standards.</p>
+                            
+                            <div class="leader-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>50K+ Lines of Code</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>20+ Mentees</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-tags">
+                                <span class="skill react">React</span>
+                                <span class="skill devops">DevOps</span>
+                                <span class="skill cloud">Cloud</span>
+                                <span class="skill mentor">Mentoring</span>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/sujal23/" target="_blank" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/sujalbhugul/" target="_blank" class="social-link instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="mailto:sujalbhugul08@gmail.com" class="social-link email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="leader-card community">
+                        <div class="card-background"></div>
+                        <div class="leader-avatar">
+                            <div class="avatar-image">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="status-indicator online"></div>
+                            <div class="role-badge">
+                                <i class="fas fa-heart"></i>
+                                <span>Community</span>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-info">
+                            <h3>Tushar Ahuja</h3>
+                            <p class="leader-title">Community Manager</p>
+                            <p class="leader-bio">Building connections and fostering community growth. Managing events, outreach, and member engagement initiatives.</p>
+                            
+                            <div class="leader-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>25+ Events Organized</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>500+ Members Connected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-tags">
+                                <span class="skill javascript">JavaScript</span>
+                                <span class="skill python">Python</span>
+                                <span class="skill community">Community</span>
+                                <span class="skill events">Events</span>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/tushrahuja/" target="_blank" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/tushrahuja/" target="_blank" class="social-link instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="mailto:ahuja.tushar.m@gmail.com" class="social-link email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="leader-card coordinator">
+                        <div class="card-background"></div>
+                        <div class="leader-avatar">
+                            <div class="avatar-image">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="status-indicator online"></div>
+                            <div class="role-badge">
+                                <i class="fas fa-tasks"></i>
+                                <span>Coordinator</span>
+                            </div>
+                        </div>
+                        
+                        <div class="leader-info">
+                            <h3>Aman Asthana</h3>
+                            <p class="leader-title">Project Coordinator</p>
+                            <p class="leader-bio">Coordinating innovative projects and ensuring quality delivery. Managing timelines, resources, and cross-team collaboration.</p>
+                            
+                            <div class="leader-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>30+ Projects Managed</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>95% On-Time Delivery</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-tags">
+                                <span class="skill project">Project Mgmt</span>
+                                <span class="skill backend">Backend</span>
+                                <span class="skill database">Database</span>
+                                <span class="skill agile">Agile</span>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/aman-asthana/" target="_blank" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/aman._.asthana/" target="_blank" class="social-link instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="mailto:amanasthana431@gmail.com" class="social-link email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Heads -->
+        <section class="departments-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Departments</span>
+                    </div>
+                    <h2 class="section-title">
+                        Department <span class="text-gradient">Heads</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Specialized leaders driving excellence in their respective domains
+                    </p>
+                </div>
+                
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Arjun Sharma</span>
+                                <span class="head-title">Senior Developer</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>15 Active Projects</span>
+                            <span>8 Team Members</span>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Development</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Priya Patel</span>
+                                <span class="head-title">Mobile Architect</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>8 Mobile Apps</span>
+                            <span>6 Team Members</span>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI/ML Research</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Rohit Kumar</span>
+                                <span class="head-title">ML Engineer</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>5 AI Models</span>
+                            <span>10 Researchers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Sneha Reddy</span>
+                                <span class="head-title">Security Analyst</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>12 Security Audits</span>
+                            <span>5 Team Members</span>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Science</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Vikash Singh</span>
+                                <span class="head-title">Data Scientist</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>20+ Datasets</span>
+                            <span>7 Analysts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="dept-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & DevOps</h3>
+                        <div class="dept-head">
+                            <div class="head-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="head-info">
+                                <span class="head-name">Amit Joshi</span>
+                                <span class="head-title">DevOps Engineer</span>
+                            </div>
+                        </div>
+                        <div class="dept-stats">
+                            <span>25+ Deployments</span>
+                            <span>4 Engineers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Team CTA -->
+        <section class="join-team-section">
+            <div class="section-container">
+                <div class="join-team-container">
+                    <div class="join-content">
+                        <div class="section-badge">
+                            <i class="fas fa-rocket"></i>
+                            <span>Join Us</span>
+                        </div>
+                        <h3>Ready to Join Our Amazing Team?</h3>
+                        <p>We're always looking for passionate individuals who want to make a difference in the tech community. Whether you're a beginner or an expert, there's a place for you in our diverse team.</p>
+                        
+                        <div class="join-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Learn from Industry Experts</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Work on Real Projects</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-users"></i>
+                                <span>Build Professional Network</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Gain Leadership Experience</span>
+                            </div>
+                        </div>
+                        
+                        <div class="join-actions">
+                            <button class="join-btn primary" onclick="openJoinModal()">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Apply Now</span>
+                            </button>
+                            <a href="contact.html" class="join-btn secondary">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="join-visual">
+                        <div class="team-illustration">
+                            <div class="member-bubble bubble-1">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="member-bubble bubble-2">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="member-bubble bubble-3">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="member-bubble bubble-4">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="connection-lines">
+                                <svg viewBox="0 0 200 200">
+                                    <path d="M50,50 L150,50 L150,150 L50,150 Z" stroke="var(--tech-blue)" stroke-width="2" fill="none" opacity="0.3"/>
+                                    <path d="M100,25 L175,100 L100,175 L25,100 Z" stroke="var(--tech-purple)" stroke-width="2" fill="none" opacity="0.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <!-- Background Effects -->
+        <div class="footer-particles"></div>
+        <div class="footer-grid"></div>
+        
+        <div class="footer-main">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM">
+                    <div class="logo-glow"></div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="75">0</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Mentors</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i>About</a>
+                    <a href="events.html"><i class="fas fa-calendar"></i>Events</a>
+                    <a href="projects.html"><i class="fas fa-code"></i>Projects</a>
+                    <a href="team.html"><i class="fas fa-users"></i>Team</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-book"></i>Documentation</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i>Tutorials</a>
+                    <a href="#"><i class="fab fa-github"></i>GitHub</a>
+                    <a href="#"><i class="fas fa-blog"></i>Blog</a>
+                    <a href="#"><i class="fas fa-download"></i>Downloads</a>
+                    <a href="#"><i class="fas fa-question-circle"></i>FAQ</a>
+                </div>
+            </div>
+            
+            <!-- Connect -->
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-grid">
+                    <a href="#" class="social-item" data-platform="github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="discord">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-item" data-platform="youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter-signup">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <span>&copy; 2024 Coding Club PRPCEM. All rights reserved.</span>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span>Built with</span>
+                <div class="tech-icons">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                    <i class="fab fa-git-alt" title="Git"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/enhanced-navigation.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
