@@ -1,278 +1,319 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Coding Club PRPCEM | Innovation Hub</title>
-    <link rel="icon" href="images/logo1.png" type="image/png">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Modern fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS - Mobile First -->
-    <link rel="stylesheet" href="css/mobile-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .nav-brand {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      footer .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div class="particle-bg" id="particle-bg"></div>
-    
-    <!-- Futuristic Navigation -->
-    <nav class="cyber-nav" id="cyberNav">
-        <div class="nav-container">
-            <!-- Logo with Holographic Effect -->
-            <div class="nav-brand">
-                <div class="logo-container">
-                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo">
-                    <div class="logo-hologram"></div>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">CODING CLUB</span>
-                    <span class="brand-subtitle">PRPCEM</span>
-                </div>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Navigation (updated layout for toggle button next to logo) -->
+  <nav class="cyber-nav" id="cyberNav">
+    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div class="nav-brand" style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
+          <div class="logo-hologram"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CODING CLUB</span>
+          <span class="brand-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Neural Network Navigation -->
+      <div class="neural-nav">
+        <div class="nav-nodes">
+          <a href="index.html" class="nav-node active" data-page="home">
+            <div class="node-core">
+              <i class="fas fa-home"></i>
             </div>
-            
-            <!-- Neural Network Navigation -->
-            <div class="neural-nav">
-                <div class="nav-nodes">
-                    <a href="index.html" class="nav-node active" data-page="home">
-                        <div class="node-core">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Home</span>
-                    </a>
-                    
-                    <a href="about.html" class="nav-node" data-page="about">
-                        <div class="node-core">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">About</span>
-                    </a>
-                    
-                    <a href="events.html" class="nav-node" data-page="events">
-                        <div class="node-core">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Events</span>
-                    </a>
-                    
-                    <a href="projects.html" class="nav-node" data-page="projects">
-                        <div class="node-core">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Projects</span>
-                    </a>
-                    
-                    <a href="team.html" class="nav-node" data-page="team">
-                        <div class="node-core">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Team</span>
-                    </a>
-                    
-                    <a href="contact.html" class="nav-node" data-page="contact">
-                        <div class="node-core">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Contact</span>
-                    </a>
-                </div>
-                
-                <!-- Enhanced Nav Tools -->
-                <div class="nav-tools">
-                    <div class="search-container">
-                        <button class="search-trigger" id="searchTrigger">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-box" id="searchBox">
-                            <input type="text" placeholder="Search..." id="navSearch">
-                            <button class="search-close" id="searchClose">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Home</span>
+          </a>
+          
+          <a href="about.html" class="nav-node" data-page="about">
+            <div class="node-core">
+              <i class="fas fa-info-circle"></i>
             </div>
-                
-                <!-- Neural Connections -->
-                <svg class="neural-connections" viewBox="0 0 800 100">
-                    <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
-                    <defs>
-                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
-                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
-                            <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+            <div class="node-pulse"></div>
+            <span class="node-label">About</span>
+          </a>
+          
+          <a href="events.html" class="nav-node" data-page="events">
+            <div class="node-core">
+              <i class="fas fa-calendar-alt"></i>
             </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
-                <div class="toggle-lines">
-                    <span class="line line-1"></span>
-                    <span class="line line-2"></span>
-                    <span class="line line-3"></span>
-                </div>
-                <div class="toggle-circuit"></div>
-            </button>
+            <div class="node-pulse"></div>
+            <span class="node-label">Events</span>
+          </a>
+          
+          <a href="projects.html" class="nav-node" data-page="projects">
+            <div class="node-core">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Projects</span>
+          </a>
+          
+          <a href="team.html" class="nav-node" data-page="team">
+            <div class="node-core">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Team</span>
+          </a>
+          
+          <a href="contact.html" class="nav-node" data-page="contact">
+            <div class="node-core">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Contact</span>
+          </a>
         </div>
         
-        <!-- Mobile Neural Menu -->
-        <div class="mobile-neural-menu" id="mobileNeuralMenu">
-            <div class="menu-container">
-                <div class="menu-nodes">
-                    <a href="index.html" class="mobile-node active">
-                        <div class="node-icon"><i class="fas fa-home"></i></div>
-                        <span>Home</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="about.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-info-circle"></i></div>
-                        <span>About</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="events.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <span>Events</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="projects.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-code"></i></div>
-                        <span>Projects</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="team.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-users"></i></div>
-                        <span>Team</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="contact.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-envelope"></i></div>
-                        <span>Contact</span>
-                        <div class="node-trail"></div>
-                    </a>
-                </div>
-                
-                <div class="menu-footer">
-                    <div class="social-nodes">
-                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                    <button class="quantum-join-btn" onclick="openJoinModal()">
-                        <span class="btn-text">Join Club</span>
-                        <div class="btn-particles"></div>
-                    </button>
-                </div>
+        <!-- Enhanced Nav Tools -->
+        <div class="nav-tools">
+          <div class="search-container">
+            <button class="search-trigger" id="searchTrigger">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search..." id="navSearch">
+              <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
         </div>
-    </nav>
+        
+        <!-- Neural Connections -->
+        <svg class="neural-connections" viewBox="0 0 800 100">
+          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+          <defs>
+            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      
+      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+        <div class="toggle-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="toggle-circuit"></div>
+      </button>
+    </div>
+    
+    <!-- Mobile Neural Menu -->
+    <div class="mobile-neural-menu" id="mobileNeuralMenu">
+      <div class="menu-container">
+        <div class="menu-nodes">
+          <a href="index.html" class="mobile-node active">
+            <div class="node-icon"><i class="fas fa-home"></i></div>
+            <span>Home</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="about.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+            <span>About</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="events.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Events</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="projects.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-code"></i></div>
+            <span>Projects</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="team.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-users"></i></div>
+            <span>Team</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="contact.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+            <span>Contact</span>
+            <div class="node-trail"></div>
+          </a>
+        </div>
+        
+        <div class="menu-footer">
+          <div class="social-nodes">
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <button class="quantum-join-btn" onclick="openJoinModal()">
+            <span class="btn-text">Join Club</span>
+            <div class="btn-particles"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-container">
-            <!-- Animated Code Background -->
-            <div class="code-rain" id="codeRain"></div>
-            
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo-main">
-                    <div class="logo-glow"></div>
-                </div>
-                
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-line">
-                            <span class="bracket">&lt;</span>
-                            <span class="text-gradient">CODING CLUB</span>
-                            <span class="bracket">/&gt;</span>
-                        </span>
-                        <span class="subtitle">PRPCEM</span>
-                    </h1>
-                    
-                    <div class="typing-container">
-                        <span class="typing-prefix">$&gt;</span>
-                        <span class="typing-text" id="typingText"></span>
-                        <span class="cursor-blink">|</span>
-                    </div>
-                    
-                    <p class="hero-description">
-                        Where <span class="highlight">innovation</span> meets <span class="highlight">code</span>.
-                        Join our community of passionate developers, creators, and tech enthusiasts.
-                    </p>
-                </div>
-                
-                <div class="hero-actions">
-                    <button class="btn-primary" onclick="scrollToSection('events')">
-                        <i class="fas fa-rocket"></i>
-                        <span>Explore Events</span>
-                    </button>
-                    <button class="btn-secondary" onclick="openJoinModal()">
-                        <i class="fas fa-plus"></i>
-                        <span>Join Club</span>
-                    </button>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Active Members</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="50">0</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="25">0</div>
-                        <div class="stat-label">Events Hosted</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-                <span class="scroll-text">Scroll to explore</span>
-            </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="code-rain" id="codeRain"></div>
+      <div class="hero-content">
+        <div class="hero-logo">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo-main" />
+          <div class="logo-glow"></div>
         </div>
-    </section>
+
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="title-line">
+              <span class="bracket">&lt;</span>
+              <span class="text-gradient">CODING CLUB</span>
+              <span class="bracket">/&gt;</span>
+            </span>
+            <span class="subtitle">PRPCEM</span>
+          </h1>
+          <div class="typing-container">
+            <span class="typing-prefix">$&gt;</span>
+            <span class="typing-text" id="typingText"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+          <p class="hero-description">
+            Where <span class="highlight">innovation</span> meets <span class="highlight">code</span>. Join our community of passionate developers, creators, and tech enthusiasts.
+          </p>
+        </div>
+
+        <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
+          <button class="btn-primary" onclick="scrollToSection('events')">
+            <i class="fas fa-rocket"></i>
+            <span>Explore Events</span>
+          </button>
+          <button class="btn-secondary" onclick="openJoinModal()">
+            <i class="fas fa-plus"></i>
+            <span>Join Club</span>
+          </button>
+        </div>
+
+        <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap">
+          <div class="stat-item">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Active Members</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="25">0</div>
+            <div class="stat-label">Events Hosted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
@@ -780,136 +821,114 @@
     </section>
 
     <!-- Enhanced Footer -->
-    <footer class="footer-section">
-        <div class="footer-container">
-            <!-- Footer Main Content -->
-            <div class="footer-main">
-                <!-- Brand Section -->
-                <div class="footer-brand">
-                    <div class="footer-logo-section">
-                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo">
-                        <div class="logo-glow"></div>
-                    </div>
-                    <div class="footer-text">
-                        <h3>Coding Club PRPCEM</h3>
-                        <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
-                        <div class="footer-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">500+</span>
-                                <span class="stat-label">Members</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Projects</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100+</span>
-                                <span class="stat-label">Events</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About Us</a>
-                        <a href="events.html">Events</a>
-                        <a href="projects.html">Projects</a>
-                        <a href="team.html">Our Team</a>
-                        <a href="contact.html">Contact</a>
-                    </nav>
-                </div>
-                
-                <!-- Resources -->
-                <div class="footer-resources">
-                    <h4>Resources</h4>
-                    <nav class="footer-nav">
-                        <a href="#" onclick="openJoinModal()">Join Club</a>
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
-                        <a href="#newsletter">Newsletter</a>
-                        <a href="#faq">FAQ</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#tutorials">Tutorials</a>
-                    </nav>
-                </div>
-                
-                <!-- Connect Section -->
-                <div class="footer-connect">
-                    <h4>Connect With Us</h4>
-                    <div class="social-grid">
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item" title="GitHub">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://discord.gg/codingclub" target="_blank" class="social-item" title="Discord">
-                            <i class="fab fa-discord"></i>
-                            <span>Discord</span>
-                        </a>
-                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item" title="YouTube">
-                            <i class="fab fa-youtube"></i>
-                            <span>YouTube</span>
-                        </a>
-                    </div>
-                    
-                    <!-- Newsletter Signup -->
-                    <div class="newsletter-signup">
-                        <h5>Stay Updated</h5>
-                        <form class="newsletter-form" id="newsletterForm">
-                            <div class="input-group">
-                                <input type="email" placeholder="Enter your email" required>
-                                <button type="submit">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-left">
-                    <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
-                    <div class="footer-legal">
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
-                        <a href="#cookies">Cookie Policy</a>
-                    </div>
-                </div>
-                <div class="footer-bottom-right">
-                    <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
-                    <div class="footer-tech">
-                        <span>Built with:</span>
-                        <i class="fab fa-html5" title="HTML5"></i>
-                        <i class="fab fa-css3-alt" title="CSS3"></i>
-                        <i class="fab fa-js-square" title="JavaScript"></i>
-                        <i class="fab fa-github" title="GitHub"></i>
-                    </div>
-                </div>
-            </div>
+<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
+  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Footer Main Content -->
+    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <!-- Brand Section -->
+      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
+        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
+          <div class="logo-glow"></div>
         </div>
-        
-        <!-- Footer Background Effects -->
-        <div class="footer-bg-effects">
-            <div class="footer-particles"></div>
-            <div class="footer-grid"></div>
+        <div class="footer-text">
+          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
+          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
+          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Events</span>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="events.html">Events</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Resources</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#" onclick="openJoinModal()">Join Club</a>
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq">FAQ</a>
+          <a href="#blog">Blog</a>
+          <a href="#tutorials">Tutorials</a>
+        </nav>
+      </div>
+
+      <!-- Connect Section -->
+      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
+        <h4>Connect With Us</h4>
+        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup" style="margin-top: 1rem;">
+          <h5>Stay Updated</h5>
+          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
+            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
+        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span>Built with:</span>
+          <i class="fab fa-html5" title="HTML5"></i>
+          <i class="fab fa-css3-alt" title="CSS3"></i>
+          <i class="fab fa-js-square" title="JavaScript"></i>
+          <i class="fab fa-github" title="GitHub"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Background Effects -->
+  <div class="footer-bg-effects">
+    <div class="footer-particles"></div>
+    <div class="footer-grid"></div>
+  </div>
+</footer>
 
     <!-- Join Modal -->
     <div class="modal-overlay" id="joinModal">
@@ -975,8 +994,8 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/enhanced-navigation.js"></script>
-    <script src="js/animations.js"></script>
+<script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/mobile-app.js"></script>
 </body>
 </html>
