@@ -76,6 +76,206 @@
         gap: 2rem;
       }
     }
+
+    /* Technical Posts Section Styles */
+    .posts-section {
+      padding: 4rem 0;
+      background: #0a0f1a;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    .post-card.featured {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .post-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .post-image {
+      height: 120px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-icon {
+      font-size: 2rem;
+      color: #00d4ff;
+      z-index: 2;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-content h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .post-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      background: #374151;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .read-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .read-more-btn:hover {
+      background: #00d4ff;
+      color: #0a0f1a;
+      transform: translateX(5px);
+    }
+
+    .posts-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-posts-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .view-all-posts-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -200,6 +400,11 @@
     <!-- Mobile Neural Menu -->
     <div class="mobile-neural-menu" id="mobileNeuralMenu">
       <div class="menu-container">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        
         <div class="menu-nodes">
           <a href="index.html" class="mobile-node active">
             <div class="node-icon"><i class="fas fa-home"></i></div>
@@ -256,166 +461,168 @@
       </div>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero-section">
+<!-- Hero Section -->
+<section id="home" class="hero-section">
     <div class="hero-container">
-      <div class="code-rain" id="codeRain"></div>
-      <div class="hero-content">
-        <div class="hero-logo">
-          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo-main" />
-          <div class="logo-glow"></div>
-        </div>
+        <div class="code-rain" id="codeRain"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo-main" />
+                <div class="logo-glow"></div>
+            </div>
 
-        <div class="hero-text">
-          <h1 class="hero-title">
-            <span class="title-line">
-              <span class="bracket">&lt;</span>
-              <span class="text-gradient">CODING CLUB</span>
-              <span class="bracket">/&gt;</span>
-            </span>
-            <span class="subtitle">PRPCEM</span>
-          </h1>
-          <div class="typing-container">
-            <span class="typing-prefix">$&gt;</span>
-            <span class="typing-text" id="typingText"></span>
-            <span class="cursor-blink">|</span>
-          </div>
-          <p class="hero-description">
-            Where <span class="highlight">innovation</span> meets <span class="highlight">code</span>. Join our community of passionate developers, creators, and tech enthusiasts.
-          </p>
-        </div>
-
-        <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
-          <button class="btn-primary" onclick="scrollToSection('events')">
-            <i class="fas fa-rocket"></i>
-            <span>Explore Events</span>
-          </button>
-          <button class="btn-secondary" onclick="openJoinModal()">
-            <i class="fas fa-plus"></i>
-            <span>Join Club</span>
-          </button>
-        </div>
-
-        <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap">
-          <div class="stat-item">
-            <div class="stat-number" data-target="500">0</div>
-            <div class="stat-label">Active Members</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-target="50">0</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-target="25">0</div>
-            <div class="stat-label">Events Hosted</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-info-circle"></i>
-                    <span>About Us</span>
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="bracket">&lt;</span>
+                        <span class="text-gradient">CODING CLUB</span>
+                        <span class="bracket">/&gt;</span>
+                    </span>
+                    <span class="subtitle">PRPCEM</span>
+                </h1>
+                <div class="slogan-container">
+                    <span class="slogan-text">Think Beyond the Syntax</span>
                 </div>
-                <h2 class="section-title">
-                    Building the <span class="text-gradient">Future</span> of Tech
-                </h2>
-                <p class="section-subtitle">
-                    We are a vibrant community of passionate developers, innovators, and tech enthusiasts
-                    committed to pushing the boundaries of technology.
+                <div class="typing-container">
+                    <span class="typing-prefix">$&gt;</span>
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="cursor-blink">|</span>
+                </div>
+                <p class="hero-description">
+                    Where <span class="highlight">innovation</span> transcends <span class="highlight">code</span>. Join our community of visionary developers who think beyond conventional programming paradigms.
                 </p>
             </div>
-            
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We foster creativity and encourage innovative thinking to solve real-world problems through technology.</p>
+
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
+                <button class="btn-primary" onclick="scrollToSection('events')">
+                    <i class="fas fa-rocket"></i>
+                    <span>Explore Events</span>
+                </button>
+                <button class="btn-secondary" onclick="openJoinModal()">
+                    <i class="fas fa-plus"></i>
+                    <span>Join Club</span>
+                </button>
+            </div>
+
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Forward Thinkers</div>
                 </div>
-                
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Community</h3>
-                    <p>Building a strong network of like-minded individuals who support and learn from each other.</p>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Innovative Solutions</div>
                 </div>
-                
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Learning</h3>
-                    <p>Continuous learning and skill development through workshops, hackathons, and peer collaboration.</p>
-                </div>
-                
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Development</h3>
-                    <p>Hands-on experience with cutting-edge technologies and industry-relevant project development.</p>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Mind-Expanding Events</div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section"></section>
+    <div class="section-container"></div>
+        <div class="section-header"></div>
+            <div class="section-badge"></div>
+                <i class="fas fa-brain"></i>
+                <span>Think Beyond</span>
+            </div>
+            <h2 class="section-title"></h2>
+                Transcending <span class="text-gradient">Conventional Coding</span>
+            </h2>
+            <p class="section-subtitle"></p>
+                We don't just write code - we architect solutions, innovate experiences, and think beyond 
+                traditional syntax to create meaningful technological impact.
+            </p>
+        </div>
+        
+        <div class="about-grid"></div>
+            <div class="about-card"></div>
+                <div class="card-icon"></div>
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3>Beyond Boundaries</h3>
+                <p>We challenge conventional thinking and push beyond the limits of traditional programming approaches.</p>
+            </div>
             
-            <div class="mission-statement">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="terminal-buttons">
-                            <span class="btn-red"></span>
-                            <span class="btn-yellow"></span>
-                            <span class="btn-green"></span>
-                        </div>
-                        <span class="terminal-title">mission.js</span>
+            <div class="about-card"></div>
+                <div class="card-icon"></div>
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Conceptual Innovation</h3>
+                <p>Transform abstract ideas into concrete solutions that impact real-world challenges and opportunities.</p>
+            </div>
+            
+            <div class="about-card"></div>
+                <div class="card-icon"></div>
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Holistic Problem Solving</h3>
+                <p>Understanding that great solutions require more than perfect syntax - they need vision and creativity.</p>
+            </div>
+            
+            <div class="about-card"></div>
+                <div class="card-icon"></div>
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Future-Forward Mindset</h3>
+                <p>Preparing minds for tomorrow's challenges with today's innovation and forward-thinking approaches.</p>
+            </div>
+        </div>
+        
+        <div class="mission-statement"></div>
+            <div class="terminal-window"></div>
+                <div class="terminal-header"></div>
+                    <div class="terminal-buttons"></div>
+                        <span class="btn-red"></span>
+                        <span class="btn-yellow"></span>
+                        <span class="btn-green"></span>
                     </div>
-                    <div class="terminal-body">
-                        <div class="code-line">
-                            <span class="line-number">1</span>
-                            <span class="code">
-                                <span class="keyword">const</span> 
-                                <span class="variable">mission</span> = {
-                            </span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-number">2</span>
-                            <span class="code">
-                                &nbsp;&nbsp;<span class="property">goal</span>: 
-                                <span class="string">"Empower students through technology"</span>,
-                            </span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-number">3</span>
-                            <span class="code">
-                                &nbsp;&nbsp;<span class="property">vision</span>: 
-                                <span class="string">"Create future tech leaders"</span>,
-                            </span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-number">4</span>
-                            <span class="code">
-                                &nbsp;&nbsp;<span class="property">values</span>: [
-                                <span class="string">"innovation"</span>, 
-                                <span class="string">"collaboration"</span>, 
-                                <span class="string">"excellence"</span>]
-                            </span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-number">5</span>
-                            <span class="code">};</span>
-                        </div>
+                    <span class="terminal-title">philosophy.js</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code">
+                            <span class="keyword">const</span> 
+                            <span class="variable">philosophy</span> = {
+                        </span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code">
+                            &nbsp;&nbsp;<span class="property">motto</span>: 
+                            <span class="string">"Think Beyond the Syntax"</span>,
+                        </span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code">
+                            &nbsp;&nbsp;<span class="property">mission</span>: 
+                            <span class="string">"Cultivate visionary developers"</span>,
+                        </span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code">
+                            &nbsp;&nbsp;<span class="property">approach</span>: [
+                            <span class="string">"conceptual"</span>, 
+                            <span class="string">"innovative"</span>, 
+                            <span class="string">"transformative"</span>]
+                        </span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code">};</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Events Section -->
     <section id="events" class="events-section">
@@ -426,7 +633,7 @@
                     <span>Events</span>
                 </div>
                 <h2 class="section-title">
-                    Upcoming <span class="text-gradient">Events</span>
+                    Our <span class="text-gradient">Events</span>
                 </h2>
                 <p class="section-subtitle">
                     Join us for exciting workshops, hackathons, and tech talks that will enhance your skills
@@ -434,7 +641,20 @@
                 </p>
             </div>
             
-            <div class="events-container">
+            <!-- Event Tabs -->
+            <div class="event-tabs">
+                <button class="event-tab active" onclick="switchEventTab('upcoming')">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Upcoming Events</span>
+                </button>
+                <button class="event-tab" onclick="switchEventTab('past')">
+                    <i class="fas fa-history"></i>
+                    <span>Past Events</span>
+                </button>
+            </div>
+            
+            <!-- Upcoming Events -->
+            <div class="events-container" id="upcoming-events">
                 <div class="event-card featured">
                     <div class="event-image">
                         <div class="event-overlay">
@@ -444,8 +664,8 @@
                     </div>
                     <div class="event-content">
                         <div class="event-date">
-                            <span class="month">AUG</span>
-                            <span class="day">15</span>
+                            <span class="month">JAN</span>
+                            <span class="day">25</span>
                         </div>
                         <h3>Git & GitHub Mastery Workshop</h3>
                         <p>Master version control, collaboration, and open source contribution with hands-on experience.</p>
@@ -469,8 +689,8 @@
                     </div>
                     <div class="event-content">
                         <div class="event-date">
-                            <span class="month">SEP</span>
-                            <span class="day">01</span>
+                            <span class="month">FEB</span>
+                            <span class="day">15</span>
                         </div>
                         <h3>HackFest 2025</h3>
                         <p>48-hour coding marathon to solve real-world problems and win exciting prizes.</p>
@@ -494,8 +714,8 @@
                     </div>
                     <div class="event-content">
                         <div class="event-date">
-                            <span class="month">SEP</span>
-                            <span class="day">20</span>
+                            <span class="month">MAR</span>
+                            <span class="day">10</span>
                         </div>
                         <h3>AI/ML Workshop</h3>
                         <p>Dive into artificial intelligence and machine learning with practical examples.</p>
@@ -513,82 +733,312 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Past Events -->
+            <div class="events-container" id="past-events" style="display: none;">
+                <div class="event-card past">
+                    <div class="event-image">
+                        <div class="event-overlay">
+                            <div class="event-type">COMPLETED</div>
+                        </div>
+                        <i class="fas fa-code event-icon"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">DEC</span>
+                            <span class="day">20</span>
+                        </div>
+                        <h3>Web Development Bootcamp</h3>
+                        <p>Comprehensive 3-day bootcamp covering HTML, CSS, JavaScript, and React fundamentals.</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>150+ Attendees</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.8/5 Rating</span>
+                            </div>
+                        </div>
+                        <button class="event-btn secondary">View Gallery</button>
+                    </div>
+                </div>
+                
+                <div class="event-card past">
+                    <div class="event-image">
+                        <i class="fas fa-laptop-code event-icon"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">NOV</span>
+                            <span class="day">15</span>
+                        </div>
+                        <h3>CodeStorm Hackathon</h3>
+                        <p>24-hour intense coding competition with industry mentors and amazing prizes.</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>80+ Participants</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>12 Winners</span>
+                            </div>
+                        </div>
+                        <button class="event-btn secondary">View Results</button>
+                    </div>
+                </div>
+                
+                <div class="event-card past">
+                    <div class="event-image">
+                        <i class="fas fa-mobile-alt event-icon"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="month">OCT</span>
+                            <span class="day">25</span>
+                        </div>
+                        <h3>Mobile App Development Workshop</h3>
+                        <p>Learn React Native and Flutter for cross-platform mobile app development.</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>120+ Attendees</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>15 Projects</span>
+                            </div>
+                        </div>
+                        <button class="event-btn secondary">View Projects</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    
+    <style>
+        .event-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .event-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .event-tab:hover,
+        .event-tab.active {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+        
+        .event-card.past {
+            opacity: 0.8;
+        }
+        
+        .event-card.past .event-type {
+            background: #6b7280;
+        }
+        
+        .event-btn.secondary {
+            background: rgba(107, 114, 128, 0.2);
+            border-color: #6b7280;
+            color: #9ca3af;
+        }
+        
+        .event-btn.secondary:hover {
+            background: #6b7280;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .event-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .event-tab {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+    
+    <script>
+        function switchEventTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.event-tab').classList.add('active');
+            
+            // Show/hide event containers
+            document.getElementById('upcoming-events').style.display = tab === 'upcoming' ? 'grid' : 'none';
+            document.getElementById('past-events').style.display = tab === 'past' ? 'grid' : 'none';
+        }
+    </script>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <!-- Technical Posts Section -->
+    <section id="posts" class="posts-section">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-badge">
-                    <i class="fas fa-code"></i>
-                    <span>Projects</span>
+                    <i class="fas fa-blog"></i>
+                    <span>Technical Posts</span>
                 </div>
                 <h2 class="section-title">
-                    Our <span class="text-gradient">Projects</span>
+                    Latest <span class="text-gradient">Tech Insights</span>
                 </h2>
                 <p class="section-subtitle">
-                    Explore the innovative projects developed by our talented community members.
+                    Explore cutting-edge technical articles, tutorials, and insights from our community experts.
                 </p>
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-globe"></i>
+            <div class="posts-grid">
+                <div class="post-card featured">
+                    <div class="post-header">
+                        <div class="post-category">
+                            <i class="fas fa-star"></i>
+                            <span>Featured</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="post-date">
+                            <span>Dec 15, 2024</span>
                         </div>
                     </div>
-                    <h3>Smart Campus Portal</h3>
-                    <p>An integrated platform for students to access campus services, events, and resources with modern UI/UX.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
+                    <div class="post-image">
+                        <div class="post-overlay">
+                            <i class="fas fa-rocket post-icon"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>Building Scalable Microservices with Node.js</h3>
+                        <p>Learn how to architect and deploy microservices using Node.js, Docker, and Kubernetes for enterprise-level applications.</p>
+                        <div class="post-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Karamveer Singh</span>
+                            </div>
+                            <div class="read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>8 min read</span>
+                            </div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <button class="read-more-btn">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-robot"></i>
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-category">
+                            <i class="fas fa-brain"></i>
+                            <span>AI/ML</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="post-date">
+                            <span>Dec 12, 2024</span>
                         </div>
                     </div>
-                    <h3>AI Study Assistant</h3>
-                    <p>Machine learning powered chatbot to help students with their academic queries and provide personalized learning paths.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Flask</span>
+                    <div class="post-image">
+                        <div class="post-overlay">
+                            <i class="fas fa-robot post-icon"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>Getting Started with Machine Learning in Python</h3>
+                        <p>A beginner's guide to machine learning concepts, libraries, and building your first ML model using Python and scikit-learn.</p>
+                        <div class="post-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Tech Team</span>
+                            </div>
+                            <div class="read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>12 min read</span>
+                            </div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ML</span>
+                            <span class="tech-tag">scikit-learn</span>
+                        </div>
+                        <button class="read-more-btn">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-category">
                             <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Dev</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="post-date">
+                            <span>Dec 10, 2024</span>
                         </div>
                     </div>
-                    <h3>Event Manager App</h3>
-                    <p>Cross-platform mobile app for managing and discovering campus events with real-time notifications.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Dart</span>
+                    <div class="post-image">
+                        <div class="post-overlay">
+                            <i class="fas fa-code post-icon"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>React Native vs Flutter: Which to Choose?</h3>
+                        <p>Comprehensive comparison of React Native and Flutter for cross-platform mobile development with pros, cons, and use cases.</p>
+                        <div class="post-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Dev Community</span>
+                            </div>
+                            <div class="read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Mobile</span>
+                        </div>
+                        <button class="read-more-btn">
+                            <span>Read More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
+            </div>
+            
+            <div class="posts-footer">
+                <button class="view-all-posts-btn">
+                    <span>View All Posts</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -619,65 +1069,19 @@
                     </div>
                     <div class="team-info">
                         <h3>Karamveer Singh Oberoi</h3>
-                        <p class="team-role">Club President</p>
-                        <p class="team-bio">Leading the club with vision and passion for technology innovation.</p>
-                        <div class="team-skills">
-                            <span class="skill">Leadership</span>
-                            <span class="skill">Full Stack</span>
-                            <span class="skill">AI/ML</span>
-                        </div>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/karamveersinghoberoi2648"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/karamveeroberoi"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:karamoberoi19@gmail.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="online-indicator"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3>Sujal Bhugul</h3>
-                        <p class="team-role">Technical Lead</p>
-                        <p class="team-bio">Driving technical excellence and mentoring fellow developers.</p>
+                        <p class="team-role">Full Stack Developer</p>
+                        <p class="team-bio">Lead developer and architect behind this innovative website. Passionate about creating seamless user experiences and robust backend systems.</p>
                         <div class="team-skills">
                             <span class="skill">React</span>
-                            <span class="skill">DevOps</span>
-                            <span class="skill">Cloud</span>
-                        </div>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/sujal23/"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/sujalbhugul/"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:sujalbhugul08@gmail.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="online-indicator"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3>Tushar Ahuja</h3>
-                        <p class="team-role">Community Manager</p>
-                        <p class="team-bio">Building connections and fostering community growth.</p>
-                        <div class="team-skills">
+                            <span class="skill">Node.js</span>
+                            <span class="skill">MongoDB</span>
                             <span class="skill">JavaScript</span>
-                            <span class="skill">Python</span>
-                            <span class="skill">Community</span>
                         </div>
                         <div class="team-social">
-                            <a href="https://www.linkedin.com/in/tushrahuja/"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/tushrahuja/"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:ahuja.tushar.m@gmail.com"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/karamveer0123" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/karamveeroberoi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:karamoberoi19@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -690,24 +1094,53 @@
                         <div class="online-indicator"></div>
                     </div>
                     <div class="team-info">
-                        <h3>Aman Asthana</h3>
-                        <p class="team-role">Project Coordinator</p>
-                        <p class="team-bio">Coordinating innovative projects and ensuring quality delivery.</p>
+                        <h3>John Doe</h3>
+                        <p class="team-role">Frontend Developer</p>
+                        <p class="team-bio">Creative frontend developer specializing in modern UI/UX design and interactive web experiences that engage users.</p>
                         <div class="team-skills">
-                            <span class="skill">Project Mgmt</span>
-                            <span class="skill">Backend</span>
-                            <span class="skill">Database</span>
+                            <span class="skill">HTML/CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Vue.js</span>
+                            <span class="skill">Design</span>
                         </div>
                         <div class="team-social">
-                            <a href="https://www.linkedin.com/in/aman-asthana/"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/aman._.asthana/"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:amanasthana431@gmail.com"><i class="fas fa-envelope"></i></a>
+                            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Jane Smith</h3>
+                        <p class="team-role">Backend Developer</p>
+                        <p class="team-bio">Backend specialist focused on building scalable server architectures and optimizing database performance for maximum efficiency.</p>
+                        <div class="team-skills">
+                            <span class="skill">Python</span>
+                            <span class="skill">Django</span>
+                            <span class="skill">PostgreSQL</span>
+                            <span class="skill">AWS</span>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">

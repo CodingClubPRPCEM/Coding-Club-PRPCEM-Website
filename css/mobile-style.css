@@ -479,6 +479,18 @@ body {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Ensure toggle button stays above mobile menu when active */
+.cyber-toggle.active {
+    z-index: calc(var(--z-modal) + 1);
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--tech-blue);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.cyber-toggle.active .line {
+    background: var(--tech-blue);
+}
+
 /* Mobile Neural Menu */
 .mobile-neural-menu {
     position: fixed;
@@ -504,6 +516,35 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+}
+
+/* Mobile Menu Close Button */
+.mobile-menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-medium);
+    z-index: 10;
+}
+
+.mobile-menu-close:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--tech-blue);
+    color: var(--tech-blue);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .menu-nodes {
@@ -854,6 +895,11 @@ body {
         text-align: left;
     }
 }
+
+/* Body Styles */
+body {
+    font-family: var(--font-primary);
+    background: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;

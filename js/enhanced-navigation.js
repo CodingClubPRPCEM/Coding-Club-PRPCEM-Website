@@ -75,6 +75,16 @@ function initializeNeuralNavigation() {
         }
     });
 
+    // Handle mobile menu close button
+    const mobileMenuClose = $('#mobileMenuClose');
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeNeuralMenu();
+        });
+    }
+
     // Handle neural node hover effects
     const desktopNodes = $$('.nav-node');
     desktopNodes.forEach(node => {
