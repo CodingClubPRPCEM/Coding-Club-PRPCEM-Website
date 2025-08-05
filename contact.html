@@ -1,206 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Contact | Coding Club PRPCEM</title>
-    <link rel="icon" href="images/logo1.png" type="image/png">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Modern fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/mobile-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .nav-brand {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      footer .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Technical Posts Section Styles */
+    .posts-section {
+      padding: 4rem 0;
+      background: #0a0f1a;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    .post-card.featured {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .post-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .post-image {
+      height: 120px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-icon {
+      font-size: 2rem;
+      color: #00d4ff;
+      z-index: 2;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-content h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .post-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      background: #374151;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .read-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .read-more-btn:hover {
+      background: #00d4ff;
+      color: #0a0f1a;
+      transform: translateX(5px);
+    }
+
+    .posts-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-posts-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .view-all-posts-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div class="particle-bg" id="particle-bg"></div>
-    
-    <!-- Futuristic Navigation -->
-    <nav class="cyber-nav" id="cyberNav">
-        <div class="nav-container">
-            <!-- Logo with Holographic Effect -->
-            <div class="nav-brand">
-                <div class="logo-container">
-                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo">
-                    <div class="logo-hologram"></div>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">CODING CLUB</span>
-                    <span class="brand-subtitle">PRPCEM</span>
-                </div>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Navigation (updated layout for toggle button next to logo) -->
+  <nav class="cyber-nav" id="cyberNav">
+    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div class="nav-brand" style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
+          <div class="logo-hologram"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CODING CLUB</span>
+          <span class="brand-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Neural Network Navigation -->
+      <div class="neural-nav">
+        <div class="nav-nodes">
+          <a href="index.html" class="nav-node active" data-page="home">
+            <div class="node-core">
+              <i class="fas fa-home"></i>
             </div>
-            
-            <!-- Neural Network Navigation -->
-            <div class="neural-nav">
-                <div class="nav-nodes">
-                    <a href="index.html" class="nav-node" data-page="home">
-                        <div class="node-core">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Home</span>
-                    </a>
-                    
-                    <a href="about.html" class="nav-node" data-page="about">
-                        <div class="node-core">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">About</span>
-                    </a>
-                    
-                    <a href="events.html" class="nav-node" data-page="events">
-                        <div class="node-core">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Events</span>
-                    </a>
-                    
-                    <a href="projects.html" class="nav-node" data-page="projects">
-                        <div class="node-core">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Projects</span>
-                    </a>
-                    
-                    <a href="team.html" class="nav-node" data-page="team">
-                        <div class="node-core">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Team</span>
-                    </a>
-                    
-                    <a href="contact.html" class="nav-node active" data-page="contact">
-                        <div class="node-core">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="node-pulse"></div>
-                        <span class="node-label">Contact</span>
-                    </a>
-                </div>
-                
-                <!-- Enhanced Nav Tools -->
-                <div class="nav-tools">
-                    <div class="search-container">
-                        <button class="search-trigger" id="searchTrigger">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-box" id="searchBox">
-                            <input type="text" placeholder="Search..." id="navSearch">
-                            <button class="search-close" id="searchClose">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Home</span>
+          </a>
+          
+          <a href="about.html" class="nav-node" data-page="about">
+            <div class="node-core">
+              <i class="fas fa-info-circle"></i>
             </div>
-                
-                <!-- Neural Connections -->
-                <svg class="neural-connections" viewBox="0 0 800 100">
-                    <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
-                    <defs>
-                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
-                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
-                            <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+            <div class="node-pulse"></div>
+            <span class="node-label">About</span>
+          </a>
+          
+          <a href="events.html" class="nav-node" data-page="events">
+            <div class="node-core">
+              <i class="fas fa-calendar-alt"></i>
             </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
-                <div class="toggle-lines">
-                    <span class="line line-1"></span>
-                    <span class="line line-2"></span>
-                    <span class="line line-3"></span>
-                </div>
-                <div class="toggle-circuit"></div>
-            </button>
+            <div class="node-pulse"></div>
+            <span class="node-label">Events</span>
+          </a>
+          
+          <a href="projects.html" class="nav-node" data-page="projects">
+            <div class="node-core">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Projects</span>
+          </a>
+          
+          <a href="team.html" class="nav-node" data-page="team">
+            <div class="node-core">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Team</span>
+          </a>
+          
+          <a href="contact.html" class="nav-node" data-page="contact">
+            <div class="node-core">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Contact</span>
+          </a>
         </div>
         
-        <!-- Mobile Neural Menu -->
-        <div class="mobile-neural-menu" id="mobileNeuralMenu">
-            <div class="menu-container">
-                <div class="menu-nodes">
-                    <a href="index.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-home"></i></div>
-                        <span>Home</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="about.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-info-circle"></i></div>
-                        <span>About</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="events.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <span>Events</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="projects.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-code"></i></div>
-                        <span>Projects</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="team.html" class="mobile-node">
-                        <div class="node-icon"><i class="fas fa-users"></i></div>
-                        <span>Team</span>
-                        <div class="node-trail"></div>
-                    </a>
-                    <a href="contact.html" class="mobile-node active">
-                        <div class="node-icon"><i class="fas fa-envelope"></i></div>
-                        <span>Contact</span>
-                        <div class="node-trail"></div>
-                    </a>
-                </div>
-                
-                <div class="menu-footer">
-                    <div class="social-nodes">
-                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                    <button class="quantum-join-btn" onclick="openJoinModal()">
-                        <span class="btn-text">Join Club</span>
-                        <div class="btn-particles"></div>
-                    </button>
-                </div>
+        <!-- Enhanced Nav Tools -->
+        <div class="nav-tools">
+          <div class="search-container">
+            <button class="search-trigger" id="searchTrigger">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search..." id="navSearch">
+              <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
         </div>
-    </nav>
+        
+        <!-- Neural Connections -->
+        <svg class="neural-connections" viewBox="0 0 800 100">
+          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+          <defs>
+            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      
+      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+        <div class="toggle-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="toggle-circuit"></div>
+      </button>
+    </div>
+    
+    <!-- Mobile Neural Menu -->
+    <div class="mobile-neural-menu" id="mobileNeuralMenu">
+      <div class="menu-container">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-nodes">
+          <a href="index.html" class="mobile-node active">
+            <div class="node-icon"><i class="fas fa-home"></i></div>
+            <span>Home</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="about.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+            <span>About</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="events.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Events</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="projects.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-code"></i></div>
+            <span>Projects</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="team.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-users"></i></div>
+            <span>Team</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="contact.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+            <span>Contact</span>
+            <div class="node-trail"></div>
+          </a>
+        </div>
+        
+        <div class="menu-footer">
+          <div class="social-nodes">
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <button class="quantum-join-btn" onclick="openJoinModal()">
+            <span class="btn-text">Join Club</span>
+            <div class="btn-particles"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
 
     <!-- Page Header -->
     <header class="page-header">
@@ -625,132 +886,742 @@
         </section>
     </main>
 
+    <style>
+        /* Main Content Styles */
+        .main-content {
+            background: #0a0f1a;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1e293b 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #8b5cf6;
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            color: #00d4ff;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Contact Methods Section */
+        .contact-methods {
+            padding: 4rem 0;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .contact-card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: #00d4ff;
+            color: #0a0f1a;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .status-indicator.online {
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .status-text {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: #94a3b8;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:valid + label,
+        .form-group select:focus + label,
+        .form-group select:valid + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:valid + label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #00d4ff;
+            background: #0a0f1a;
+            padding: 0 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #00d4ff;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked + .checkbox-label .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: #00d4ff;
+            font-size: 14px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border: none;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Contact Sidebar */
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .quick-contact,
+        .response-time,
+        .urgent-contact {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .quick-contact h3,
+        .response-time h4,
+        .urgent-contact h4 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .quick-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quick-item i {
+            color: #00d4ff;
+            font-size: 1.25rem;
+        }
+
+        .item-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            display: block;
+        }
+
+        .item-value {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .response-icon,
+        .urgent-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .response-icon i,
+        .urgent-icon i {
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+
+        .response-time p,
+        .urgent-contact p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .urgent-contact a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        .urgent-contact a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Social Media Section */
+        .social-media-section {
+            padding: 4rem 0;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .social-card.linkedin {
+            --brand-color: #0077b5;
+        }
+
+        .social-card.instagram {
+            --brand-color: #e4405f;
+        }
+
+        .social-card.youtube {
+            --brand-color: #ff0000;
+        }
+
+        .social-card.github {
+            --brand-color: #ffffff;
+        }
+
+        .social-card.twitter {
+            --brand-color: #1da1f2;
+        }
+
+        .social-card.whatsapp {
+            --brand-color: #25d366;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--brand-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .social-content h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .social-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .social-stats span {
+            color: var(--brand-color);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-question h3 {
+            color: #ffffff;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: #00d4ff;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+
     <!-- Enhanced Footer -->
-    <footer class="footer">
-        <!-- Background Effects -->
-        <div class="footer-particles"></div>
-        <div class="footer-grid"></div>
-        
-        <div class="footer-main">
-            <!-- Brand Section -->
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="images/logo1.png" alt="Coding Club PRPCEM">
-                    <div class="logo-glow"></div>
-                </div>
-                
-                <!-- Stats Grid -->
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="500">0</span>
-                        <span class="stat-label">Members</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="150">0</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="75">0</span>
-                        <span class="stat-label">Events</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="25">0</span>
-                        <span class="stat-label">Mentors</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="index.html"><i class="fas fa-home"></i>Home</a>
-                    <a href="about.html"><i class="fas fa-info-circle"></i>About</a>
-                    <a href="events.html"><i class="fas fa-calendar"></i>Events</a>
-                    <a href="projects.html"><i class="fas fa-code"></i>Projects</a>
-                    <a href="team.html"><i class="fas fa-users"></i>Team</a>
-                    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
-                </div>
-            </div>
-            
-            <!-- Resources -->
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="#"><i class="fas fa-book"></i>Documentation</a>
-                    <a href="#"><i class="fas fa-graduation-cap"></i>Tutorials</a>
-                    <a href="#"><i class="fab fa-github"></i>GitHub</a>
-                    <a href="#"><i class="fas fa-blog"></i>Blog</a>
-                    <a href="#"><i class="fas fa-download"></i>Downloads</a>
-                    <a href="#"><i class="fas fa-question-circle"></i>FAQ</a>
-                </div>
-            </div>
-            
-            <!-- Connect -->
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <div class="social-grid">
-                    <a href="#" class="social-item" data-platform="github">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="#" class="social-item" data-platform="discord">
-                        <i class="fab fa-discord"></i>
-                        <span>Discord</span>
-                    </a>
-                    <a href="#" class="social-item" data-platform="linkedin">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="#" class="social-item" data-platform="twitter">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </a>
-                    <a href="#" class="social-item" data-platform="instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="#" class="social-item" data-platform="youtube">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                </div>
-                
-                <!-- Newsletter -->
-                <div class="newsletter-signup">
-                    <h4>Stay Updated</h4>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
+  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Footer Main Content -->
+    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <!-- Brand Section -->
+      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
+        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
+          <div class="logo-glow"></div>
         </div>
-        
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-legal">
-                <span>&copy; 2024 Coding Club PRPCEM. All rights reserved.</span>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Code of Conduct</a>
-                </div>
+        <div class="footer-text">
+          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
+          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
+          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Members</span>
             </div>
-            
-            <div class="tech-stack">
-                <span>Built with</span>
-                <div class="tech-icons">
-                    <i class="fab fa-html5" title="HTML5"></i>
-                    <i class="fab fa-css3-alt" title="CSS3"></i>
-                    <i class="fab fa-js" title="JavaScript"></i>
-                    <i class="fab fa-git-alt" title="Git"></i>
-                </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
             </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Events</span>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="events.html">Events</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Resources</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#" onclick="openJoinModal()">Join Club</a>
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq">FAQ</a>
+          <a href="#blog">Blog</a>
+          <a href="#tutorials">Tutorials</a>
+        </nav>
+      </div>
+
+      <!-- Connect Section -->
+      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
+        <h4>Connect With Us</h4>
+        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup" style="margin-top: 1rem;">
+          <h5>Stay Updated</h5>
+          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
+            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
+        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span>Built with:</span>
+          <i class="fab fa-html5" title="HTML5"></i>
+          <i class="fab fa-css3-alt" title="CSS3"></i>
+          <i class="fab fa-js-square" title="JavaScript"></i>
+          <i class="fab fa-github" title="GitHub"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Background Effects -->
+  <div class="footer-bg-effects">
+    <div class="footer-particles"></div>
+    <div class="footer-grid"></div>
+  </div>
+</footer>
 
     <!-- Join Modal -->
     <div class="modal-overlay" id="joinModal">
@@ -816,8 +1687,8 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/enhanced-navigation.js"></script>
-    <script src="js/animations.js"></script>
+<script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/mobile-app.js"></script>
 </body>
 </html>
