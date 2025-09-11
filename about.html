@@ -3,1404 +3,522 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <title>About | Coding Club PRPCEM</title>
   <link rel="icon" href="images/logo1.png" type="image/png" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/mobile-style.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-      }
-
-      .nav-brand {
-        flex-direction: row;
-        align-items: center;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-        text-align: center;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-        padding: 0 1rem;
-        text-align: center;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .about-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-      }
-
-      footer .footer-links {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .hero-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    /* Technical Posts Section Styles */
-    .posts-section {
-      padding: 4rem 0;
-      background: #0a0f1a;
-    }
-
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .post-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .post-card:hover {
-      transform: translateY(-5px);
-      border-color: #00d4ff;
-    }
-
-    .post-card.featured {
-      border-color: #f59e0b;
-      background: rgba(245, 158, 11, 0.05);
-    }
-
-    .post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .post-category {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #00d4ff;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .post-date {
-      color: #94a3b8;
-      font-size: 0.875rem;
-    }
-
-    .post-image {
-      height: 120px;
-      background: linear-gradient(135deg, #1e293b, #334155);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .post-icon {
-      font-size: 2rem;
-      color: #00d4ff;
-      z-index: 2;
-    }
-
-    .post-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 212, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .post-content h3 {
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .post-content p {
-      color: #94a3b8;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .post-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .author-info {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .author-avatar {
-      width: 24px;
-      height: 24px;
-      background: #374151;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-
-    .read-time {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      color: #6b7280;
-      font-size: 0.875rem;
-    }
-
-    .tech-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-
-    .tech-tag {
-      background: rgba(0, 212, 255, 0.1);
-      color: #00d4ff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-    }
-
-    .read-more-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      border: 1px solid #00d4ff;
-      color: #00d4ff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-
-    .read-more-btn:hover {
-      background: #00d4ff;
-      color: #0a0f1a;
-      transform: translateX(5px);
-    }
-
-    .posts-footer {
-      display: flex;
-      justify-content: center;
-      margin-top: 3rem;
-    }
-
-    .view-all-posts-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      border: none;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      font-weight: 600;
-    }
-
-    .view-all-posts-btn:hover {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .posts-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .post-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/backgrounds.css" />
 </head>
-<body>
-  <div class="particle-bg" id="particle-bg"></div>
-
-  <!-- Navigation (updated layout for toggle button next to logo) -->
-  <nav class="cyber-nav" id="cyberNav">
-    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-      <div class="nav-brand" style="display: flex; align-items: center;">
-        <div class="logo-container">
-          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
-          <div class="logo-hologram"></div>
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">CODING CLUB</span>
-          <span class="brand-subtitle">PRPCEM</span>
-        </div>
-      </div>
-      
-      <!-- Neural Network Navigation -->
-      <div class="neural-nav">
-        <div class="nav-nodes">
-          <a href="index.html" class="nav-node active" data-page="home">
-            <div class="node-core">
-              <i class="fas fa-home"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">Home</span>
-          </a>
-          
-          <a href="about.html" class="nav-node" data-page="about">
-            <div class="node-core">
-              <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">About</span>
-          </a>
-          
-          <a href="events.html" class="nav-node" data-page="events">
-            <div class="node-core">
-              <i class="fas fa-calendar-alt"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">Events</span>
-          </a>
-          
-          <a href="projects.html" class="nav-node" data-page="projects">
-            <div class="node-core">
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">Projects</span>
-          </a>
-          
-          <a href="team.html" class="nav-node" data-page="team">
-            <div class="node-core">
-              <i class="fas fa-users"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">Team</span>
-          </a>
-          
-          <a href="contact.html" class="nav-node" data-page="contact">
-            <div class="node-core">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="node-pulse"></div>
-            <span class="node-label">Contact</span>
-          </a>
+<body class="bg-bg-dark text-text-primary">
+  <!-- Particle Background -->
+  <div id="particleBg" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-dark/80 backdrop-blur-md py-3 border-b border-tech-blue/20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="relative w-10 h-10 animate-pulse-glow">
+            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-full h-full object-contain">
+            <div class="absolute inset-0 bg-tech-blue/20 rounded-full filter blur-md -z-10"></div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg leading-tight">CODING CLUB</span>
+            <span class="text-xs text-text-secondary">PRPCEM</span>
+            <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
+          </div>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link font-medium">Home</a>
+          <a href="about.html" class="nav-link font-medium text-tech-blue">About</a>
+          <a href="events.html" class="nav-link font-medium">Events</a>
+          <a href="projects.html" class="nav-link font-medium">Projects</a>
+          <a href="team.html" class="nav-link font-medium">Team</a>
+          <a href="contact.html" class="btn-outline py-2 px-4 text-sm">Contact Us</a>
         </div>
         
-        <!-- Enhanced Nav Tools -->
-        <div class="nav-tools">
-          <div class="search-container">
-            <button class="search-trigger" id="searchTrigger">
-              <i class="fas fa-search"></i>
-            </button>
-            <div class="search-box" id="searchBox">
-              <input type="text" placeholder="Search..." id="navSearch">
-              <button class="search-close" id="searchClose">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-          
-          <div class="social-links">
-            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
-              <i class="fab fa-discord"></i>
-            </a>
-            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Neural Connections -->
-        <svg class="neural-connections" viewBox="0 0 800 100">
-          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
-          <defs>
-            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
-              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
-              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 group">
+          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
+          <span class="w-6 h-0.5 bg-tech-blue transition-all duration-300 group-[.open]:opacity-0"></span>
+          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
+        </button>
       </div>
-      
-      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
-        <div class="toggle-lines">
-          <span class="line line-1"></span>
-          <span class="line line-2"></span>
-          <span class="line line-3"></span>
-        </div>
-        <div class="toggle-circuit"></div>
-      </button>
     </div>
     
-    <!-- Mobile Neural Menu -->
-    <div class="mobile-neural-menu" id="mobileNeuralMenu">
-      <div class="menu-container">
-        <!-- Close Button -->
-        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-          <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="menu-nodes">
-          <a href="index.html" class="mobile-node active">
-            <div class="node-icon"><i class="fas fa-home"></i></div>
-            <span>Home</span>
-            <div class="node-trail"></div>
-          </a>
-          <a href="about.html" class="mobile-node">
-            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
-            <span>About</span>
-            <div class="node-trail"></div>
-          </a>
-          <a href="events.html" class="mobile-node">
-            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
-            <span>Events</span>
-            <div class="node-trail"></div>
-          </a>
-          <a href="projects.html" class="mobile-node">
-            <div class="node-icon"><i class="fas fa-code"></i></div>
-            <span>Projects</span>
-            <div class="node-trail"></div>
-          </a>
-          <a href="team.html" class="mobile-node">
-            <div class="node-icon"><i class="fas fa-users"></i></div>
-            <span>Team</span>
-            <div class="node-trail"></div>
-          </a>
-          <a href="contact.html" class="mobile-node">
-            <div class="node-icon"><i class="fas fa-envelope"></i></div>
-            <span>Contact</span>
-            <div class="node-trail"></div>
-          </a>
-        </div>
-        
-        <div class="menu-footer">
-          <div class="social-nodes">
-            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-          <button class="quantum-join-btn" onclick="openJoinModal()">
-            <span class="btn-text">Join Club</span>
-            <div class="btn-particles"></div>
-          </button>
-        </div>
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 right-0 bg-bg-dark-secondary/95 backdrop-blur-md border-b border-tech-blue/20">
+      <div class="container mx-auto px-4 py-5 flex flex-col space-y-4">
+        <a href="index.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Home</a>
+        <a href="about.html" class="nav-link py-2 border-b border-bg-dark-tertiary text-tech-blue">About</a>
+        <a href="events.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Events</a>
+        <a href="projects.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Projects</a>
+        <a href="team.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Team</a>
+        <a href="contact.html" class="nav-link py-2 flex items-center justify-center mt-2 border border-tech-blue rounded-lg">Contact Us</a>
       </div>
     </div>
   </nav>
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="header-container">
-            <div class="header-content">
-                <div class="breadcrumb">
-                    <span class="breadcrumb-item">
-                        <i class="fas fa-home"></i>
-                        <a href="index.html">Home</a>
-                    </span>
-                    <span class="breadcrumb-separator">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
-                    <span class="breadcrumb-item active">
-                        <i class="fas fa-info-circle"></i>
-                        About Us
-                    </span>
-                </div>
-                
-                <h1 class="page-title">
-                    <span class="title-accent">&lt;</span>
-                    About <span class="title-gradient">Us</span>
-                    <span class="title-accent">/&gt;</span>
-                </h1>
-                
-                <p class="page-subtitle">
-                    Discover our mission, vision, and the passionate community behind Coding Club PRPCEM
-                </p>
-            </div>
-            
-            <div class="header-visual">
-                <div class="code-matrix" id="codeMatrix"></div>
-            </div>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 relative overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col md:flex-row md:items-center gap-12">
+        <!-- Hero Content -->
+        <div class="w-full md:w-1/2 space-y-6 hero-animate">
+          <h1 class="text-4xl md:text-5xl font-bold">
+            <span class="text-tech-blue">About</span> Our Club
+          </h1>
+          <p class="text-xl text-text-secondary">
+            The Coding Club at PRPCEM is a student-led community passionate about technology, innovation, and problem-solving.
+          </p>
+          <p class="text-lg text-text-secondary">
+            Founded in 2020, we've grown from a small group of coding enthusiasts to one of the most active technical clubs on campus.
+          </p>
         </div>
-    </header>
-
-    <!-- About Us Content -->
-    <main class="about-main">
-        <!-- Hero Section -->
-        <section class="about-hero">
-            <div class="about-hero-container">
-                <div class="hero-content">
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>500+</h3>
-                                <p>Active Members</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>50+</h3>
-                                <p>Projects Completed</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>100+</h3>
-                                <p>Events Organized</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>25+</h3>
-                                <p>Awards Won</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mission & Vision -->
-        <section class="mission-vision">
-            <div class="container">
-                <div class="mv-grid">
-                    <div class="mv-card">
-                        <div class="mv-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>Our Mission</h3>
-                        <p>To create a vibrant community of passionate programmers and tech enthusiasts who collaborate, learn, and innovate together. We aim to bridge the gap between academic learning and industry requirements through hands-on projects, workshops, and mentorship programs.</p>
-                    </div>
-                    <div class="mv-card">
-                        <div class="mv-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3>Our Vision</h3>
-                        <p>To be the leading coding community that nurtures the next generation of software developers, entrepreneurs, and tech leaders. We envision a future where every member becomes a skilled professional ready to tackle real-world challenges.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- What We Do -->
-        <section class="what-we-do">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="title-accent">&lt;</span>
-                    What We <span class="title-gradient">Do</span>
-                    <span class="title-accent">/&gt;</span>
-                </h2>
-                <div class="activities-grid">
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Coding Workshops</h3>
-                        <p>Regular hands-on workshops covering various programming languages, frameworks, and technologies to keep members updated with industry trends.</p>
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Project Development</h3>
-                        <p>Collaborative projects that provide real-world experience and help members build impressive portfolios for their career advancement.</p>
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Hackathons & Competitions</h3>
-                        <p>Organize and participate in coding competitions, hackathons, and technical challenges to foster innovation and problem-solving skills.</p>
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h3>Mentorship Programs</h3>
-                        <p>Connect junior members with experienced seniors and industry professionals for guidance, career advice, and skill development.</p>
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h3>Technical Talks</h3>
-                        <p>Regular seminars and guest lectures by industry experts, alumni, and tech leaders sharing insights and experiences.</p>
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3>Tech Community</h3>
-                        <p>Build a strong network of tech enthusiasts, fostering collaboration, knowledge sharing, and lifelong professional relationships.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Values -->
-        <section class="our-values">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="title-accent">&lt;</span>
-                    Our <span class="title-gradient">Values</span>
-                    <span class="title-accent">/&gt;</span>
-                </h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Innovation</h3>
-                        <p>We encourage creative thinking and innovative solutions to complex problems.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Collaboration</h3>
-                        <p>We believe in the power of teamwork and collective problem-solving.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>Learning</h3>
-                        <p>Continuous learning and skill development are at the core of our community.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Inclusivity</h3>
-                        <p>We welcome everyone regardless of their background or skill level.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- History & Timeline -->
-        <section class="history-timeline">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="title-accent">&lt;</span>
-                    Our <span class="title-gradient">Journey</span>
-                    <span class="title-accent">/&gt;</span>
-                </h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>2020 - Foundation</h3>
-                            <p>Coding Club PRPCEM was established with a small group of passionate students who wanted to create a tech community within the college.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>2021 - Growth</h3>
-                            <p>Expanded membership to over 100 students and organized our first major hackathon, attracting participants from multiple colleges.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>2022 - Recognition</h3>
-                            <p>Won multiple inter-college competitions and established partnerships with leading tech companies for internship and placement opportunities.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>2023 - Expansion</h3>
-                            <p>Launched online learning programs and mentorship initiatives, reaching over 500 members and expanding our impact beyond campus.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>2024 - Excellence</h3>
-                            <p>Became the most active student organization at PRPCEM, with members securing placements at top tech companies and startups.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Join Us CTA -->
-        <section class="join-cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Join Our Community?</h2>
-                    <p>Be part of something amazing. Connect with like-minded individuals, learn new technologies, and build projects that matter.</p>
-                    <div class="cta-buttons">
-                        <button class="cta-btn primary" onclick="openJoinModal()">
-                            <span>Join Now</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <a href="contact.html" class="cta-btn secondary">
-                            <span>Contact Us</span>
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <style>
-    /* About Us Styles */
-    .about-main {
-        min-height: 100vh;
-        background: #0a0f1a;
-        color: #ffffff;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    /* Hero Section */
-    .about-hero {
-        padding: 4rem 0;
-        background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
-    }
-
-    .about-hero-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .stat-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-5px);
-        border-color: #00d4ff;
-        background: rgba(0, 212, 255, 0.1);
-    }
-
-    .stat-icon {
-        font-size: 3rem;
-        color: #00d4ff;
-        margin-bottom: 1rem;
-    }
-
-    .stat-info h3 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin: 0;
-        background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .stat-info p {
-        color: #94a3b8;
-        margin: 0.5rem 0 0 0;
-        font-weight: 500;
-    }
-
-    /* Mission & Vision */
-    .mission-vision {
-        padding: 4rem 0;
-        background: #0c1120;
-    }
-
-    .mv-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 3rem;
-        margin-top: 2rem;
-    }
-
-    .mv-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 3rem;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .mv-card:hover {
-        transform: translateY(-10px);
-        border-color: #8b5cf6;
-        background: rgba(139, 92, 246, 0.05);
-    }
-
-    .mv-icon {
-        font-size: 4rem;
-        color: #8b5cf6;
-        margin-bottom: 1.5rem;
-    }
-
-    .mv-card h3 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #ffffff;
-    }
-
-    .mv-card p {
-        color: #94a3b8;
-        line-height: 1.6;
-        font-size: 1.1rem;
-    }
-
-    /* Section Titles */
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 3rem;
-        color: #ffffff;
-    }
-
-    .title-accent {
-        color: #00d4ff;
-    }
-
-    .title-gradient {
-        background: linear-gradient(135deg, #8b5cf6, #f472b6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    /* What We Do */
-    .what-we-do {
-        padding: 4rem 0;
-        background: #0a0f1a;
-    }
-
-    .activities-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .activity-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 2rem;
-        transition: all 0.3s ease;
-        text-align: center;
-    }
-
-    .activity-card:hover {
-        transform: translateY(-5px);
-        border-color: #00d4ff;
-        background: rgba(0, 212, 255, 0.05);
-    }
-
-    .activity-icon {
-        font-size: 3rem;
-        color: #00d4ff;
-        margin-bottom: 1.5rem;
-    }
-
-    .activity-card h3 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #ffffff;
-    }
-
-    .activity-card p {
-        color: #94a3b8;
-        line-height: 1.6;
-    }
-
-    /* Our Values */
-    .our-values {
-        padding: 4rem 0;
-        background: #0c1120;
-    }
-
-    .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .value-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .value-card:hover {
-        transform: translateY(-5px);
-        border-color: #f472b6;
-        background: rgba(244, 114, 182, 0.05);
-    }
-
-    .value-icon {
-        font-size: 2.5rem;
-        color: #f472b6;
-        margin-bottom: 1rem;
-    }
-
-    .value-card h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #ffffff;
-    }
-
-    .value-card p {
-        color: #94a3b8;
-        line-height: 1.6;
-    }
-
-    /* Timeline */
-    .history-timeline {
-        padding: 4rem 0;
-        background: #0a0f1a;
-    }
-
-    .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 0;
-    }
-
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: linear-gradient(to bottom, #00d4ff, #8b5cf6, #f472b6);
-        transform: translateX(-50%);
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 3rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .timeline-item:nth-child(odd) {
-        flex-direction: row;
-    }
-
-    .timeline-item:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-
-    .timeline-marker {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: white;
-        z-index: 2;
-    }
-
-    .timeline-content {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 2rem;
-        width: calc(50% - 2rem);
-        transition: all 0.3s ease;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content {
-        margin-right: auto;
-        margin-left: 2rem;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-left: auto;
-        margin-right: 2rem;
-    }
-
-    .timeline-content:hover {
-        transform: scale(1.02);
-        border-color: #00d4ff;
-        background: rgba(0, 212, 255, 0.05);
-    }
-
-    .timeline-content h3 {
-        color: #ffffff;
-        font-weight: 600;
-        margin-bottom: 1rem;
-    }
-
-    .timeline-content p {
-        color: #94a3b8;
-        line-height: 1.6;
-    }
-
-    /* Join CTA */
-    .join-cta {
-        padding: 4rem 0;
-        background: linear-gradient(135deg, #1a1f2e 0%, #2d1b69 100%);
-    }
-
-    .cta-content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .cta-content h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .cta-content p {
-        font-size: 1.2rem;
-        color: #94a3b8;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-
-    .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .cta-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-    }
-
-    .cta-btn.primary {
-        background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-        color: white;
-    }
-
-    .cta-btn.primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-    }
-
-    .cta-btn.secondary {
-        background: transparent;
-        color: #00d4ff;
-        border: 2px solid #00d4ff;
-    }
-
-    .cta-btn.secondary:hover {
-        background: #00d4ff;
-        color: #0a0f1a;
-        transform: translateY(-2px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 1rem;
-        }
         
-        .hero-stats {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .stat-card {
-            padding: 1.5rem;
-        }
-        
-        .mv-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .mv-card {
-            padding: 2rem;
-        }
-        
-        .activities-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .values-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
-        
-        .timeline::before {
-            left: 2rem;
-        }
-        
-        .timeline-item {
-            flex-direction: row !important;
-            padding-left: 4rem;
-        }
-        
-        .timeline-marker {
-            left: 2rem;
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
-        }
-        
-        .timeline-content {
-            width: 100%;
-            margin: 0 !important;
-        }
-        
-        .cta-content h2 {
-            font-size: 2rem;
-        }
-        
-        .cta-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .cta-btn {
-            width: 100%;
-            max-width: 300px;
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .hero-stats {
-            grid-template-columns: 1fr;
-        }
-        
-        .stat-info h3 {
-            font-size: 2rem;
-        }
-        
-        .mv-card, .activity-card, .value-card {
-            padding: 1.5rem;
-        }
-        
-        .timeline-content {
-            padding: 1.5rem;
-        }
-    }
-    </style>
-
-
-    <!-- Enhanced Footer -->
-<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
-  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
-    <!-- Footer Main Content -->
-    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-      <!-- Brand Section -->
-      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
-        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
-          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
-          <div class="logo-glow"></div>
-        </div>
-        <div class="footer-text">
-          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
-          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
-          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <div class="stat-item">
-              <span class="stat-number">500+</span>
-              <span class="stat-label">Members</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">Projects</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">100+</span>
-              <span class="stat-label">Events</span>
-            </div>
+        <!-- Hero Image -->
+        <div class="w-full md:w-1/2 flex justify-center hero-animate">
+          <div class="relative">
+            <img src="images/about.png" alt="Coding Club Members" class="rounded-xl shadow-neon-md max-w-full md:max-w-md">
+            <div class="absolute inset-0 border-2 border-tech-purple/30 rounded-xl -z-10 transform translate-x-4 translate-y-4"></div>
           </div>
         </div>
       </div>
-
-      <!-- Quick Links -->
-      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
-        <h4>Quick Links</h4>
-        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="events.html">Events</a>
-          <a href="projects.html">Projects</a>
-          <a href="team.html">Our Team</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-
-      <!-- Resources -->
-      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
-        <h4>Resources</h4>
-        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <a href="#" onclick="openJoinModal()">Join Club</a>
-          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
-          <a href="#newsletter">Newsletter</a>
-          <a href="#faq">FAQ</a>
-          <a href="#blog">Blog</a>
-          <a href="#tutorials">Tutorials</a>
-        </nav>
-      </div>
-
-      <!-- Connect Section -->
-      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
-        <h4>Connect With Us</h4>
-        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
-          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
-          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+  </section>
+  
+  <!-- Mission & Vision Section -->
+  <section class="py-16 bg-bg-dark-secondary/50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Mission -->
+        <div class="card scroll-animate">
+          <div class="text-3xl text-tech-blue mb-4">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+          <p class="text-text-secondary mb-4">
+            To foster a vibrant community of coders, innovators, and problem-solvers by providing resources, mentorship, and opportunities for students to enhance their technical skills and creativity.
+          </p>
+          <p class="text-text-secondary">
+            We aim to bridge the gap between academic learning and industry requirements, preparing students for successful careers in technology.
+          </p>
         </div>
-
-        <!-- Newsletter Signup -->
-        <div class="newsletter-signup" style="margin-top: 1rem;">
-          <h5>Stay Updated</h5>
-          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
-            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
-          </form>
+        
+        <!-- Vision -->
+        <div class="card scroll-animate">
+          <div class="text-3xl text-tech-purple mb-4">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-4">Our Vision</h2>
+          <p class="text-text-secondary mb-4">
+            To be recognized as a hub of technical excellence and innovation, nurturing the next generation of tech leaders who can contribute meaningfully to the digital transformation of society.
+          </p>
+          <p class="text-text-secondary">
+            We envision our members not just as consumers of technology, but as creators, innovators, and change-makers.
+          </p>
         </div>
       </div>
     </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
-      <div class="footer-bottom-left">
-        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
-        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms of Service</a>
-          <a href="#cookies">Cookie Policy</a>
+  </section>
+  
+  <!-- What We Do Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="section-title text-center scroll-animate">What We Do</h2>
+      <p class="section-subtitle text-center scroll-animate">Our activities span across various domains of technology and programming.</p>
+      
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <!-- Card 1 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-blue mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-blue transition-colors">Workshops & Training</h3>
+          <p class="text-text-secondary">
+            Regular workshops on programming languages, frameworks, tools, and emerging technologies conducted by experienced members and industry experts.
+          </p>
         </div>
-      </div>
-      <div class="footer-bottom-right">
-        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
-        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
-          <span>Built with:</span>
-          <i class="fab fa-html5" title="HTML5"></i>
-          <i class="fab fa-css3-alt" title="CSS3"></i>
-          <i class="fab fa-js-square" title="JavaScript"></i>
-          <i class="fab fa-github" title="GitHub"></i>
+        
+        <!-- Card 2 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-purple mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-purple transition-colors">Competitions & Hackathons</h3>
+          <p class="text-text-secondary">
+            Organizing and participating in coding competitions, hackathons, and tech challenges to foster problem-solving skills and teamwork.
+          </p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-pink mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-pink transition-colors">Project Development</h3>
+          <p class="text-text-secondary">
+            Collaborative projects that solve real-world problems, creating opportunities for members to apply their skills and build an impressive portfolio.
+          </p>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-green mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-green transition-colors">Tech Talks & Seminars</h3>
+          <p class="text-text-secondary">
+            Regular sessions featuring industry professionals and alumni sharing insights on technology trends, career paths, and industry practices.
+          </p>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-cyan mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-cyan transition-colors">Mentorship Program</h3>
+          <p class="text-text-secondary">
+            Pairing experienced members with beginners to provide guidance, support, and personalized learning experiences in various tech domains.
+          </p>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
+          <div class="text-3xl text-tech-orange mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-tech-orange transition-colors">Networking & Industry Connect</h3>
+          <p class="text-text-secondary">
+            Creating opportunities for members to connect with industry professionals, alumni, and like-minded individuals to build a strong professional network.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Footer Background Effects -->
-  <div class="footer-bg-effects">
-    <div class="footer-particles"></div>
-    <div class="footer-grid"></div>
-  </div>
-</footer>
-
-    <!-- Join Modal -->
-    <div class="modal-overlay" id="joinModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2>Join Coding Club PRPCEM</h2>
-                <button class="modal-close" onclick="closeJoinModal()">
-                    <i class="fas fa-times"></i>
-                </button>
+  </section>
+  
+    <!-- Pillars Section -->
+  <section class="pillars-section cyber-section bg-bg-dark py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-pattern-overlay opacity-10"></div>
+    <div class="section-bg-pattern absolute inset-0 bg-gradient-radial from-tech-blue/5 via-transparent to-tech-purple/5 z-1"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="section-header text-center mb-16">
+        <div class="section-badge inline-flex items-center gap-2 bg-tech-purple/10 text-tech-purple px-4 py-2 rounded-full text-sm font-semibold mb-8 border border-tech-purple/30">
+          <i class="fas fa-crown"></i>
+          <span>Leadership</span>
+        </div>
+        <h2 class="cyber-title text-4xl md:text-5xl font-bold text-white mb-4">
+          Meet Our <span class="bg-gradient-to-r from-tech-purple to-tech-pink bg-clip-text text-transparent">Pillars</span>
+        </h2>
+      </div>
+      
+      <div class="pillars-grid grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-purple/10 to-tech-pink/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/chairman.png" alt="Chairman" class="w-32 h-32 object-cover rounded-full border-3 border-tech-purple/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-purple/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Shri. Pravin Pote Patil</h5>
+          <p class="text-tech-purple font-medium">Chairman, PRPGEI</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-purple/10 to-tech-pink/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/vice-chairman.png" alt="Vice Chairman" class="w-32 h-32 object-cover rounded-full border-3 border-tech-purple/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-purple/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Shri. Shreyash Dada Pote Patil</h5>
+          <p class="text-tech-purple font-medium">Vice-Chairman, PRPGEI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Leadership Section -->
+  <section class="leadership-section cyber-section bg-bg-dark-secondary py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-noise opacity-5"></div>
+    <div class="section-bg-pattern absolute inset-0 bg-gradient-radial from-tech-cyan/5 via-transparent to-tech-pink/5 z-1"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="section-header text-center mb-16">
+        <div class="section-badge inline-flex items-center gap-2 bg-tech-cyan/10 text-tech-cyan px-4 py-2 rounded-full text-sm font-semibold mb-8 border border-tech-cyan/30">
+          <i class="fas fa-user-tie"></i>
+          <span>Administration</span>
+        </div>
+        <h2 class="cyber-title text-4xl md:text-5xl font-bold text-white mb-4">
+          Our <span class="bg-gradient-to-r from-tech-cyan to-tech-purple bg-clip-text text-transparent">Leadership</span>
+        </h2>
+      </div>
+      
+      <div class="leadership-grid grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/director.jpg" alt="Director" class="w-32 h-32 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Dr. Prakash M. Khodke</h5>
+          <p class="text-tech-cyan font-medium">Director, PRPCEM</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/principal_new.jpg" alt="Principal" class="w-32 h-32 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Dr. P. M. Jawandhiya</h5>
+          <p class="text-tech-cyan font-medium">Principal, PRPCEM</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/studentwelfare.jpeg" alt="Student Welfare" class="w-32 h-32 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Dr. Sunpreet Kaur Nanda</h5>
+          <p class="text-tech-cyan font-medium">Dean Student Welfare, PRPCEM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Faculty Coordinator & Mentors Section -->
+  <section class="faculty-mentors-section cyber-section bg-bg-dark py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-matrix opacity-5"></div>
+    <div class="section-bg-pattern absolute inset-0 bg-gradient-radial from-tech-pink/5 via-transparent to-tech-cyan/5 z-1"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="section-header text-center mb-16">
+        <div class="section-badge inline-flex items-center gap-2 bg-tech-pink/10 text-tech-pink px-4 py-2 rounded-full text-sm font-semibold mb-8 border border-tech-pink/30">
+          <i class="fas fa-star"></i>
+          <span>Core Team</span>
+        </div>
+        <h2 class="cyber-title text-4xl md:text-5xl font-bold text-white mb-4">
+          Faculty Coordinator & <span class="bg-gradient-to-r from-tech-pink to-tech-purple bg-clip-text text-transparent">Mentors</span>
+        </h2>
+      </div>
+      
+      <!-- Faculty Coordinator -->
+      <div class="faculty-coordinator flex justify-center mb-16">
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-8 text-center transition-all hover:shadow-neon-md overflow-hidden group max-w-md hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-pink/10 to-tech-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-6">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/Tayade_Sir_Photo.jpg" alt="Faculty Coordinator" class="w-32 h-32 object-cover rounded-full border-3 border-tech-pink/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-8px] border-2 border-tech-pink/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-xl font-semibold mb-2">Prof. A. A. Tayade</h5>
+          <p class="text-tech-pink font-medium">Faculty Coordinator, Coding Club PRPCEM</p>
+        </div>
+      </div>
+      
+      <!-- Mentors Grid -->
+      <div class="mentors-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-6 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-4">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/Karamveer.png" alt="Karamveer Singh Oberoi" class="w-24 h-24 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-6px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-lg font-semibold mb-1">Karamveer Singh Oberoi</h5>
+          <p class="text-tech-cyan font-medium text-sm">Mentor</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-6 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-4">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/ayushchainani.jpg" alt="Ayush Chainani" class="w-24 h-24 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-6px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-lg font-semibold mb-1">Ayush Chainani</h5>
+          <p class="text-tech-cyan font-medium text-sm">Mentor</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-6 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-4">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/Sujal_Bhugul.jpg" alt="Sujal Bhugul" class="w-24 h-24 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-6px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-lg font-semibold mb-1">Sujal Bhugul</h5>
+          <p class="text-tech-cyan font-medium text-sm">Mentor</p>
+        </div>
+        
+        <div class="team-card bg-white/[0.02] border border-white/10 rounded-2xl p-6 text-center transition-all hover:shadow-neon-sm overflow-hidden group hover:scale-105 duration-300">
+          <div class="card-glow absolute inset-0 rounded-2xl bg-gradient-to-br from-tech-cyan/10 to-tech-purple/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="member-image relative mb-4">
+            <img src="https://codingclubprpcem.github.io/image-hosting-/Mohammad_Alim (1).jpg" alt="Mohammad Alim" class="w-24 h-24 object-cover rounded-full border-3 border-tech-cyan/50 transition-transform group-hover:scale-105 mx-auto">
+            <div class="image-ring absolute inset-[-6px] border-2 border-tech-cyan/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <h5 class="text-white text-lg font-semibold mb-1">Mohammad Alim</h5>
+          <p class="text-tech-cyan font-medium text-sm">Mentor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- College Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="section-title text-center scroll-animate">Our College</h2>
+      <p class="section-subtitle text-center scroll-animate">Prof. Ram Meghe Institute of Technology & Research, Amravati</p>
+      
+      <div class="flex flex-col md:flex-row gap-12 mt-12">
+        <div class="w-full md:w-1/2 scroll-animate">
+          <div class="relative">
+            <img src="images/college-photo.jpg" alt="PRPCEM Campus" class="rounded-xl shadow-neon-md w-full">
+            <div class="absolute inset-0 border-2 border-tech-blue/30 rounded-xl -z-10 transform translate-x-4 translate-y-4"></div>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/2 space-y-6 scroll-animate">
+          <p class="text-text-secondary">
+            Prof. Ram Meghe Institute of Technology & Research (PRPCEM) is one of the premier engineering institutions in Maharashtra, established with a vision to provide quality technical education.
+          </p>
+          <p class="text-text-secondary">
+            The college promotes extracurricular activities through various clubs and societies, fostering holistic development of students beyond academics.
+          </p>
+          <p class="text-text-secondary">
+            The Coding Club PRPCEM enjoys strong support from the college administration, providing access to resources, laboratories, and infrastructure for organizing events and activities.
+          </p>
+          <p class="text-text-secondary">
+            The college's industry connections and alumni network also benefit our club members through mentorship, internship opportunities, and industry exposure.
+          </p>
+          <a href="https://prpcem.edu.in" target="_blank" class="btn-outline inline-flex mt-4">Visit College Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Join Us Section -->
+  <section class="py-16 bg-primary-gradient relative overflow-hidden">
+    <div class="absolute inset-0 bg-bg-dark/60"></div>
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 scroll-animate">Join Our Community</h2>
+        <p class="text-lg mb-8 scroll-animate">
+          Whether you're a coding newbie or a seasoned developer, there's a place for you in our community. Join us to learn, collaborate, and grow together.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 scroll-animate">
+          <a href="contact.html" class="btn-primary">Become a Member</a>
+          <a href="events.html" class="btn-outline">Upcoming Events</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="py-12 bg-bg-dark-tertiary border-t border-tech-blue/20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Logo & About -->
+        <div class="md:col-span-1">
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-10 h-10">
+            <div class="flex flex-col">
+              <span class="font-bold text-lg leading-tight">CODING CLUB</span>
+              <span class="text-xs text-text-secondary">PRPCEM</span>
+              <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
             </div>
-            <div class="modal-body">
-                <form class="join-form" id="joinForm">
-                    <div class="form-group">
-                        <input type="text" id="joinName" required>
-                        <label for="joinName">Full Name</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="joinEmail" required>
-                        <label for="joinEmail">Email Address</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="joinPhone" required>
-                        <label for="joinPhone">Phone Number</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <select id="joinYear" required>
-                            <option value="">Select Year</option>
-                            <option value="1">First Year</option>
-                            <option value="2">Second Year</option>
-                            <option value="3">Third Year</option>
-                            <option value="4">Final Year</option>
-                        </select>
-                        <label for="joinYear">Academic Year</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <select id="joinBranch" required>
-                            <option value="">Select Branch</option>
-                            <option value="cse">Computer Science</option>
-                            <option value="it">Information Technology</option>
-                            <option value="ece">Electronics & Communication</option>
-                            <option value="me">Mechanical Engineering</option>
-                            <option value="ce">Civil Engineering</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label for="joinBranch">Branch</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="joinInterests" required></textarea>
-                        <label for="joinInterests">Programming Interests & Goals</label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <span>Submit Application</span>
-                        <i class="fas fa-check"></i>
-                    </button>
-                </form>
-            </div>
+          </div>
+          <p class="text-text-secondary mb-4">Building a community of tech enthusiasts and innovators at PRPCEM.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
+        
+        <!-- Quick Links -->
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-text-secondary hover:text-tech-blue transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-text-secondary hover:text-tech-blue transition-colors">About</a></li>
+            <li><a href="events.html" class="text-text-secondary hover:text-tech-blue transition-colors">Events</a></li>
+            <li><a href="projects.html" class="text-text-secondary hover:text-tech-blue transition-colors">Projects</a></li>
+            <li><a href="team.html" class="text-text-secondary hover:text-tech-blue transition-colors">Team</a></li>
+            <li><a href="contact.html" class="text-text-secondary hover:text-tech-blue transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-bold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Learning Materials</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Project Ideas</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Coding Challenges</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Workshop Slides</a></li>
+            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">GitHub Repositories</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-tech-blue mt-1 mr-3"></i>
+              <span class="text-text-secondary">PRPCEM Campus, College Road, Amravati, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-tech-blue mr-3"></i>
+              <a href="mailto:codingclub@prpcem.edu" class="text-text-secondary hover:text-tech-blue transition-colors">codingclub@prpcem.edu</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone text-tech-blue mr-3"></i>
+              <a href="tel:+919876543210" class="text-text-secondary hover:text-tech-blue transition-colors">+91 98765 43210</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-bg-dark-secondary mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-text-secondary text-sm">© 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm transition-colors">Privacy Policy</a>
+          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm transition-colors">Terms of Service</a>
+        </div>
+      </div>
     </div>
-
-<script src="js/animations.js"></script>
-  <script src="js/enhanced-navigation.js"></script>
-  <script src="js/mobile-app.js"></script>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <a href="#" class="fixed bottom-6 right-6 bg-tech-blue/80 hover:bg-tech-blue text-white w-12 h-12 rounded-full flex items-center justify-center shadow-neon-md transition-all hover:scale-110">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+  
+  <!-- Scripts -->
+  <script src="js/background.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+/* Custom Background Effects */
+.bg-pattern-overlay {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%), 
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.bg-matrix {
+  background-image: 
+    linear-gradient(to bottom, transparent 0%, rgba(0, 212, 255, 0.05) 100%),
+    linear-gradient(to right, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--from-color, rgba(0, 212, 255, 0.05)), var(--via-color, transparent), var(--to-color, rgba(139, 92, 246, 0.05)));
+}

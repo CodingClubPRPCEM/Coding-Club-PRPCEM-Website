@@ -1,0 +1,12 @@
+{
+  "name": "coding-club-prpcem-website-tailwind",
+  "version": "1.0.0",
+  "description": "Coding Club PRPCEM Website built with Tailwind CSS",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css",
+    "watch": "tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
