@@ -1,425 +1,1694 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - PRPCEM Coding Club</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .nav-brand {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      footer .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Technical Posts Section Styles */
+    .posts-section {
+      padding: 4rem 0;
+      background: #0a0f1a;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    .post-card.featured {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .post-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .post-image {
+      height: 120px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-icon {
+      font-size: 2rem;
+      color: #00d4ff;
+      z-index: 2;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-content h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .post-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      background: #374151;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .read-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .read-more-btn:hover {
+      background: #00d4ff;
+      color: #0a0f1a;
+      transform: translateX(5px);
+    }
+
+    .posts-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-posts-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .view-all-posts-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-<body class="flex flex-col min-h-screen bg-bg-dark text-text-primary">
-  <!-- Particle Background -->
-  <div id="particleBg" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
-  
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-dark/80 backdrop-blur-md py-3 border-b border-tech-blue/20">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3">
-          <div class="relative w-10 h-10 animate-pulse-glow">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-full h-full object-contain">
-            <div class="absolute inset-0 bg-tech-blue/20 rounded-full filter blur-md -z-10"></div>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-            <span class="text-xs text-text-secondary">PRPCEM</span>
-            <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
-          </div>
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link font-medium">Home</a>
-          <a href="about.html" class="nav-link font-medium">About</a>
-          <a href="events.html" class="nav-link font-medium">Events</a>
-          <a href="projects.html" class="nav-link font-medium">Projects</a>
-          <a href="team.html" class="nav-link font-medium">Team</a>
-          <a href="contact.html" class="btn-outline py-2 px-4 text-sm text-tech-blue">Contact Us</a>
+<body>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Navigation (updated layout for toggle button next to logo) -->
+  <nav class="cyber-nav" id="cyberNav">
+    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div class="nav-brand" style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
+          <div class="logo-hologram"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CODING CLUB</span>
+          <span class="brand-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Neural Network Navigation -->
+      <div class="neural-nav">
+        <div class="nav-nodes">
+          <a href="index.html" class="nav-node active" data-page="home">
+            <div class="node-core">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Home</span>
+          </a>
+          
+          <a href="about.html" class="nav-node" data-page="about">
+            <div class="node-core">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">About</span>
+          </a>
+          
+          <a href="events.html" class="nav-node" data-page="events">
+            <div class="node-core">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Events</span>
+          </a>
+          
+          <a href="projects.html" class="nav-node" data-page="projects">
+            <div class="node-core">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Projects</span>
+          </a>
+          
+          <a href="team.html" class="nav-node" data-page="team">
+            <div class="node-core">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Team</span>
+          </a>
+          
+          <a href="contact.html" class="nav-node" data-page="contact">
+            <div class="node-core">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Contact</span>
+          </a>
         </div>
         
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 group">
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transition-all duration-300 group-[.open]:opacity-0"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
-        </button>
+        <!-- Enhanced Nav Tools -->
+        <div class="nav-tools">
+          <div class="search-container">
+            <button class="search-trigger" id="searchTrigger">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search..." id="navSearch">
+              <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Neural Connections -->
+        <svg class="neural-connections" viewBox="0 0 800 100">
+          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+          <defs>
+            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
+      
+      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+        <div class="toggle-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="toggle-circuit"></div>
+      </button>
     </div>
     
-    <!-- Mobile Navigation Menu -->
-    <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 right-0 bg-bg-dark-secondary/95 backdrop-blur-md border-b border-tech-blue/20">
-      <div class="container mx-auto px-4 py-5 flex flex-col space-y-4">
-        <a href="index.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Home</a>
-        <a href="about.html" class="nav-link py-2 border-b border-bg-dark-tertiary">About</a>
-        <a href="events.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Events</a>
-        <a href="projects.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Projects</a>
-        <a href="team.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Team</a>
-        <a href="contact.html" class="nav-link py-2 flex items-center justify-center mt-2 border border-tech-blue rounded-lg text-tech-blue">Contact Us</a>
+    <!-- Mobile Neural Menu -->
+    <div class="mobile-neural-menu" id="mobileNeuralMenu">
+      <div class="menu-container">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-nodes">
+          <a href="index.html" class="mobile-node active">
+            <div class="node-icon"><i class="fas fa-home"></i></div>
+            <span>Home</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="about.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+            <span>About</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="events.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Events</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="projects.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-code"></i></div>
+            <span>Projects</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="team.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-users"></i></div>
+            <span>Team</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="contact.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+            <span>Contact</span>
+            <div class="node-trail"></div>
+          </a>
+        </div>
+        
+        <div class="menu-footer">
+          <div class="social-nodes">
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <button class="quantum-join-btn" onclick="openJoinModal()">
+            <span class="btn-text">Join Club</span>
+            <div class="btn-particles"></div>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <main class="flex-grow">
-    <!-- Hero Section -->
-    <section class="relative py-20 overflow-hidden">
-      <div class="absolute inset-0 z-0 opacity-10">
-        <div class="code-rain h-full w-full"></div>
-      </div>
-      <div class="container mx-auto px-4 z-10 relative">
-        <h1 class="cyber-title text-center mb-4" data-text="Get In Touch">Get In Touch</h1>
-        <p class="section-subtitle text-center">
-          Have questions or want to collaborate? We'd love to hear from you!
-        </p>
-        
-        <div class="flex justify-center mb-12">
-          <div class="neural-node"></div>
-          <div class="neural-node"></div>
-          <div class="neural-node"></div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Contact Information -->
-    <section class="py-16 bg-bg-dark-secondary">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Contact Card 1 -->
-          <div class="glass-card p-8 text-center" data-aos="fade-up">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-tech-blue/10 flex items-center justify-center">
-              <i class="fas fa-map-marker-alt text-2xl text-tech-blue"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Our Location</h3>
-            <p class="text-text-secondary">
-              Prof. Ram Meghe Institute of Technology & Research,<br>
-              Badnera, Amravati,<br>
-              Maharashtra, India - 444701
-            </p>
-          </div>
-          
-          <!-- Contact Card 2 -->
-          <div class="glass-card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-tech-blue/10 flex items-center justify-center">
-              <i class="fas fa-envelope text-2xl text-tech-blue"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Email Us</h3>
-            <p class="text-text-secondary mb-2">
-              General Inquiries:<br>
-              <a href="mailto:codingclub@prpcem.edu.in" class="text-tech-blue hover:underline">codingclub@prpcem.edu.in</a>
-            </p>
-            <p class="text-text-secondary">
-              Project Collaborations:<br>
-              <a href="mailto:projects@prpcem.edu.in" class="text-tech-blue hover:underline">projects@prpcem.edu.in</a>
-            </p>
-          </div>
-          
-          <!-- Contact Card 3 -->
-          <div class="glass-card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-tech-blue/10 flex items-center justify-center">
-              <i class="fas fa-phone text-2xl text-tech-blue"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Call Us</h3>
-            <p class="text-text-secondary mb-2">
-              Club Coordinator:<br>
-              <a href="tel:+911234567890" class="text-tech-blue hover:underline">+91 1234 567 890</a>
-            </p>
-            <p class="text-text-secondary">
-              Faculty Advisor:<br>
-              <a href="tel:+911234567899" class="text-tech-blue hover:underline">+91 1234 567 899</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Contact Form Section -->
-    <section class="py-16">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Contact Form -->
-          <div class="neural-card" data-aos="fade-right">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 relative inline-block">
-              <span class="mr-2 text-tech-blue">//</span>Send Us a Message
-              <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-tech-blue opacity-70"></span>
-            </h2>
-            
-            <form id="contact-form" class="space-y-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label for="name" class="block text-text-secondary mb-2">Name</label>
-                  <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-bg-dark-tertiary border border-white/5 text-text-primary focus:border-tech-blue/50 transition-colors" placeholder="Your Name">
-                </div>
-                <div>
-                  <label for="email" class="block text-text-secondary mb-2">Email</label>
-                  <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-bg-dark-tertiary border border-white/5 text-text-primary focus:border-tech-blue/50 transition-colors" placeholder="your.email@example.com">
-                </div>
-              </div>
-              
-              <div>
-                <label for="subject" class="block text-text-secondary mb-2">Subject</label>
-                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg bg-bg-dark-tertiary border border-white/5 text-text-primary focus:border-tech-blue/50 transition-colors" placeholder="Subject of your message">
-              </div>
-              
-              <div>
-                <label for="message" class="block text-text-secondary mb-2">Message</label>
-                <textarea id="message" rows="6" class="w-full px-4 py-3 rounded-lg bg-bg-dark-tertiary border border-white/5 text-text-primary focus:border-tech-blue/50 transition-colors resize-none" placeholder="Your message here..."></textarea>
-              </div>
-              
-              <div class="flex items-center">
-                <input type="checkbox" id="subscribe" class="mr-2 rounded bg-bg-dark-tertiary border border-white/5 text-tech-blue focus:ring-tech-blue/50">
-                <label for="subscribe" class="text-text-secondary">Subscribe to our newsletter</label>
-              </div>
-              
-              <button type="submit" class="btn-primary w-full">
-                <span>Send Message</span>
-                <i class="fas fa-paper-plane ml-2"></i>
-              </button>
-            </form>
-          </div>
-          
-          <!-- Map or Image -->
-          <div class="relative" data-aos="fade-left">
-            <div class="w-full h-96 rounded-xl overflow-hidden shadow-neon-sm">
-              <img src="https://source.unsplash.com/random/800x600/?college,campus" alt="College Campus" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-bg-dark to-transparent rounded-xl"></div>
-            <div class="absolute bottom-0 left-0 w-full p-6">
-              <div class="glass-card p-4">
-                <h3 class="text-lg font-bold mb-2">Visit Our Campus</h3>
-                <p class="text-text-secondary text-sm">
-                  <i class="fas fa-clock mr-2 text-tech-blue"></i>
-                  Club Hours: Monday to Friday, 4:00 PM - 7:00 PM
-                </p>
-                <a href="#" class="text-tech-blue hover:text-tech-blue/80 transition-colors text-sm inline-flex items-center mt-2">
-                  <i class="fas fa-directions mr-2"></i> Get Directions
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- FAQs Section -->
-    <section class="py-16 bg-bg-dark-secondary">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center relative inline-block">
-          <span class="mr-2 text-tech-blue">//</span>Frequently Asked Questions
-          <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-tech-blue opacity-70"></span>
-        </h2>
-        
-        <div class="max-w-3xl mx-auto space-y-6" id="faq-accordion">
-          <!-- FAQ Item 1 -->
-          <div class="cyber-card faq-item" data-aos="fade-up">
-            <button class="faq-question w-full flex justify-between items-center text-left">
-              <span class="text-lg font-bold">How can I join the coding club?</span>
-              <i class="fas fa-plus text-tech-blue transition-transform"></i>
-            </button>
-            <div class="faq-answer hidden mt-4 text-text-secondary">
-              <p>To join the PRPCEM Coding Club, simply fill out the membership form on our website or attend any of our upcoming events. There are no prerequisites or membership fees to join. All skill levels are welcome!</p>
-            </div>
-          </div>
-          
-          <!-- FAQ Item 2 -->
-          <div class="cyber-card faq-item" data-aos="fade-up" data-aos-delay="100">
-            <button class="faq-question w-full flex justify-between items-center text-left">
-              <span class="text-lg font-bold">What activities does the club organize?</span>
-              <i class="fas fa-plus text-tech-blue transition-transform"></i>
-            </button>
-            <div class="faq-answer hidden mt-4 text-text-secondary">
-              <p>Our club organizes a variety of activities including coding workshops, hackathons, project collaborations, tech talks by industry experts, competitive programming contests, and social coding events. Check our Events page for upcoming activities.</p>
-            </div>
-          </div>
-          
-          <!-- FAQ Item 3 -->
-          <div class="cyber-card faq-item" data-aos="fade-up" data-aos-delay="200">
-            <button class="faq-question w-full flex justify-between items-center text-left">
-              <span class="text-lg font-bold">I'm a beginner. Is this club suitable for me?</span>
-              <i class="fas fa-plus text-tech-blue transition-transform"></i>
-            </button>
-            <div class="faq-answer hidden mt-4 text-text-secondary">
-              <p>Absolutely! Our club welcomes members of all skill levels, from complete beginners to experienced programmers. We offer beginner-friendly workshops and mentorship programs to help you get started with coding and gradually build your skills.</p>
-            </div>
-          </div>
-          
-          <!-- FAQ Item 4 -->
-          <div class="cyber-card faq-item" data-aos="fade-up" data-aos-delay="300">
-            <button class="faq-question w-full flex justify-between items-center text-left">
-              <span class="text-lg font-bold">How can I propose a project or event idea?</span>
-              <i class="fas fa-plus text-tech-blue transition-transform"></i>
-            </button>
-            <div class="faq-answer hidden mt-4 text-text-secondary">
-              <p>We encourage members to propose project and event ideas! You can submit your ideas through our contact form, or discuss them with any of the club leaders during our weekly meetings. We're always open to innovative suggestions that can benefit our community.</p>
-            </div>
-          </div>
-          
-          <!-- FAQ Item 5 -->
-          <div class="cyber-card faq-item" data-aos="fade-up" data-aos-delay="400">
-            <button class="faq-question w-full flex justify-between items-center text-left">
-              <span class="text-lg font-bold">Are there opportunities for industry connections?</span>
-              <i class="fas fa-plus text-tech-blue transition-transform"></i>
-            </button>
-            <div class="faq-answer hidden mt-4 text-text-secondary">
-              <p>Yes! We regularly host industry professionals for tech talks and workshops. We also collaborate with companies for sponsored hackathons, internship opportunities, and industry projects. These connections provide valuable networking opportunities for club members.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Social Media Section -->
-    <section class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold mb-8">Connect With Us</h2>
-        <p class="text-text-secondary mb-10 max-w-2xl mx-auto">
-          Follow us on social media to stay updated with our latest events, projects, and tech insights.
-        </p>
-        
-        <div class="flex flex-wrap justify-center gap-8">
-          <!-- GitHub -->
-          <a href="#" class="social-link group" data-aos="fade-up">
-            <div class="w-20 h-20 rounded-xl bg-bg-dark-tertiary flex items-center justify-center group-hover:bg-[#333] transition-colors">
-              <i class="fab fa-github text-4xl text-text-secondary group-hover:text-white transition-colors"></i>
-            </div>
-            <p class="mt-3 text-text-secondary group-hover:text-white transition-colors">GitHub</p>
-          </a>
-          
-          <!-- LinkedIn -->
-          <a href="#" class="social-link group" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-20 h-20 rounded-xl bg-bg-dark-tertiary flex items-center justify-center group-hover:bg-[#0077B5] transition-colors">
-              <i class="fab fa-linkedin-in text-4xl text-text-secondary group-hover:text-white transition-colors"></i>
-            </div>
-            <p class="mt-3 text-text-secondary group-hover:text-white transition-colors">LinkedIn</p>
-          </a>
-          
-          <!-- Instagram -->
-          <a href="#" class="social-link group" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-20 h-20 rounded-xl bg-bg-dark-tertiary flex items-center justify-center group-hover:bg-[#E1306C] transition-colors">
-              <i class="fab fa-instagram text-4xl text-text-secondary group-hover:text-white transition-colors"></i>
-            </div>
-            <p class="mt-3 text-text-secondary group-hover:text-white transition-colors">Instagram</p>
-          </a>
-          
-          <!-- Twitter -->
-          <a href="#" class="social-link group" data-aos="fade-up" data-aos-delay="300">
-            <div class="w-20 h-20 rounded-xl bg-bg-dark-tertiary flex items-center justify-center group-hover:bg-[#1DA1F2] transition-colors">
-              <i class="fab fa-twitter text-4xl text-text-secondary group-hover:text-white transition-colors"></i>
-            </div>
-            <p class="mt-3 text-text-secondary group-hover:text-white transition-colors">Twitter</p>
-          </a>
-          
-          <!-- Discord -->
-          <a href="#" class="social-link group" data-aos="fade-up" data-aos-delay="400">
-            <div class="w-20 h-20 rounded-xl bg-bg-dark-tertiary flex items-center justify-center group-hover:bg-[#7289DA] transition-colors">
-              <i class="fab fa-discord text-4xl text-text-secondary group-hover:text-white transition-colors"></i>
-            </div>
-            <p class="mt-3 text-text-secondary group-hover:text-white transition-colors">Discord</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="bg-bg-dark-tertiary border-t border-white/5 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-10 h-10">
-            <div class="flex flex-col">
-              <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-              <span class="text-xs text-text-secondary">PRPCEM</span>
-              <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Get in <span class="title-gradient">Touch</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Ready to join our community or have questions? We'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="contact-animation" id="contactAnimation"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Contact Methods -->
+        <section class="contact-methods">
+            <div class="section-container">
+                <div class="methods-grid">
+                    <div class="contact-card location">
+                        <div class="card-background"></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <p>P.R. Pote Patil College of Engineering & Management<br>Amravati, Maharashtra, India</p>
+                        <div class="contact-action">
+                            <a href="https://maps.google.com" target="_blank" class="action-btn">
+                                <i class="fas fa-directions"></i>
+                                <span>Get Directions</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="contact-card email">
+                        <div class="card-background"></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>codingclub@prpcem.ac.in<br>info@codingclubprpcem.org</p>
+                        <div class="contact-action">
+                            <a href="mailto:codingclub@prpcem.ac.in" class="action-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Email</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="contact-card phone">
+                        <div class="card-background"></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>+91 9322675891<br>+91 9359539232</p>
+                        <div class="contact-action">
+                            <a href="tel:+919322675891" class="action-btn">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Call Now</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="contact-card hours">
+                        <div class="card-background"></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                        <div class="contact-action">
+                            <div class="status-indicator online"></div>
+                            <span class="status-text">Currently Open</span>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="section-container">
+                <div class="contact-content">
+                    <div class="form-container">
+                        <div class="section-header">
+                            <div class="section-badge">
+                                <i class="fas fa-message"></i>
+                                <span>Send Message</span>
+                            </div>
+                            <h2 class="section-title">
+                                Let's Start a <span class="text-gradient">Conversation</span>
+                            </h2>
+                            <p class="section-subtitle">
+                                Have a question, suggestion, or want to collaborate? Fill out the form below and we'll get back to you as soon as possible.
+                            </p>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="firstName" required>
+                                    <label for="firstName">First Name</label>
+                                    <div class="input-border"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="lastName" required>
+                                    <label for="lastName">Last Name</label>
+                                    <div class="input-border"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" required>
+                                <label for="email">Email Address</label>
+                                <div class="input-border"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="tel" id="phone">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <div class="input-border"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <select id="subject" required>
+                                    <option value="">Select Subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="membership">Club Membership</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="events">Events & Workshops</option>
+                                    <option value="projects">Project Partnership</option>
+                                    <option value="mentorship">Mentorship</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <label for="subject">Subject</label>
+                                <div class="input-border"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="message" required rows="5"></textarea>
+                                <label for="message">Your Message</label>
+                                <div class="input-border"></div>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter">
+                                <label for="newsletter" class="checkbox-label">
+                                    <span class="checkbox-custom"></span>
+                                    Subscribe to our newsletter for updates on events and opportunities
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-particles"></div>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-sidebar">
+                        <div class="quick-contact">
+                            <h3>Quick Contact</h3>
+                            <div class="quick-items">
+                                <div class="quick-item">
+                                    <i class="fas fa-question-circle"></i>
+                                    <div>
+                                        <span class="item-label">General Questions</span>
+                                        <span class="item-value">info@codingclubprpcem.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="quick-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <span class="item-label">Membership</span>
+                                        <span class="item-value">join@codingclubprpcem.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="quick-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <div>
+                                        <span class="item-label">Partnerships</span>
+                                        <span class="item-value">partnerships@codingclubprpcem.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="quick-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <div>
+                                        <span class="item-label">Events</span>
+                                        <span class="item-value">events@codingclubprpcem.org</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-time">
+                            <div class="response-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Response Time</h4>
+                            <p>We typically respond to all inquiries within 24 hours during business days.</p>
+                        </div>
+                        
+                        <div class="urgent-contact">
+                            <div class="urgent-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h4>Urgent Matters?</h4>
+                            <p>For urgent inquiries, please call us directly at <a href="tel:+919322675891">+91 9322675891</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-media-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Connect</span>
+                    </div>
+                    <h2 class="section-title">
+                        Follow Us on <span class="text-gradient">Social Media</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Stay connected and up-to-date with our latest activities, events, and community highlights
+                    </p>
+                </div>
+                
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="social-card linkedin" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>LinkedIn</h3>
+                            <p>Professional updates, career opportunities, and industry insights</p>
+                            <div class="social-stats">
+                                <span>500+ Followers</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/codingclub_prpcem" class="social-card instagram" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>Instagram</h3>
+                            <p>Behind-the-scenes content, event highlights, and community moments</p>
+                            <div class="social-stats">
+                                <span>750+ Followers</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@Coding_Club_PRPCEM" class="social-card youtube" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>YouTube</h3>
+                            <p>Tutorial videos, workshop recordings, and tech talks</p>
+                            <div class="social-stats">
+                                <span>1.2K Subscribers</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                    
+                    <a href="https://github.com/CodingClubPRPCEM" class="social-card github" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>GitHub</h3>
+                            <p>Open source projects, code repositories, and collaborative development</p>
+                            <div class="social-stats">
+                                <span>200+ Stars</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                    
+                    <a href="https://x.com/CodingClubPRPCE" class="social-card twitter" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-x-twitter"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>Twitter / X</h3>
+                            <p>Quick updates, tech news, and community announcements</p>
+                            <div class="social-stats">
+                                <span>300+ Followers</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                    
+                    <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" class="social-card whatsapp" target="_blank">
+                        <div class="social-background"></div>
+                        <div class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>WhatsApp</h3>
+                            <p>Join our community group for instant updates and discussions</p>
+                            <div class="social-stats">
+                                <span>Active Community</span>
+                            </div>
+                        </div>
+                        <div class="social-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-question-circle"></i>
+                        <span>FAQ</span>
+                    </div>
+                    <h2 class="section-title">
+                        Frequently Asked <span class="text-gradient">Questions</span>
+                    </h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I join the Coding Club?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can join by filling out our membership form through the "Join Club" button or by attending one of our events. We welcome students from all branches and skill levels.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are there any membership fees?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, our club membership is completely free! We believe in making technology education accessible to everyone.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What programming languages do you focus on?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We cover a wide range of technologies including Python, JavaScript, Java, C++, React, Node.js, AI/ML frameworks, and many more based on industry demands and member interests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you provide mentorship for beginners?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We have a dedicated mentorship program where experienced members guide beginners through their coding journey with personalized support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How often do you organize events?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We organize events regularly - typically 2-3 workshops per month, quarterly hackathons, and monthly tech talks. Keep an eye on our events page for updates!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </section>
+    </main>
+
+    <style>
+        /* Main Content Styles */
+        .main-content {
+            background: #0a0f1a;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1e293b 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #8b5cf6;
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            color: #00d4ff;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Contact Methods Section */
+        .contact-methods {
+            padding: 4rem 0;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .contact-card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: #00d4ff;
+            color: #0a0f1a;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .status-indicator.online {
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .status-text {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: #94a3b8;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:valid + label,
+        .form-group select:focus + label,
+        .form-group select:valid + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:valid + label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #00d4ff;
+            background: #0a0f1a;
+            padding: 0 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #00d4ff;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked + .checkbox-label .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: #00d4ff;
+            font-size: 14px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border: none;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Contact Sidebar */
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .quick-contact,
+        .response-time,
+        .urgent-contact {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .quick-contact h3,
+        .response-time h4,
+        .urgent-contact h4 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .quick-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quick-item i {
+            color: #00d4ff;
+            font-size: 1.25rem;
+        }
+
+        .item-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            display: block;
+        }
+
+        .item-value {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .response-icon,
+        .urgent-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .response-icon i,
+        .urgent-icon i {
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+
+        .response-time p,
+        .urgent-contact p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .urgent-contact a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        .urgent-contact a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Social Media Section */
+        .social-media-section {
+            padding: 4rem 0;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .social-card.linkedin {
+            --brand-color: #0077b5;
+        }
+
+        .social-card.instagram {
+            --brand-color: #e4405f;
+        }
+
+        .social-card.youtube {
+            --brand-color: #ff0000;
+        }
+
+        .social-card.github {
+            --brand-color: #ffffff;
+        }
+
+        .social-card.twitter {
+            --brand-color: #1da1f2;
+        }
+
+        .social-card.whatsapp {
+            --brand-color: #25d366;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--brand-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .social-content h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .social-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .social-stats span {
+            color: var(--brand-color);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-question h3 {
+            color: #ffffff;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: #00d4ff;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+
+    <!-- Enhanced Footer -->
+<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
+  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Footer Main Content -->
+    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <!-- Brand Section -->
+      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
+        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
+          <div class="logo-glow"></div>
+        </div>
+        <div class="footer-text">
+          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
+          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
+          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Events</span>
             </div>
           </div>
-          <p class="text-text-secondary mb-6">
-            Empowering students to code, create, and innovate together.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Quick Links
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
-            <li><a href="projects.html" class="nav-link">Projects</a></li>
-            <li><a href="team.html" class="nav-link">Team</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Resources
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="nav-link">Tutorials</a></li>
-            <li><a href="#" class="nav-link">Documentation</a></li>
-            <li><a href="#" class="nav-link">GitHub Repositories</a></li>
-            <li><a href="#" class="nav-link">Learning Paths</a></li>
-            <li><a href="#" class="nav-link">Tech Stack</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Contact
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2 text-text-secondary">
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-map-marker-alt mt-1 text-tech-blue"></i>
-              <span>PRPCEM, Amravati, Maharashtra, India</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-envelope mt-1 text-tech-blue"></i>
-              <span>codingclub@prpcem.edu.in</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-phone mt-1 text-tech-blue"></i>
-              <span>+91 1234567890</span>
-            </li>
-          </ul>
         </div>
       </div>
-      
-      <div class="border-t border-white/5 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-text-secondary text-sm mb-4 md:mb-0">
-          &copy; 2023 PRPCEM Coding Club. All rights reserved.
-        </p>
-        <div class="flex space-x-6">
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Privacy Policy</a>
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Terms of Service</a>
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Code of Conduct</a>
+
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="events.html">Events</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Resources</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#" onclick="openJoinModal()">Join Club</a>
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq">FAQ</a>
+          <a href="#blog">Blog</a>
+          <a href="#tutorials">Tutorials</a>
+        </nav>
+      </div>
+
+      <!-- Connect Section -->
+      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
+        <h4>Connect With Us</h4>
+        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup" style="margin-top: 1rem;">
+          <h5>Stay Updated</h5>
+          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
+            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
         </div>
       </div>
     </div>
-  </footer>
 
-  <script src="js/background.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
+        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span>Built with:</span>
+          <i class="fab fa-html5" title="HTML5"></i>
+          <i class="fab fa-css3-alt" title="CSS3"></i>
+          <i class="fab fa-js-square" title="JavaScript"></i>
+          <i class="fab fa-github" title="GitHub"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Background Effects -->
+  <div class="footer-bg-effects">
+    <div class="footer-particles"></div>
+    <div class="footer-grid"></div>
+  </div>
+</footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/mobile-app.js"></script>
 </body>
 </html>

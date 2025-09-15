@@ -1,402 +1,1108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team - PRPCEM Coding Club</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .nav-brand {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      footer .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Technical Posts Section Styles */
+    .posts-section {
+      padding: 4rem 0;
+      background: #0a0f1a;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    .post-card.featured {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .post-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .post-image {
+      height: 120px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-icon {
+      font-size: 2rem;
+      color: #00d4ff;
+      z-index: 2;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-content h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .post-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      background: #374151;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .read-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .read-more-btn:hover {
+      background: #00d4ff;
+      color: #0a0f1a;
+      transform: translateX(5px);
+    }
+
+    .posts-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-posts-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .view-all-posts-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-<body class="flex flex-col min-h-screen bg-bg-dark text-text-primary">
-  <!-- Particle Background -->
-  <div id="particleBg" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
-  
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-dark/80 backdrop-blur-md py-3 border-b border-tech-blue/20">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3">
-          <div class="relative w-10 h-10 animate-pulse-glow">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-full h-full object-contain">
-            <div class="absolute inset-0 bg-tech-blue/20 rounded-full filter blur-md -z-10"></div>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-            <span class="text-xs text-text-secondary">PRPCEM</span>
-            <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
-          </div>
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link font-medium">Home</a>
-          <a href="about.html" class="nav-link font-medium">About</a>
-          <a href="events.html" class="nav-link font-medium">Events</a>
-          <a href="projects.html" class="nav-link font-medium">Projects</a>
-          <a href="team.html" class="nav-link font-medium text-tech-blue">Team</a>
-          <a href="contact.html" class="btn-outline py-2 px-4 text-sm">Contact Us</a>
+<body>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Navigation (updated layout for toggle button next to logo) -->
+  <nav class="cyber-nav" id="cyberNav">
+    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div class="nav-brand" style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
+          <div class="logo-hologram"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CODING CLUB</span>
+          <span class="brand-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Neural Network Navigation -->
+      <div class="neural-nav">
+        <div class="nav-nodes">
+          <a href="index.html" class="nav-node active" data-page="home">
+            <div class="node-core">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Home</span>
+          </a>
+          
+          <a href="about.html" class="nav-node" data-page="about">
+            <div class="node-core">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">About</span>
+          </a>
+          
+          <a href="events.html" class="nav-node" data-page="events">
+            <div class="node-core">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Events</span>
+          </a>
+          
+          <a href="projects.html" class="nav-node" data-page="projects">
+            <div class="node-core">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Projects</span>
+          </a>
+          
+          <a href="team.html" class="nav-node" data-page="team">
+            <div class="node-core">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Team</span>
+          </a>
+          
+          <a href="contact.html" class="nav-node" data-page="contact">
+            <div class="node-core">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Contact</span>
+          </a>
         </div>
         
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 group">
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transition-all duration-300 group-[.open]:opacity-0"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
-        </button>
+        <!-- Enhanced Nav Tools -->
+        <div class="nav-tools">
+          <div class="search-container">
+            <button class="search-trigger" id="searchTrigger">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search..." id="navSearch">
+              <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Neural Connections -->
+        <svg class="neural-connections" viewBox="0 0 800 100">
+          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+          <defs>
+            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
+      
+      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+        <div class="toggle-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="toggle-circuit"></div>
+      </button>
     </div>
     
-    <!-- Mobile Navigation Menu -->
-    <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 right-0 bg-bg-dark-secondary/95 backdrop-blur-md border-b border-tech-blue/20">
-      <div class="container mx-auto px-4 py-5 flex flex-col space-y-4">
-        <a href="index.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Home</a>
-        <a href="about.html" class="nav-link py-2 border-b border-bg-dark-tertiary">About</a>
-        <a href="events.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Events</a>
-        <a href="projects.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Projects</a>
-        <a href="team.html" class="nav-link py-2 border-b border-bg-dark-tertiary text-tech-blue">Team</a>
-        <a href="contact.html" class="nav-link py-2 flex items-center justify-center mt-2 border border-tech-blue rounded-lg">Contact Us</a>
+    <!-- Mobile Neural Menu -->
+    <div class="mobile-neural-menu" id="mobileNeuralMenu">
+      <div class="menu-container">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-nodes">
+          <a href="index.html" class="mobile-node active">
+            <div class="node-icon"><i class="fas fa-home"></i></div>
+            <span>Home</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="about.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+            <span>About</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="events.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Events</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="projects.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-code"></i></div>
+            <span>Projects</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="team.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-users"></i></div>
+            <span>Team</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="contact.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+            <span>Contact</span>
+            <div class="node-trail"></div>
+          </a>
+        </div>
+        
+        <div class="menu-footer">
+          <div class="social-nodes">
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <button class="quantum-join-btn" onclick="openJoinModal()">
+            <span class="btn-text">Join Club</span>
+            <div class="btn-particles"></div>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <main class="flex-grow">
-    <!-- Hero Section -->
-    <section class="relative py-20 overflow-hidden">
-      <div class="absolute inset-0 z-0 opacity-10">
-        <div class="code-rain h-full w-full"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-users"></i>
+                        Team
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Our <span class="title-gradient">Team</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Meet the passionate individuals behind Coding Club PRPCEM who make everything possible
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="team-network-visual" id="teamNetwork"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- About Section -->
+      <section class="about-section" style="background: linear-gradient(135deg, #1e293b, #334155); padding: 6rem 0; position: relative; overflow: hidden;">
+      <div class="section-bg-effects">
+        <div class="floating-particles"></div>
+        <div class="tech-grid"></div>
       </div>
-      <div class="container mx-auto px-4 z-10 relative">
-        <h1 class="cyber-title text-center mb-4" data-text="Meet Our Team">Meet Our Team</h1>
-        <p class="section-subtitle text-center">
-          Our talented team of coding enthusiasts, mentors, and innovators who make the magic happen.
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="about-content text-center">
+        <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(0, 212, 255, 0.3);">
+          <i class="fas fa-users"></i>
+          <span>Our Team</span>
+        </div>
+        
+        <h1 class="cyber-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(135deg, #00d4ff, #8b5cf6, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
+          About Coding Club PRPCEM
+        </h1>
+        
+        <h2 class="section-subtitle" style="font-size: 1.8rem; color: #e2e8f0; margin-bottom: 2rem; font-weight: 600;">
+          Who We Are
+        </h2>
+        
+        <p class="lead" style="font-size: 1.25rem; color: #94a3b8; line-height: 1.7; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Welcome to the Coding Club at PRPCEM! We are a vibrant community dedicated to fostering creativity, innovation, and collaboration in technology. Whether you're a beginner or an experienced coder, our club provides a platform to explore, learn, and excel.
         </p>
         
-        <div class="flex justify-center mb-12">
-          <div class="neural-node"></div>
-          <div class="neural-node"></div>
-          <div class="neural-node"></div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Leadership Team Section -->
-    <section class="py-16 bg-bg-dark-secondary">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center relative inline-block">
-          <span class="mr-2 text-tech-blue">//</span>Leadership Team
-          <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-tech-blue opacity-70"></span>
-        </h2>
+        <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+          Through hackathons, workshops, and regular coding sessions, we aim to empower students to make meaningful contributions to the tech world.
+        </p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          <!-- Team Member 1 -->
-          <div class="team-member neural-card group" data-aos="fade-up">
-            <img src="https://source.unsplash.com/random/300x400/?portrait,programmer" alt="Team Member" class="w-full h-72 object-cover rounded-xl">
-            <div class="team-member-info">
-              <h3 class="text-xl font-bold text-white">Aditya Singh</h3>
-              <p class="text-tech-blue">Club President</p>
-              <p class="team-member-bio">Full-stack developer with expertise in React and Node.js. Leads club initiatives and mentors junior members.</p>
-              <div class="team-member-social">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Team Member 2 -->
-          <div class="team-member neural-card group" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://source.unsplash.com/random/300x400/?portrait,woman,programmer" alt="Team Member" class="w-full h-72 object-cover rounded-xl">
-            <div class="team-member-info">
-              <h3 class="text-xl font-bold text-white">Priya Sharma</h3>
-              <p class="text-tech-blue">Vice President</p>
-              <p class="team-member-bio">Machine learning enthusiast with a background in data science. Coordinates events and manages club projects.</p>
-              <div class="team-member-social">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Team Member 3 -->
-          <div class="team-member neural-card group" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://source.unsplash.com/random/300x400/?portrait,man,coder" alt="Team Member" class="w-full h-72 object-cover rounded-xl">
-            <div class="team-member-info">
-              <h3 class="text-xl font-bold text-white">Raj Kumar</h3>
-              <p class="text-tech-blue">Technical Lead</p>
-              <p class="team-member-bio">Backend developer with expertise in cloud architecture. Manages technical infrastructure and club repositories.</p>
-              <div class="team-member-social">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="image-container" style="position: relative; display: inline-block;">
+          <img src="images/IMG_9390.JPG" alt="Group Photo" class="team-image" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); border: 2px solid rgba(0, 212, 255, 0.3); transition: transform 0.3s ease;">
+          <div class="image-glow" style="position: absolute; inset: -4px; background: linear-gradient(135deg, #00d4ff, #8b5cf6); border-radius: 24px; z-index: -1; opacity: 0.3; filter: blur(8px);"></div>
+        </div>
         </div>
       </div>
-    </section>
-    
-    <!-- Core Team Section -->
-    <section class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center relative inline-block">
-          <span class="mr-2 text-tech-blue">//</span>Core Team
-          <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-tech-blue opacity-70"></span>
-        </h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          <!-- Core Team Member 1 -->
-          <div class="cyber-card hover:shadow-neon-sm" data-aos="fade-up">
-            <div class="text-center">
-              <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tech-blue/30">
-                <img src="https://source.unsplash.com/random/200x200/?portrait,programmer" alt="Team Member" class="w-full h-full object-cover">
-              </div>
-              <h3 class="text-lg font-bold text-white">Aman Verma</h3>
-              <p class="text-tech-blue mb-2">Frontend Developer</p>
-              <div class="flex justify-center space-x-3 mt-3">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Core Team Member 2 -->
-          <div class="cyber-card hover:shadow-neon-sm" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-center">
-              <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tech-blue/30">
-                <img src="https://source.unsplash.com/random/200x200/?portrait,woman,coder" alt="Team Member" class="w-full h-full object-cover">
-              </div>
-              <h3 class="text-lg font-bold text-white">Neha Gupta</h3>
-              <p class="text-tech-blue mb-2">UI/UX Designer</p>
-              <div class="flex justify-center space-x-3 mt-3">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Core Team Member 3 -->
-          <div class="cyber-card hover:shadow-neon-sm" data-aos="fade-up" data-aos-delay="200">
-            <div class="text-center">
-              <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tech-blue/30">
-                <img src="https://source.unsplash.com/random/200x200/?portrait,programmer,man" alt="Team Member" class="w-full h-full object-cover">
-              </div>
-              <h3 class="text-lg font-bold text-white">Siddharth Patel</h3>
-              <p class="text-tech-blue mb-2">Backend Developer</p>
-              <div class="flex justify-center space-x-3 mt-3">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Core Team Member 4 -->
-          <div class="cyber-card hover:shadow-neon-sm" data-aos="fade-up" data-aos-delay="300">
-            <div class="text-center">
-              <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tech-blue/30">
-                <img src="https://source.unsplash.com/random/200x200/?portrait,woman" alt="Team Member" class="w-full h-full object-cover">
-              </div>
-              <h3 class="text-lg font-bold text-white">Ananya Mishra</h3>
-              <p class="text-tech-blue mb-2">AI/ML Specialist</p>
-              <div class="flex justify-center space-x-3 mt-3">
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Faculty Advisors Section -->
-    <section class="py-16 bg-bg-dark-secondary">
-      <div class="container mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center relative inline-block">
-          <span class="mr-2 text-tech-blue">//</span>Faculty Advisors
-          <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-tech-blue opacity-70"></span>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          <!-- Faculty Advisor 1 -->
-          <div class="glass-card p-6 flex items-center space-x-6" data-aos="fade-up">
-            <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-2 border-tech-blue/30">
-              <img src="https://source.unsplash.com/random/200x200/?professor,man" alt="Faculty Advisor" class="w-full h-full object-cover">
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white">Dr. Rakesh Mehta</h3>
-              <p class="text-tech-blue mb-2">Head of Computer Science Department</p>
-              <p class="text-text-secondary">Specializes in database systems and distributed computing. Provides technical guidance and mentorship.</p>
-            </div>
-          </div>
-          
-          <!-- Faculty Advisor 2 -->
-          <div class="glass-card p-6 flex items-center space-x-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-2 border-tech-blue/30">
-              <img src="https://source.unsplash.com/random/200x200/?professor,woman" alt="Faculty Advisor" class="w-full h-full object-cover">
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white">Prof. Sunita Jain</h3>
-              <p class="text-tech-blue mb-2">Associate Professor, IT Department</p>
-              <p class="text-text-secondary">Expert in artificial intelligence and machine learning. Advises on research projects and industry collaborations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Join Us Section -->
-    <section class="py-20 relative overflow-hidden">
-      <div class="absolute inset-0 bg-primary-gradient opacity-5 z-0"></div>
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Team</h2>
-          <p class="text-text-secondary mb-8">
-            Are you passionate about coding and technology? Join our team and be part of an exciting journey of learning, innovation, and growth.
-          </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#" class="btn-primary"><i class="fas fa-user-plus mr-2"></i> Apply to Join</a>
-            <a href="contact.html" class="btn-outline"><i class="fas fa-envelope mr-2"></i> Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <!-- Footer -->
-  <footer class="bg-bg-dark-tertiary border-t border-white/5 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-10 h-10">
-            <div class="flex flex-col">
-              <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-              <span class="text-xs text-text-secondary">PRPCEM</span>
-              <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
-            </div>
+      <!-- Pillars Section -->
+      <section class="pillars-section cyber-section" style="background: #0f172a; padding: 6rem 0; position: relative;">
+      <div class="section-bg-pattern" style="position: absolute; inset: 0; background-image: radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%); z-index: 1;"></div>
+      
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="section-header text-center" style="margin-bottom: 4rem;">
+        <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(139, 92, 246, 0.3);">
+          <i class="fas fa-crown"></i>
+          <span>Leadership</span>
+        </div>
+        <h2 class="cyber-title" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: #ffffff; margin-bottom: 1rem;">
+          Meet Our <span style="background: linear-gradient(135deg, #8b5cf6, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pillars</span>
+        </h2>
+        </div>
+        
+        <div class="pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; justify-items: center;">
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 114, 182, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/chairman.png" alt="Chairman" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(139, 92, 246, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
           </div>
-          <p class="text-text-secondary mb-6">
-            Empowering students to code, create, and innovate together.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-twitter"></i>
-            </a>
+          <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Shri. Pravin Pote Patil</h5>
+          <p style="color: #8b5cf6; font-weight: 500; margin: 0;">Chairman, PRPGEI</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 114, 182, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/vice-chairman.png" alt="Vice Chairman" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(139, 92, 246, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Shri. Shreyash Dada Pote Patil</h5>
+          <p style="color: #8b5cf6; font-weight: 500; margin: 0;">Vice-Chairman, PRPGEI</p>
+        </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Leadership Section -->
+      <section class="leadership-section cyber-section" style="background: #1e293b; padding: 6rem 0; position: relative;">
+      <div class="section-bg-pattern" style="position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(244, 114, 182, 0.1) 0%, transparent 50%); z-index: 1;"></div>
+      
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="section-header text-center" style="margin-bottom: 4rem;">
+        <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(0, 212, 255, 0.3);">
+          <i class="fas fa-user-tie"></i>
+          <span>Administration</span>
+        </div>
+        <h2 class="cyber-title" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: #ffffff; margin-bottom: 1rem;">
+          Our <span style="background: linear-gradient(135deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Leadership</span>
+        </h2>
+        </div>
+        
+        <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; justify-items: center;">
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/director.jpg" alt="Director" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Dr. Prakash M. Khodke</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0;">Director, PRPCEM</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/principal_new.jpg" alt="Principal" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Dr. P. M. Jawandhiya</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0;">Principal, PRPCEM</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/studentwelfare.jpeg" alt="Student Welfare" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Dr. Sunpreet Kaur Nanda</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0;">Dean Student Welfare, PRPCEM</p>
+        </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Faculty Coordinator & Mentors Section -->
+      <section class="faculty-mentors-section cyber-section" style="background: #0f172a; padding: 6rem 0; position: relative;">
+      <div class="section-bg-pattern" style="position: absolute; inset: 0; background-image: radial-gradient(circle at 60% 40%, rgba(244, 114, 182, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 60%, rgba(0, 212, 255, 0.1) 0%, transparent 50%); z-index: 1;"></div>
+      
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="section-header text-center" style="margin-bottom: 4rem;">
+        <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(244, 114, 182, 0.1); color: #f472b6; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(244, 114, 182, 0.3);">
+          <i class="fas fa-star"></i>
+          <span>Core Team</span>
+        </div>
+        <h2 class="cyber-title" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: #ffffff; margin-bottom: 1rem;">
+          Faculty Coordinator & <span style="background: linear-gradient(135deg, #f472b6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mentors</span>
+        </h2>
+        </div>
+        
+        <!-- Faculty Coordinator -->
+        <div class="faculty-coordinator" style="display: flex; justify-content: center; margin-bottom: 4rem;">
+          <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden; max-width: 350px;">
+        <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(0, 212, 255, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+        <div class="member-image" style="position: relative; margin-bottom: 1.5rem;">
+        <img src="https://codingclubprpcem.github.io/image-hosting-/Tayade_Sir_Photo.jpg" alt="Faculty Coordinator" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(244, 114, 182, 0.5); transition: transform 0.3s ease;">
+        <div class="image-ring" style="position: absolute; inset: -8px; border: 2px solid rgba(244, 114, 182, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+        </div>
+        <h5 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Prof. A. A. Tayade</h5>
+        <p style="color: #f472b6; font-weight: 500; margin: 0;">Faculty Coordinator, Coding Club PRPCEM</p>
           </div>
         </div>
         
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Quick Links
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
-            <li><a href="projects.html" class="nav-link">Projects</a></li>
-            <li><a href="team.html" class="nav-link">Team</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
+        <!-- Mentors Grid -->
+        <div class="mentors-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; justify-items: center;">
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Karamveer.png" alt="Karamveer Singh Oberoi" style="width: 100px; height: 100px; object-fit: scale-down; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Karamveer Singh Oberoi</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Mentor</p>
         </div>
         
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Resources
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="nav-link">Tutorials</a></li>
-            <li><a href="#" class="nav-link">Documentation</a></li>
-            <li><a href="#" class="nav-link">GitHub Repositories</a></li>
-            <li><a href="#" class="nav-link">Learning Paths</a></li>
-            <li><a href="#" class="nav-link">Tech Stack</a></li>
-          </ul>
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/ayushchainani.jpg" alt="Ayush Chainani" style="width: 100px; height: 100px; object-fit: scale-down; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Ayush Chainani</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Mentor</p>
         </div>
         
-        <div>
-          <h3 class="text-lg font-bold mb-4 relative">
-            <span class="mr-2 text-tech-blue">//</span>Contact
-            <span class="absolute -bottom-1 left-0 w-12 h-0.5 bg-tech-blue opacity-70"></span>
-          </h3>
-          <ul class="space-y-2 text-text-secondary">
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-map-marker-alt mt-1 text-tech-blue"></i>
-              <span>PRPCEM, Amravati, Maharashtra, India</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-envelope mt-1 text-tech-blue"></i>
-              <span>codingclub@prpcem.edu.in</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <i class="fas fa-phone mt-1 text-tech-blue"></i>
-              <span>+91 1234567890</span>
-            </li>
-          </ul>
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Sujal_Bhugul.jpg" alt="Sujal Bhugul" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Sujal Bhugul</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Mentor</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Mohammad_Alim (1).jpg" alt="Mohammad Alim" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Mohammad Alim</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Mentor</p>
+        </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Developers Section -->
+      <section class="developers-section cyber-section" style="background: #1e293b; padding: 6rem 0; position: relative;">
+      <div class="section-bg-pattern" style="position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 50%); z-index: 1;"></div>
+      
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="section-header text-center" style="margin-bottom: 4rem;">
+        <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(0, 212, 255, 0.3);">
+          <i class="fas fa-code"></i>
+          <span>Development Team</span>
+        </div>
+        <h2 class="cyber-title" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: #ffffff; margin-bottom: 1rem;">
+          Our <span style="background: linear-gradient(135deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Developers</span>
+        </h2>
+        </div>
+        
+        <div class="developers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; justify-items: center;">
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Karamveer.png" alt="Karamveer Singh Oberoi" style="width: 100px; height: 100px; object-fit: scale-down; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Karamveer Singh Oberoi</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Full Stack Developer</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/ayushchainani.jpg" alt="Ayush Chainani" style="width: 100px; height: 100px; object-fit: scale-down; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Ayush Chainani</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Full Stack Developer</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Sujal_Bhugul.jpg" alt="Sujal Bhugul" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Sujal Bhugul</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Front End Developer</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Tushar_Ahuja.jpg" alt="Tushar Ahuja" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Tushar Ahuja</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Front End Developer</p>
+        </div>
+        
+        <div class="team-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+          <div class="card-glow" style="position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1)); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div class="member-image" style="position: relative; margin-bottom: 1rem;">
+          <img src="https://codingclubprpcem.github.io/image-hosting-/Aman_Asthana.jpg" alt="Aman Asthana" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(0, 212, 255, 0.5); transition: transform 0.3s ease;">
+          <div class="image-ring" style="position: absolute; inset: -6px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </div>
+          <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Aman Asthana</h5>
+          <p style="color: #00d4ff; font-weight: 500; margin: 0; font-size: 0.9rem;">Front End Developer</p>
+        </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Join Team CTA -->
+      <section class="join-team-section cyber-section" style="background: #0f172a; padding: 6rem 0; position: relative; overflow: hidden;">
+      <div class="section-bg-effects">
+        <div class="floating-shapes">
+        <div class="shape shape-1" style="position: absolute; top: 20%; left: 10%; width: 50px; height: 50px; background: rgba(0, 212, 255, 0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+        <div class="shape shape-2" style="position: absolute; top: 60%; right: 15%; width: 30px; height: 30px; background: rgba(139, 92, 246, 0.1); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+        <div class="shape shape-3" style="position: absolute; bottom: 30%; left: 20%; width: 40px; height: 40px; background: rgba(244, 114, 182, 0.1); border-radius: 50%; animation: float 7s ease-in-out infinite;"></div>
         </div>
       </div>
       
-      <div class="border-t border-white/5 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-text-secondary text-sm mb-4 md:mb-0">
-          &copy; 2023 PRPCEM Coding Club. All rights reserved.
-        </p>
-        <div class="flex space-x-6">
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Privacy Policy</a>
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Terms of Service</a>
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm">Code of Conduct</a>
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+        <div class="join-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div class="join-text">
+          <div class="section-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(244, 114, 182, 0.1); color: #f472b6; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(244, 114, 182, 0.3);">
+          <i class="fas fa-rocket"></i>
+          <span>Join Us</span>
+          </div>
+          
+          <h3 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; line-height: 1.3;">
+          Ready to Join Our <span style="background: linear-gradient(135deg, #f472b6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Amazing Team?</span>
+          </h3>
+          
+          <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
+          We're always looking for passionate individuals who want to make a difference in the tech community. Whether you're a beginner or an expert, there's a place for you in our diverse team.
+          </p>
+          
+          <div class="join-benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+          <div class="benefit-item" style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <i class="fas fa-graduation-cap" style="color: #00d4ff; font-size: 1.25rem;"></i>
+            <span style="color: #e2e8f0; font-weight: 500;">Learn from Industry Experts</span>
+          </div>
+          <div class="benefit-item" style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <i class="fas fa-project-diagram" style="color: #8b5cf6; font-size: 1.25rem;"></i>
+            <span style="color: #e2e8f0; font-weight: 500;">Work on Real Projects</span>
+          </div>
+          <div class="benefit-item" style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <i class="fas fa-users" style="color: #f472b6; font-size: 1.25rem;"></i>
+            <span style="color: #e2e8f0; font-weight: 500;">Build Professional Network</span>
+          </div>
+          <div class="benefit-item" style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <i class="fas fa-trophy" style="color: #fbbf24; font-size: 1.25rem;"></i>
+            <span style="color: #e2e8f0; font-weight: 500;">Gain Leadership Experience</span>
+          </div>
+          </div>
+          
+          <div class="join-actions" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button class="quantum-join-btn" onclick="openJoinModal()" style="display: flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #f472b6, #8b5cf6); border: none; color: white; padding: 1rem 2rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; position: relative; overflow: hidden;">
+            <i class="fas fa-user-plus"></i>
+            <span>Apply Now</span>
+            <div class="btn-particles" style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 20px 20px; opacity: 0; transition: opacity 0.3s ease;"></div>
+          </button>
+          <a href="contact.html" class="secondary-btn" style="display: flex; align-items: center; gap: 0.5rem; background: transparent; border: 2px solid rgba(0, 212, 255, 0.5); color: #00d4ff; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+          </a>
+          </div>
+        </div>
+        
+        <div class="join-visual" style="position: relative; height: 400px;">
+          <div class="team-illustration" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <div class="member-bubble bubble-1" style="position: absolute; top: 20%; left: 20%; width: 60px; height: 60px; background: rgba(0, 212, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(0, 212, 255, 0.5); animation: pulse 3s ease-in-out infinite;">
+            <i class="fas fa-user" style="color: #00d4ff;"></i>
+          </div>
+          <div class="member-bubble bubble-2" style="position: absolute; top: 20%; right: 20%; width: 60px; height: 60px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(139, 92, 246, 0.5); animation: pulse 3s ease-in-out infinite 0.5s;">
+            <i class="fas fa-user" style="color: #8b5cf6;"></i>
+          </div>
+          <div class="member-bubble bubble-3" style="position: absolute; bottom: 20%; left: 20%; width: 60px; height: 60px; background: rgba(244, 114, 182, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(244, 114, 182, 0.5); animation: pulse 3s ease-in-out infinite 1s;">
+            <i class="fas fa-user" style="color: #f472b6;"></i>
+          </div>
+          <div class="member-bubble bubble-4" style="position: absolute; bottom: 20%; right: 20%; width: 60px; height: 60px; background: rgba(251, 191, 36, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(251, 191, 36, 0.5); animation: pulse 3s ease-in-out infinite 1.5s;">
+            <i class="fas fa-user" style="color: #fbbf24;"></i>
+          </div>
+          
+          <div class="connection-lines" style="position: absolute; inset: 0; pointer-events: none;">
+            <svg viewBox="0 0 300 300" style="width: 100%; height: 100%;">
+            <path d="M75,75 L225,75 L225,225 L75,225 Z" stroke="rgba(0, 212, 255, 0.3)" stroke-width="2" fill="none" opacity="0.6">
+              <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="8s" repeatCount="indefinite"/>
+            </path>
+            <path d="M150,37.5 L262.5,150 L150,262.5 L37.5,150 Z" stroke="rgba(139, 92, 246, 0.4)" stroke-width="2" fill="none" opacity="0.8">
+              <animate attributeName="stroke-dasharray" values="0,800;800,0;0,800" dur="6s" repeatCount="indefinite"/>
+            </path>
+            </svg>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </section>
+    </main>
+
+    <style>
+      @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      }
+      
+      @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      }
+      
+      .team-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 212, 255, 0.5);
+      }
+      
+      .team-card:hover .card-glow {
+      opacity: 1;
+      }
+      
+      .team-card:hover .member-image img {
+      transform: scale(1.1);
+      }
+      
+      .team-card:hover .image-ring {
+      opacity: 1;
+      animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+      }
+      
+      .team-image:hover {
+      transform: scale(1.05);
+      }
+      
+      .quantum-join-btn:hover {
+      transform: scale(1.05);
+      }
+      
+      .quantum-join-btn:hover .btn-particles {
+      opacity: 1;
+      }
+      
+      .secondary-btn:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: #00d4ff;
+      transform: translateY(-2px);
+      }
+      
+      @media (max-width: 768px) {
+      .join-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      
+      .join-visual {
+        height: 300px !important;
+      }
+      
+      .join-benefits {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .join-actions {
+        justify-content: center;
+      }
+      }
+    </style>
+    <!-- Enhanced Footer -->
+<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
+  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Footer Main Content -->
+    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <!-- Brand Section -->
+      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
+        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
+          <div class="logo-glow"></div>
+        </div>
+        <div class="footer-text">
+          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
+          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
+          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Events</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="events.html">Events</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Resources</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#" onclick="openJoinModal()">Join Club</a>
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq">FAQ</a>
+          <a href="#blog">Blog</a>
+          <a href="#tutorials">Tutorials</a>
+        </nav>
+      </div>
+
+      <!-- Connect Section -->
+      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
+        <h4>Connect With Us</h4>
+        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup" style="margin-top: 1rem;">
+          <h5>Stay Updated</h5>
+          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
+            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
         </div>
       </div>
     </div>
-  </footer>
 
-  <script src="js/background.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
+        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span>Built with:</span>
+          <i class="fab fa-html5" title="HTML5"></i>
+          <i class="fab fa-css3-alt" title="CSS3"></i>
+          <i class="fab fa-js-square" title="JavaScript"></i>
+          <i class="fab fa-github" title="GitHub"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Background Effects -->
+  <div class="footer-bg-effects">
+    <div class="footer-particles"></div>
+    <div class="footer-grid"></div>
+  </div>
+</footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/mobile-app.js"></script>
 </body>
 </html>

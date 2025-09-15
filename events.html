@@ -3,425 +3,1915 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Events | Coding Club PRPCEM</title>
+  <title>Coding Club PRPCEM | Innovation Hub</title>
   <link rel="icon" href="images/logo1.png" type="image/png" />
-  
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  
-  <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  
-  <!-- Tailwind CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .nav-brand {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      footer .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Technical Posts Section Styles */
+    .posts-section {
+      padding: 4rem 0;
+      background: #0a0f1a;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    .post-card.featured {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .post-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .post-image {
+      height: 120px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-icon {
+      font-size: 2rem;
+      color: #00d4ff;
+      z-index: 2;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-content h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .post-content p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      background: #374151;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .read-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .read-more-btn:hover {
+      background: #00d4ff;
+      color: #0a0f1a;
+      transform: translateX(5px);
+    }
+
+    .posts-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-posts-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .view-all-posts-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-<body class="bg-bg-dark text-text-primary">
-  <!-- Particle Background -->
-  <div id="particleBg" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
-  
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-dark/80 backdrop-blur-md py-3 border-b border-tech-blue/20">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3">
-          <div class="relative w-10 h-10 animate-pulse-glow">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-full h-full object-contain">
-            <div class="absolute inset-0 bg-tech-blue/20 rounded-full filter blur-md -z-10"></div>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-            <span class="text-xs text-text-secondary">PRPCEM</span>
-            <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
-          </div>
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link font-medium">Home</a>
-          <a href="about.html" class="nav-link font-medium">About</a>
-          <a href="events.html" class="nav-link font-medium text-tech-blue">Events</a>
-          <a href="projects.html" class="nav-link font-medium">Projects</a>
-          <a href="team.html" class="nav-link font-medium">Team</a>
-          <a href="contact.html" class="btn-outline py-2 px-4 text-sm">Contact Us</a>
+<body>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Navigation (updated layout for toggle button next to logo) -->
+  <nav class="cyber-nav" id="cyberNav">
+    <div class="nav-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div class="nav-brand" style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="brand-logo" />
+          <div class="logo-hologram"></div>
         </div>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 group">
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transition-all duration-300 group-[.open]:opacity-0"></span>
-          <span class="w-6 h-0.5 bg-tech-blue transform transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Mobile Navigation Menu -->
-    <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 right-0 bg-bg-dark-secondary/95 backdrop-blur-md border-b border-tech-blue/20">
-      <div class="container mx-auto px-4 py-5 flex flex-col space-y-4">
-        <a href="index.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Home</a>
-        <a href="about.html" class="nav-link py-2 border-b border-bg-dark-tertiary">About</a>
-        <a href="events.html" class="nav-link py-2 border-b border-bg-dark-tertiary text-tech-blue">Events</a>
-        <a href="projects.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Projects</a>
-        <a href="team.html" class="nav-link py-2 border-b border-bg-dark-tertiary">Team</a>
-        <a href="contact.html" class="nav-link py-2 flex items-center justify-center mt-2 border border-tech-blue rounded-lg">Contact Us</a>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Hero Section -->
-  <section class="pt-32 pb-16 relative overflow-hidden">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex flex-col md:flex-row md:items-center gap-12">
-        <!-- Hero Content -->
-        <div class="w-full md:w-1/2 space-y-6 hero-animate">
-          <h1 class="text-4xl md:text-5xl font-bold">
-            <span class="text-tech-blue">Events</span> & Workshops
-          </h1>
-          <p class="text-xl text-text-secondary">
-            Dive into our tech events, workshops, hackathons, and seminars designed to enhance your skills and expand your network.
-          </p>
-          <p class="text-lg text-text-secondary">
-            From beginner-friendly sessions to advanced masterclasses, we offer something for everyone in the world of technology.
-          </p>
-        </div>
-        
-        <!-- Hero Image -->
-        <div class="w-full md:w-1/2 flex justify-center hero-animate">
-          <div class="relative">
-            <img src="images/events.png" alt="Coding Club Events" class="rounded-xl shadow-neon-md max-w-full md:max-w-md">
-            <div class="absolute inset-0 border-2 border-tech-purple/30 rounded-xl -z-10 transform translate-x-4 translate-y-4"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Event Filters -->
-  <section class="py-8 bg-bg-dark-secondary/50">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <button class="px-6 py-2 rounded-full bg-tech-blue text-white font-medium">All Events</button>
-        <button class="px-6 py-2 rounded-full bg-bg-dark-tertiary hover:bg-tech-blue/20 text-text-secondary hover:text-tech-blue transition-all">Upcoming</button>
-        <button class="px-6 py-2 rounded-full bg-bg-dark-tertiary hover:bg-tech-blue/20 text-text-secondary hover:text-tech-blue transition-all">Workshops</button>
-        <button class="px-6 py-2 rounded-full bg-bg-dark-tertiary hover:bg-tech-blue/20 text-text-secondary hover:text-tech-blue transition-all">Hackathons</button>
-        <button class="px-6 py-2 rounded-full bg-bg-dark-tertiary hover:bg-tech-blue/20 text-text-secondary hover:text-tech-blue transition-all">Tech Talks</button>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Upcoming Events Section -->
-  <section class="py-16">
-    <div class="container mx-auto px-4 md:px-6">
-      <h2 class="section-title text-center scroll-animate">Upcoming Events</h2>
-      <p class="section-subtitle text-center scroll-animate">Join us for these exciting upcoming events and opportunities.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        <!-- Event Card 1 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Annual Hackathon 2025" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute top-2 right-2 bg-tech-blue text-white text-xs font-bold px-2 py-1 rounded">Hackathon</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>September 15-16, 2025</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-blue transition-colors">Annual Hackathon 2025</h3>
-          <p class="text-text-secondary mb-4">A 24-hour coding marathon where teams compete to build innovative solutions to real-world problems.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-sm bg-tech-blue/20 text-tech-blue px-2 py-1 rounded">Registration Open</span>
-            <a href="#" class="text-tech-blue hover:text-tech-cyan flex items-center">
-              Register
-              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Event Card 2 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Web Development Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute top-2 right-2 bg-tech-purple text-white text-xs font-bold px-2 py-1 rounded">Workshop</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>October 5, 2025</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-purple transition-colors">Modern Web Development</h3>
-          <p class="text-text-secondary mb-4">Learn the latest web technologies including React, Next.js, and Tailwind CSS in this hands-on workshop.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-sm bg-tech-purple/20 text-tech-purple px-2 py-1 rounded">Limited Seats</span>
-            <a href="#" class="text-tech-purple hover:text-tech-pink flex items-center">
-              Register
-              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Event Card 3 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="AI/ML Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute top-2 right-2 bg-tech-green text-white text-xs font-bold px-2 py-1 rounded">Seminar</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>November 12, 2025</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-green transition-colors">AI & Machine Learning Basics</h3>
-          <p class="text-text-secondary mb-4">Discover the fundamentals of AI and ML with practical examples and hands-on exercises using Python.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-sm bg-tech-green/20 text-tech-green px-2 py-1 rounded">Beginner Friendly</span>
-            <a href="#" class="text-tech-green hover:text-tech-cyan flex items-center">
-              Register
-              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Past Events Section -->
-  <section class="py-16 bg-bg-dark-secondary/50">
-    <div class="container mx-auto px-4 md:px-6">
-      <h2 class="section-title text-center scroll-animate">Past Events</h2>
-      <p class="section-subtitle text-center scroll-animate">A glimpse of our successful past events and activities.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        <!-- Past Event 1 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Code Sprint 2024" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>May 20, 2024</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-blue transition-colors">Code Sprint 2024</h3>
-          <p class="text-text-secondary mb-4">A 6-hour competitive coding event that tested participants' problem-solving and algorithmic skills.</p>
-          <a href="#" class="text-tech-blue hover:text-tech-cyan flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
-        </div>
-        
-        <!-- Past Event 2 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Blockchain Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>April 15, 2024</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-purple transition-colors">Blockchain Workshop</h3>
-          <p class="text-text-secondary mb-4">An introduction to blockchain technology and its applications beyond cryptocurrencies.</p>
-          <a href="#" class="text-tech-purple hover:text-tech-pink flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
-        </div>
-        
-        <!-- Past Event 3 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Tech Talk: Future of AI" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>March 10, 2024</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-green transition-colors">Tech Talk: Future of AI</h3>
-          <p class="text-text-secondary mb-4">Industry experts discussed the future of AI and its impact on various sectors and career opportunities.</p>
-          <a href="#" class="text-tech-green hover:text-tech-cyan flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
-        </div>
-        
-        <!-- Past Event 4 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Mobile App Development Bootcamp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>February 5-7, 2024</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-blue transition-colors">Mobile App Development Bootcamp</h3>
-          <p class="text-text-secondary mb-4">A 3-day intensive bootcamp on Flutter framework for cross-platform mobile app development.</p>
-          <a href="#" class="text-tech-blue hover:text-tech-cyan flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
-        </div>
-        
-        <!-- Past Event 5 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Git & GitHub Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>January 20, 2024</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-purple transition-colors">Git & GitHub Workshop</h3>
-          <p class="text-text-secondary mb-4">Hands-on session on version control and collaboration using Git and GitHub for beginners.</p>
-          <a href="#" class="text-tech-purple hover:text-tech-pink flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
-        </div>
-        
-        <!-- Past Event 6 -->
-        <div class="card group hover:bg-bg-dark-tertiary scroll-animate">
-          <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
-            <img src="images/events.png" alt="Cybersecurity Awareness" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75">
-            <div class="absolute top-2 right-2 bg-text-secondary text-bg-dark text-xs font-bold px-2 py-1 rounded">Completed</div>
-          </div>
-          <div class="flex items-center text-text-secondary mb-3">
-            <i class="far fa-calendar-alt mr-2"></i>
-            <span>December 12, 2023</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-tech-green transition-colors">Cybersecurity Awareness Session</h3>
-          <p class="text-text-secondary mb-4">Expert-led session on cybersecurity best practices, common threats, and how to protect yourself online.</p>
-          <a href="#" class="text-tech-green hover:text-tech-cyan flex items-center">
-            View Recap
-            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-          </a>
+        <div class="brand-text">
+          <span class="brand-name">CODING CLUB</span>
+          <span class="brand-subtitle">PRPCEM</span>
         </div>
       </div>
       
-      <!-- Pagination -->
-      <div class="flex justify-center mt-12">
-        <div class="flex space-x-2">
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-bg-dark-tertiary text-text-secondary hover:bg-tech-blue hover:text-white transition-colors">1</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-bg-dark-tertiary text-text-secondary hover:bg-tech-blue hover:text-white transition-colors">2</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-tech-blue text-white">3</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-bg-dark-tertiary text-text-secondary hover:bg-tech-blue hover:text-white transition-colors">4</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-bg-dark-tertiary text-text-secondary hover:bg-tech-blue hover:text-white transition-colors">
-            <i class="fas fa-ellipsis-h"></i>
+      <!-- Neural Network Navigation -->
+      <div class="neural-nav">
+        <div class="nav-nodes">
+          <a href="index.html" class="nav-node active" data-page="home">
+            <div class="node-core">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Home</span>
+          </a>
+          
+          <a href="about.html" class="nav-node" data-page="about">
+            <div class="node-core">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">About</span>
+          </a>
+          
+          <a href="events.html" class="nav-node" data-page="events">
+            <div class="node-core">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Events</span>
+          </a>
+          
+          <a href="projects.html" class="nav-node" data-page="projects">
+            <div class="node-core">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Projects</span>
+          </a>
+          
+          <a href="team.html" class="nav-node" data-page="team">
+            <div class="node-core">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Team</span>
+          </a>
+          
+          <a href="contact.html" class="nav-node" data-page="contact">
+            <div class="node-core">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="node-pulse"></div>
+            <span class="node-label">Contact</span>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Host Your Own Event Section -->
-  <section class="py-16 bg-primary-gradient relative overflow-hidden">
-    <div class="absolute inset-0 bg-bg-dark/60"></div>
-    <div class="container mx-auto px-4 md:px-6 relative z-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 scroll-animate">Have an Event Idea?</h2>
-        <p class="text-lg mb-8 scroll-animate">
-          Want to host a workshop, seminar, or tech talk? We welcome ideas from our community members and provide support to bring them to life.
-        </p>
-        <a href="contact.html" class="btn-primary scroll-animate">Propose an Event</a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="py-12 bg-bg-dark-tertiary border-t border-tech-blue/20">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Logo & About -->
-        <div class="md:col-span-1">
-          <div class="flex items-center space-x-3 mb-4">
-            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="w-10 h-10">
-            <div class="flex flex-col">
-              <span class="font-bold text-lg leading-tight">CODING CLUB</span>
-              <span class="text-xs text-text-secondary">PRPCEM</span>
-              <span class="text-xs text-tech-purple italic">Think Beyond the Syntax</span>
+        
+        <!-- Enhanced Nav Tools -->
+        <div class="nav-tools">
+          <div class="search-container">
+            <button class="search-trigger" id="searchTrigger">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search..." id="navSearch">
+              <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
-          <p class="text-text-secondary mb-4">Building a community of tech enthusiasts and innovators at PRPCEM.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-instagram"></i>
+          
+          <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
             </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
-              <i class="fab fa-twitter"></i>
+            <a href="https://discord.gg/codingclub" target="_blank" class="social-link" title="Discord">
+              <i class="fab fa-discord"></i>
             </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link" title="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">
+          </div>
+        </div>
+        
+        <!-- Neural Connections -->
+        <svg class="neural-connections" viewBox="0 0 800 100">
+          <path class="connection-line" d="M0,50 Q200,20 400,50 T800,50" stroke="url(#neuralGradient)" fill="none"/>
+          <defs>
+            <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+              <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      
+      <button class="cyber-toggle" id="cyberToggle" aria-label="Toggle navigation">
+        <div class="toggle-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="toggle-circuit"></div>
+      </button>
+    </div>
+    
+    <!-- Mobile Neural Menu -->
+    <div class="mobile-neural-menu" id="mobileNeuralMenu">
+      <div class="menu-container">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-nodes">
+          <a href="index.html" class="mobile-node active">
+            <div class="node-icon"><i class="fas fa-home"></i></div>
+            <span>Home</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="about.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-info-circle"></i></div>
+            <span>About</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="events.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Events</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="projects.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-code"></i></div>
+            <span>Projects</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="team.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-users"></i></div>
+            <span>Team</span>
+            <div class="node-trail"></div>
+          </a>
+          <a href="contact.html" class="mobile-node">
+            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+            <span>Contact</span>
+            <div class="node-trail"></div>
+          </a>
+        </div>
+        
+        <div class="menu-footer">
+          <div class="social-nodes">
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" class="social-node">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" class="social-node">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@Coding_Club_PRPCEM" target="_blank" class="social-node">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-node">
               <i class="fab fa-github"></i>
             </a>
           </div>
-        </div>
-        
-        <!-- Quick Links -->
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="text-text-secondary hover:text-tech-blue transition-colors">Home</a></li>
-            <li><a href="about.html" class="text-text-secondary hover:text-tech-blue transition-colors">About</a></li>
-            <li><a href="events.html" class="text-text-secondary hover:text-tech-blue transition-colors">Events</a></li>
-            <li><a href="projects.html" class="text-text-secondary hover:text-tech-blue transition-colors">Projects</a></li>
-            <li><a href="team.html" class="text-text-secondary hover:text-tech-blue transition-colors">Team</a></li>
-            <li><a href="contact.html" class="text-text-secondary hover:text-tech-blue transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        
-        <!-- Resources -->
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-bold mb-4">Resources</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Learning Materials</a></li>
-            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Project Ideas</a></li>
-            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Coding Challenges</a></li>
-            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">Workshop Slides</a></li>
-            <li><a href="#" class="text-text-secondary hover:text-tech-blue transition-colors">GitHub Repositories</a></li>
-          </ul>
-        </div>
-        
-        <!-- Contact -->
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt text-tech-blue mt-1 mr-3"></i>
-              <span class="text-text-secondary">PRPCEM Campus, College Road, Amravati, Maharashtra, India</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-envelope text-tech-blue mr-3"></i>
-              <a href="mailto:codingclub@prpcem.edu" class="text-text-secondary hover:text-tech-blue transition-colors">codingclub@prpcem.edu</a>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-phone text-tech-blue mr-3"></i>
-              <a href="tel:+919876543210" class="text-text-secondary hover:text-tech-blue transition-colors">+91 98765 43210</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-bg-dark-secondary mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-text-secondary text-sm">© 2025 Coding Club PRPCEM. All rights reserved.</p>
-        <div class="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm transition-colors">Privacy Policy</a>
-          <a href="#" class="text-text-secondary hover:text-tech-blue text-sm transition-colors">Terms of Service</a>
+          <button class="quantum-join-btn" onclick="openJoinModal()">
+            <span class="btn-text">Join Club</span>
+            <div class="btn-particles"></div>
+          </button>
         </div>
       </div>
     </div>
-  </footer>
-  
-  <!-- Back to Top Button -->
-  <a href="#" class="fixed bottom-6 right-6 bg-tech-blue/80 hover:bg-tech-blue text-white w-12 h-12 rounded-full flex items-center justify-center shadow-neon-md transition-all hover:scale-110">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-  
-  <!-- Scripts -->
-  <script src="js/background.js"></script>
-  <script src="js/main.js"></script>
+  </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-calendar-alt"></i>
+                        Events
+                    </span>
+                </div>
+                
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Our <span class="title-gradient">Events</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                
+                <p class="page-subtitle">
+                    Join us for exciting workshops, hackathons, and tech talks that will enhance your skills and expand your network
+                </p>
+            </div>
+            
+            <div class="header-visual">
+                <div class="event-calendar-visual" id="eventCalendar">
+                    <div class="calendar-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="calendar-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Event Filters -->
+        <section class="event-filters">
+            <div class="section-container">
+                <div class="filter-container">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="upcoming">
+                            <i class="fas fa-clock"></i>
+                            Upcoming Events
+                        </button>
+                        <button class="filter-tab" data-filter="past">
+                            <i class="fas fa-history"></i>
+                            Past Events
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Event -->
+        <section class="featured-event-section">
+            <div class="section-container">
+                <div class="featured-event">
+                    <div class="event-background">
+                        <img src="images/events.png" alt="Featured Event Background">
+                        <div class="event-overlay"></div>
+                    </div>
+                    
+                    <div class="event-content">
+                        <div class="event-badge featured">
+                            <i class="fas fa-star"></i>
+                            <span>Featured Event</span>
+                        </div>
+                        
+                        <div class="event-date-large">
+                            <div class="date-month">FEB</div>
+                            <div class="date-day">15</div>
+                            <div class="date-year">2025</div>
+                        </div>
+                        
+                        <div class="event-info">
+                            <h2 class="event-title">AI & Machine Learning Summit</h2>
+                            <p class="event-description">
+                                Join industry experts and AI researchers for an intensive day of learning about cutting-edge AI technologies, 
+                                machine learning applications, and the future of artificial intelligence in various industries.
+                            </p>
+                            
+                            <div class="event-details-grid">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">9:00 AM - 6:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <span class="detail-label">Venue</span>
+                                        <span class="detail-value">Main Auditorium, PRPCEM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <span class="detail-label">Capacity</span>
+                                        <span class="detail-value">200 Participants</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-item">
+                                    <i class="fas fa-tag"></i>
+                                    <div>
+                                        <span class="detail-label">Type</span>
+                                        <span class="detail-value">Summit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="event-actions">
+                                <button class="register-btn primary">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Register Now</span>
+                                </button>
+                                <button class="share-btn">
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>Share Event</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Grid -->
+        <section class="events-grid-section" id="upcoming-events">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Upcoming Events</span>
+                    </div>
+                    <h2 class="section-title">
+                        Don't Miss <span class="text-gradient">These</span>
+                    </h2>
+                </div>
+                
+                <div class="events-grid">
+                    <div class="event-card" data-category="upcoming">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">FEB</span>
+                                <span class="day">01</span>
+                            </div>
+                            <div class="event-type hackathon">
+                                <i class="fas fa-trophy"></i>
+                                Hackathon
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>CodeSprint 2025</h3>
+                            <p>24-hour intensive coding competition to solve real-world problems and showcase your programming skills.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>9:00 AM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Innovation Lab</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="register-btn">Register</button>
+                                <div class="participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>32 registered</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="event-card" data-category="upcoming">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">FEB</span>
+                                <span class="day">20</span>
+                            </div>
+                            <div class="event-type workshop">
+                                <i class="fas fa-code"></i>
+                                Workshop
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Web Development Bootcamp</h3>
+                            <p>Complete hands-on workshop covering HTML, CSS, JavaScript, and modern web frameworks.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10:00 AM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Computer Lab</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="register-btn">Register</button>
+                                <div class="participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>45 registered</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="event-card" data-category="upcoming">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">MAR</span>
+                                <span class="day">05</span>
+                            </div>
+                            <div class="event-type talk">
+                                <i class="fas fa-microphone"></i>
+                                Tech Talk
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Blockchain Revolution</h3>
+                            <p>Industry expert discussion on blockchain technology, cryptocurrencies, and decentralized applications.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>3:00 PM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Seminar Hall</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="register-btn">Register</button>
+                                <div class="participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>67 registered</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="event-card" data-category="upcoming">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">MAR</span>
+                                <span class="day">18</span>
+                            </div>
+                            <div class="event-type workshop">
+                                <i class="fas fa-cloud"></i>
+                                Workshop
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Cloud Computing Workshop</h3>
+                            <p>Learn AWS, Azure fundamentals and deploy your first cloud application with practical exercises.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1:00 PM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Tech Lab</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="register-btn">Register</button>
+                                <div class="participants">
+                                    <i class="fas fa-users"></i>
+                                    <span>29 registered</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Events Grid -->
+        <section class="events-grid-section" id="past-events" style="display: none;">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-history"></i>
+                        <span>Past Events</span>
+                    </div>
+                    <h2 class="section-title">
+                        Our <span class="text-gradient">Journey</span>
+                    </h2>
+                </div>
+                
+                <div class="events-grid">
+                    <div class="event-card past-event" data-category="past">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">DEC</span>
+                                <span class="day">15</span>
+                            </div>
+                            <div class="event-type workshop completed">
+                                <i class="fas fa-check-circle"></i>
+                                Workshop
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Python Programming Basics</h3>
+                            <p>Introduction to Python programming with hands-on exercises and real-world examples.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>2:00 PM - 5:00 PM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>58 attended</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="view-gallery-btn">View Gallery</button>
+                                <div class="event-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="completed-badge">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card past-event" data-category="past">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">NOV</span>
+                                <span class="day">28</span>
+                            </div>
+                            <div class="event-type hackathon completed">
+                                <i class="fas fa-check-circle"></i>
+                                Hackathon
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>HackFest 2024</h3>
+                            <p>48-hour coding marathon with innovative solutions and amazing prizes for winners.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>48 Hours</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>42 participants</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="view-gallery-btn">View Gallery</button>
+                                <div class="event-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="completed-badge">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card past-event" data-category="past">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">OCT</span>
+                                <span class="day">20</span>
+                            </div>
+                            <div class="event-type talk completed">
+                                <i class="fas fa-check-circle"></i>
+                                Tech Talk
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Future of Software Development</h3>
+                            <p>Industry insights on emerging technologies and career opportunities in tech.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>4:00 PM - 6:00 PM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>95 attended</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="view-gallery-btn">View Gallery</button>
+                                <div class="event-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="completed-badge">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card past-event" data-category="past">
+                        <div class="card-header">
+                            <div class="event-date">
+                                <span class="month">SEP</span>
+                                <span class="day">12</span>
+                            </div>
+                            <div class="event-type workshop completed">
+                                <i class="fas fa-check-circle"></i>
+                                Workshop
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Git & GitHub Mastery</h3>
+                            <p>Version control essentials and collaborative development using Git and GitHub.</p>
+                            
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10:00 AM - 1:00 PM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>73 attended</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <button class="view-gallery-btn">View Gallery</button>
+                                <div class="event-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="completed-badge">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Newsletter -->
+        <section class="newsletter-section">
+            <div class="section-container">
+                <div class="newsletter-container">
+                    <div class="newsletter-content">
+                        <div class="newsletter-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Never Miss an Event</h3>
+                        <p>Subscribe to our newsletter and get notified about upcoming events, workshops, and exclusive opportunities.</p>
+                        
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="newsletter-visual">
+                        <div class="notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <div class="bell-waves"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        /* Main Content Styles */
+        .main-content {
+
+            min-height: 100vh;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1e293b 100%);
+            padding: 10rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .breadcrumb a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #8b5cf6;
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            color: #00d4ff;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        /* Event Filters */
+        .event-filters {
+            padding: 2rem 0;
+            background: rgba(10, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            color: #ffffff;
+        }
+
+        /* Featured Event */
+        .featured-event-section {
+            padding: 4rem 0;
+            background: #0a0f1a;
+        }
+
+        .featured-event {
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .event-background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .event-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .event-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+        }
+
+        .event-content {
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .event-date-large {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .date-month {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        .date-day {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0.5rem 0;
+        }
+
+        .date-year {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .event-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .event-description {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .event-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-item i {
+            font-size: 1.25rem;
+            color: #00d4ff;
+            width: 24px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            display: block;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .register-btn, .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .register-btn.primary {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            color: #ffffff;
+        }
+
+        .register-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .share-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00d4ff;
+        }
+
+        /* Events Grid */
+        .events-grid-section {
+            padding: 4rem 0;
+            background: #0a0f1a;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+
+        .event-card:hover .card-glow {
+            opacity: 1;
+        }
+
+        .card-glow {
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 12px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-date {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .month {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        .day {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 0.25rem;
+        }
+
+        .event-type {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .event-type.hackathon {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .event-type.workshop {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .event-type.talk {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .event-type.completed {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .meta-item i {
+            color: #00d4ff;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .register-btn, .view-gallery-btn {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .register-btn:hover, .view-gallery-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .participants, .event-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .participants i, .event-rating i {
+            color: #00d4ff;
+        }
+
+        .completed-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        .newsletter-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .newsletter-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form .form-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #94a3b8;
+        }
+
+        .newsletter-form button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .notification-bell {
+            font-size: 4rem;
+            color: #00d4ff;
+            position: relative;
+            animation: bellRing 2s infinite;
+        }
+
+        @keyframes bellRing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .filter-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .filter-tab {
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .event-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+
+            .event-title {
+                font-size: 2rem;
+            }
+
+            .event-details-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .event-actions {
+                flex-direction: column;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .newsletter-form .form-group {
+                flex-direction: column;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .event-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .event-content {
+                padding: 1.5rem;
+            }
+
+            .newsletter-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const upcomingSection = document.getElementById('upcoming-events');
+            const pastSection = document.getElementById('past-events');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show/hide sections based on filter
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'upcoming') {
+                        upcomingSection.style.display = 'block';
+                        pastSection.style.display = 'none';
+                    } else if (filter === 'past') {
+                        upcomingSection.style.display = 'none';
+                        pastSection.style.display = 'block';
+                    }
+                });
+            });
+
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all event cards
+            document.querySelectorAll('.event-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+
+    <!-- Enhanced Footer -->
+<footer class="footer-section" style="background: #0c1120; color: #fff; padding: 2rem 1rem;">
+  <div class="footer-container" style="display: flex; flex-direction: column; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Footer Main Content -->
+    <div class="footer-main" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <!-- Brand Section -->
+      <div class="footer-brand" style="flex: 1 1 250px; min-width: 250px;">
+        <div class="footer-logo-section" style="display: flex; align-items: center; gap: 1rem;">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" style="width: 60px; height: auto;" />
+          <div class="logo-glow"></div>
+        </div>
+        <div class="footer-text">
+          <h3 style="margin-top: 0.5rem;">Coding Club PRPCEM</h3>
+          <p>Empowering the next generation of developers and innovators through technology, collaboration, and continuous learning.</p>
+          <div class="footer-stats" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Events</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="events.html">Events</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-resources" style="flex: 1 1 200px; min-width: 200px;">
+        <h4>Resources</h4>
+        <nav class="footer-nav" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#" onclick="openJoinModal()">Join Club</a>
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank">GitHub</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq">FAQ</a>
+          <a href="#blog">Blog</a>
+          <a href="#tutorials">Tutorials</a>
+        </nav>
+      </div>
+
+      <!-- Connect Section -->
+      <div class="footer-connect" style="flex: 1 1 250px; min-width: 250px;">
+        <h4>Connect With Us</h4>
+        <div class="social-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-item"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://discord.gg/codingclub" target="_blank" class="social-item"><i class="fab fa-discord"></i> Discord</a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://instagram.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://youtube.com/@codingclubprpcem" target="_blank" class="social-item"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup" style="margin-top: 1rem;">
+          <h5>Stay Updated</h5>
+          <form class="newsletter-form" id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 auto; padding: 0.5rem; border: none; border-radius: 5px;">
+            <button type="submit" style="padding: 0.5rem 1rem; background: #14b8a6; color: white; border: none; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="border-top: 1px solid #444; padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: center;">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 Coding Club PRPCEM. All rights reserved.</p>
+        <div class="footer-legal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p>Made with <i class="fas fa-heart"></i> by our amazing team</p>
+        <div class="footer-tech" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+          <span>Built with:</span>
+          <i class="fab fa-html5" title="HTML5"></i>
+          <i class="fab fa-css3-alt" title="CSS3"></i>
+          <i class="fab fa-js-square" title="JavaScript"></i>
+          <i class="fab fa-github" title="GitHub"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Background Effects -->
+  <div class="footer-bg-effects">
+    <div class="footer-particles"></div>
+    <div class="footer-grid"></div>
+  </div>
+</footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Coding Club PRPCEM</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">Programming Interests & Goals</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Application</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/mobile-app.js"></script>
 </body>
 </html>
