@@ -382,11 +382,3 @@ const prpcemWebsite = new PRPCEMWebsite();
 window.prpcemWebsite = prpcemWebsite;
 window.utils = utils;
 
-// Service Worker registration for PWA capabilities (future enhancement)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => console.log('SW registered'))
-      .catch(error => console.log('SW registration failed'));
-  });
-}

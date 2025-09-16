@@ -113,8 +113,8 @@ function createRippleEffect(element) {
 // Update active navigation state
 function updateActiveNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navNodes = $$('.nav-node, .mobile-node');
-    
+    // Support nav-node, mobile-node, nav-item, mobile-nav-item
+    const navNodes = $$('.nav-node, .mobile-node, .nav-item, .mobile-nav-item');
     navNodes.forEach(node => {
         const href = node.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
@@ -151,70 +151,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-            const href = this.getAttribute('href');
-            
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                scrollToSection(targetId);
-                closeMenu();
-                updateActiveNavLink(this);
-            }
-        });
-    });
-
-    // Close menu when clicking outside
-    navMenu.addEventListener('click', function(e) {
-        if (e.target === navMenu) {
-            closeMenu();
-        }
-    });
-
-    // Update active nav link on scroll
-    window.addEventListener('scroll', updateActiveNavOnScroll);
-}
-
-// Update active navigation link based on scroll position
-function updateActiveNavOnScroll() {
-    const sections = $$('section[id]');
-    const navLinks = $$('.nav-link[data-section]');
-    const scrollPos = window.scrollY + 100;
-
-    sections.forEach(section => {
-        const top = section.offsetTop;
-        const bottom = top + section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPos >= top && scrollPos <= bottom) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-section') === sectionId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
-function updateActiveNavLink(clickedLink) {
-    $$('.nav-link').forEach(link => link.classList.remove('active'));
-    clickedLink.classList.add('active');
-}
-
-// Smooth scrolling function
-function scrollToSection(sectionId) {
-    const section = $(`#${sectionId}`);
-    if (section) {
-        const offsetTop = section.offsetTop - 70; // Account for fixed nav
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-    }
-}
-
-// Make scrollToSection available globally
-window.scrollToSection = scrollToSection;
 
 // Particle Background Animation
 function initializeParticleBackground() {
@@ -805,3 +741,5 @@ style.textContent = notificationCSS;
 document.head.appendChild(style);
 
 console.log('🚀 Coding Club PRPCEM - Mobile-First Experience Loaded Successfully!');
+
+

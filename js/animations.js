@@ -678,3 +678,79 @@ progressBar.className = 'scroll-progress';
 document.body.appendChild(progressBar);
 
 console.log('🎨 Advanced Animations Loaded Successfully!');
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (mobileMenuBtn && mobileMenu) {
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          mobileMenuBtn.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on nav links
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+        mobileNavItems.forEach(item => {
+          item.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 1024) {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          }
+        });
+      }
+      
+      // Smooth scrolling for anchor links
+      const navLinks = document.querySelectorAll('.nav-item, .mobile-nav-item');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              const offsetTop = target.offsetTop - 80; // Account for navbar height
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+      
+      // Add scroll effect to navbar
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add/remove shadow based on scroll position
+        if (scrollTop > 10) {
+          navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+          navbar.style.boxShadow = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+      });
+    });
