@@ -20,8 +20,8 @@
   <!-- Simple Modern Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <!-- Logo Section -->
-      <div class="navbar-brand">
+                        <!-- Logo Section -->
+                        <div class="navbar-brand">
         <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
         <div class="navbar-text">
           <span class="navbar-title">CODING CLUB</span>
@@ -139,33 +139,7 @@
             </p>
         </div>
         
-        <!-- Club Statistics -->
-        <div class="club-stats grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
-            <div class="stat-card text-center">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Active Members</div>
-                <div class="stat-description">Students actively participating in our community</div>
-            </div>
-            <div class="stat-card text-center">
-                <div class="stat-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="stat-number" data-target="50">0</div>
-                <div class="stat-label">Projects Built</div>
-                <div class="stat-description">Real-world applications developed by our members</div>
-            </div>
-            <div class="stat-card text-center">
-                <div class="stat-icon">
-                    <i class="fas fa-calendar"></i>
-                </div>
-                <div class="stat-number" data-target="25">0</div>
-                <div class="stat-label">Events Hosted</div>
-                <div class="stat-description">Workshops, hackathons, and learning sessions</div>
-            </div>
-        </div>
+
         
         <div class="about-grid grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div class="about-card">
@@ -193,54 +167,6 @@
             </div>
         </div>
         
-        <div class="mission-statement">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span class="btn-red"></span>
-                        <span class="btn-yellow"></span>
-                        <span class="btn-green"></span>
-                    </div>
-                    <span class="terminal-title">our-mission.js</span>
-                </div>
-                <div class="terminal-body">
-                    <div class="code-line">
-                        <span class="line-number">1</span>
-                        <span class="code">
-                            <span class="keyword">const</span> 
-                            <span class="variable">ourMission</span> = {
-                        </span>
-                    </div>
-                    <div class="code-line">
-                        <span class="line-number">2</span>
-                        <span class="code">
-                            &nbsp;&nbsp;<span class="property">motto</span>: 
-                            <span class="string">"Think Beyond the Syntax"</span>,
-                        </span>
-                    </div>
-                    <div class="code-line">
-                        <span class="line-number">3</span>
-                        <span class="code">
-                            &nbsp;&nbsp;<span class="property">mission</span>: 
-                            <span class="string">"Empower through code"</span>,
-                        </span>
-                    </div>
-                    <div class="code-line">
-                        <span class="line-number">4</span>
-                        <span class="code">
-                            &nbsp;&nbsp;<span class="property">values</span>: [
-                            <span class="string">"learn"</span>, 
-                            <span class="string">"build"</span>, 
-                            <span class="string">"grow"</span>]
-                        </span>
-                    </div>
-                    <div class="code-line">
-                        <span class="line-number">5</span>
-                        <span class="code">};</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -474,7 +400,7 @@
 
         /* Desktop Grid Layout */
         .events-container {
-            width: 100%;
+            width: 110%;
         }
 
         .events-scroll-wrapper {
@@ -708,7 +634,7 @@
 
         // Add smooth scroll behavior for mobile
         document.addEventListener('DOMContentLoaded', function() {
-            const scrollWrappers = document.querySelectorAll('.events-scroll-wrapper, .posts-scroll-wrapper, .team-scroll-wrapper');
+            const scrollWrappers = document.querySelectorAll('.events-scroll-wrapper, .posts-scroll-wrapper, .team-scroll-wrapper, .about-grid, .club-stats');
             
             scrollWrappers.forEach(wrapper => {
                 wrapper.style.scrollBehavior = 'smooth';
@@ -747,7 +673,7 @@
     <style>
         /* Posts Section Horizontal Scroll */
         .posts-container {
-            width: 100%;
+            width: 109%;
         }
 
         .posts-scroll-wrapper {
@@ -764,7 +690,7 @@
 
         /* Team Section Horizontal Scroll */
         .team-container {
-            width: 100%;
+            width: 109%;
         }
 
         .team-scroll-wrapper {
@@ -812,8 +738,8 @@
             }
 
             .post-card {
-                flex: 0 0 300px;
-                min-height: 400px;
+                flex: 0 0 280px;
+                min-height: 360px;
             }
 
             /* Team Mobile Scroll */
@@ -848,19 +774,54 @@
             }
 
             .team-card {
-                flex: 0 0 280px;
+                flex: 0 0 260px;
                 min-height: auto;
+                padding: 1.25rem;
+            }
+            
+            .team-avatar {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+            
+            .avatar-placeholder i {
+                font-size: 1.5rem;
+            }
+            
+            .team-info h3 {
+                font-size: 1rem;
+            }
+            
+            .team-bio {
+                font-size: 0.8rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .role-badge {
+                font-size: 0.55rem;
+                padding: 0.2rem 0.4rem;
             }
         }
 
         /* Very small mobile devices */
         @media (max-width: 480px) {
             .post-card {
-                flex: 0 0 280px;
+                flex: 0 0 260px;
             }
 
             .team-card {
-                flex: 0 0 260px;
+                flex: 0 0 240px;
+                padding: 1rem;
+            }
+            
+            .team-avatar {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .avatar-placeholder i {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -1028,95 +989,97 @@
         <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="section-header text-center">
                 <div class="section-badge">
-                    <i class="fas fa-heart"></i>
-                    <span>Our Team</span>
+                    <i class="fas fa-code"></i>
+                    <span>Meet the Builders</span>
                 </div>
                 <h2 class="section-title">
-                    Meet the <span class="text-gradient">Amazing People</span>
+                    The <span class="text-gradient">Creative Minds</span> Behind This Website
                 </h2>
                 <p class="section-subtitle max-w-3xl mx-auto">
-                    Behind every great community are the people who make it happen. Get to know the 
-                    passionate students and mentors who bring our club to life.
+                    Get to know the talented developers and designers who crafted this platform. 
+                    These are the passionate individuals bringing our digital vision to life.
                 </p>
             </div>
             
             <div class="team-container">
                 <div class="team-scroll-wrapper">
                     <div class="team-grid">
+                        <div class="team-card featured">
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Lead Dev</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Karamveer Singh Oberoi</h3>
+                                <p class="team-role">Full Stack Developer & Website Creator</p>
+                                <p class="team-bio">The architect behind this website! Passionate about creating seamless user experiences and scalable solutions.</p>
+                                <div class="team-skills">
+                                    <span class="skill">React</span>
+                                    <span class="skill">Node.js</span>
+                                    <span class="skill">MongoDB</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/karamveer0123" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.instagram.com/karamveeroberoi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="mailto:karamoberoi19@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Designer</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Alex Johnson</h3>
+                                <p class="team-role">UI/UX Designer</p>
+                                <p class="team-bio">Crafting beautiful interfaces that users love. Focused on creating intuitive and engaging digital experiences.</p>
+                                <div class="team-skills">
+                                    <span class="skill">Figma</span>
+                                    <span class="skill">CSS</span>
+                                    <span class="skill">Design Systems</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                                    <a href="#" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+                                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="online-indicator"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3>Karamveer Singh Oberoi</h3>
-                        <p class="team-role">Full Stack Developer & Website Creator</p>
-                        <p class="team-bio">The creative mind behind this website! Karamveer loves building things that people actually want to use, and he's always ready to help fellow developers learn something new.</p>
-                        <div class="team-skills">
-                            <span class="skill">React</span>
-                            <span class="skill">Node.js</span>
-                            <span class="skill">MongoDB</span>
-                            <span class="skill">JavaScript</span>
-                        </div>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/karamveer0123" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://www.instagram.com/karamveeroberoi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:karamoberoi19@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="online-indicator"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3>Alex Johnson</h3>
-                        <p class="team-role">Frontend Enthusiast</p>
-                        <p class="team-bio">Alex has an eye for design and loves making websites that look amazing and feel great to use. When not coding, you'll find them sketching new UI ideas or playing video games for "research".</p>
-                        <div class="team-skills">
-                            <span class="skill">HTML/CSS</span>
-                            <span class="skill">JavaScript</span>
-                            <span class="skill">Vue.js</span>
-                            <span class="skill">Design</span>
-                        </div>
-                        <div class="team-social">
-                            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="online-indicator"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3>Sarah Chen</h3>
-                        <p class="team-role">Backend Wizard</p>
-                        <p class="team-bio">Sarah is our go-to person for all things server-side. She can make databases sing and APIs dance, and she's always excited to share her knowledge about backend architecture.</p>
-                        <div class="team-skills">
-                            <span class="skill">Python</span>
-                            <span class="skill">Django</span>
-                            <span class="skill">PostgreSQL</span>
-                            <span class="skill">AWS</span>
-                        </div>
-                        <div class="team-social">
-                            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Backend</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Sarah Chen</h3>
+                                <p class="team-role">Backend Developer</p>
+                                <p class="team-bio">Building robust APIs and managing data flow. Ensuring everything runs smoothly behind the scenes.</p>
+                                <div class="team-skills">
+                                    <span class="skill">Python</span>
+                                    <span class="skill">APIs</span>
+                                    <span class="skill">Database</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1130,83 +1093,54 @@
         <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="section-header text-center">
                 <div class="section-badge">
-                    <i class="fas fa-coffee"></i>
-                    <span>Let's Chat</span>
+                    <i class="fas fa-rocket"></i>
+                    <span>Get In Touch</span>
                 </div>
                 <h2 class="section-title">
-                    Let's <span class="text-gradient">Connect</span>
+                    Ready to <span class="text-gradient">Start Your Journey?</span>
                 </h2>
                 <p class="section-subtitle max-w-3xl mx-auto">
-                    Have questions? Want to join our community? Just want to say hi? 
-                    We'd love to hear from you! Drop us a message and we'll get back to you soon.
+                    Whether you're a complete beginner or a coding ninja, we're here to help you grow. 
+                    Join our vibrant community and let's build something amazing together!
                 </p>
             </div>
-            
-            <div class="contact-content">
-                <div class="contact-info grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+
+            <!-- Contact CTA Section -->
+            <div class="contact-cta-container">
+                <div class="contact-highlight-cards">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3>Find Us</h3>
-                        <p>P.R. Pote Patil College of Engineering & Management<br>Amravati, Maharashtra, India</p>
+                        <h3>Join Our Community</h3>
+                        <p>Connect with 500+ passionate developers and start your coding adventure today!</p>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="highlight-card featured">
+                        <div class="highlight-icon">
+                            <i class="fas fa-comments"></i>
                         </div>
-                        <h3>Email Us</h3>
-                        <p>codingclub@prpcem.ac.in<br>We usually reply within 24 hours!</p>
+                        <h3>Let's Talk!</h3>
+                        <p>Got questions? Need guidance? Or just want to say hi? We're always excited to hear from fellow developers.</p>
+                        <a href="contact.html" class="contact-main-btn">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3>Call Us</h3>
-                        <p>+91 9322675891<br>+91 9359539232</p>
+                        <h3>Share Ideas</h3>
+                        <p>Have a cool project idea or want to collaborate? Let's turn your vision into reality!</p>
                     </div>
-                </div>
-                
-                <div class="contact-form-container max-w-2xl mx-auto">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="form-group">
-                                <input type="text" id="firstName" required>
-                                <label for="firstName">First Name</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="lastName" required>
-                                <label for="lastName">Last Name</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Email Address</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="subject" required>
-                            <label for="subject">Subject</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="message" required></textarea>
-                            <label for="message">Message</label>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            <span>Send My Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
             
             <div class="social-section text-center">
                 <h3>Follow Our Journey</h3>
+                <p class="social-subtitle">Stay updated with our latest events, projects, and community highlights</p>
                 <div class="social-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
                     <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="social-card linkedin" target="_blank">
                         <i class="fab fa-linkedin"></i>
