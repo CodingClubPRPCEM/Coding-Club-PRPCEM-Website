@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Methods Component - Coding Club PRPCEM</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0f1a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(244, 114, 182, 0.05) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        .particle:nth-child(2n) {
+            background: #8b5cf6;
+            animation-delay: -2s;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(3n) {
+            background: #f472b6;
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        /* Main Container */
+        .contact-methods-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .title-accent {
+            color: #00d4ff;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Methods Grid */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 255, 0.03) 0%, 
+                rgba(139, 92, 246, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #00d4ff;
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.15),
+                0 0 0 1px rgba(0, 212, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Card Background Effect */
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover .card-background {
+            opacity: 1;
+        }
+
+        /* Contact Icon */
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon::after {
+            opacity: 0.3;
+        }
+
+        .contact-icon i {
+            font-size: 1.75rem;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        /* Card Content */
+        .contact-card h3 {
+            color: #ffffff;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card:hover h3 {
+            color: #00d4ff;
+        }
+
+        .contact-card p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card:hover p {
+            color: #cbd5e1;
+        }
+
+        /* Contact Action */
+        .contact-action {
+            margin-top: auto;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
+        .action-btn:hover {
+            background: #00d4ff;
+            color: #0a0f1a;
+            transform: translateX(5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .action-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .action-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Status Indicator for Office Hours */
+        .status-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.75rem;
+            position: relative;
+        }
+
+        .status-indicator.online {
+            background: #10b981;
+            box-shadow: 
+                0 0 15px rgba(16, 185, 129, 0.6),
+                0 0 30px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 
+                    0 0 15px rgba(16, 185, 129, 0.6),
+                    0 0 30px rgba(16, 185, 129, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 20px rgba(16, 185, 129, 0.8),
+                    0 0 40px rgba(16, 185, 129, 0.5);
+            }
+            100% {
+                box-shadow: 
+                    0 0 15px rgba(16, 185, 129, 0.6),
+                    0 0 30px rgba(16, 185, 129, 0.3);
+            }
+        }
+
+        .status-text {
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Card Glow Effect */
+        .card-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .contact-card:hover .card-glow {
+            opacity: 1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-methods-container {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 2rem;
+            }
+
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .contact-icon i {
+                font-size: 1.5rem;
+            }
+
+            .contact-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .action-btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Contact Methods Container -->
+    <div class="contact-methods-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-badge">
+                <i class="fas fa-address-book"></i>
+                <span>Get In Touch</span>
+            </div>
+            <h1 class="section-title">
+                <span class="title-accent">&lt;</span>
+                Contact <span class="title-gradient">Methods</span>
+                <span class="title-accent">/&gt;</span>
+            </h1>
+            <p class="section-subtitle">
+                Multiple ways to connect with our coding community. Choose your preferred method and let's start the conversation!
+            </p>
+        </div>
+
+        <!-- Contact Methods Grid -->
+        <div class="methods-grid">
+            <!-- Visit Us Card -->
+            <div class="contact-card location">
+                <div class="card-background"></div>
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Visit Us</h3>
+                <p>P.R. Pote Patil College of Engineering & Management<br>Amravati, Maharashtra, India</p>
+                <div class="contact-action">
+                    <a href="https://maps.google.com" target="_blank" class="action-btn">
+                        <i class="fas fa-directions"></i>
+                        <span>Get Directions</span>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <!-- Email Us Card -->
+            <div class="contact-card email">
+                <div class="card-background"></div>
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>codingclub@prpcem.ac.in<br>info@codingclubprpcem.org</p>
+                <div class="contact-action">
+                    <a href="mailto:codingclub@prpcem.ac.in" class="action-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send Email</span>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <!-- Call Us Card -->
+            <div class="contact-card phone">
+                <div class="card-background"></div>
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p>+91 9322675891<br>+91 9359539232</p>
+                <div class="contact-action">
+                    <a href="tel:+919322675891" class="action-btn">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <!-- Office Hours Card -->
+            <div class="contact-card hours">
+                <div class="card-background"></div>
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                <div class="contact-action">
+                    <div class="status-text">
+                        <div class="status-indicator online"></div>
+                        <span>Currently Open</span>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Enhanced hover effects
+        function initializeCardEffects() {
+            const cards = document.querySelectorAll('.contact-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add subtle vibration effect
+                    this.style.animation = 'none';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 10);
+                });
+
+                // Add click ripple effect
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                        z-index: 1;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            initializeCardEffects();
+        });
+
+        // Dynamic status indicator based on current time
+        function updateStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const day = now.getDay();
+            
+            const statusIndicator = document.querySelector('.status-indicator');
+            const statusText = document.querySelector('.status-text span');
+            
+            // Check if it's business hours (9 AM - 6 PM, Monday - Friday) or (10 AM - 4 PM, Saturday)
+            const isBusinessHours = (
+                (day >= 1 && day <= 5 && hour >= 9 && hour < 18) || 
+                (day === 6 && hour >= 10 && hour < 16)
+            );
+            
+            if (isBusinessHours) {
+                statusIndicator.className = 'status-indicator online';
+                statusText.textContent = 'Currently Open';
+            } else {
+                statusIndicator.className = 'status-indicator offline';
+                statusIndicator.style.background = '#ef4444';
+                statusIndicator.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.6)';
+                statusText.textContent = 'Currently Closed';
+                statusText.style.color = '#ef4444';
+            }
+        }
+
+        // Update status every minute
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    </script>
+</body>
+</html>
