@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Posts | Coding Club PRPCEM</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/mobile-optimized.css">
+  <link rel="stylesheet" href="css/about-styles.css">
+
+    <style>
+        
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+       
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        
+
+        header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #8b5cf6, #f472b6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .project-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            transform: translateY(-2px);
+        }
+
+        /* Card Content */
+        .card-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Project Stats */
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .stat-item i {
+            font-size: 1rem;
+        }
+
+        .project-card:hover .stat-item {
+            color: #94a3b8;
+        }
+
+        /* Project Tags */
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 2rem 0 1.5rem;
+            }
+
+            .project-stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .project-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .project-stats {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .project-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0f1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00d4ff, #8b5cf6);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #00b8e6, #7c3aed);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particle-bg" id="particle-bg"></div>
+
+    <!-- Simple Modern Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+                          <!-- Logo Section -->
+                          <div class="navbar-brand">
+          <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+          <div class="navbar-text">
+            <span class="navbar-title">CODING CLUB</span>
+            <span class="navbar-subtitle">PRPCEM</span>
+          </div>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="navbar-nav">
+      <a href="index.html" class="nav-item">Home</a>
+      <a href="about.html" class="nav-item">About</a>
+      <a href="events.html" class="nav-item">Events</a>
+      <a href="tech-post.html" class="nav-item">Technical Posts</a>
+      <a href="team.html" class="nav-item">Team</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+        
+        <!-- Right Side -->
+        <div class="navbar-actions">
+          <div class="navbar-social">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <button class="join-button" onclick="openJoinModal()">Join Club</button>
+          
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="events.html" class="mobile-nav-item">Events</a>
+      <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
+      <a href="team.html" class="mobile-nav-item">Team</a>
+      <a href="contact.html" class="mobile-nav-item">Contact</a>
+        </div>
+        <div class="mobile-actions">
+          <div class="mobile-social">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active">
+                        <i class="fas fa-code"></i>
+                        Tech Post
+                    </span>
+                </div>
+
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Technical <span class="title-gradient">Post</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+
+                <p class="page-subtitle">
+                    Unleash your potential through hands-on learning, coding challenges, and advanced tech exploration with our Technical Team.
+                </p>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <header>
+            <h1>Tech Posts</h1>
+            <p>Exploring technology, development, and innovation</p>
+        </header>
+
+        <main class="posts-grid">
+            <div class="project-card" data-category="tech">
+                <div class="card-header">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Read More">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <h3>AI and Machine Learning Trends</h3>
+                    <p>Exploring the latest developments in artificial intelligence and how machine learning is
+                        transforming industries.</p>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span>124</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comment"></i>
+                            <span>23</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-share"></i>
+                            <span>45</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Technology</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="tech">
+                <div class="card-header">
+                    <div class="project-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Read More">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Cloud Computing Essentials</h3>
+                    <p>A comprehensive guide to cloud platforms, services, and best practices for modern application
+                        deployment.</p>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span>98</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comment"></i>
+                            <span>17</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-share"></i>
+                            <span>32</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Cloud</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">DevOps</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="tech">
+                <div class="card-header">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Read More">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Mobile Development in 2024</h3>
+                    <p>Insights into cross-platform mobile development frameworks and the future of mobile applications.
+                    </p>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span>156</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comment"></i>
+                            <span>34</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-share"></i>
+                            <span>67</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Mobile</span>
+                        <span class="tag">React Native</span>
+                        <span class="tag">Flutter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="tech">
+                <div class="card-header">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Read More">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Cybersecurity Best Practices</h3>
+                    <p>Essential security measures every developer should implement to protect applications and user
+                        data.</p>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span>203</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comment"></i>
+                            <span>41</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-share"></i>
+                            <span>89</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Best Practices</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+    </div>
+    <footer class="footer-section simple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                        <span class="footer-title">Coding Club PRPCEM</span>
+                    </div>
+                    <p class="footer-desc">
+                        A community of passionate students learning, building, and growing together through the power of technology.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <nav class="footer-nav-list">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="projects.html">Technical Posts</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-community">
+                    <h4 class="footer-column-title">Community</h4>
+                    <nav class="footer-nav-list">
+                        <a href="team.html">Meet the Team</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#" onclick="openJoinModal()">Join Club</a>
+                        <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">Get In Touch</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>codingclub@prpcem.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>PRPCEM, Amravati</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-simple">
+                <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+                <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+            </div>
+        </div>
+        <!-- Footer Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particles"></div>
+            <div class="footer-grid"></div>
+        </div>
+    </footer>
+
+      <script src="js/animations.js"></script>
+      <script src="js/mobile-app.js"></script>
+</body>
+
+</html>
