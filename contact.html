@@ -1,351 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coding Club PRPCEM | Innovation Hub</title>
-  <link rel="icon" href="images/logo1.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/mobile-style.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/enhanced-styles.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Club PRPCEM | Innovation Hub</title>
+    <link rel="icon" href="images/logo1.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/mobile-style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/enhanced-styles.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-      }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
 
-      .nav-brand {
-        flex-direction: row;
-        align-items: center;
-      }
+            .nav-brand {
+                flex-direction: row;
+                align-items: center;
+            }
 
-      .hero-title {
-        font-size: 2rem;
-        text-align: center;
-      }
+            .hero-title {
+                font-size: 2rem;
+                text-align: center;
+            }
 
-      .hero-description {
-        font-size: 1rem;
-        padding: 0 1rem;
-        text-align: center;
-      }
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+                text-align: center;
+            }
 
-      .hero-actions {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-      }
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
 
-      .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
 
-      .about-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
+            .about-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
 
-      footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-      }
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
 
-      footer .footer-links {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
+            footer .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
 
-    @media (min-width: 769px) {
-      .hero-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
+        @media (min-width: 769px) {
+            .hero-container {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
 
-    /* Technical Posts Section Styles */
-    .posts-section {
-      padding: 4rem 0;
-      background: #0a0f1a;
-    }
+        /* Technical Posts Section Styles */
+        .posts-section {
+            padding: 4rem 0;
+            background: #0a0f1a;
+        }
 
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
-    .post-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
+        .post-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-    .post-card:hover {
-      transform: translateY(-5px);
-      border-color: #00d4ff;
-    }
+        .post-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
 
-    .post-card.featured {
-      border-color: #f59e0b;
-      background: rgba(245, 158, 11, 0.05);
-    }
+        .post-card.featured {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+        }
 
-    .post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-    .post-category {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #00d4ff;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
+        .post-category {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #00d4ff;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
 
-    .post-date {
-      color: #94a3b8;
-      font-size: 0.875rem;
-    }
+        .post-date {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
 
-    .post-image {
-      height: 120px;
-      background: linear-gradient(135deg, #1e293b, #334155);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
+        .post-image {
+            height: 120px;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .post-icon {
-      font-size: 2rem;
-      color: #00d4ff;
-      z-index: 2;
-    }
+        .post-icon {
+            font-size: 2rem;
+            color: #00d4ff;
+            z-index: 2;
+        }
 
-    .post-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 212, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .post-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 212, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .post-content h3 {
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
+        .post-content h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
 
-    .post-content p {
-      color: #94a3b8;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
+        .post-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
 
-    .post-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-    .author-info {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .author-avatar {
-      width: 24px;
-      height: 24px;
-      background: #374151;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
 
-    .read-time {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      color: #6b7280;
-      font-size: 0.875rem;
-    }
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
 
-    .tech-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
 
-    .tech-tag {
-      background: rgba(0, 212, 255, 0.1);
-      color: #00d4ff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-    }
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
 
-    .read-more-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      border: 1px solid #00d4ff;
-      color: #00d4ff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
+        .read-more-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
 
-    .read-more-btn:hover {
-      background: #00d4ff;
-      color: #0a0f1a;
-      transform: translateX(5px);
-    }
+        .read-more-btn:hover {
+            background: #00d4ff;
+            color: #0a0f1a;
+            transform: translateX(5px);
+        }
 
-    .posts-footer {
-      display: flex;
-      justify-content: center;
-      margin-top: 3rem;
-    }
+        .posts-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
 
-    .view-all-posts-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      border: none;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      font-weight: 600;
-    }
+        .view-all-posts-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-weight: 600;
+        }
 
-    .view-all-posts-btn:hover {
-      transform: scale(1.05);
-    }
+        .view-all-posts-btn:hover {
+            transform: scale(1.05);
+        }
 
-    @media (max-width: 768px) {
-      .posts-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .post-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .post-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="particle-bg" id="particle-bg"></div>
 
-  <!-- Simple Modern Navigation -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <!-- Logo Section -->
-      <div class="navbar-brand">
-        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
-        <div class="navbar-text">
-          <span class="navbar-title">CODING CLUB</span>
-          <span class="navbar-subtitle">PRPCEM</span>
+<body>
+    <div class="particle-bg" id="particle-bg"></div>
+
+    <!-- Simple Modern Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo Section -->
+            <div class="navbar-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+                <div class="navbar-text">
+                    <span class="navbar-title">CODING CLUB</span>
+                    <span class="navbar-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="about.html" class="nav-item">About</a>
+                <a href="events.html" class="nav-item">Events</a>
+                <a href="tech-post.html" class="nav-item">Technical Posts</a>
+                <a href="team.html" class="nav-item">Team</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+            <!-- Right Side -->
+            <div class="navbar-actions">
+                <div class="navbar-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="join-button" onclick="openJoinModal()">Join Club</button>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-      </div>
-      <!-- Desktop Navigation -->
-      <div class="navbar-nav">
-    <a href="index.html" class="nav-item">Home</a>
-    <a href="about.html" class="nav-item">About</a>
-    <a href="events.html" class="nav-item">Events</a>
-    <a href="tech-post.html" class="nav-item">Technical Posts</a>
-    <a href="team.html" class="nav-item">Team</a>
-    <a href="contact.html" class="nav-item">Contact</a>
-      </div>
-      <!-- Right Side -->
-      <div class="navbar-actions">
-        <div class="navbar-social">
-          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav">
+                <a href="index.html" class="mobile-nav-item">Home</a>
+                <a href="about.html" class="mobile-nav-item">About</a>
+                <a href="events.html" class="mobile-nav-item">Events</a>
+                <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
+                <a href="team.html" class="mobile-nav-item">Team</a>
+                <a href="contact.html" class="mobile-nav-item">Contact</a>
+            </div>
+            <div class="mobile-actions">
+                <div class="mobile-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+            </div>
         </div>
-        <button class="join-button" onclick="openJoinModal()">Join Club</button>
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-nav">
-    <a href="index.html" class="mobile-nav-item">Home</a>
-    <a href="about.html" class="mobile-nav-item">About</a>
-    <a href="events.html" class="mobile-nav-item">Events</a>
-    <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
-    <a href="team.html" class="mobile-nav-item">Team</a>
-    <a href="contact.html" class="mobile-nav-item">Contact</a>
-      </div>
-      <div class="mobile-actions">
-        <div class="mobile-social">
-          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </div>
-        <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
     <!-- Page Header -->
     <header class="page-header">
@@ -364,18 +368,18 @@
                         Contact
                     </span>
                 </div>
-                
+
                 <h1 class="page-title">
                     <span class="title-accent">&lt;</span>
                     Get in <span class="title-gradient">Touch</span>
                     <span class="title-accent">/&gt;</span>
                 </h1>
-                
+
                 <p class="page-subtitle">
                     Ready to join our community or have questions? We'd love to hear from you!
                 </p>
             </div>
-            
+
             <div class="header-visual">
                 <div class="contact-animation" id="contactAnimation"></div>
             </div>
@@ -385,94 +389,95 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Contact Methods -->
-         <div class="contact-methods-container">
-        <!-- Section Header -->
-        <div class="section-header">
-            <div class="section-badge">
-                <i class="fas fa-address-book"></i>
-                <span>Get In Touch</span>
+        <div class="contact-methods-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-address-book"></i>
+                    <span>Get In Touch</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="title-accent">&lt;</span>
+                    Contact <span class="title-gradient">Methods</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+                <p class="section-subtitle">
+                    Multiple ways to connect with our coding community. Choose your preferred method and let's start the
+                    conversation!
+                </p>
             </div>
-            <h1 class="section-title">
-                <span class="title-accent">&lt;</span>
-                Contact <span class="title-gradient">Methods</span>
-                <span class="title-accent">/&gt;</span>
-            </h1>
-            <p class="section-subtitle">
-                Multiple ways to connect with our coding community. Choose your preferred method and let's start the conversation!
-            </p>
-        </div>
 
-        <!-- Contact Methods Grid -->
-        <div class="methods-grid">
-            <!-- Visit Us Card -->
-            <div class="contact-card location">
-                <div class="card-background"></div>
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Visit Us</h3>
-                <p>P.R. Pote Patil College of Engineering & Management<br>Amravati, Maharashtra, India</p>
-                <div class="contact-action">
-                    <a href="https://maps.google.com" target="_blank" class="action-btn">
-                        <i class="fas fa-directions"></i>
-                        <span>Get Directions</span>
-                    </a>
-                </div>
-                <div class="card-glow"></div>
-            </div>
-            
-            <!-- Email Us Card -->
-            <div class="contact-card email">
-                <div class="card-background"></div>
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email Us</h3>
-                <p>codingclub@prpcem.ac.in<br>info@codingclubprpcem.org</p>
-                <div class="contact-action">
-                    <a href="mailto:codingclub@prpcem.ac.in" class="action-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Send Email</span>
-                    </a>
-                </div>
-                <div class="card-glow"></div>
-            </div>
-            
-            <!-- Call Us Card -->
-            <div class="contact-card phone">
-                <div class="card-background"></div>
-                <div class="contact-icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <h3>Call Us</h3>
-                <p>+91 9322675891<br>+91 9359539232</p>
-                <div class="contact-action">
-                    <a href="tel:+919322675891" class="action-btn">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>Call Now</span>
-                    </a>
-                </div>
-                <div class="card-glow"></div>
-            </div>
-            
-            <!-- Office Hours Card -->
-            <div class="contact-card hours">
-                <div class="card-background"></div>
-                <div class="contact-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>Office Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
-                <div class="contact-action">
-                    <div class="status-text">
-                        <div class="status-indicator online"></div>
-                        <span>Currently Open</span>
+            <!-- Contact Methods Grid -->
+            <div class="methods-grid">
+                <!-- Visit Us Card -->
+                <div class="contact-card location">
+                    <div class="card-background"></div>
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
+                    <h3>Visit Us</h3>
+                    <p>P.R. Pote Patil College of Engineering & Management<br>Amravati, Maharashtra, India</p>
+                    <div class="contact-action">
+                        <a href="https://maps.google.com" target="_blank" class="action-btn">
+                            <i class="fas fa-directions"></i>
+                            <span>Get Directions</span>
+                        </a>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
-                <div class="card-glow"></div>
+
+                <!-- Email Us Card -->
+                <div class="contact-card email">
+                    <div class="card-background"></div>
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>codingclub@prpcem.ac.in<br>info@codingclubprpcem.org</p>
+                    <div class="contact-action">
+                        <a href="mailto:codingclub@prpcem.ac.in" class="action-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Email</span>
+                        </a>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Call Us Card -->
+                <div class="contact-card phone">
+                    <div class="card-background"></div>
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+91 9322675891<br>+91 9359539232</p>
+                    <div class="contact-action">
+                        <a href="tel:+919322675891" class="action-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Call Now</span>
+                        </a>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Office Hours Card -->
+                <div class="contact-card hours">
+                    <div class="card-background"></div>
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                    <div class="contact-action">
+                        <div class="status-text">
+                            <div class="status-indicator online"></div>
+                            <span>Currently Open</span>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
             </div>
         </div>
-    </div>
 
         <!-- Contact Form Section -->
         <section class="contact-form-section">
@@ -488,10 +493,11 @@
                                 Let's Start a <span class="text-gradient">Conversation</span>
                             </h2>
                             <p class="section-subtitle">
-                                Have a question, suggestion, or want to collaborate? Fill out the form below and we'll get back to you as soon as possible.
+                                Have a question, suggestion, or want to collaborate? Fill out the form below and we'll
+                                get back to you as soon as possible.
                             </p>
                         </div>
-                        
+
                         <form class="contact-form" id="contactForm">
                             <div class="form-row">
                                 <div class="form-group">
@@ -505,21 +511,21 @@
                                     <div class="input-border"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <input type="email" id="email" required>
                                 <label for="email">Email Address</label>
                                 <div class="input-border"></div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <input type="tel" id="phone">
                                 <label for="phone">Phone Number (Optional)</label>
                                 <div class="input-border"></div>
                             </div>
-                            
+
                             <div class="form-group">
-                                <select id="subject" required>
+                                <select id="subject" required ">
                                     <option value="">Select Subject</option>
                                     <option value="general">General Inquiry</option>
                                     <option value="membership">Club Membership</option>
@@ -532,13 +538,13 @@
                                 <label for="subject">Subject</label>
                                 <div class="input-border"></div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <textarea id="message" required rows="5"></textarea>
                                 <label for="message">Your Message</label>
                                 <div class="input-border"></div>
                             </div>
-                            
+
                             <div class="form-group checkbox-group">
                                 <input type="checkbox" id="newsletter">
                                 <label for="newsletter" class="checkbox-label">
@@ -546,7 +552,7 @@
                                     Subscribe to our newsletter for updates on events and opportunities
                                 </label>
                             </div>
-                            
+
                             <button type="submit" class="submit-btn">
                                 <span class="btn-text">Send Message</span>
                                 <div class="btn-particles"></div>
@@ -554,7 +560,7 @@
                             </button>
                         </form>
                     </div>
-                    
+
                     <div class="contact-sidebar">
                         <div class="quick-contact">
                             <h3>Quick Contact</h3>
@@ -566,7 +572,7 @@
                                         <span class="item-value">info@codingclubprpcem.org</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="quick-item">
                                     <i class="fas fa-users"></i>
                                     <div>
@@ -574,7 +580,7 @@
                                         <span class="item-value">join@codingclubprpcem.org</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="quick-item">
                                     <i class="fas fa-handshake"></i>
                                     <div>
@@ -582,7 +588,7 @@
                                         <span class="item-value">partnerships@codingclubprpcem.org</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="quick-item">
                                     <i class="fas fa-calendar"></i>
                                     <div>
@@ -592,7 +598,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="response-time">
                             <div class="response-icon">
                                 <i class="fas fa-clock"></i>
@@ -600,13 +606,14 @@
                             <h4>Response Time</h4>
                             <p>We typically respond to all inquiries within 24 hours during business days.</p>
                         </div>
-                        
+
                         <div class="urgent-contact">
                             <div class="urgent-icon">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
                             <h4>Urgent Matters?</h4>
-                            <p>For urgent inquiries, please call us directly at <a href="tel:+919322675891">+91 9322675891</a></p>
+                            <p>For urgent inquiries, please call us directly at <a href="tel:+919322675891">+91
+                                    9322675891</a></p>
                         </div>
                     </div>
                 </div>
@@ -628,9 +635,10 @@
                         Stay connected and up-to-date with our latest activities, events, and community highlights
                     </p>
                 </div>
-                
+
                 <div class="social-grid">
-                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="social-card linkedin" target="_blank">
+                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" class="social-card linkedin"
+                        target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
                             <i class="fab fa-linkedin"></i>
@@ -644,7 +652,7 @@
                         </div>
                         <div class="social-glow"></div>
                     </a>
-                    
+
                     <a href="https://www.instagram.com/codingclub_prpcem" class="social-card instagram" target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
@@ -659,7 +667,7 @@
                         </div>
                         <div class="social-glow"></div>
                     </a>
-                    
+
                     <a href="https://www.youtube.com/@Coding_Club_PRPCEM" class="social-card youtube" target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
@@ -674,7 +682,7 @@
                         </div>
                         <div class="social-glow"></div>
                     </a>
-                    
+
                     <a href="https://github.com/CodingClubPRPCEM" class="social-card github" target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
@@ -689,7 +697,7 @@
                         </div>
                         <div class="social-glow"></div>
                     </a>
-                    
+
                     <a href="https://x.com/CodingClubPRPCE" class="social-card twitter" target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
@@ -704,8 +712,9 @@
                         </div>
                         <div class="social-glow"></div>
                     </a>
-                    
-                    <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" class="social-card whatsapp" target="_blank">
+
+                    <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" class="social-card whatsapp"
+                        target="_blank">
                         <div class="social-background"></div>
                         <div class="social-icon">
                             <i class="fab fa-whatsapp"></i>
@@ -735,7 +744,7 @@
                         Frequently Asked <span class="text-gradient">Questions</span>
                     </h2>
                 </div>
-                
+
                 <div class="faq-container">
                     <div class="faq-item">
                         <div class="faq-question">
@@ -743,51 +752,57 @@
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>You can join by filling out our membership form through the "Join Club" button or by attending one of our events. We welcome students from all branches and skill levels.</p>
+                            <p>You can join by filling out our membership form through the "Join Club" button or by
+                                attending one of our events. We welcome students from all branches and skill levels.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>Are there any membership fees?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>No, our club membership is completely free! We believe in making technology education accessible to everyone.</p>
+                            <p>No, our club membership is completely free! We believe in making technology education
+                                accessible to everyone.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>What programming languages do you focus on?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We cover a wide range of technologies including Python, JavaScript, Java, C++, React, Node.js, AI/ML frameworks, and many more based on industry demands and member interests.</p>
+                            <p>We cover a wide range of technologies including Python, JavaScript, Java, C++, React,
+                                Node.js, AI/ML frameworks, and many more based on industry demands and member interests.
+                            </p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>Do you provide mentorship for beginners?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Absolutely! We have a dedicated mentorship program where experienced members guide beginners through their coding journey with personalized support.</p>
+                            <p>Absolutely! We have a dedicated mentorship program where experienced members guide
+                                beginners through their coding journey with personalized support.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>How often do you organize events?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We organize events regularly - typically 2-3 workshops per month, quarterly hackathons, and monthly tech talks. Keep an eye on our events page for updates!</p>
+                            <p>We organize events regularly - typically 2-3 workshops per month, quarterly hackathons,
+                                and monthly tech talks. Keep an eye on our events page for updates!</p>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </section>
     </main>
 
@@ -885,17 +900,26 @@
 
         .methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit with minmax(250px, 1fr));
+            grid: auto / auto auto;
+            /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
             gap: 2rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
         .contact-card {
-            background: rgba(255, 255, 255, 0.02);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            align-content: center;
+
+            padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 2rem;
-            position: relative;
+            background: rgba(255, 255, 255, 0.02);
             overflow: hidden;
             transition: all 0.3s ease;
         }
@@ -1073,12 +1097,12 @@
             pointer-events: none;
         }
 
-        .form-group input:focus + label,
-        .form-group input:valid + label,
-        .form-group select:focus + label,
-        .form-group select:valid + label,
-        .form-group textarea:focus + label,
-        .form-group textarea:valid + label {
+        .form-group input:focus+label,
+        .form-group input:valid+label,
+        .form-group select:focus+label,
+        .form-group select:valid+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:valid+label {
             top: -0.5rem;
             left: 0.75rem;
             font-size: 0.75rem;
@@ -1109,7 +1133,7 @@
             position: relative;
         }
 
-        input[type="checkbox"]:checked + .checkbox-label .checkbox-custom::after {
+        input[type="checkbox"]:checked+.checkbox-label .checkbox-custom::after {
             content: '✓';
             position: absolute;
             top: -2px;
@@ -1419,80 +1443,82 @@
     </style>
 
     <!-- Enhanced Footer -->
-<footer class="footer-section simple-footer">
-    <div class="footer-container">
-        <div class="footer-main">
-            <div class="footer-column footer-brand">
-                <div class="footer-logo-section">
-                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
-                    <span class="footer-title">Coding Club PRPCEM</span>
-                </div>
-                <p class="footer-desc">
-                    A community of passionate students learning, building, and growing together through the power of technology.
-                </p>
-                <div class="footer-social">
-                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-column footer-links">
-                <h4 class="footer-column-title">Quick Links</h4>
-                <nav class="footer-nav-list">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="events.html">Events</a>
-                    <a href="projects.html">Technical Posts</a>
-                </nav>
-            </div>
-            
-            <div class="footer-column footer-community">
-                <h4 class="footer-column-title">Community</h4>
-                <nav class="footer-nav-list">
-                    <a href="team.html">Meet the Team</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#" onclick="openJoinModal()">Join Club</a>
-                    <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
-                </nav>
-            </div>
-            
-            <div class="footer-column footer-contact">
-                <h4 class="footer-column-title">Get In Touch</h4>
-                <div class="footer-contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>codingclub@prpcem.ac.in</span>
+    <footer class="footer-section simple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                        <span class="footer-title">Coding Club PRPCEM</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>PRPCEM, Amravati</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Mon - Fri: 9AM - 6PM</span>
+                    <p class="footer-desc">
+                        A community of passionate students learning, building, and growing together through the power of
+                        technology.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
+
+                <div class="footer-column footer-links">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <nav class="footer-nav-list">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="projects.html">Technical Posts</a>
+                    </nav>
+                </div>
+
+                <div class="footer-column footer-community">
+                    <h4 class="footer-column-title">Community</h4>
+                    <nav class="footer-nav-list">
+                        <a href="team.html">Meet the Team</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#" onclick="openJoinModal()">Join Club</a>
+                        <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                    </nav>
+                </div>
+
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">Get In Touch</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>codingclub@prpcem.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>PRPCEM, Amravati</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-simple">
+                <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+                <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
             </div>
         </div>
-        
-        <div class="footer-bottom-simple">
-            <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
-            <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+        <!-- Footer Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particles"></div>
+            <div class="footer-grid"></div>
         </div>
-    </div>
-    <!-- Footer Background Effects -->
-    <div class="footer-bg-effects">
-        <div class="footer-particles"></div>
-        <div class="footer-grid"></div>
-    </div>
-</footer>
+    </footer>
 
     <!-- Join Modal -->
     <div class="modal-overlay" id="joinModal">
@@ -1509,17 +1535,17 @@
                         <input type="text" id="joinName" required>
                         <label for="joinName">Full Name</label>
                     </div>
-                    
+
                     <div class="form-group">
                         <input type="email" id="joinEmail" required>
                         <label for="joinEmail">Email Address</label>
                     </div>
-                    
+
                     <div class="form-group">
                         <input type="text" id="joinPhone" required>
                         <label for="joinPhone">Phone Number</label>
                     </div>
-                    
+
                     <div class="form-group">
                         <select id="joinYear" required>
                             <option value="">Select Year</option>
@@ -1530,7 +1556,7 @@
                         </select>
                         <label for="joinYear">Academic Year</label>
                     </div>
-                    
+
                     <div class="form-group">
                         <select id="joinBranch" required>
                             <option value="">Select Branch</option>
@@ -1543,12 +1569,12 @@
                         </select>
                         <label for="joinBranch">Branch</label>
                     </div>
-                    
+
                     <div class="form-group">
                         <textarea id="joinInterests" required></textarea>
                         <label for="joinInterests">Programming Interests & Goals</label>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn">
                         <span>Submit Application</span>
                         <i class="fas fa-check"></i>
@@ -1557,7 +1583,8 @@
             </div>
         </div>
     </div>
-<script src="js/animations.js"></script>
-  <script src="js/mobile-app.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/mobile-app.js"></script>
 </body>
+
 </html>

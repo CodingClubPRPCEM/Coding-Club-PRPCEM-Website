@@ -2998,6 +2998,7 @@ body {
     grid-template-columns: 2fr 1fr 1fr 1.2fr;
     gap: 3rem;
     align-items: flex-start;
+    flex-direction: row;
 }
 
 .simple-footer .footer-column {
@@ -3009,6 +3010,7 @@ body {
 /* Brand Column */
 .simple-footer .footer-brand .footer-logo-section {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
@@ -3036,6 +3038,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1.2;
+    min-width: 8rem;
 }
 
 .simple-footer .footer-desc {
@@ -4205,6 +4208,7 @@ select:focus {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 /* Remove any extra spacing at the end */
