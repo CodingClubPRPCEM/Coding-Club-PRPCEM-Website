@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon '26 | Build. Innovate. Transform</title>
+    <meta name="description" content="Join Hackathon '26 - A 12-hour coding marathon at PRPCE Mumbai. Win prizes worth ₹1 Lakh. Register now for hardware and software challenges!">
+    <meta name="keywords" content="hackathon, coding, innovation, technology, PRPCE, Mumbai, programming competition">
+    
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/mobile-style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/enhanced-styles.css" /> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+
+        }
+
+        :root {
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(20, 20, 30, 0.7);
+            --cyan: #00ffff;
+            --cyan-glow: rgba(0, 255, 255, 0.5);
+            --text-light: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --border-glass: rgba(0, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1rem;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .glow-cyan-intense {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .text-gradient-cyan {
+            background: linear-gradient(45deg, rgb(255, 255, 255), rgb(0, 212, 255), rgb(139, 92, 246)) text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            margin: 1rem;
+            border-radius: 1rem;
+        }
+
+        .navbar .nav-link {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--cyan);
+        }
+
+        .btn-primary-custom {
+            background: var(--cyan);
+            color: var(--bg-dark);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .btn-primary-custom:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 26, 0.6);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 900px;
+            padding: 3rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Prize Cards */
+        .prize-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 3rem 2rem;
+        }
+
+        .prize-card:hover {
+            transform: scale(1.05);
+        }
+
+        .prize-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .prize-amount {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Countdown */
+        .countdown-box {
+            display: inline-block;
+            padding: 1.5rem 2rem;
+            margin: 0 0.5rem;
+            min-width: 120px;
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            color: var(--cyan);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        /* Problem Statement Tabs */
+        .nav-tabs {
+            border: none;
+            margin-bottom: 2rem;
+        }
+
+        .nav-tabs .nav-link {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-light);
+            margin: 0 0.5rem;
+            border-radius: 0.5rem;
+            padding: 1rem 2rem;
+            font-weight: 600;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: var(--cyan);
+            color: var(--bg-dark);
+            border-color: var(--cyan);
+        }
+
+        .problem-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--border-glass);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cyan-glow);
+            z-index: 10;
+        }
+
+        /* Accordion */
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: var(--text-light);
+            font-weight: 600;
+            border: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: transparent;
+            color: var(--cyan);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-body {
+            color: var(--text-muted);
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0 1rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--cyan);
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            box-shadow: 0 0 20px var(--cyan-glow);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--cyan);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        /* Modal */
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: 100%;
+                padding-left: 3rem;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .countdown-box {
+                min-width: 80px;
+                padding: 1rem;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Alert Badge */
+        .alert-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            border-radius: 0.5rem;
+            color: #ff6b6b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+
+
+
+
+
+
+/* Problem Statement Modal Styles */
+.problem-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 7, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.problem-modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.problem-modal-container {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 1rem;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 212, 255, 0.3);
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.problem-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    color: #00d4ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.problem-modal-close:hover {
+    background: #00d4ff;
+    color: #0a0a1a;
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.problem-modal-header {
+    padding: 2.5rem 2.5rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.problem-modal-badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.problem-category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid #00d4ff;
+    border-radius: 25px;
+    color: #00d4ff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.problem-id-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    background: rgba(244, 114, 182, 0.1);
+    border: 1px solid #f472b6;
+    border-radius: 25px;
+    color: #f472b6;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.problem-modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #8b5cf6, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.problem-modal-body {
+    padding: 2rem 2.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.problem-modal-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-left: 3px solid #00d4ff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.problem-modal-section:hover {
+    background: rgba(15, 23, 42, 0.7);
+    transform: translateX(5px);
+    box-shadow: -5px 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.section-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 12px;
+    color: #00d4ff;
+    font-size: 1.5rem;
+}
+
+.section-content {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-text {
+    color: #a0a0a0;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.tech-stack {
+    border-left-color: #8b5cf6;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    color: #8b5cf6;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+.problem-modal-footer {
+    padding: 1.5rem 2.5rem 2.5rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.modal-btn {
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-btn-secondary {
+    background: rgba(100, 116, 139, 0.2);
+    color: #a0a0a0;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.modal-btn-secondary:hover {
+    background: rgba(100, 116, 139, 0.3);
+    color: #f0f0f0;
+}
+
+.modal-btn-primary {
+    background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+}
+
+.modal-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .problem-modal-overlay {
+        padding: 1rem;
+    }
+    
+    .problem-modal-header,
+    .problem-modal-body,
+    .problem-modal-footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .problem-modal-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .problem-modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+    </style>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        /* Primary Colors - More Vibrant */
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #667eea 100%);
+        --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+        --neon-gradient: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+        
+        /* Tech Colors - Enhanced */
+        --tech-blue: #00d4ff;
+        --tech-purple: #8b5cf6;
+        --tech-pink: #f472b6;
+        --tech-green: #10b981;
+        --tech-orange: #f59e0b;
+        --tech-cyan: #06b6d4;
+        --neon-blue: #00ffff;
+        --neon-purple: #bf00ff;
+        --neon-pink: #ff1493;
+        
+        /* Dark Theme - Deeper */
+        --bg-dark: #030712;
+        --bg-dark-secondary: #111827;
+        --bg-dark-tertiary: #1f2937;
+        --bg-glass: rgba(15, 23, 42, 0.8);
+        --bg-card: rgba(30, 41, 59, 0.6);
+        
+        /* Legacy variables for compatibility */
+        --cyan: #00ffff;
+        --cyan-glow: rgba(0, 255, 255, 0.5);
+        --text-light: #f8fafc;
+        --text-muted: #64748b;
+        --border-glass: rgba(0, 255, 255, 0.2);
+        
+        /* Text Colors - Enhanced */
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-accent: #00d4ff;
+        
+        /* Shadows - More Dynamic */
+        --shadow-small: 0 2px 8px rgba(0, 212, 255, 0.15);
+        --shadow-medium: 0 8px 25px rgba(0, 212, 255, 0.25);
+        --shadow-large: 0 15px 35px rgba(0, 212, 255, 0.35);
+        --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.4);
+        --shadow-neon: 0 0 20px rgba(255, 20, 147, 0.6);
+        --shadow-cyber: 0 0 40px rgba(131, 56, 236, 0.5);
+        
+        /* Borders - Refined */
+        --border-radius: 16px;
+        --border-radius-small: 10px;
+        --border-radius-large: 24px;
+        --border-radius-xl: 32px;
+        
+        /* Transitions - Smoother */
+        --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        
+        /* Typography - Enhanced */
+        --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        --font-display: 'Poppins', system-ui, sans-serif;
+        
+        /* Z-Index - Organized */
+        --z-negative: -1;
+        --z-base: 1;
+        --z-elevated: 10;
+        --z-sticky: 100;
+        --z-modal: 1000;
+        --z-tooltip: 1100;
+        --z-overlay: 1200;
+        
+        /* Spacing Scale */
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+        
+        /* Animation Timing */
+        --animation-speed-fast: 200ms;
+        --animation-speed-medium: 300ms;
+        --animation-speed-slow: 500ms;
+    }
+
+    /* Global Reset */
+    html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    body {
+        font-family: var(--font-primary);
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    /* ============================================
+       CUSTOM SCROLLBAR STYLES
+       ============================================ */
+
+    /* Webkit browsers (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(3, 7, 18, 0.8);
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #f472b6 100%);
+        border-radius: 10px;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #00f0ff 0%, #a855f7 50%, #f97316 100%);
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 50%, #dc2626 100%);
+    }
+
+    /* Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #00d4ff rgba(3, 7, 18, 0.8);
+    }
+
+    /* Grid Background Effect */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .glass-panel {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--border-radius);
+        transition: all var(--transition-medium);
+    }
+
+    .glass-panel:hover {
+        border-color: var(--tech-blue);
+        box-shadow: var(--shadow-glow);
+    }
+
+    .glow-cyan {
+        box-shadow: var(--shadow-glow);
+    }
+
+    .glow-cyan-intense {
+        box-shadow: var(--shadow-cyber);
+    }
+
+    .text-gradient-cyan {
+        background: linear-gradient(45deg, rgb(255, 255, 255), var(--tech-blue), var(--tech-purple)) text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Rest of your existing styles continue here... */
+    /* (Keep all the navbar, hero, prize cards, etc. styles as they are) */
+
+
+
+/* Prize Carousel Styles */
+    .prize-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 50px; /* Space for nav buttons */
+}
+
+.prize-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Fixed height for positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prize-carousel-item {
+    position: absolute;
+    width: 300px;
+    padding: 3rem 1rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden; /* For spotlight effect */
+}
+
+.prize-carousel-item.is-center {
+    transform: translateX(0) scale(1.1);
+    opacity: 1;
+    z-index: 3;
+    border-color: var(--cyan);
+    box-shadow: 0 0 40px var(--cyan-glow);
+}
+
+.prize-carousel-item.is-left {
+    transform: translateX(-60%) scale(0.85);
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.prize-carousel-item.is-right {
+    transform: translateX(60%) scale(0.85);
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.prize-spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0, rgba(0, 255, 255, 0.3), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.prize-carousel-item.is-center .prize-spotlight {
+    opacity: 1;
+    animation: spotlight-scan 4s linear infinite;
+}
+
+@keyframes spotlight-scan {
+    0% { background-position: 50% -100%; }
+    50% { background-position: 50% 100%; }
+    100% { background-position: 50% -100%; }
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    color: var(--cyan);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: var(--cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--cyan-glow);
+}
+
+.carousel-nav.prev { left: 0; }
+.carousel-nav.next { right: 0; }
+
+@media (max-width: 768px) {
+    .prize-carousel-item.is-left { transform: translateX(-45%) scale(0.8); }
+    .prize-carousel-item.is-right { transform: translateX(45%) scale(0.8); }
+    .prize-carousel-item { width: 250px; }
+    .prize-carousel-wrapper { padding: 0 40px; }
+    .carousel-nav { width: 40px; height: 40px; }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1 class="text-gradient-cyan h3 mb-0">Hackathon'26</h1>
+                
+                <div class="d-none d-md-flex gap-4 align-items-center">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#prizes" class="nav-link">Prizes</a>
+                    <a href="#problems" class="nav-link">Problems</a>
+                    <a href="#schedule" class="nav-link">Schedule</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <button class="btn btn-primary-custom" onclick="scrollToSection('register')">
+                    Register Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://codingclubprpcem.github.io/image-hosting-/video/video2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content glass-panel">
+            <span class="alert-badge">
+                <i class="fas fa-exclamation-circle"></i> Registration Closes Soon!
+            </span>
+            <h1 class="hero-title text-gradient-cyan">Hackathon '26</h1>
+            <h2 class="h3 mb-4">Build. Innovate. Transform.</h2>
+            <p class="lead mb-4">12-Hour Hackathon | ₹1, 75, 000 Prize Pool</p>
+            <p class="mb-4"><i class="fas fa-map-marker-alt"></i> PRPCEM, Amravati | <i class="fas fa-calendar"></i> January 20, 2026</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <button class="btn btn-primary-custom btn-lg" onclick="scrollToSection('register')">
+                    <i class="fas fa-rocket"></i> Register Now
+                </button>
+                <button class="btn btn-outline-light btn-lg" onclick="scrollToSection('about')">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="py-5" id="countdown-section">
+        <div class="container text-center">
+            <h2 class="text-gradient-cyan h1 mb-5">Event Starts In</h2>
+            <div id="countdown" class="d-flex justify-content-center flex-wrap">
+                <div class="countdown-box glass-panel">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-box glass-panel">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-box glass-panel">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-box glass-panel">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="py-5" id="prizes">
+        <div class="container">
+            <h2 class="text-gradient-cyan text-center h1 mb-3">Prize Pool</h2>
+            <p class="text-center text-muted mb-5 h5">Compete for amazing rewards and recognition</p>
+            
+            <div class="prize-carousel-wrapper">
+                <div class="prize-carousel-container" id="prize-carousel">
+                    <!-- 1st Place Card -->
+                    <div class="prize-carousel-item glass-panel text-center">
+                        <div class="prize-spotlight"></div>
+                        <i class="fas fa-trophy prize-icon" style="color: #fbbf24;"></i>
+                        <h3 class="h4 mb-3">1st Place</h3>
+                        <div class="prize-amount" style="color: #fbbf24;">₹1,00,000</div>
+                        <p class="text-muted mt-3">+ Certificates & Goodies</p>
+                    </div>
+                    <!-- 2nd Place Card -->
+                    <div class="prize-carousel-item glass-panel text-center">
+                        <div class="prize-spotlight"></div>
+                        <i class="fas fa-award prize-icon" style="color: #d1d5db;"></i>
+                        <h3 class="h4 mb-3">2nd Place</h3>
+                        <div class="prize-amount" style="color: #d1d5db;">₹50,000</div>
+                        <p class="text-muted mt-3">+ Certificates & Goodies</p>
+                    </div>
+                    <!-- 3rd Place Card -->
+                    <div class="prize-carousel-item glass-panel text-center">
+                        <div class="prize-spotlight"></div>
+                        <i class="fas fa-medal prize-icon" style="color: #fb923c;"></i>
+                        <h3 class="h4 mb-3">3rd Place</h3>
+                        <div class="prize-amount" style="color: #fb923c;">₹25,000</div>
+                        <p class="text-muted mt-3">+ Certificates & Goodies</p>
+                    </div>
+                </div>
+                <button class="carousel-nav prev" id="prize-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-nav next" id="prize-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Problem Statements -->
+    <section class="py-5" id="problems">
+        <div class="container">
+            <h2 class="text-gradient-cyan text-center h1 mb-3">Problem Statements</h2>
+            <p class="text-center text-muted mb-5 h5">Choose your challenge and innovate</p>
+            
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#hardware">
+                        <i class="fas fa-microchip"></i> Hardware
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#software">
+                        <i class="fas fa-code"></i> Software
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content mt-4">
+                <div class="tab-pane fade show active" id="hardware">
+                    <div class="row g-4" id="hardware-problems"></div>
+                </div>
+                <div class="tab-pane fade" id="software">
+                    <div class="row g-4" id="software-problems"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="py-5" id="schedule">
+        <div class="container">
+            <h2 class="text-gradient-cyan text-center h1 mb-3">Event Schedule</h2>
+            <p class="text-center text-muted mb-5 h5">12 hours of non-stop innovation</p>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content glass-panel">
+                        <h4 class="text-gradient-cyan">Day 1 - March 15, 2026</h4>
+                        <p><strong>9:00 AM</strong> - Registration & Team Formation</p>
+                        <p><strong>10:00 AM</strong> - Opening Ceremony</p>
+                        <p><strong>11:00 AM</strong> - Hackathon Begins</p>
+                        <p><strong>1:00 PM</strong> - Lunch Break</p>
+                        <p><strong>8:00 PM</strong> - Dinner & Networking</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-content glass-panel">
+                        <h4 class="text-gradient-cyan">Day 2 - March 16, 2026</h4>
+                        <p><strong>8:00 AM</strong> - Breakfast</p>
+                        <p><strong>10:00 AM</strong> - Mentor Sessions</p>
+                        <p><strong>1:00 PM</strong> - Lunch Break</p>
+                        <p><strong>6:00 PM</strong> - Mid-point Presentations</p>
+                        <p><strong>8:00 PM</strong> - Dinner</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-content glass-panel">
+                        <h4 class="text-gradient-cyan">Day 3 - March 17, 2026</h4>
+                        <p><strong>8:00 AM</strong> - Breakfast</p>
+                        <p><strong>11:00 AM</strong> - Final Submission Deadline</p>
+                        <p><strong>1:00 PM</strong> - Lunch & Judging</p>
+                        <p><strong>4:00 PM</strong> - Final Presentations</p>
+                        <p><strong>6:00 PM</strong> - Award Ceremony</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" id="faq">
+        <div class="container">
+            <h2 class="text-gradient-cyan text-center h1 mb-3">Frequently Asked Questions</h2>
+            <p class="text-center text-muted mb-5 h5">Got questions? We've got answers</p>
+            
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Who can participate in the hackathon?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            The hackathon is open to all students from engineering colleges. Teams of 2-4 members are encouraged to participate.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What is the registration fee?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            The registration fee is ₹500 per team. This includes access to all facilities, meals, and mentorship sessions during the event.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Do I need to bring my own laptop?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, participants must bring their own laptops and necessary hardware. We'll provide power outlets, high-speed internet, and workspace.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Can I work on a pre-existing project?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, all projects must be started from scratch during the hackathon. However, you can use existing libraries, frameworks, and APIs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Will food and accommodation be provided?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we'll provide meals and snacks throughout the 12-hour event. However, accommodation is not provided. Local participants are preferred.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            How will projects be evaluated?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Projects will be judged based on innovation, technical complexity, practicality, presentation, and adherence to the problem statement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                            Can I participate remotely?
+                        </button>
+                    </h2>
+                    <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, this is an in-person hackathon. All participants must be present at the venue for the entire duration.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                            What if I don't have a team?
+                        </button>
+                    </h2>
+                    <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Don't worry! We'll have a team formation session during registration where you can meet other participants and form teams.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <h2 class="text-gradient-cyan text-center h1 mb-3">Contact Us</h2>
+            <p class="text-center text-muted mb-5 h5">Have questions? Reach out to our team</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="contact-card glass-panel">
+                        <i class="fas fa-user contact-icon"></i>
+                        <h4>XYZ</h4>
+                        <p class="text-muted">Event Coordinator</p>
+                        <p><i class="fas fa-envelope"></i> xyz@prpotepatilengg.ac.in</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card glass-panel">
+                        <i class="fas fa-user contact-icon"></i>
+                        <h4>XYZ</h4>
+                        <p class="text-muted">Technical Lead</p>
+                        <p><i class="fas fa-envelope"></i> xyz@prpotepatilengg.ac.in</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43211</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card glass-panel">
+                        <i class="fas fa-user contact-icon"></i>
+                        <h4>ABC</h4>
+                        <p class="text-muted">Registration Head</p>
+                        <p><i class="fas fa-envelope"></i>xyz@prpotepatilengg.ac.in</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43212</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer class="footer-section simple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                        <span class="footer-title">Coding Club PRPCEM</span>
+                    </div>
+                    <p class="footer-desc">
+                        A community of passionate students learning, building, and growing together through the power of technology.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <nav class="footer-nav-list">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="tech-post.html">Technical Posts</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-community">
+                    <h4 class="footer-column-title">Community</h4>
+                    <nav class="footer-nav-list">
+                        <a href="team.html">Meet the Team</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#" onclick="openJoinModal()">Join Club</a>
+                        <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">Get In Touch</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>codingclub@prpcem.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>PRPCEM, Amravati</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-simple">
+                <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+                <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+            </div>
+        </div>
+        <!-- Footer Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particles"></div>
+            <div class="footer-grid"></div>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer Styles */
+.footer-section.simple-footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+    background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-desc {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    color: #00d4ff;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: #00d4ff;
+    color: #030712;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    border-color: #00d4ff;
+}
+
+.footer-column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-column-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #00d4ff, transparent);
+}
+
+.footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-nav-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 0;
+}
+
+.footer-nav-list a::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #00d4ff;
+}
+
+.footer-nav-list a:hover {
+    color: #00d4ff;
+    padding-left: 20px;
+}
+
+.footer-nav-list a:hover::before {
+    opacity: 1;
+    left: 0;
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.contact-item i {
+    color: #00d4ff;
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+    min-width: 20px;
+}
+
+.contact-item span {
+    line-height: 1.6;
+}
+
+.footer-bottom-simple {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.footer-made-with {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-made-with i {
+    color: #f472b6;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.footer-bg-effects {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer-particles {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+
+.footer-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-section.simple-footer {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-container {
+        padding: 0 1.5rem;
+    }
+    
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-brand {
+        max-width: 100%;
+    }
+    
+    .footer-bottom-simple {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-social {
+        justify-content: flex-start;
+    }
+    
+    .footer-social a {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+
+/* Badge */
+
+.badge.bg-cyan {
+    background-color: var(--cyan) !important;
+    color: var(--bg-dark) !important; /* Dark text on light badge */
+    font-weight: 700;
+}
+
+.badge.bg-purple {
+    background-color: var(--tech-purple) !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+.problem-card .text-secondary {
+    color: var(--text-secondary) !important; /* Ensures description is visible */
+}
+
+.problem-card {
+    transition: all 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px var(--cyan-glow);
+}
+
+/* Flexbox utilities for card layout */
+.d-flex { display: flex !important; }
+.flex-column { flex-direction: column !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-start { align-items: flex-start !important; }
+.h-100 { height: 100% !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.mt-auto { margin-top: auto !important; }
+.w-100 { width: 100% !important; }
+.me-2 { margin-right: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.p-4 { padding: 1.5rem !important; }
+.small { font-size: 0.9rem; }
+    </style>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Problem Statement Modal -->
+
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Problem Statements Data
+
+
+
+
+        // const problemStatements = {
+        //     hardware: [
+        //         ['PRPCEMH1', 'Smart Education: Monitoring System', 'Develop an IoT-based monitoring system to track student attendance, classroom environment, and optimize learning spaces using sensors and smart devices.'],
+        //         ['PRPCEMH2', 'BioTech / HealthTech: Queuing Models', 'Create a hardware solution to optimize hospital queuing systems using IoT sensors, displays, and real-time patient flow management.'],
+        //         ['PRPCEMH3', 'Blockchain', 'Build a hardware wallet or IoT device that implements blockchain technology for secure transactions and data storage.'],
+        //         ['PRPCEMH4', 'Miscellaneous', 'Open-ended hardware challenge - propose and build any innovative IoT or embedded system solution.'],
+        //         ['PRPCEMH5', 'Fitness & Sports', 'Design a wearable device or sensor system to track athletic performance, monitor vital signs, and provide real-time feedback.'],
+        //         ['PRPCEMH6', 'FinTech', 'Create a hardware solution for secure payment processing, biometric authentication, or financial transaction monitoring.'],
+        //         ['PRPCEMH7', 'Students Innovation (Hardware)', 'Propose and develop any innovative hardware solution that addresses a real-world problem in education, healthcare, or daily life.']
+        //     ],
+        //     software: [
+        //         ['PRPCEMS1', 'AI-enabled Clean & Green Technology', 'Develop an AI-powered application to monitor environmental parameters, predict pollution levels, or optimize resource usage for sustainability.'],
+        //         ['PRPCEMS2', 'Fitness & Sports', 'Create a fitness tracking app with AI-powered workout recommendations, nutrition tracking, and performance analytics.'],
+        //         ['PRPCEMS3', 'Smart Education: Adaptive Learning', 'Build an intelligent learning platform that adapts to student performance and provides personalized educational content.'],
+        //         ['PRPCEMS4', 'Blockchain: Decentralized Applications', 'Develop a decentralized application (DApp) using blockchain for secure voting, supply chain, or credential verification.'],
+        //         ['PRPCEMS5', 'FinTech: Personal Finance Manager', 'Create a comprehensive personal finance management app with budget tracking, investment suggestions, and expense analytics.'],
+        //         ['PRPCEMS6', 'HealthTech: Telemedicine Platform', 'Build a telemedicine platform connecting patients with doctors, including appointment scheduling, video consultations, and prescription management.'],
+        //         ['PRPCEMS7', 'Smart City: Traffic Management', 'Develop an intelligent traffic management system using real-time data analysis and AI to optimize traffic flow.'],
+        //         ['PRPCEMS8', 'Agriculture Tech: Crop Monitoring', 'Create an app to help farmers monitor crop health, predict yields, and receive alerts about weather and pests.'],
+        //         ['PRPCEMS9', 'E-Commerce: AR Shopping', 'Build an augmented reality shopping experience allowing users to visualize products in their space before purchasing.'],
+        //         ['PRPCEMS10', 'Social Good: Disaster Management', 'Develop an application for disaster preparedness, real-time alerts, resource coordination, and volunteer management.'],
+        //         ['PRPCEMS11', 'EdTech: Skill Development Platform', 'Create a platform connecting learners with mentors, offering courses, certifications, and project-based learning.'],
+        //         ['PRPCEMS12', 'Gaming: Multiplayer Experience', 'Build an engaging multiplayer game with innovative mechanics, social features, and competitive elements.'],
+        //         ['PRPCEMS13', 'Cybersecurity: Threat Detection', 'Develop a system to detect and prevent cybersecurity threats using machine learning and real-time monitoring.'],
+        //         ['PRPCEMS14', 'Tourism & Travel: Smart Planner', 'Create an AI-powered travel planner that suggests itineraries, books accommodations, and provides local insights.'],
+        //         ['PRPCEMS15', 'Students Innovation (Software)', 'Propose and develop any innovative software solution addressing education, healthcare, environment, or social challenges.']
+        //     ]
+        // };
+
+
+
+// Replace the old problemStatements object with this:
+const problemStatementsDetailed = {
+    hardware: [
+        {
+            id: 'PRPCEMH1',
+            title: 'Smart Education: Monitoring System',
+            category: 'Hardware',
+            shortDesc: 'Develop an IoT-based monitoring system to track student attendance, classroom environment, and optimize learning spaces using sensors and smart devices.',
+            background: 'Educational institutions face challenges in tracking student attendance, maintaining optimal learning environments, and utilizing classroom resources efficiently. Traditional manual methods are time-consuming and prone to errors.',
+            problem: 'There is a need for an automated, real-time monitoring system that can track student attendance, monitor classroom environmental conditions (temperature, humidity, air quality), and provide actionable insights to educators and administrators.',
+            description: 'Develop an IoT-based comprehensive monitoring system using sensors (RFID/NFC for attendance, DHT22 for temperature/humidity, MQ sensors for air quality) integrated with a central microcontroller (Arduino/ESP32/Raspberry Pi). The system should display real-time data on a dashboard, send alerts for anomalies, and store historical data for analysis.',
+            solution: 'The expected solution is a working prototype that demonstrates automated attendance tracking using RFID/NFC tags, real-time environmental monitoring with sensor integration, a web/mobile dashboard for data visualization, alert mechanisms for threshold breaches, and data analytics for generating insights.',
+            technologies: ['ESP32/Arduino', 'IoT Sensors', 'RFID/NFC', 'MQTT', 'Node-RED', 'Firebase']
+        },
+        {
+            id: 'PRPCEMH2',
+            title: 'BioTech / HealthTech: Queuing Models',
+            category: 'Hardware',
+            shortDesc: 'Create a hardware solution to optimize hospital queuing systems using IoT sensors, displays, and real-time patient flow management.',
+            background: 'Hospital waiting rooms and patient flow management remain significant challenges in healthcare delivery. Long wait times, inefficient queue management, and lack of real-time information lead to patient dissatisfaction and operational inefficiencies.',
+            problem: 'Healthcare facilities need an intelligent queuing system that can manage patient flow efficiently, provide real-time wait time estimates, optimize resource allocation, and improve overall patient experience.',
+            description: 'Create a hardware solution combining IoT sensors (ultrasonic/infrared for occupancy detection), display units (LED/LCD screens), token dispensers, and a central management system. The system should track patient arrival, assign queue numbers, estimate wait times based on historical data and current queue length, display information on digital boards, and send mobile notifications to patients.',
+            solution: 'Deliver a functional queuing system prototype with automated token generation, real-time queue status display, predictive wait time calculation using machine learning, mobile app integration for remote queue monitoring, and administrative dashboard for queue management.',
+            technologies: ['Raspberry Pi', 'LCD Displays', 'IR Sensors', 'WiFi Module', 'Python', 'Machine Learning']
+        },
+        {
+            id: 'PRPCEMH3',
+            title: 'Blockchain Hardware Wallet',
+            category: 'Hardware',
+            shortDesc: 'Build a hardware wallet or IoT device that implements blockchain technology for secure transactions and data storage.',
+            background: 'As cryptocurrency adoption grows, the need for secure, offline storage solutions becomes critical. Software wallets are vulnerable to online attacks, while existing hardware wallets are expensive and not easily customizable.',
+            problem: 'Develop an affordable, secure hardware wallet that implements blockchain technology for safe cryptocurrency storage and transaction signing, with user-friendly interfaces and robust security features.',
+            description: 'Build a hardware wallet using a secure microcontroller (STM32/ESP32 with secure element), OLED display, physical buttons for input, and USB connectivity. The device should generate and store private keys securely, sign transactions offline, support multiple cryptocurrencies, provide seed phrase backup, and include PIN protection and encryption.',
+            solution: 'Create a working hardware wallet prototype that demonstrates secure key generation and storage, offline transaction signing, multi-currency support (Bitcoin, Ethereum), encrypted backup and recovery mechanisms, tamper detection, and a simple user interface.',
+            technologies: ['STM32/ESP32', 'Secure Element', 'OLED Display', 'Blockchain Libraries', 'Encryption', 'USB']
+        },
+        {
+            id: 'PRPCEMH4',
+            title: 'Miscellaneous Hardware Innovation',
+            category: 'Hardware',
+            shortDesc: 'Open-ended hardware challenge - propose and build any innovative IoT or embedded system solution.',
+            background: 'The hardware domain is constantly evolving with new technologies and applications. Open-ended innovation challenges encourage creative problem-solving and the development of novel solutions to real-world problems.',
+            problem: 'Identify a unique problem or opportunity in any domain and propose an innovative hardware solution that leverages IoT, embedded systems, sensors, or automation technologies.',
+            description: 'This is an open-ended challenge where participants can propose and build any innovative hardware solution. The project should address a real-world problem, demonstrate technical feasibility, use appropriate sensors/actuators/microcontrollers, and show creativity in implementation.',
+            solution: 'Present a well-defined problem statement, detailed system architecture, working prototype or proof-of-concept, clear demonstration of functionality, and potential for real-world impact. The solution should showcase innovation, technical depth, and practical applicability.',
+            technologies: ['Open Choice', 'Microcontrollers', 'Sensors', 'IoT Protocols', 'Embedded Systems']
+        },
+        {
+            id: 'PRPCEMH5',
+            title: 'Fitness & Sports Wearable Device',
+            category: 'Hardware',
+            shortDesc: 'Design a wearable device or sensor system to track athletic performance, monitor vital signs, and provide real-time feedback.',
+            background: 'Athletes and fitness enthusiasts require accurate, real-time feedback on their performance and health metrics. Existing wearables often lack customization options or specific features for different sports.',
+            problem: 'Design a specialized wearable device that tracks athletic performance metrics, monitors vital signs, provides real-time feedback, and helps users optimize their training regimens.',
+            description: 'Develop a wearable device using biometric sensors (heart rate, SpO2, accelerometer, gyroscope), GPS module, and a microcontroller (Arduino Nano/ESP32). The device should track metrics like heart rate, distance, pace, calories burned, sleep patterns, and provide haptic or audio feedback.',
+            solution: 'Build a functional wearable prototype with accurate biometric monitoring, real-time performance tracking, long battery life (>8 hours continuous use), water resistance, mobile app connectivity, and data visualization dashboard.',
+            technologies: ['ESP32/nRF52', 'MAX30102 Sensor', 'MPU6050', 'GPS', 'Bluetooth LE', 'Mobile App']
+        },
+        {
+            id: 'PRPCEMH6',
+            title: 'FinTech Hardware Solution',
+            category: 'Hardware',
+            shortDesc: 'Create a hardware solution for secure payment processing, biometric authentication, or financial transaction monitoring.',
+            background: 'Financial transactions require high levels of security and authentication. Biometric authentication and secure payment processing are becoming essential in the FinTech industry.',
+            problem: 'Create a hardware solution that enables secure payment processing, implements biometric authentication (fingerprint/facial recognition), or monitors financial transactions for fraud detection.',
+            description: 'Build a secure payment terminal or authentication device using biometric sensors (fingerprint scanner/camera module), NFC/RFID reader, secure microcontroller, and encrypted communication modules. The system should authenticate users biometrically, process payments securely, encrypt transaction data, and integrate with existing payment gateways.',
+            solution: 'Deliver a working prototype demonstrating secure biometric authentication, encrypted payment processing, NFC/contactless payment support, transaction logging, and fraud detection algorithms.',
+            technologies: ['Raspberry Pi', 'Fingerprint Sensor', 'NFC Reader', 'Encryption', 'Payment APIs', 'Secure Storage']
+        },
+        {
+            id: 'PRPCEMH7',
+            title: 'Students Innovation (Hardware)',
+            category: 'Hardware',
+            shortDesc: 'Propose and develop any innovative hardware solution that addresses a real-world problem in education, healthcare, or daily life.',
+            background: 'Students often encounter challenges in education, healthcare, daily life, or community issues that can be addressed through innovative hardware solutions.',
+            problem: 'Propose and develop an original hardware solution that addresses a real-world problem relevant to students, educators, healthcare providers, or society at large.',
+            description: 'This open innovation challenge encourages students to identify problems in their immediate environment and create hardware-based solutions. Projects could include assistive devices for differently-abled individuals, smart campus solutions, healthcare monitoring systems, environmental sensors, or automation tools.',
+            solution: 'Present a comprehensive project including problem identification, system design, working prototype, demonstration of functionality, and potential for scalability or real-world deployment. Emphasize innovation, technical competency, and practical value.',
+            technologies: ['Student Choice', 'Microcontrollers', 'Sensors', 'Actuators', 'IoT', 'Embedded Systems']
+        }
+    ],
+    software: [
+        {
+            id: 'PRPCEMS1',
+            title: 'AI-enabled Clean & Green Technology',
+            category: 'Software',
+            shortDesc: 'Develop an AI-powered application to monitor environmental parameters, predict pollution levels, or optimize resource usage for sustainability.',
+            background: 'Environmental degradation and climate change are pressing global challenges. Technology, particularly AI, can play a crucial role in monitoring environmental parameters, predicting pollution levels, and optimizing resource usage.',
+            problem: 'Develop an AI-powered application that helps monitor environmental conditions, predict air/water quality, optimize energy consumption, or promote sustainable practices.',
+            description: 'Create a software solution that uses machine learning models to analyze environmental data from sensors or public datasets. Features could include real-time air quality monitoring, pollution prediction models, carbon footprint calculators, waste management optimization, or renewable energy usage recommendations.',
+            solution: 'Build a functional application with AI/ML models for environmental predictions, data visualization dashboards, real-time monitoring capabilities, user-friendly interface, and integration with environmental APIs or IoT sensors.',
+            technologies: ['Python', 'Machine Learning', 'TensorFlow', 'React/Vue.js', 'APIs', 'Cloud (AWS/Azure)']
+        },
+        {
+            id: 'PRPCEMS2',
+            title: 'Fitness & Sports Tracking App',
+            category: 'Software',
+            shortDesc: 'Create a fitness tracking app with AI-powered workout recommendations, nutrition tracking, and performance analytics.',
+            background: 'Fitness enthusiasts need comprehensive tools to track workouts, monitor nutrition, analyze performance, and receive personalized recommendations to achieve their health goals.',
+            problem: 'Create a fitness tracking application that combines workout logging, nutrition tracking, performance analytics, and AI-powered recommendations.',
+            description: 'Develop a mobile or web application that allows users to log workouts, track exercises with sets/reps/duration, monitor nutrition with calorie and macro tracking, visualize progress with charts and graphs, and receive AI-powered workout plans based on user goals and performance.',
+            solution: 'Deliver a fully functional fitness app with user authentication, workout and nutrition logging, AI-based recommendation engine, progress tracking with analytics, social features, and gamification elements.',
+            technologies: ['React Native/Flutter', 'Node.js/Django', 'MongoDB', 'AI/ML', 'Firebase', 'REST APIs']
+        },
+        {
+            id: 'PRPCEMS3',
+            title: 'Smart Education: Adaptive Learning Platform',
+            category: 'Software',
+            shortDesc: 'Build an intelligent learning platform that adapts to student performance and provides personalized educational content.',
+            background: 'Traditional one-size-fits-all education approaches fail to address individual learning paces and styles. Adaptive learning systems can personalize education by adjusting content difficulty and delivery based on student performance.',
+            problem: 'Build an intelligent learning platform that adapts to each student\'s learning pace, identifies knowledge gaps, and provides personalized educational content and assessments.',
+            description: 'Create an adaptive learning system using AI algorithms to analyze student performance, identify strengths and weaknesses, and dynamically adjust content difficulty. Features should include personalized learning paths, interactive quizzes with instant feedback, progress tracking, gamification, and multimedia content delivery.',
+            solution: 'Develop a working platform with student and teacher interfaces, adaptive content delivery engine, AI-powered assessment analysis, personalized recommendations, progress analytics, and content management system.',
+            technologies: ['React/Angular', 'Python/Node.js', 'AI/ML', 'PostgreSQL', 'Video Streaming', 'Analytics']
+        },
+        {
+            id: 'PRPCEMS4',
+            title: 'Blockchain: Decentralized Applications',
+            category: 'Software',
+            shortDesc: 'Develop a decentralized application (DApp) using blockchain for secure voting, supply chain, or credential verification.',
+            background: 'Centralized systems face issues of trust, transparency, and single points of failure. Blockchain technology enables decentralized, tamper-proof solutions for voting, supply chain, credential verification, and more.',
+            problem: 'Develop a decentralized application (DApp) using blockchain technology for secure voting, supply chain transparency, academic credential verification, or another use case requiring immutability and trust.',
+            description: 'Create a blockchain-based DApp using Ethereum, Hyperledger, or similar platforms. The application should implement smart contracts for business logic, provide a user-friendly interface for interaction, ensure data immutability and transparency, and demonstrate the advantages of decentralization.',
+            solution: 'Build a functional DApp with smart contracts deployed on a blockchain network, web/mobile interface for users, wallet integration (MetaMask/similar), transaction history and verification, and comprehensive documentation.',
+            technologies: ['Solidity', 'Ethereum/Hyperledger', 'Web3.js', 'React/Vue.js', 'IPFS', 'Smart Contracts']
+        },
+        {
+            id: 'PRPCEMS5',
+            title: 'FinTech: Personal Finance Manager',
+            category: 'Software',
+            shortDesc: 'Create a comprehensive personal finance management app with budget tracking, investment suggestions, and expense analytics.',
+            background: 'Managing personal finances effectively is challenging for many individuals. Comprehensive tools that track expenses, provide budget recommendations, and offer investment insights can significantly improve financial health.',
+            problem: 'Create a personal finance management application that helps users track expenses, create budgets, monitor investments, and receive AI-powered financial advice.',
+            description: 'Develop a comprehensive finance app that allows users to link bank accounts, categorize transactions automatically, set budget limits with alerts, track investments and portfolio performance, generate spending reports, and receive personalized financial recommendations.',
+            solution: 'Build a secure finance app with bank API integration, automated transaction categorization, budget management tools, investment tracking, AI-powered insights, data visualization, and multi-platform support.',
+            technologies: ['React Native', 'Node.js', 'Plaid API', 'PostgreSQL', 'AI/ML', 'Encryption']
+        },
+        {
+            id: 'PRPCEMS6',
+            title: 'HealthTech: Telemedicine Platform',
+            category: 'Software',
+            shortDesc: 'Build a telemedicine platform connecting patients with doctors, including appointment scheduling, video consultations, and prescription management.',
+            background: 'Access to healthcare remains limited in many regions. Telemedicine platforms can bridge this gap by connecting patients with healthcare providers remotely for consultations, prescriptions, and follow-ups.',
+            problem: 'Build a telemedicine platform that enables video consultations between patients and doctors, appointment scheduling, electronic health records, and prescription management.',
+            description: 'Create a comprehensive telemedicine solution with features including user registration (patients and doctors), appointment booking with calendar integration, secure video conferencing for consultations, EHR management, e-prescription generation, payment gateway integration, and health tips/notifications.',
+            solution: 'Deliver a functional telemedicine platform with patient and doctor dashboards, real-time video consultations (WebRTC), appointment management, secure EHR storage, prescription module, payment integration, and mobile responsiveness.',
+            technologies: ['React/Vue.js', 'Node.js', 'WebRTC', 'MongoDB', 'Payment Gateway', 'Cloud Hosting']
+        },
+        {
+            id: 'PRPCEMS7',
+            title: 'Smart City: Traffic Management System',
+            category: 'Software',
+            shortDesc: 'Develop an intelligent traffic management system using real-time data analysis and AI to optimize traffic flow.',
+            background: 'Urban traffic congestion causes significant time loss, pollution, and economic impact. Intelligent traffic management systems using real-time data and AI can optimize traffic flow and reduce congestion.',
+            problem: 'Develop an intelligent traffic management system that analyzes real-time traffic data, predicts congestion, optimizes signal timings, and provides route suggestions to minimize travel time.',
+            description: 'Build a traffic management platform that integrates with traffic cameras, GPS data from vehicles, and IoT sensors to monitor traffic conditions in real-time. Use AI/ML models to predict congestion patterns, dynamically adjust traffic signal timings, suggest alternate routes to drivers, and provide analytics to city planners.',
+            solution: 'Create a working system with real-time traffic monitoring, AI-based congestion prediction, dynamic signal control algorithm, route optimization engine, admin dashboard for city officials, and mobile app for citizens.',
+            technologies: ['Python', 'Machine Learning', 'Google Maps API', 'WebSocket', 'React', 'Cloud Platform']
+        },
+        {
+            id: 'PRPCEMS8',
+            title: 'Agriculture Tech: Crop Monitoring System',
+            category: 'Software',
+            shortDesc: 'Create an app to help farmers monitor crop health, predict yields, and receive alerts about weather and pests.',
+            background: 'Farmers face challenges in monitoring crop health, predicting yields, and responding to weather changes and pest threats. Technology can provide data-driven insights to improve agricultural productivity.',
+            problem: 'Create an application that helps farmers monitor crop health, predict yields, receive weather alerts, and get recommendations for irrigation, fertilization, and pest control.',
+            description: 'Develop a comprehensive agriculture management app that uses satellite imagery, weather APIs, and ML models to analyze crop health, predict yields based on historical data, send weather alerts and pest warnings, provide irrigation schedules, and offer fertilizer recommendations.',
+            solution: 'Build a functional app with crop health monitoring using image analysis, yield prediction models, weather integration, pest alert system, irrigation and fertilizer recommendations, and farmer-friendly UI with voice support.',
+            technologies: ['Python', 'TensorFlow', 'Satellite APIs', 'Weather APIs', 'React Native', 'Firebase']
+        },
+        {
+            id: 'PRPCEMS9',
+            title: 'E-Commerce: AR Shopping Experience',
+            category: 'Software',
+            shortDesc: 'Build an augmented reality shopping experience allowing users to visualize products in their space before purchasing.',
+            background: 'Online shopping lacks the tactile experience of physical stores. Augmented Reality can bridge this gap by allowing customers to visualize products in their environment before purchase.',
+            problem: 'Build an augmented reality shopping application that allows users to visualize furniture, clothing, accessories, or other products in their real-world environment using AR technology.',
+            description: 'Create an AR-enabled e-commerce platform where users can browse products, use their device camera to place virtual items in their space (furniture in rooms, trying on clothes/accessories), view products from multiple angles, adjust sizes and colors, and make purchases.',
+            solution: 'Develop a functional AR shopping app with product catalog, AR visualization (ARCore/ARKit), 3D model rendering, cart and checkout system, user reviews, and wishlist functionality.',
+            technologies: ['Unity/AR.js', 'ARCore/ARKit', 'React Native', 'Node.js', 'MongoDB', 'Payment APIs']
+        },
+        {
+            id: 'PRPCEMS10',
+            title: 'Social Good: Disaster Management Platform',
+            category: 'Software',
+            shortDesc: 'Develop an application for disaster preparedness, real-time alerts, resource coordination, and volunteer management.',
+            background: 'Natural disasters require coordinated response efforts. Technology can facilitate real-time communication, resource coordination, and volunteer management during emergencies.',
+            problem: 'Develop a disaster management application that provides real-time alerts, coordinates rescue operations, manages resources and volunteers, and facilitates communication during emergencies.',
+            description: 'Build a comprehensive disaster management system with features including early warning alerts based on weather/seismic data, SOS signals from affected areas, resource mapping (shelters, medical aid, food supplies), volunteer coordination, family reunification tools, and emergency contact directories.',
+            solution: 'Create a functional platform with alert system integration, real-time mapping of affected areas and resources, volunteer management module, communication tools, admin dashboard for coordination, and offline capability for areas with limited connectivity.',
+            technologies: ['React Native', 'Node.js', 'Google Maps API', 'Firebase', 'Twilio', 'WebSocket']
+        },
+        {
+            id: 'PRPCEMS11',
+            title: 'EdTech: Skill Development Platform',
+            category: 'Software',
+            shortDesc: 'Create a platform connecting learners with mentors, offering courses, certifications, and project-based learning.',
+            background: 'The skills gap in the job market requires accessible platforms for continuous learning. Connecting learners with mentors and offering project-based learning can enhance skill development.',
+            problem: 'Create a skill development platform that offers online courses, connects learners with mentors, provides certifications, and facilitates project-based collaborative learning.',
+            description: 'Develop an EdTech platform with features including course catalog with video lessons, mentor-mentee matching algorithm, project collaboration tools, skill assessments and quizzes, certification generation, discussion forums, and job board integration.',
+            solution: 'Build a comprehensive learning platform with user roles (learner, mentor, admin), course management system, video streaming, live sessions (webinar integration), project workspaces, assessment engine, certification module, and analytics dashboard.',
+            technologies: ['React/Vue.js', 'Node.js/Django', 'PostgreSQL', 'AWS S3', 'WebRTC', 'Payment Gateway']
+        },
+        {
+            id: 'PRPCEMS12',
+            title: 'Gaming: Multiplayer Experience',
+            category: 'Software',
+            shortDesc: 'Build an engaging multiplayer game with innovative mechanics, social features, and competitive elements.',
+            background: 'Multiplayer games foster social interaction and competition. Creating engaging, scalable multiplayer experiences with innovative mechanics requires robust backend infrastructure and creative game design.',
+            problem: 'Build an engaging multiplayer game with innovative mechanics, real-time interactions, social features, leaderboards, and competitive elements.',
+            description: 'Develop a multiplayer game (web/mobile) with features including real-time player interactions, matchmaking system, in-game chat, leaderboards and rankings, achievements and rewards, social features (friends, teams, guilds), and anti-cheat mechanisms.',
+            solution: 'Create a functional multiplayer game with real-time networking (WebSocket/Socket.io), player authentication, matchmaking algorithm, game state synchronization, leaderboards, social features, and admin dashboard for monitoring.',
+            technologies: ['Unity/Phaser.js', 'Node.js', 'Socket.io', 'MongoDB/Redis', 'Cloud Hosting', 'WebSocket']
+        },
+        {
+            id: 'PRPCEMS13',
+            title: 'Cybersecurity: Threat Detection System',
+            category: 'Software',
+            shortDesc: 'Develop a system to detect and prevent cybersecurity threats using machine learning and real-time monitoring.',
+            background: 'Cybersecurity threats are evolving rapidly. Proactive threat detection using machine learning and real-time monitoring can prevent security breaches and protect sensitive data.',
+            problem: 'Develop a system that detects and prevents cybersecurity threats using machine learning, anomaly detection, and real-time monitoring of network traffic and system logs.',
+            description: 'Create a cybersecurity solution that monitors network traffic, analyzes system logs, detects anomalies using ML models, identifies potential threats (malware, intrusion attempts, DDoS), sends real-time alerts, and provides automated or manual response options.',
+            solution: 'Build a functional threat detection system with real-time monitoring, ML-based anomaly detection, alert system, threat classification, incident response tools, and admin dashboard with analytics.',
+            technologies: ['Python', 'Machine Learning', 'Elasticsearch', 'Kibana', 'SIEM Tools', 'Flask/Django']
+        },
+        {
+            id: 'PRPCEMS14',
+            title: 'Tourism & Travel: Smart Planner',
+            category: 'Software',
+            shortDesc: 'Create an AI-powered travel planner that suggests itineraries, books accommodations, and provides local insights.',
+            background: 'Planning trips involves extensive research and coordination. An AI-powered travel planner can simplify this process by suggesting personalized itineraries, booking accommodations, and providing local insights.',
+            problem: 'Create an AI-powered travel planning application that suggests customized itineraries, books flights and hotels, provides local recommendations, and offers real-time travel assistance.',
+            description: 'Develop a comprehensive travel planning platform with features including destination recommendations based on preferences, AI-generated itineraries considering budget and time, flight and hotel booking integration, local attraction suggestions, weather forecasts, currency converter, offline maps, and travel expense tracking.',
+            solution: 'Build a functional travel app with AI recommendation engine, itinerary builder, booking APIs (flights, hotels), maps integration, expense tracker, weather API, user reviews and ratings, and social sharing.',
+            technologies: ['React Native', 'Python/Node.js', 'AI/ML', 'Google Maps API', 'Booking APIs', 'MongoDB']
+        },
+        {
+            id: 'PRPCEMS15',
+            title: 'Students Innovation (Software)',
+            category: 'Software',
+            shortDesc: 'Propose and develop any innovative software solution addressing education, healthcare, environment, or social challenges.',
+            background: 'Students encounter unique challenges in education, healthcare, environment, and social domains that can be addressed through innovative software solutions.',
+            problem: 'Propose and develop an original software solution that addresses a real-world problem in education, healthcare, environmental sustainability, or social welfare.',
+            description: 'This open innovation challenge encourages students to identify problems in their communities or areas of interest and create software solutions. Projects could include educational tools, health monitoring apps, environmental awareness platforms, social networking for causes, productivity tools, or accessibility solutions.',
+            solution: 'Present a comprehensive project with clear problem statement, system architecture, working application prototype, user testing feedback, and demonstration of real-world applicability. Focus on innovation, technical depth, usability, and potential for positive impact.',
+            technologies: ['Student Choice', 'Web/Mobile Frameworks', 'Backend Technologies', 'Databases', 'APIs', 'Cloud']
+        }
+    ]
+};
+
+
+
+
+
+
+        // Generate Problem Statement Cards
+        function generateProblemCards() {
+    const hardwareContainer = document.getElementById('hardware-problems');
+    const softwareContainer = document.getElementById('software-problems');
+
+    // Clear containers to prevent duplicates
+    hardwareContainer.innerHTML = '';
+    softwareContainer.innerHTML = '';
+
+    problemStatementsDetailed.hardware.forEach((problem, index) => {
+        const card = createProblemCard(problem, 'hardware', index);
+        hardwareContainer.innerHTML += card;
+    });
+
+    problemStatementsDetailed.software.forEach((problem, index) => {
+        const card = createProblemCard(problem, 'software', index);
+        softwareContainer.innerHTML += card;
+    });
+}
+
+function createProblemCard(problem, category, index) {
+    return `
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="problem-card glass-panel p-4 d-flex flex-column h-100">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <span class="badge bg-cyan text-dark">${problem.id}</span>
+                    <span class="badge bg-purple text-white">${problem.category}</span>
+                </div>
+                <h5 class="text-gradient-cyan mb-3">${problem.title}</h5>
+                <p class="text-secondary small mb-4 flex-grow-1">${problem.shortDesc}</p>
+                <button class="btn-primary-custom w-100 mt-auto" onclick="openProblemModal('${category}', ${index})">
+                    <i class="fas fa-book-open me-2"></i> Learn More
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+        function showProblemModal(code, title, description) {
+            document.getElementById('modalTitle').textContent = `${code}: ${title}`;
+            document.getElementById('modalBody').textContent = description;
+            new bootstrap.Modal(document.getElementById('problemModal')).show();
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2026-01-20T09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h3 class="text-gradient-cyan">Event is Live!</h3>';
+            }
+        }
+
+        // Smooth Scrolling
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-panel', 'scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('glass-panel', 'scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            generateProblemCards();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+
+
+
+
+
+        // Modal Functions
+function openProblemModal(category, index) {
+    const problem = problemStatementsDetailed[category][index];
+    const modal = document.getElementById('problemModal');
+    
+    // Populate modal content
+    document.getElementById('modalCategory').textContent = problem.category;
+    document.getElementById('modalProblemId').textContent = problem.id;
+    document.getElementById('modalTitle').textContent = problem.title;
+    document.getElementById('modalBackground').textContent = problem.background;
+    document.getElementById('modalProblem').textContent = problem.problem;
+    document.getElementById('modalDescription').textContent = problem.description;
+    document.getElementById('modalSolution').textContent = problem.solution;
+    
+    // Populate tech stack
+    const techStackContainer = document.getElementById('modalTechStack');
+    techStackContainer.innerHTML = problem.technologies.map(tech => 
+        `<span class="tech-tag"><i class="fas fa-code"></i>${tech}</span>`
+    ).join('');
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProblemModal() {
+    const modal = document.getElementById('problemModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal on background click
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('problemModal');
+    if (event.target === modal) {
+        closeProblemModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeProblemModal();
+    }
+});
+
+
+
+
+// ... inside the <script> tag, before it closes ...
+
+        // Prize Carousel Logic
+        const prizeCarousel = document.getElementById('prize-carousel');
+        const prizeCards = Array.from(prizeCarousel.children);
+        const prevButton = document.getElementById('prize-prev');
+        const nextButton = document.getElementById('prize-next');
+        let prizeCurrentIndex = 0; // Start with 1st prize in the center
+
+        function updatePrizeCarousel() {
+            prizeCards.forEach((card, index) => {
+                card.classList.remove('is-center', 'is-left', 'is-right');
+
+                let newIndex = index - prizeCurrentIndex;
+                if (newIndex < -1) newIndex += prizeCards.length;
+                if (newIndex > 1) newIndex -= prizeCards.length;
+
+                if (newIndex === 0) {
+                    card.classList.add('is-center');
+                } else if (newIndex === -1) {
+                    card.classList.add('is-left');
+                } else if (newIndex === 1) {
+                    card.classList.add('is-right');
+                }
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            prizeCurrentIndex = (prizeCurrentIndex - 1 + prizeCards.length) % prizeCards.length;
+            updatePrizeCarousel();
+        });
+
+        nextButton.addEventListener('click', () => {
+            prizeCurrentIndex = (prizeCurrentIndex + 1) % prizeCards.length;
+            updatePrizeCarousel();
+        });
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePrizeCarousel();
+            // ... any other initializations you have ...
+        });
+    </script>
+<!-- Problem Statement Modal -->
+<div class="problem-modal-overlay" id="problemModal">
+    <div class="problem-modal-container">
+        <button class="problem-modal-close" onclick="closeProblemModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="problem-modal-header">
+            <div class="problem-modal-badges">
+                <span class="problem-category-badge" id="modalCategory"></span>
+                <span class="problem-id-badge" id="modalProblemId"></span>
+            </div>
+            <h2 class="problem-modal-title" id="modalTitle"></h2>
+        </div>
+        
+        <div class="problem-modal-body">
+            <div class="problem-modal-section">
+                <div class="section-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="section-content">
+                    <h3 class="section-title">Background</h3>
+                    <p class="section-text" id="modalBackground"></p>
+                </div>
+            </div>
+            <div class="problem-modal-section">
+                <div class="section-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="section-content">
+                    <h3 class="section-title">Problem Statement</h3>
+                    <p class="section-text" id="modalProblem"></p>
+                </div>
+            </div>
+            <div class="problem-modal-section">
+                <div class="section-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="section-content">
+                    <h3 class="section-title">Detailed Description</h3>
+                    <p class="section-text" id="modalDescription"></p>
+                </div>
+            </div>
+            <div class="problem-modal-section">
+                <div class="section-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="section-content">
+                    <h3 class="section-title">Expected Solution</h3>
+                    <p class="section-text" id="modalSolution"></p>
+                </div>
+            </div>
+            <div class="problem-modal-section tech-stack">
+                <div class="section-icon"><i class="fas fa-code"></i></div>
+                <div class="section-content">
+                    <h3 class="section-title">Suggested Technologies</h3>
+                    <div class="tech-tags" id="modalTechStack"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="problem-modal-footer">
+            <button class="modal-btn modal-btn-secondary" onclick="closeProblemModal()">Close</button>
+            <button class="modal-btn modal-btn-primary" onclick="window.location.href='#register'">Register Now</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
