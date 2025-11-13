@@ -1825,40 +1825,6 @@
             once: true
         });
 
-        // Problem Statements Data
-
-
-
-
-        // const problemStatements = {
-        //     hardware: [
-        //         ['PRPCEMH1', 'Smart Education: Monitoring System', 'Develop an IoT-based monitoring system to track student attendance, classroom environment, and optimize learning spaces using sensors and smart devices.'],
-        //         ['PRPCEMH2', 'BioTech / HealthTech: Queuing Models', 'Create a hardware solution to optimize hospital queuing systems using IoT sensors, displays, and real-time patient flow management.'],
-        //         ['PRPCEMH3', 'Blockchain', 'Build a hardware wallet or IoT device that implements blockchain technology for secure transactions and data storage.'],
-        //         ['PRPCEMH4', 'Miscellaneous', 'Open-ended hardware challenge - propose and build any innovative IoT or embedded system solution.'],
-        //         ['PRPCEMH5', 'Fitness & Sports', 'Design a wearable device or sensor system to track athletic performance, monitor vital signs, and provide real-time feedback.'],
-        //         ['PRPCEMH6', 'FinTech', 'Create a hardware solution for secure payment processing, biometric authentication, or financial transaction monitoring.'],
-        //         ['PRPCEMH7', 'Students Innovation (Hardware)', 'Propose and develop any innovative hardware solution that addresses a real-world problem in education, healthcare, or daily life.']
-        //     ],
-        //     software: [
-        //         ['PRPCEMS1', 'AI-enabled Clean & Green Technology', 'Develop an AI-powered application to monitor environmental parameters, predict pollution levels, or optimize resource usage for sustainability.'],
-        //         ['PRPCEMS2', 'Fitness & Sports', 'Create a fitness tracking app with AI-powered workout recommendations, nutrition tracking, and performance analytics.'],
-        //         ['PRPCEMS3', 'Smart Education: Adaptive Learning', 'Build an intelligent learning platform that adapts to student performance and provides personalized educational content.'],
-        //         ['PRPCEMS4', 'Blockchain: Decentralized Applications', 'Develop a decentralized application (DApp) using blockchain for secure voting, supply chain, or credential verification.'],
-        //         ['PRPCEMS5', 'FinTech: Personal Finance Manager', 'Create a comprehensive personal finance management app with budget tracking, investment suggestions, and expense analytics.'],
-        //         ['PRPCEMS6', 'HealthTech: Telemedicine Platform', 'Build a telemedicine platform connecting patients with doctors, including appointment scheduling, video consultations, and prescription management.'],
-        //         ['PRPCEMS7', 'Smart City: Traffic Management', 'Develop an intelligent traffic management system using real-time data analysis and AI to optimize traffic flow.'],
-        //         ['PRPCEMS8', 'Agriculture Tech: Crop Monitoring', 'Create an app to help farmers monitor crop health, predict yields, and receive alerts about weather and pests.'],
-        //         ['PRPCEMS9', 'E-Commerce: AR Shopping', 'Build an augmented reality shopping experience allowing users to visualize products in their space before purchasing.'],
-        //         ['PRPCEMS10', 'Social Good: Disaster Management', 'Develop an application for disaster preparedness, real-time alerts, resource coordination, and volunteer management.'],
-        //         ['PRPCEMS11', 'EdTech: Skill Development Platform', 'Create a platform connecting learners with mentors, offering courses, certifications, and project-based learning.'],
-        //         ['PRPCEMS12', 'Gaming: Multiplayer Experience', 'Build an engaging multiplayer game with innovative mechanics, social features, and competitive elements.'],
-        //         ['PRPCEMS13', 'Cybersecurity: Threat Detection', 'Develop a system to detect and prevent cybersecurity threats using machine learning and real-time monitoring.'],
-        //         ['PRPCEMS14', 'Tourism & Travel: Smart Planner', 'Create an AI-powered travel planner that suggests itineraries, books accommodations, and provides local insights.'],
-        //         ['PRPCEMS15', 'Students Innovation (Software)', 'Propose and develop any innovative software solution addressing education, healthcare, environment, or social challenges.']
-        //     ]
-        // };
-
 
 
 // Replace the old problemStatements object with this:
@@ -2137,18 +2103,25 @@ const problemStatementsDetailed = {
 }
 
 function createProblemCard(problem, category, index) {
+    const delay = (index % 3) * 100; 
     return `
         <div class="col-lg-4 col-md-6 mb-4">
-            <div class="problem-card glass-panel p-4 d-flex flex-column h-100">
+            <div class="problem-card glass-panel p-4 d-flex flex-column h-100" 
+                 data-aos="fade-up" 
+                 data-aos-delay="${delay}" 
+                 onclick="openProblemModal('${category}', ${index})">
+                
                 <div class="d-flex justify-content-between align-items-start mb-3">
                     <span class="badge bg-cyan text-dark">${problem.id}</span>
                     <span class="badge bg-purple text-white">${problem.category}</span>
                 </div>
+                
                 <h5 class="text-gradient-cyan mb-3">${problem.title}</h5>
                 <p class="text-secondary small mb-4 flex-grow-1">${problem.shortDesc}</p>
-                <button class="btn-primary-custom w-100 mt-auto" onclick="openProblemModal('${category}', ${index})">
+                
+                <div class="btn-primary-custom w-100 mt-auto text-center">
                     <i class="fas fa-book-open me-2"></i> Learn More
-                </button>
+                </div>
             </div>
         </div>
     `;

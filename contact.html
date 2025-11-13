@@ -282,7 +282,86 @@
                 align-items: flex-start;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Form Notification Styles */
+.form-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateX(400px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
+    max-width: 400px;
+}
+
+.form-notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+}
+
+.notification-content i {
+    font-size: 1.5rem;
+}
+
+.form-notification.success {
+    border-left: 4px solid #00ff00;
+}
+
+.form-notification.success i {
+    color: #00ff00;
+}
+
+.form-notification.error {
+    border-left: 4px solid #ff0000;
+}
+
+.form-notification.error i {
+    color: #ff0000;
+}
+
+.notification-content span {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Loading State for Button */
+.submit-btn:disabled {
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .form-notification {
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+}
     </style>
+
 </head>
 
 <body>
@@ -525,7 +604,7 @@
                             </div>
 
                             <div class="form-group">
-                                <select id="subject" required ">
+                                <select id="subject" required >
                                     <option value="">Select Subject</option>
                                     <option value="general">General Inquiry</option>
                                     <option value="membership">Club Membership</option>
@@ -545,13 +624,13 @@
                                 <div class="input-border"></div>
                             </div>
 
-                            <div class="form-group checkbox-group">
+                            <!-- <div class="form-group checkbox-group">
                                 <input type="checkbox" id="newsletter">
                                 <label for="newsletter" class="checkbox-label">
                                     <span class="checkbox-custom"></span>
                                     Subscribe to our newsletter for updates on events and opportunities
                                 </label>
-                            </div>
+                            </div> -->
 
                             <button type="submit" class="submit-btn">
                                 <span class="btn-text">Send Message</span>
@@ -1585,6 +1664,137 @@
     </div>
     <script src="js/animations.js"></script>
     <script src="js/mobile-app.js"></script>
+    <script>
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw7rH-jhwXk1tCB5AbQNGCXUnYna_sLTlASYylHS4BFaN0mf7Q2FgnbH6cIhQ09gg/exec";
+        
+        // helper: show notification (you already have this function, reuse it)
+        function showNotification(message, type) {
+          const existing = document.querySelector('.form-notification');
+          if (existing) existing.remove();
+          const notification = document.createElement('div');
+          notification.className = `form-notification ${type}`;
+          notification.innerHTML = `<div class="notification-content">
+              <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+              <span>${message}</span>
+            </div>`;
+          document.body.appendChild(notification);
+          setTimeout(() => notification.classList.add('show'), 10);
+          setTimeout(() => { notification.classList.remove('show'); setTimeout(()=>notification.remove(),300); }, 5000);
+        }
+        
+        // Contact Form Handler
+        document.getElementById("contactForm").addEventListener("submit", async function(e){
+          e.preventDefault();
+          const formEl = this;
+          const submitBtn = formEl.querySelector('.submit-btn');
+          const btnText = submitBtn.querySelector('.btn-text') || submitBtn.querySelector('span');
+          const originalText = btnText.textContent;
+          submitBtn.disabled = true;
+          btnText.textContent = 'Sending...';
+          submitBtn.style.opacity = '0.7';
+        
+          const data = {
+            formType: 'contact',
+            firstName: document.getElementById("firstName").value.trim(),
+            lastName: document.getElementById("lastName").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value.trim(),
+            // newsletter: !!document.getElementById("newsletter").checked,
+            timestamp: new Date().toISOString()
+          };
+        
+          // minimal client validation
+          if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+            showNotification('Please fill required fields.', 'error');
+            submitBtn.disabled = false;
+            btnText.textContent = originalText;
+            submitBtn.style.opacity = '1';
+            return;
+          }
+        
+          try {
+            const resp = await fetch(WEB_APP_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+        
+            const json = await resp.json().catch(()=>({ status: resp.ok ? 'success' : 'error' }));
+        
+            if (json.status === 'success') {
+              showNotification("Message sent successfully! We'll get back to you soon.", 'success');
+              formEl.reset();
+            } else {
+              console.error('Server error', json);
+              showNotification('Submission failed: ' + (json.message || 'Please try again.'), 'error');
+            }
+          } catch (err) {
+            console.error('Network error:', err);
+            showNotification('Could not submit form. Please try again or contact us directly.', 'error');
+          } finally {
+            submitBtn.disabled = false;
+            btnText.textContent = originalText;
+            submitBtn.style.opacity = '1';
+          }
+        });
+        
+        // Join Form Handler (if you have join modal)
+        const joinForm = document.getElementById("joinForm");
+        if (joinForm) {
+          joinForm.addEventListener("submit", async function(e){
+            e.preventDefault();
+            const formEl = this;
+            const submitBtn = formEl.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('span');
+            const originalText = btnText.textContent;
+            submitBtn.disabled = true;
+            btnText.textContent = 'Submitting...';
+            submitBtn.style.opacity = '0.7';
+        
+            const data = {
+              formType: 'join',
+              name: document.getElementById("joinName").value.trim(),
+              email: document.getElementById("joinEmail").value.trim(),
+              phone: document.getElementById("joinPhone").value.trim(),
+              year: document.getElementById("joinYear").value,
+              branch: document.getElementById("joinBranch").value,
+              interests: document.getElementById("joinInterests").value.trim(),
+              timestamp: new Date().toISOString()
+            };
+        
+            try {
+              const resp = await fetch(WEB_APP_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              const json = await resp.json().catch(()=>({ status: resp.ok ? 'success' : 'error' }));
+              if (json.status === 'success') {
+                showNotification('Application submitted successfully! Welcome to the club!', 'success');
+                formEl.reset();
+                closeModal();
+              } else {
+                showNotification('Could not submit application: ' + (json.message || ''), 'error');
+              }
+            } catch (err) {
+              console.error(err);
+              showNotification('Could not submit application. Please try again.', 'error');
+            } finally {
+              submitBtn.disabled = false;
+              btnText.textContent = originalText;
+              submitBtn.style.opacity = '1';
+            }
+          });
+        }
+        
+        // reuse your modal close function
+        function closeModal() {
+          const modal = document.getElementById('joinModal');
+          if (modal) modal.style.display = 'none';
+        }
+        </script>
 </body>
 
 </html>
