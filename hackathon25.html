@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon '25 | Coding Club PRPCEM</title>
+    <meta name="description" content="Join Hackathon '25 - An exciting coding competition organized by Coding Club PRPCEM. Win amazing prizes and showcase your skills!">
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/hackathon25.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="matrix-rain"></div>
+        <div class="floating-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-terminal"></i>
+            <i class="fas fa-microchip"></i>
+            <i class="fas fa-robot"></i>
+            <i class="fas fa-rocket"></i>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="hackathon-nav" id="hackathonNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/logo1.png" alt="Logo" class="nav-logo">
+                <span class="nav-title">Hackathon' 25</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#prizes" class="nav-link">Prizes</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#rules" class="nav-link">Rules</a>
+                <a href="#problems" class="nav-link">Problem Statements</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <!-- Announcement Banner -->
+            <div class="announcement-banner">
+                <i class="fas fa-bullhorn"></i>
+                <span>📢 Attention teams! All photos related to Hackathon '25 are available in the Gallery. Check them out! 📸</span>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-hack">Hackathon'</span>
+                        <span class="title-year">25</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        At Coding Club, we ignite creativity and foster innovation through coding. Whether you're a beginner or an expert, we offer an inspiring environment for all to learn, collaborate, and make an impact. Join us as we create the future, one line of code at a time!
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary-hack" onclick="scrollToSection('schedule')">
+                            <i class="fas fa-calendar"></i>
+                            View Schedule
+                        </button>
+                        <button class="btn-secondary-hack" onclick="scrollToSection('prizes')">
+                            <i class="fas fa-trophy"></i>
+                            See Prizes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hackathon-logo">
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring"></div>
+                        <div class="logo-center">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="prizes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prizes</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="prizes-grid">
+                <div class="prize-card first-prize" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="prize-icon">
+                        🥇
+                    </div>
+                    <h3>First Prize</h3>
+                    <div class="prize-amount">₹51,000</div>
+                    <div class="prize-glow"></div>
+                </div>
+                
+                <div class="prize-card second-prize" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="prize-icon">
+                        🥈
+                    </div>
+                    <h3>Second Prize</h3>
+                    <div class="prize-amount">₹31,000</div>
+                    <div class="prize-glow"></div>
+                </div>
+                
+                <div class="prize-card third-prize" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="prize-icon">
+                        🥉
+                    </div>
+                    <h3>Third Prize</h3>
+                    <div class="prize-amount">₹11,000</div>
+                    <div class="prize-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="countdown-title">Hackathon Countdown</h2>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">About the Hackathon</h2>
+                    <h3 class="about-subtitle">Welcome to PRPCEM HACKATHON 2025</h3>
+                    <p class="about-text">
+                        Our hackathon is a unique opportunity for students to showcase their skills, learn from industry experts, and collaborate with peers. With exciting challenges, valuable prizes, and a supportive community, you won't want to miss this event!
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Participants</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">48</div>
+                            <div class="stat-label">Hours</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹93K</div>
+                            <div class="stat-label">Prize Pool</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-container">
+                        <img src="images/events.png" alt="Hackathon Image" class="about-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statements Section -->
+    <section id="problems" class="problems-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Problem Statements</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="problem-categories">
+                <button class="category-btn active" data-category="hardware">Hardware</button>
+                <button class="category-btn" data-category="software">Software</button>
+            </div>
+            
+            <div class="problems-grid" id="problemsGrid">
+                <!-- Hardware Problems -->
+                <div class="problem-card hardware" data-aos="fade-up">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH1</div>
+                        <div class="problem-category">Hardware</div>
+                    </div>
+                    <h3 class="problem-title">Smart Education</h3>
+                    <p class="problem-description">Monitoring System for classroom session in skill training program.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="100">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH2</div>
+                        <div class="problem-category">BioTech/HealthTech</div>
+                    </div>
+                    <h3 class="problem-title">Healthcare Queue Management</h3>
+                    <p class="problem-description">Queuing models in OPDs/ availability of beds/ admission of patients. A hospital based solution is ideal which can be integrated with city wide module.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH3</div>
+                        <div class="problem-category">AI-Healthcare</div>
+                    </div>
+                    <h3 class="problem-title">Fall Prevention System</h3>
+                    <p class="problem-description">Wearable sensor with Artificial Intelligence for prevention of falls in elderly people.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH4</div>
+                        <div class="problem-category">Smart Automation</div>
+                    </div>
+                    <h3 class="problem-title">Earthing System Monitor</h3>
+                    <p class="problem-description">System to check the healthiness of earthing system and alert staff in case of any malfunction.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH5</div>
+                        <div class="problem-category">Smart Farming</div>
+                    </div>
+                    <h3 class="problem-title">Farmer Support Solutions</h3>
+                    <p class="problem-description">Farmer Assistance and Support Solutions.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="500">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH6</div>
+                        <div class="problem-category">Intelligent Automation</div>
+                    </div>
+                    <h3 class="problem-title">Delivery Workforce Solutions</h3>
+                    <p class="problem-description">Designing Innovative Products for Empowering the Delivery Workforce.</p>
+                </div>
+                
+                <div class="problem-card hardware" data-aos="fade-up" data-aos-delay="600">
+                    <div class="problem-header">
+                        <div class="problem-id">PRPCEMH7</div>
+                        <div class="problem-category">Innovation</div>
+                    </div>
+                    <h3 class="problem-title">Student Innovation</h3>
+                    <p class="problem-description">Hardware-Innovative, Creative and Impactful solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Event Schedule</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📅 19th Dec 2024 - 12th Jan 2025</div>
+                        <h3>Registration Phase</h3>
+                        <p>Participants must complete their registration on the website by the end date.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📱 20th Dec 2024</div>
+                        <h3>Joining the WhatsApp Group</h3>
+                        <p>Registered participants will be added to the official WhatsApp group for updates and communication.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">💻 1st Jan 2025</div>
+                        <h3>PPT Format Shared</h3>
+                        <p>Participants will receive the PowerPoint presentation format via email and on the official website to begin their preparation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📤 12th Jan 2025</div>
+                        <h3>PPT Submission Deadline</h3>
+                        <p>All PPTs must be submitted through the designated Google Form by this date.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📝 13th & 14th Jan 2025</div>
+                        <h3>Online Evaluation</h3>
+                        <p>Online evaluation of the PPTs will occur on these dates.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">🏆 15th Jan 2025 (Tentative)</div>
+                        <h3>Top Teams Shortlisted</h3>
+                        <p>The top teams will be shortlisted for the Grand Finale round. The announcement will be made on Instagram for the Finale.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">7</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">⏰ 20th Jan 2025 10:00 AM</div>
+                        <h3>Event Start</h3>
+                        <p>The grand finale event will begin.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">8</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">🎤 11:00 AM – 1:00 PM</div>
+                        <h3>Inaugural Session</h3>
+                        <p>Official inauguration of the Techelons hackathon.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">9</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">🔍 1:00 PM – 3:00 PM</div>
+                        <h3>Round 1: Project Evaluation</h3>
+                        <p>Projects will be evaluated, and participants may be asked to add features or answer questions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">🏅 4:00 PM – 5:00 PM</div>
+                        <h3>Final Round</h3>
+                        <p>Final evaluation of shortlisted projects, followed by result announcements.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">11</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">🎉 5:00 PM</div>
+                        <h3>Event Conclusion</h3>
+                        <p>Hackathon concludes with the result announcement at the Unmesh 2025 ceremony.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <span>Who can participate?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All students from engineering colleges can participate. Both individual and team participation is allowed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <span>What should I bring?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bring your laptop, charger, student ID, and any development tools you prefer. Food and refreshments will be provided.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <span>Is it inter-college and inter-department allowed?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, students from different colleges and departments can participate and form teams together.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <span>What are the team size requirements?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Teams can have 1-4 members. Individual participation is also welcome.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <span>Is registration free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, registration is completely free for all participants.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <span>What if the problem statements don't suit us?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can propose your own innovative solution, but it should align with the hackathon's theme and objectives.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="faq-question">
+                        <span>When will the PPT format be shared?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The PPT format will be shared on 1st January 2025 via email and on the official website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="images/events.png" alt="Hackathon Event" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/hero.jpg" alt="Coding Session" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/college-photo.jpg" alt="Team Collaboration" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="images/about.png" alt="Presentation" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Connect with Us</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="contact-intro">
+                <p>Feel free to reach out!</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card" data-aos="fade-up">
+                    <div class="contact-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Karamveer Singh Oberoi</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> karamoberoi19@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +919359791895</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Sujal Bhugul</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> sujalbhugul08@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +919322733751</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Tushar Ahuja</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> ahuja.tushar.m@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +919322675891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Aman Asthana</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> amanasthana431@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +919359539232</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hackathon-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <h3>About Hackathon '25</h3>
+                        <p>Hackathon '25 is an exciting event organized by the Coding Club PRPCEM. It aims to bring together students, developers, and tech enthusiasts to collaborate, innovate, and create impactful solutions. Join us for a thrilling experience filled with challenges, learning, and fun!</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#prizes">Prizes</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#rules">Rules</a></li>
+                            <li><a href="#problems">Problem Statements</a></li>
+                            <li><a href="#schedule">Schedule</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <h4>Connect With Us</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/CodingClubPRPCEM" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://instagram.com/codingclub_prpcem" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/codingclubprpcem" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Coding Club PRPCEM. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/hackathon25.js"></script>
+</body>
+</html>

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/particles.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
 
   <style>
     html {
@@ -300,12 +301,21 @@
       </div>
       <!-- Desktop Navigation -->
       <div class="navbar-nav">
+<<<<<<< Updated upstream
   <a href="index.html" class="nav-item">Home</a>
   <a href="about.html" class="nav-item">About</a>
   <a href="events.html" class="nav-item">Events</a>
   <a href="tech-post.html" class="nav-item">Technical Posts</a>
   <a href="team.html" class="nav-item">Team</a>
   <a href="contact.html" class="nav-item">Contact</a>
+=======
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="events.html" class="nav-item">Events</a>
+        <a href="posts.html" class="nav-item">Technical Posts</a>
+        <a href="team.html" class="nav-item active">Team</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+>>>>>>> Stashed changes
       </div>
       <!-- Right Side -->
       <div class="navbar-actions">
@@ -329,12 +339,21 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-nav">
+<<<<<<< Updated upstream
   <a href="index.html" class="mobile-nav-item">Home</a>
   <a href="about.html" class="mobile-nav-item">About</a>
   <a href="events.html" class="mobile-nav-item">Events</a>
   <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
   <a href="team.html" class="mobile-nav-item">Team</a>
   <a href="contact.html" class="mobile-nav-item">Contact</a>
+=======
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="about.html" class="mobile-nav-item">About</a>
+        <a href="events.html" class="mobile-nav-item">Events</a>
+        <a href="posts.html" class="mobile-nav-item">Technical Posts</a>
+        <a href="team.html" class="mobile-nav-item">Team</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+>>>>>>> Stashed changes
       </div>
       <div class="mobile-actions">
         <div class="mobile-social">
@@ -350,42 +369,42 @@
     </div>
   </nav>
 
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="header-container">
-            <div class="header-content">
-                <div class="breadcrumb">
-                    <span class="breadcrumb-item">
-                        <i class="fas fa-home"></i>
-                        <a href="index.html">Home</a>
-                    </span>
-                    <span class="breadcrumb-separator">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
-                    <span class="breadcrumb-item active">
-                        <i class="fas fa-users"></i>
-                        Team
-                    </span>
-                </div>
-                
-                <h1 class="page-title">
-                    <span class="title-accent">&lt;</span>
-                    Our <span class="title-gradient">Team</span>
-                    <span class="title-accent">/&gt;</span>
-                </h1>
-                
-                <p class="page-subtitle">
-                    Meet the passionate individuals behind Coding Club PRPCEM who make everything possible
-                </p>
-            </div>
-            
-            <div class="header-visual">
-                <div class="team-network-visual" id="teamNetwork"></div>
-            </div>
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="header-container">
+      <div class="header-content">
+        <div class="breadcrumb">
+          <span class="breadcrumb-item">
+            <i class="fas fa-home"></i>
+            <a href="index.html">Home</a>
+          </span>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+          <span class="breadcrumb-item active">
+            <i class="fas fa-users"></i>
+            Team
+          </span>
         </div>
-    </header>
-    <!-- Main Content -->
+        
+        <h1 class="page-title">
+          <span class="title-accent">&lt;</span>
+          Our <span class="title-gradient">Team</span>
+          <span class="title-accent">/&gt;</span>
+        </h1>
+        
+        <p class="page-subtitle">
+          Meet the passionate individuals behind Coding Club PRPCEM who make everything possible
+        </p>
+      </div>
+      
+      <div class="header-visual">
+        <div class="team-network-visual" id="teamNetwork"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
     <main class="main-content">
 
       <!-- Developers Section -->
@@ -1286,5 +1305,91 @@
 
 <script src="js/animations.js"></script>
   <script src="js/mobile-app.js"></script>
+  
+  <!-- Team Network Visual Script -->
+  <script>
+    // Team Network Visual
+    function initTeamNetworkVisual() {
+      const container = document.getElementById('teamNetwork');
+      if (!container) return;
+
+      // Create network nodes representing team roles
+      const nodes = [
+        { id: 'president', x: 50, y: 20, type: 'fas fa-crown' },
+        { id: 'vp', x: 25, y: 35, type: 'fas fa-user-tie' },
+        { id: 'secretary', x: 75, y: 35, type: 'fas fa-clipboard-list' },
+        { id: 'developers', x: 35, y: 55, type: 'fas fa-code' },
+        { id: 'designers', x: 65, y: 55, type: 'fas fa-palette' },
+        { id: 'members', x: 50, y: 75, type: 'fas fa-users' }
+      ];
+
+      // Create SVG
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '100%');
+      svg.setAttribute('height', '300');
+      svg.setAttribute('viewBox', '0 0 100 100');
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.zIndex = '1';
+
+      // Add connections
+      const connections = [
+        ['president', 'vp'], ['president', 'secretary'], ['vp', 'developers'],
+        ['secretary', 'designers'], ['developers', 'members'], ['designers', 'members']
+      ];
+
+      connections.forEach(([from, to]) => {
+        const fromNode = nodes.find(n => n.id === from);
+        const toNode = nodes.find(n => n.id === to);
+        
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', fromNode.x);
+        line.setAttribute('y1', fromNode.y);
+        line.setAttribute('x2', toNode.x);
+        line.setAttribute('y2', toNode.y);
+        line.setAttribute('stroke', 'rgba(139, 92, 246, 0.3)');
+        line.setAttribute('stroke-width', '0.4');
+        line.style.animation = `pulse 3s ease-in-out infinite ${Math.random() * 2}s`;
+        
+        svg.appendChild(line);
+      });
+
+      // Add nodes
+      nodes.forEach((node, index) => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', node.x);
+        circle.setAttribute('cy', node.y);
+        circle.setAttribute('r', '1.8');
+        circle.setAttribute('fill', '#8b5cf6');
+        circle.style.animation = `glow 2.5s ease-in-out infinite ${index * 0.4}s`;
+        
+        svg.appendChild(circle);
+      });
+
+      container.appendChild(svg);
+
+      // Add floating icons
+      nodes.forEach((node, index) => {
+        const icon = document.createElement('div');
+        icon.innerHTML = `<i class="${node.type}"></i>`;
+        icon.style.position = 'absolute';
+        icon.style.left = `${node.x}%`;
+        icon.style.top = `${node.y}%`;
+        icon.style.transform = 'translate(-50%, -50%)';
+        icon.style.color = '#8b5cf6';
+        icon.style.fontSize = '14px';
+        icon.style.zIndex = '2';
+        icon.style.animation = `float 4s ease-in-out infinite ${index * 0.6}s`;
+        
+        container.appendChild(icon);
+      });
+    }
+
+    // Initialize on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      initTeamNetworkVisual();
+    });
+  </script>
 </body>
 </html>

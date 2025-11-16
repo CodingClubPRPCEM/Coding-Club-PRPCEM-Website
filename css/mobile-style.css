@@ -2490,6 +2490,21 @@ body {
     border: 1px solid rgba(0, 212, 255, 0.1);
 }
 
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transition: all var(--transition-medium);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-form-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: var(--shadow-large);
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -2575,6 +2590,29 @@ body {
 .submit-btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-large);
+}
+
+/* Success Message */
+.success-card {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: var(--border-radius-small);
+    padding: 1rem;
+    color: #22c55e;
+    text-align: center;
+    font-weight: 500;
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Contact CTA Section */

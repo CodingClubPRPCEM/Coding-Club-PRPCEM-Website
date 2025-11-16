@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details | Coding Club PRPCEM</title>
+  <meta name="description" content="Learn more about this exciting event organized by Coding Club PRPCEM. Join us for workshops, hackathons, tech talks, and coding competitions." />
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
+  <link rel="stylesheet" href="css/event-detail-styles.css" />
+</head>
+<body>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Simple Modern Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <!-- Logo Section -->
+      <div class="navbar-brand">
+        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+        <div class="navbar-text">
+          <span class="navbar-title">CODING CLUB</span>
+          <span class="navbar-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="navbar-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="events.html" class="nav-item active">Events</a>
+        <a href="posts.html" class="nav-item">Technical Posts</a>
+        <a href="team.html" class="nav-item">Team</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </div>
+      
+      <!-- Right Side -->
+      <div class="navbar-actions">
+        <div class="navbar-social">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <button class="join-button" onclick="openJoinModal()">Join Club</button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-nav">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="about.html" class="mobile-nav-item">About</a>
+        <a href="events.html" class="mobile-nav-item">Events</a>
+        <a href="posts.html" class="mobile-nav-item">Technical Posts</a>
+        <a href="team.html" class="mobile-nav-item">Team</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+      </div>
+      <div class="mobile-actions">
+        <div class="mobile-social">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header event-header">
+    <div class="header-container">
+      <div class="header-content">
+        <div class="breadcrumb">
+          <span class="breadcrumb-item">
+            <i class="fas fa-home"></i>
+            <a href="index.html">Home</a>
+          </span>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+          <span class="breadcrumb-item">
+            <a href="events.html">Events</a>
+          </span>
+          <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+          <span class="breadcrumb-item active" id="event-breadcrumb">
+            Event Details
+          </span>
+        </div>
+        
+        <div class="event-header-main">
+          <div class="event-header-content">
+            <div class="event-category-badge" id="event-category-badge">
+              <i class="fas fa-code" id="event-icon"></i>
+              <span id="event-category-text">Loading...</span>
+            </div>
+            
+            <h1 class="event-title" id="event-title">
+              <span class="title-accent">&lt;</span>
+              <span class="title-main">Loading Event...</span>
+              <span class="title-accent">/&gt;</span>
+            </h1>
+            
+            <p class="event-subtitle" id="event-subtitle">Get ready for an amazing experience with Coding Club PRPCEM</p>
+            
+            <div class="event-meta-grid" id="event-meta">
+              <div class="event-meta-item">
+                <div class="meta-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="meta-content">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-value" id="event-date">Loading...</span>
+                </div>
+              </div>
+              <div class="event-meta-item">
+                <div class="meta-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="meta-content">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-value" id="event-time">Loading...</span>
+                </div>
+              </div>
+              <div class="event-meta-item">
+                <div class="meta-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="meta-content">
+                  <span class="meta-label">Location</span>
+                  <span class="meta-value" id="event-location">Loading...</span>
+                </div>
+              </div>
+              <div class="event-meta-item">
+                <div class="meta-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="meta-content">
+                  <span class="meta-label">Capacity</span>
+                  <span class="meta-value" id="event-capacity">Loading...</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="event-header-actions">
+              <button class="primary-action-btn" onclick="openRegistrationModal()">
+                <i class="fas fa-user-plus"></i>
+                <span>Register Now</span>
+              </button>
+              <button class="secondary-action-btn" onclick="shareEvent()">
+                <i class="fas fa-share-alt"></i>
+                <span>Share Event</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="event-header-visual">
+            <div class="event-visual-container">
+              <div class="event-image-preview" id="event-image-preview">
+                <img id="header-event-image" src="images/events.png" alt="Event Preview" />
+                <div class="image-overlay">
+                  <div class="status-badge" id="header-event-status">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Upcoming</span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-stats-preview">
+                <div class="stat-preview">
+                  <span class="stat-number" id="header-registered-count">0</span>
+                  <span class="stat-label">Registered</span>
+                </div>
+                <div class="stat-preview">
+                  <span class="stat-number" id="header-seats-available">50</span>
+                  <span class="stat-label">Seats Left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-background-effects">
+      <div class="header-particles"></div>
+      <div class="header-glow"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+   
+
+    <!-- Event Details Section -->
+    <section class="event-details-section">
+      <div class="section-container">
+        <div class="event-content-grid">
+          <div class="event-main-content">
+            <!-- Event Description -->
+            <div class="content-card">
+              <h2 class="content-title">
+                <i class="fas fa-info-circle"></i>
+                About This Event
+              </h2>
+              <div class="event-description" id="event-description">
+                <p>Loading event description...</p>
+              </div>
+            </div>
+
+            <!-- Event Agenda -->
+            <div class="content-card">
+              <h2 class="content-title">
+                <i class="fas fa-list-alt"></i>
+                Event Agenda
+              </h2>
+              <div class="event-agenda" id="event-agenda">
+                <div class="agenda-item">
+                  <div class="agenda-time">Loading...</div>
+                  <div class="agenda-content">
+                    <h4>Loading agenda...</h4>
+                    <p>Please wait while we load the event details.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prerequisites -->
+            <div class="content-card">
+              <h2 class="content-title">
+                <i class="fas fa-check-circle"></i>
+                Prerequisites & Requirements
+              </h2>
+              <div class="event-prerequisites" id="event-prerequisites">
+                <ul>
+                  <li>Loading prerequisites...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- What You'll Learn -->
+            <div class="content-card">
+              <h2 class="content-title">
+                <i class="fas fa-graduation-cap"></i>
+                What You'll Learn
+              </h2>
+              <div class="event-learnings" id="event-learnings">
+                <div class="learning-grid">
+                  <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Loading learning outcomes...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-sidebar">
+            <!-- Event Info Card -->
+            <div class="sidebar-card">
+              <h3 class="sidebar-title">Event Information</h3>
+              <div class="event-info-list">
+                <div class="info-item">
+                  <i class="fas fa-calendar-alt"></i>
+                  <div class="info-content">
+                    <span class="info-label">Date</span>
+                    <span class="info-value" id="sidebar-date">Loading...</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-clock"></i>
+                  <div class="info-content">
+                    <span class="info-label">Time</span>
+                    <span class="info-value" id="sidebar-time">Loading...</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="info-content">
+                    <span class="info-label">Location</span>
+                    <span class="info-value" id="sidebar-location">Loading...</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-users"></i>
+                  <div class="info-content">
+                    <span class="info-label">Capacity</span>
+                    <span class="info-value" id="sidebar-capacity">Loading...</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-tag"></i>
+                  <div class="info-content">
+                    <span class="info-label">Category</span>
+                    <span class="info-value" id="sidebar-category">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Organizer Card -->
+            <div class="sidebar-card">
+              <h3 class="sidebar-title">Event Organizer</h3>
+              <div class="organizer-info">
+                <div class="organizer-avatar">
+                  <img src="images/logo1.png" alt="Coding Club PRPCEM" />
+                </div>
+                <div class="organizer-details">
+                  <h4>Coding Club PRPCEM</h4>
+                  <p>Building tomorrow's developers today</p>
+                  <div class="organizer-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/codingclub_prpcem" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Related Events -->
+            <div class="sidebar-card">
+              <h3 class="sidebar-title">Related Events</h3>
+              <div class="related-events" id="related-events">
+                <div class="related-event-item">
+                  <div class="related-event-date">
+                    <span class="month">Loading</span>
+                    <span class="day">--</span>
+                  </div>
+                  <div class="related-event-info">
+                    <h5>Loading related events...</h5>
+                    <p>Please wait...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer class="footer-section simple-footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-column footer-brand">
+          <div class="footer-logo-section">
+            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+            <span class="footer-title">Coding Club PRPCEM</span>
+          </div>
+          <p class="footer-desc">
+            A community of passionate students learning, building, and growing together through the power of technology.
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column footer-links">
+          <h4 class="footer-column-title">Quick Links</h4>
+          <nav class="footer-nav-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="events.html">Events</a>
+            <a href="posts.html">Technical Posts</a>
+          </nav>
+        </div>
+        
+        <div class="footer-column footer-community">
+          <h4 class="footer-column-title">Community</h4>
+          <nav class="footer-nav-list">
+            <a href="team.html">Meet the Team</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#" onclick="openJoinModal()">Join Club</a>
+            <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+          </nav>
+        </div>
+        
+        <div class="footer-column footer-contact">
+          <h4 class="footer-column-title">Get In Touch</h4>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>codingclub@prpcem.ac.in</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>PRPCEM, Amravati</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>Mon - Fri: 9AM - 6PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom-simple">
+        <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+        <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+      </div>
+    </div>
+    <!-- Footer Background Effects -->
+    <div class="footer-bg-effects">
+      <div class="footer-particles"></div>
+      <div class="footer-grid"></div>
+    </div>
+  </footer>
+
+  <!-- Registration Modal -->
+  <div class="modal-overlay" id="registrationModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>Register for Event</h2>
+        <button class="modal-close" onclick="closeRegistrationModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="registration-form" id="registrationForm">
+          <div class="form-group">
+            <input type="text" id="regName" required>
+            <label for="regName">Full Name</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="regEmail" required>
+            <label for="regEmail">Email Address</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="regPhone" required>
+            <label for="regPhone">Phone Number</label>
+          </div>
+          
+          <div class="form-group">
+            <select id="regYear" required>
+              <option value="">Select Year</option>
+              <option value="1">First Year</option>
+              <option value="2">Second Year</option>
+              <option value="3">Third Year</option>
+              <option value="4">Final Year</option>
+            </select>
+            <label for="regYear">Academic Year</label>
+          </div>
+          
+          <div class="form-group">
+            <textarea id="regExpectations" rows="3"></textarea>
+            <label for="regExpectations">What do you expect from this event?</label>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-user-check"></i>
+            Complete Registration
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Join Modal -->
+  <div class="modal-overlay" id="joinModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>Join Our Amazing Community!</h2>
+        <button class="modal-close" onclick="closeJoinModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="join-form" id="joinForm">
+          <div class="form-group">
+            <input type="text" id="joinName" required>
+            <label for="joinName">Full Name</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="joinEmail" required>
+            <label for="joinEmail">Email Address</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="joinPhone" required>
+            <label for="joinPhone">Phone Number</label>
+          </div>
+          
+          <div class="form-group">
+            <select id="joinYear" required>
+              <option value="">Select Year</option>
+              <option value="1">First Year</option>
+              <option value="2">Second Year</option>
+              <option value="3">Third Year</option>
+              <option value="4">Final Year</option>
+            </select>
+            <label for="joinYear">Academic Year</label>
+          </div>
+          
+          <div class="form-group">
+            <textarea id="joinInterests" rows="3"></textarea>
+            <label for="joinInterests">Your Interests in Technology</label>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-rocket"></i>
+            Join the Community
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/animations.js"></script>
+  <script src="js/enhanced-navigation.js"></script>
+  <script src="js/event-detail.js"></script>
+</body>
+</html>

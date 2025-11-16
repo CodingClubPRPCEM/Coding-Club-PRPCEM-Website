@@ -32,7 +32,7 @@
       <!-- Desktop Navigation -->
       <div class="navbar-nav">
         <a href="index.html" class="nav-item">Home</a>
-        <a href="about.html" class="nav-item">About</a>
+        <a href="about.html" class="nav-item active">About</a>
         <a href="events.html" class="nav-item">Events</a>
         <a href="tech-post.html" class="nav-item">Technical Posts</a>
         <a href="team.html" class="nav-item">Team</a>
@@ -108,6 +108,10 @@
         <p class="page-subtitle">
           Discover our mission, vision, and the exceptional leadership that guides Coding Club PRPCEM
         </p>
+      </div>
+      
+      <div class="header-visual">
+        <div class="about-network-visual" id="aboutNetwork"></div>
       </div>
     </div>
   </header>
@@ -534,6 +538,92 @@
 
   <script src="js/animations.js"></script>
   <script src="js/mobile-app.js"></script>
+  
+  <!-- About Network Visual Script -->
+  <script>
+    // About Network Visual
+    function initAboutNetworkVisual() {
+      const container = document.getElementById('aboutNetwork');
+      if (!container) return;
+
+      // Create network nodes representing club aspects
+      const nodes = [
+        { id: 'mission', x: 30, y: 25, type: 'fas fa-bullseye' },
+        { id: 'vision', x: 70, y: 30, type: 'fas fa-eye' },
+        { id: 'innovation', x: 45, y: 45, type: 'fas fa-lightbulb' },
+        { id: 'collaboration', x: 25, y: 65, type: 'fas fa-handshake' },
+        { id: 'learning', x: 65, y: 60, type: 'fas fa-graduation-cap' },
+        { id: 'community', x: 50, y: 80, type: 'fas fa-heart' }
+      ];
+
+      // Create SVG
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '100%');
+      svg.setAttribute('height', '300');
+      svg.setAttribute('viewBox', '0 0 100 100');
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.zIndex = '1';
+
+      // Add connections
+      const connections = [
+        ['mission', 'innovation'], ['vision', 'innovation'], ['innovation', 'learning'],
+        ['collaboration', 'community'], ['learning', 'community'], ['mission', 'collaboration']
+      ];
+
+      connections.forEach(([from, to]) => {
+        const fromNode = nodes.find(n => n.id === from);
+        const toNode = nodes.find(n => n.id === to);
+        
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', fromNode.x);
+        line.setAttribute('y1', fromNode.y);
+        line.setAttribute('x2', toNode.x);
+        line.setAttribute('y2', toNode.y);
+        line.setAttribute('stroke', 'rgba(245, 158, 11, 0.25)');
+        line.setAttribute('stroke-width', '0.3');
+        line.style.animation = `pulse 4s ease-in-out infinite ${Math.random() * 2.5}s`;
+        
+        svg.appendChild(line);
+      });
+
+      // Add nodes
+      nodes.forEach((node, index) => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', node.x);
+        circle.setAttribute('cy', node.y);
+        circle.setAttribute('r', '1.6');
+        circle.setAttribute('fill', '#f59e0b');
+        circle.style.animation = `glow 3s ease-in-out infinite ${index * 0.5}s`;
+        
+        svg.appendChild(circle);
+      });
+
+      container.appendChild(svg);
+
+      // Add floating icons
+      nodes.forEach((node, index) => {
+        const icon = document.createElement('div');
+        icon.innerHTML = `<i class="${node.type}"></i>`;
+        icon.style.position = 'absolute';
+        icon.style.left = `${node.x}%`;
+        icon.style.top = `${node.y}%`;
+        icon.style.transform = 'translate(-50%, -50%)';
+        icon.style.color = '#f59e0b';
+        icon.style.fontSize = '13px';
+        icon.style.zIndex = '2';
+        icon.style.animation = `float 3.5s ease-in-out infinite ${index * 0.7}s`;
+        
+        container.appendChild(icon);
+      });
+    }
+
+    // Initialize on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      initAboutNetworkVisual();
+    });
+  </script>
 </body>
 </html>
 

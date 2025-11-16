@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Detail Page Test - Coding Club PRPCEM</title>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #111827;
+            color: white;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .test-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin: 0.5rem 1rem 0.5rem 0;
+            transition: transform 0.3s ease;
+        }
+        .test-link:hover {
+            transform: translateY(-2px);
+        }
+        .instructions {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .back-link {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Event Detail Page Test</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instructions</h3>
+            <p>This test page demonstrates the universal event detail page functionality with an improved header design. Click on any of the test links below to see different events load dynamically.</p>
+            <p><strong>✨ New Header Features:</strong></p>
+            <ul>
+                <li>🎨 Beautiful gradient title with accent characters</li>
+                <li>🏷️ Category badge with dynamic icons</li>
+                <li>📊 Enhanced meta information grid</li>
+                <li>🖼️ Event image preview with status badge</li>
+                <li>📈 Live registration statistics</li>
+                <li>🚀 Action buttons for registration and sharing</li>
+            </ul>
+            <p><strong>Features to test:</strong></p>
+            <ul>
+                <li>Dynamic content loading based on URL parameters</li>
+                <li>Event registration modal</li>
+                <li>Social sharing functionality</li>
+                <li>Related events section</li>
+                <li>Responsive design on different screen sizes</li>
+                <li><strong>NEW:</strong> Improved header with visual effects</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Upcoming Events</h2>
+            <p>Test the upcoming events functionality:</p>
+            
+            <a href="event-detail.html?event=hackathon-2025" class="test-link">
+                💻 CodeFest Hackathon 2025
+            </a>
+            
+            <a href="event-detail.html?event=web-dev-workshop" class="test-link">
+                🌐 Full Stack Web Development Workshop
+            </a>
+            
+            <a href="event-detail.html?event=ai-ml-seminar" class="test-link">
+                🧠 AI & Machine Learning Seminar
+            </a>
+        </div>
+
+        <div class="test-section">
+            <h2>🏆 Past Events (NEW!)</h2>
+            <p>Test the past events functionality with galleries and results:</p>
+            
+            <a href="event-detail.html?event=winter-hackathon-2024" class="test-link">
+                🏅 Winter Hackathon 2024 (With Winners & Gallery)
+            </a>
+            
+            <a href="event-detail.html?event=python-bootcamp-2024" class="test-link">
+                🐍 Python Programming Bootcamp (With Photo Gallery)
+            </a>
+            
+            <a href="event-detail.html?event=invalid-event" class="test-link">
+                ❌ Invalid Event (Test Error Handling)
+            </a>
+        </div>
+
+        <div class="test-section">
+            <h2>🔗 Direct URL Examples</h2>
+            <p>You can access events directly using these URLs:</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <h4>Upcoming Events:</h4>
+                <ul>
+                    <li><code>event-detail.html?event=hackathon-2025</code></li>
+                    <li><code>event-detail.html?event=web-dev-workshop</code></li>
+                    <li><code>event-detail.html?event=ai-ml-seminar</code></li>
+                </ul>
+                <h4>Past Events:</h4>
+                <ul>
+                    <li><code>event-detail.html?event=winter-hackathon-2024</code></li>
+                    <li><code>event-detail.html?event=python-bootcamp-2024</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>✅ What to Test</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <h4>🔮 Upcoming Events:</h4>
+                    <ul>
+                        <li>Registration functionality</li>
+                        <li>Share event buttons</li>
+                        <li>Future-tense content</li>
+                        <li>Seats available counter</li>
+                        <li>Prerequisites for joining</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>🏆 Past Events:</h4>
+                    <ul>
+                        <li>Photo gallery with lightbox</li>
+                        <li>Winners & results section</li>
+                        <li>Past-tense content</li>
+                        <li>Participant statistics</li>
+                        <li>Event highlights</li>
+                    </ul>
+                </div>
+            </div>
+            <h4>🌐 General Testing:</h4>
+            <ul>
+                <li><strong>Responsive Design:</strong> Test on mobile, tablet, and desktop</li>
+                <li><strong>Navigation:</strong> Navbar, breadcrumbs, and footer links</li>
+                <li><strong>Related Events:</strong> Sidebar shows mix of past and upcoming</li>
+                <li><strong>Error Handling:</strong> Invalid event IDs show proper message</li>
+                <li><strong>Keyboard Navigation:</strong> Use arrow keys in lightbox, ESC to close</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>� Adding New Events - Complete Guide</h2>
+            <p>Follow this structure to add new events to <code>js/event-detail.js</code>:</p>
+            
+            <h4>🔮 For Upcoming Events:</h4>
+            <pre style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow-x: auto;"><code>'your-event-id': {
+  title: 'Event Title',
+  subtitle: 'Brief description of the event',
+  date: 'March 15, 2025',
+  time: '10:00 AM - 4:00 PM',
+  location: 'Venue Name, City',
+  category: 'Workshop/Hackathon/Seminar/Bootcamp',
+  capacity: '50 participants',
+  price: 'Free/₹500',
+  status: 'Upcoming/Registration Open',
+  isPast: false,
+  registeredCount: 25,
+  seatsAvailable: 25,
+  image: 'images/your-event-image.jpg',
+  icon: 'fas fa-code', // FontAwesome icon
+  tags: ['tag1', 'tag2', 'tag3'],
+  organizer: 'Coding Club PRPCEM',
+  difficulty: 'Beginner/Intermediate/Advanced',
+  description: \`&lt;p&gt;Event description in HTML&lt;/p&gt;\`,
+  agenda: [...], // Array of time slots
+  prerequisites: [...], // Array of requirements
+  learnings: [...] // Array of learning outcomes
+}</code></pre>
+
+            <h4>🏆 For Past Events:</h4>
+            <pre style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow-x: auto;"><code>'past-event-id': {
+  title: 'Past Event Title',
+  subtitle: 'What was achieved in past tense',
+  // ... basic fields same as above ...
+  isPast: true,
+  participantCount: 45, // Instead of registeredCount
+  projectsSubmitted: 12, // For hackathons
+  winnersCount: 3, // For competitions
+  completionRate: '95%', // For bootcamps
+  
+  // PAST EVENT SPECIFIC FIELDS:
+  gallery: [
+    { src: 'images/photo1.jpg', caption: 'Description', alt: 'Alt text' },
+    { src: 'images/photo2.jpg', caption: 'Description', alt: 'Alt text' }
+  ],
+  highlights: [
+    'Achievement 1', 'Achievement 2', 'Achievement 3'
+  ],
+  winners: [ // For competitions
+    { position: '1st Place', team: 'Team Name', project: 'Project', prize: '₹10,000' }
+  ]
+}</code></pre>
+
+            <h4>📋 Required vs Optional Fields:</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                <div style="background: rgba(0,255,0,0.1); padding: 1rem; border-radius: 8px;">
+                    <h5>✅ Required Fields:</h5>
+                    <ul style="font-size: 0.9rem;">
+                        <li>title, subtitle, date, time</li>
+                        <li>location, category, capacity</li>
+                        <li>price, status, isPast</li>
+                        <li>image, icon, organizer</li>
+                        <li>description, agenda, prerequisites, learnings</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(255,255,0,0.1); padding: 1rem; border-radius: 8px;">
+                    <h5>⚡ Optional Fields:</h5>
+                    <ul style="font-size: 0.9rem;">
+                        <li>tags, difficulty</li>
+                        <li>gallery, highlights, winners</li>
+                        <li>speakers, finalProjects</li>
+                        <li>satisfactionRating, questionsAnswered</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="back-link">← Back to Home</a> | 
+            <a href="events.html" class="back-link">View All Events</a>
+        </p>
+    </div>
+</body>
+</html>
