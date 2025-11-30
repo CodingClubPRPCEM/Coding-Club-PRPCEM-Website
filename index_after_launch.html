@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Club PRPCEM | Innovation Hub</title>
+  <link rel="icon" href="images/logo1.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/mobile-style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
+</head>
+<body>
+  <div class="particle-bg" id="particle-bg"></div>
+
+  <!-- Simple Modern Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+                        <!-- Logo Section -->
+                        <div class="navbar-brand">
+        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+        <div class="navbar-text">
+          <span class="navbar-title">CODING CLUB</span>
+          <span class="navbar-subtitle">PRPCEM</span>
+        </div>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="navbar-nav">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="events.html" class="nav-item">Events</a>
+    <a href="tech-post.html" class="nav-item">Technical Posts</a>
+    <a href="team.html" class="nav-item">Team</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+      </div>
+      
+      <!-- Right Side -->
+      <div class="navbar-actions">
+        <div class="navbar-social">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <button class="join-button" onclick="openJoinModal()">Join Club</button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-nav">
+    <a href="index.html" class="mobile-nav-item">Home</a>
+    <a href="about.html" class="mobile-nav-item">About</a>
+    <a href="events.html" class="mobile-nav-item">Events</a>
+    <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
+    <a href="team.html" class="mobile-nav-item">Team</a>
+    <a href="contact.html" class="mobile-nav-item">Contact</a>
+      </div>
+      <div class="mobile-actions">
+        <div class="mobile-social">
+          <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+      </div>
+    </div>
+  </nav>
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="hero-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="code-rain" id="codeRain"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo-main" />
+                <div class="logo-glow"></div>
+            </div>
+
+            <div class="hero-text">
+                <h1 class="hero-title text-center">
+                    <span class="title-line">
+                        <span class="bracket">&lt;</span>
+                        <span class="text-gradient">CODING CLUB</span>
+                        <span class="bracket">/&gt;</span>
+                    </span>
+                    <span class="subtitle">PRPCEM</span>
+                </h1>
+                <div class="slogan-container">
+                    <span class="slogan-text">Think Beyond the Syntax</span>
+                </div>
+
+            </div>
+
+            <div class="hero-actions flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="btn-primary w-full sm:w-auto" onclick="scrollToSection('events')">
+                    <i class="fas fa-rocket"></i>
+                    <span>Join Our Events</span>
+                </button>
+                <button class="btn-secondary w-full sm:w-auto" onclick="openJoinModal()">
+                    <i class="fas fa-users"></i>
+                    <span>Become a Member</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-header text-center">
+            <div class="section-badge">
+                <i class="fas fa-heart"></i>
+                <span>About Us</span>
+            </div>
+            <h2 class="section-title">
+                More Than Just <span class="text-gradient">Code</span>
+            </h2>
+            <p class="section-subtitle max-w-3xl mx-auto">
+                A community of passionate students building the future through technology. 
+                Whether you're a beginner or expert, there's a place for you here.
+            </p>
+        </div>
+        
+
+        
+        <div class="about-grid grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Learn Together</h3>
+                <p>From beginner workshops to advanced projects, grow at every step.</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Build Community</h3>
+                <p>Connect with peers, form teams, and create lasting friendships.</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Create Impact</h3>
+                <p>Work on real projects that matter - from campus to community.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Events Action Section -->
+<section id="events" class="action-section">
+    <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-header text-center">
+            <div class="section-badge">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Events</span>
+            </div>
+            <h2 class="section-title">
+                Explore Our <span class="text-gradient">Events</span>
+            </h2>
+            <p class="section-subtitle max-w-3xl mx-auto">
+                Workshops, Hackathons, Tech Talks, Meetups and more — All in one place.
+            </p>
+        </div>
+        
+        <div class="action-cta-container text-center">
+            <button onclick="location.href='events.html'" class="btn-primary action-btn">
+                <span>View All Events</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Posts Action Section -->
+<section id="posts" class="action-section">
+    <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-header text-center">
+            <div class="section-badge">
+                <i class="fas fa-book-open"></i>
+                <span>Learn & Share</span>
+            </div>
+            <h2 class="section-title">
+                Read Our <span class="text-gradient">Blog</span>
+            </h2>
+            <p class="section-subtitle max-w-3xl mx-auto">
+                Latest tutorials, guides, and knowledge shared by our community members.
+            </p>
+        </div>
+        
+        <div class="action-cta-container text-center">
+            <button onclick="location.href='tech-post.html'" class="btn-primary action-btn">
+                <span>Read Articles</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="team-section">
+        <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header text-center">
+                <div class="section-badge">
+                    <i class="fas fa-code"></i>
+                    <span>Meet the Builders</span>
+                </div>
+                <h2 class="section-title">
+                    The <span class="text-gradient">Creative Minds</span> Behind This Website
+                </h2>
+                <p class="section-subtitle max-w-3xl mx-auto">
+                    Meet the developers and designers who crafted this platform.
+                </p>
+            </div>
+            
+            <div class="team-container">
+                <div class="team-scroll-wrapper">
+                    <div class="team-grid">
+                        <div class="team-card featured">
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Lead Dev</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Karamveer Singh Oberoi</h3>
+                                <p class="team-role">Full Stack Developer & Website Creator</p>
+                                <p class="team-bio">Architect behind this website! Passionate about seamless UX.</p>
+                                <div class="team-skills">
+                                    <span class="skill">React</span>
+                                    <span class="skill">Node.js</span>
+                                    <span class="skill">MongoDB</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="https://www.linkedin.com/in/karamveersinghoberoi2648" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/karamveer0123" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.instagram.com/karamveeroberoi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="mailto:karamoberoi19@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Designer</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Alex Johnson</h3>
+                                <p class="team-role">UI/UX Designer</p>
+                                <p class="team-bio">Crafts beautiful interfaces that users love.</p>
+                                <div class="team-skills">
+                                    <span class="skill">Figma</span>
+                                    <span class="skill">CSS</span>
+                                    <span class="skill">Design Systems</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                                    <a href="#" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+                                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="online-indicator"></div>
+                                <div class="role-badge">Backend</div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Sarah Chen</h3>
+                                <p class="team-role">Backend Developer</p>
+                                <p class="team-bio">Builds robust APIs and manages data flow.</p>
+                                <div class="team-skills">
+                                    <span class="skill">Python</span>
+                                    <span class="skill">APIs</span>
+                                    <span class="skill">Database</span>
+                                </div>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="contact" class="contact-section">
+    <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-header text-center">
+            <div class="section-badge">
+                <i class="fas fa-rocket"></i>
+                <span>Get In Touch</span>
+            </div>
+            <h2 class="section-title">
+                Ready to <span class="text-gradient">Start Your Journey?</span>
+            </h2>
+            <p class="section-subtitle max-w-3xl mx-auto">
+                Join our vibrant community and let's build something amazing together!
+            </p>
+        </div>
+
+        <div class="contact-cta-container">
+            <div class="contact-highlight-cards">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Join Our Community</h3>
+                    <p>Connect with 500+ passionate developers today!</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Share Ideas</h3>
+                    <p>Have a cool project idea? Let's turn your vision into reality!</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="contact.html" class="btn-primary">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Enhanced Footer -->
+<footer class="footer-section simple-footer">
+    <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-column footer-brand">
+                <div class="footer-logo-section">
+                    <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                    <span class="footer-title">Coding Club PRPCEM</span>
+                </div>
+                <p class="footer-desc">
+                    A community of passionate students learning, building, and growing together through the power of technology.
+                </p>
+                <div class="footer-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h4 class="footer-column-title">Quick Links</h4>
+                <nav class="footer-nav-list">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="events.html">Events</a>
+                    <a href="projects.html">Technical Posts</a>
+                </nav>
+            </div>
+            
+            <div class="footer-column footer-community">
+                <h4 class="footer-column-title">Community</h4>
+                <nav class="footer-nav-list">
+                    <a href="team.html">Meet the Team</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#" onclick="openJoinModal()">Join Club</a>
+                    <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                </nav>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h4 class="footer-column-title">Get In Touch</h4>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>codingclub@prpcem.ac.in</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>PRPCEM, Amravati</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 9AM - 6PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-simple">
+            <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+            <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+        </div>
+    </div>
+    <!-- Footer Background Effects -->
+    <div class="footer-bg-effects">
+        <div class="footer-particles"></div>
+        <div class="footer-grid"></div>
+    </div>
+</footer>
+
+    <!-- Join Modal -->
+    <div class="modal-overlay" id="joinModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Join Our Amazing Community!</h2>
+                <button class="modal-close" onclick="closeJoinModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="join-form" id="joinForm">
+                    <div class="form-group">
+                        <input type="text" id="joinName" required>
+                        <label for="joinName">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="joinEmail" required>
+                        <label for="joinEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="joinPhone" required>
+                        <label for="joinPhone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Final Year</option>
+                        </select>
+                        <label for="joinYear">Academic Year</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="joinBranch" required>
+                            <!-- <option value="">Select Branch</option> -->
+                            <option value="cse">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="ece">Electronics & Communication</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="joinBranch">Branch</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="joinInterests" required></textarea>
+                        <label for="joinInterests">What excites you about coding? Any specific goals?</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Join the Community!</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="js/animations.js"></script>
+  <script src="js/mobile-app.js"></script>
+  
+  <!-- Clean Navbar Script -->
+  <script>
+   
+  </script>
+</body>
+</html>
