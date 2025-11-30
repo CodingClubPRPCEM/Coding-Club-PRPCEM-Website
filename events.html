@@ -35,7 +35,7 @@
         <a href="index.html" class="nav-item">Home</a>
         <a href="about.html" class="nav-item">About</a>
         <a href="events.html" class="nav-item active">Events</a>
-        <a href="posts.html" class="nav-item">Technical Posts</a>
+        <a href="posts.html" class="nav-item">Technical Posts & Blogs</a>
         <a href="team.html" class="nav-item">Team</a>
         <a href="contact.html" class="nav-item">Contact</a>
       </div>
@@ -67,7 +67,7 @@
         <a href="index.html" class="mobile-nav-item">Home</a>
         <a href="about.html" class="mobile-nav-item">About</a>
         <a href="events.html" class="mobile-nav-item">Events</a>
-        <a href="posts.html" class="mobile-nav-item">Technical Posts</a>
+        <a href="posts.html" class="mobile-nav-item">Technical Posts & Blogs</a>
         <a href="team.html" class="mobile-nav-item">Team</a>
         <a href="contact.html" class="mobile-nav-item">Contact</a>
       </div>
@@ -123,54 +123,39 @@
   <!-- Main Content -->
   <main class="main-content">
 
-    <!-- Event Categories Filter -->
-    <section class="filter-section">
+    <!-- Event Navigation -->
+    <section class="event-nav-section">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="filter-tabs">
-          <button class="filter-tab active" data-filter="all">
-            <i class="fas fa-th"></i>
-            <span>All Events</span>
-          </button>
-          <button class="filter-tab" data-filter="upcoming">
+        <div class="event-nav-tabs">
+          <button class="event-nav-tab active" onclick="switchEventTab('upcoming')">
             <i class="fas fa-clock"></i>
-            <span>Upcoming</span>
+            <span>Upcoming Events</span>
           </button>
-          <button class="filter-tab" data-filter="workshop">
-            <i class="fas fa-tools"></i>
-            <span>Workshops</span>
-          </button>
-          <button class="filter-tab" data-filter="hackathon">
-            <i class="fas fa-code"></i>
-            <span>Hackathons</span>
-          </button>
-          <button class="filter-tab" data-filter="competition">
-            <i class="fas fa-trophy"></i>
-            <span>Competitions</span>
-          </button>
-          <button class="filter-tab" data-filter="talk">
-            <i class="fas fa-microphone"></i>
-            <span>Tech Talks</span>
+          <button class="event-nav-tab" onclick="switchEventTab('past')">
+            <i class="fas fa-history"></i>
+            <span>Past Events</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Featured Event -->
-    <section id="featured-event" class="about-section">
+    <!-- Upcoming Events -->
+    <section id="upcoming-events" class="about-section event-section" data-tab="upcoming">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="section-header text-center">
           <div class="section-badge">
-            <i class="fas fa-star"></i>
-            <span>Featured Event</span>
+            <i class="fas fa-clock"></i>
+            <span>Upcoming Events</span>
           </div>
           <h2 class="section-title">
-            Don't Miss Our <span class="text-gradient">Next Big Event</span>
+            Upcoming <span class="text-gradient">Events</span>
           </h2>
         </div>
         
+        <!-- Featured Upcoming Event -->
         <div class="featured-event-card">
           <div class="event-image">
-            <div class="event-badge featured">Featured</div>
+            <div class="event-badge featured">Next Big Event</div>
             <div class="event-icon">
               <i class="fas fa-rocket"></i>
             </div>
@@ -183,10 +168,10 @@
               </span>
               <span class="event-date">
                 <i class="fas fa-calendar"></i>
-                January 2026
+                January 15-16, 2026
               </span>
             </div>
-            <h3 class="event-title">Hackathon '26</h3>
+            <h3 class="event-title">Hackathon '26: Code Revolution</h3>
             <p class="event-description">
               Join us for an exciting 48-hour coding marathon where innovation meets creativity. 
               Build amazing projects, learn new technologies, and connect with fellow developers in 
@@ -208,41 +193,27 @@
             </div>
             <div class="event-actions">
               <a href="hackathon26.html" class="btn-primary">
-                <i class="fas fa-info-circle"></i>
-                <span>Learn More</span>
+                <i class="fas fa-user-plus"></i>
+                <span>Register Now</span>
               </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Upcoming Events -->
-    <section id="upcoming-events" class="action-section">
-      <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="section-header text-center">
-          <div class="section-badge">
-            <i class="fas fa-clock"></i>
-            <span>Upcoming</span>
-          </div>
-          <h2 class="section-title">
-            What's <span class="text-gradient">Coming Next</span>
-          </h2>
-          <p class="section-subtitle max-w-3xl mx-auto">
-            Mark your calendars! Here are the exciting events lined up for you.
-          </p>
-        </div>
         
-        <div class="events-grid" id="eventsGrid">
+        <!-- Other Upcoming Events -->
+        <div class="section-divider"></div>
+        
+        <div class="events-grid" id="upcomingEventsGrid">
           <!-- Event Card 1 -->
-          <div class="event-card" data-category="workshop upcoming">
+          <div class="event-card upcoming">
             <div class="event-image">
+              <div class="event-status-badge upcoming">Upcoming</div>
               <div class="event-icon">
                 <i class="fab fa-react"></i>
               </div>
               <div class="event-date-badge">
-                <span class="day">25</span>
-                <span class="month">Nov</span>
+                <span class="day">15</span>
+                <span class="month">Dec</span>
               </div>
             </div>
             <div class="event-content">
@@ -271,23 +242,24 @@
                 </div>
               </div>
               <div class="event-actions">
-                <a href="event-detail.html?event=git-github-workshop" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
+                <a href="event-detail.html?event=react-workshop" class="btn-primary">
+                  <i class="fas fa-user-plus"></i>
+                  <span>Register</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Event Card 2 -->
-          <div class="event-card" data-category="talk upcoming">
+          <div class="event-card upcoming">
             <div class="event-image">
+              <div class="event-status-badge upcoming">Upcoming</div>
               <div class="event-icon">
                 <i class="fas fa-brain"></i>
               </div>
               <div class="event-date-badge">
-                <span class="day">28</span>
-                <span class="month">Nov</span>
+                <span class="day">20</span>
+                <span class="month">Dec</span>
               </div>
             </div>
             <div class="event-content">
@@ -317,21 +289,22 @@
               </div>
               <div class="event-actions">
                 <a href="event-detail.html?event=ai-tech-talk" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
+                  <i class="fas fa-user-plus"></i>
+                  <span>Register</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Event Card 3 -->
-          <div class="event-card" data-category="competition upcoming">
+          <div class="event-card upcoming">
             <div class="event-image">
+              <div class="event-status-badge upcoming">Upcoming</div>
               <div class="event-icon">
                 <i class="fas fa-code"></i>
               </div>
               <div class="event-date-badge">
-                <span class="day">02</span>
+                <span class="day">28</span>
                 <span class="month">Dec</span>
               </div>
             </div>
@@ -346,14 +319,14 @@
                   10:00 AM - 4:00 PM
                 </span>
               </div>
-              <h3 class="event-title">Coding Championship</h3>
+              <h3 class="event-title">Year-End Coding Championship</h3>
               <p class="event-description">
                 Test your problem-solving skills in our annual coding competition. Multiple rounds with increasing difficulty.
               </p>
               <div class="event-details">
                 <div class="detail-item">
                   <i class="fas fa-trophy"></i>
-                  <span>₹10,000 prizes</span>
+                  <span>₹15,000 prizes</span>
                 </div>
                 <div class="detail-item">
                   <i class="fas fa-medal"></i>
@@ -362,22 +335,23 @@
               </div>
               <div class="event-actions">
                 <a href="event-detail.html?event=coding-championship" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
+                  <i class="fas fa-user-plus"></i>
+                  <span>Register</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Event Card 4 -->
-          <div class="event-card" data-category="workshop upcoming">
+          <div class="event-card upcoming">
             <div class="event-image">
+              <div class="event-status-badge upcoming">Upcoming</div>
               <div class="event-icon">
                 <i class="fab fa-python"></i>
               </div>
               <div class="event-date-badge">
-                <span class="day">05</span>
-                <span class="month">Dec</span>
+                <span class="day">10</span>
+                <span class="month">Jan</span>
               </div>
             </div>
             <div class="event-content">
@@ -407,67 +381,23 @@
               </div>
               <div class="event-actions">
                 <a href="event-detail.html?event=python-data-science" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
+                  <i class="fas fa-user-plus"></i>
+                  <span>Register</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Event Card 5 -->
-          <div class="event-card" data-category="hackathon upcoming">
+          <div class="event-card upcoming">
             <div class="event-image">
-              <div class="event-icon">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">08</span>
-                <span class="month">Dec</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category hackathon">
-                  <i class="fas fa-code"></i>
-                  Mini Hackathon
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  24 Hours
-                </span>
-              </div>
-              <h3 class="event-title">Mobile App Challenge</h3>
-              <p class="event-description">
-                Build innovative mobile applications in 24 hours. Focus on solving real-world problems with creative solutions.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-users"></i>
-                  <span>Team event</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-gift"></i>
-                  <span>Cool prizes</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=mobile-app-challenge" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 6 -->
-          <div class="event-card" data-category="talk upcoming">
-            <div class="event-image">
+              <div class="event-status-badge upcoming">Upcoming</div>
               <div class="event-icon">
                 <i class="fas fa-cloud"></i>
               </div>
               <div class="event-date-badge">
-                <span class="day">12</span>
-                <span class="month">Dec</span>
+                <span class="day">25</span>
+                <span class="month">Jan</span>
               </div>
             </div>
             <div class="event-content">
@@ -497,25 +427,18 @@
               </div>
               <div class="event-actions">
                 <a href="event-detail.html?event=cloud-computing" class="btn-primary">
-                  <i class="fas fa-info-circle"></i>
-                  <span>View Details</span>
+                  <i class="fas fa-user-plus"></i>
+                  <span>Register</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="section-footer text-center">
-          <button class="btn-secondary" onclick="loadMoreEvents()">
-            <i class="fas fa-plus-circle"></i>
-            <span>Load More Events</span>
-          </button>
-        </div>
       </div>
     </section>
 
     <!-- Past Events -->
-    <section id="past-events" class="hero-section bg-dark">
+    <section id="past-events" class="about-section event-section" data-tab="past" style="display: none;">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="section-header text-center">
           <div class="section-badge">
@@ -532,23 +455,26 @@
         
         <div class="events-grid">
           <!-- Hackathon '25 - Past Event -->
-          <div class="event-card past-event" data-category="hackathon past">
+          <div class="event-card past-event">
             <div class="event-image">
-              <div class="event-badge past">Completed</div>
+              <div class="event-status-badge past">Completed</div>
               <div class="event-icon cyber">
-                <i class="fas fa-matrix-cyber"></i>
-                <div class="cyber-glow"></div>
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="event-date-badge">
+                <span class="day">15</span>
+                <span class="month">Oct</span>
               </div>
             </div>
             <div class="event-content">
               <div class="event-meta">
-                <span class="event-category hackathon past">
+                <span class="event-category hackathon">
                   <i class="fas fa-code"></i>
                   Hackathon
                 </span>
-                <span class="event-date">
-                  <i class="fas fa-calendar-check"></i>
-                  October 2024
+                <span class="event-time">
+                  <i class="fas fa-clock"></i>
+                  48 Hours
                 </span>
               </div>
               <h3 class="event-title">Hackathon '25: The Matrix Awakens</h3>
@@ -558,7 +484,7 @@
               </p>
               <div class="event-details">
                 <div class="detail-item">
-                  <i class="fas fa-users-check"></i>
+                  <i class="fas fa-users"></i>
                   <span>85 participants</span>
                 </div>
                 <div class="detail-item">
@@ -580,22 +506,26 @@
           </div>
 
           <!-- Technical Quiz 2024 - Past Event -->
-          <div class="event-card past-event" data-category="competition past">
+          <div class="event-card past-event">
             <div class="event-image">
-              <div class="event-badge past">Completed</div>
+              <div class="event-status-badge past">Completed</div>
               <div class="event-icon">
                 <i class="fas fa-brain"></i>
+              </div>
+              <div class="event-date-badge">
+                <span class="day">10</span>
+                <span class="month">Sep</span>
               </div>
             </div>
             <div class="event-content">
               <div class="event-meta">
-                <span class="event-category competition past">
-                  <i class="fas fa-question-circle"></i>
-                  Quiz
+                <span class="event-category competition">
+                  <i class="fas fa-trophy"></i>
+                  Competition
                 </span>
-                <span class="event-date">
-                  <i class="fas fa-calendar-check"></i>
-                  September 2024
+                <span class="event-time">
+                  <i class="fas fa-clock"></i>
+                  3 Hours
                 </span>
               </div>
               <h3 class="event-title">Technical Quiz Championship 2024</h3>
@@ -604,7 +534,7 @@
               </p>
               <div class="event-details">
                 <div class="detail-item">
-                  <i class="fas fa-users-check"></i>
+                  <i class="fas fa-users"></i>
                   <span>120 participants</span>
                 </div>
                 <div class="detail-item">
@@ -622,22 +552,26 @@
           </div>
 
           <!-- Git & GitHub Workshop - Past Event -->
-          <div class="event-card past-event" data-category="workshop past">
+          <div class="event-card past-event">
             <div class="event-image">
-              <div class="event-badge past">Completed</div>
+              <div class="event-status-badge past">Completed</div>
               <div class="event-icon">
                 <i class="fab fa-git-alt"></i>
+              </div>
+              <div class="event-date-badge">
+                <span class="day">25</span>
+                <span class="month">Aug</span>
               </div>
             </div>
             <div class="event-content">
               <div class="event-meta">
-                <span class="event-category workshop past">
+                <span class="event-category workshop">
                   <i class="fas fa-tools"></i>
                   Workshop
                 </span>
-                <span class="event-date">
-                  <i class="fas fa-calendar-check"></i>
-                  August 2024
+                <span class="event-time">
+                  <i class="fas fa-clock"></i>
+                  4:00 PM - 7:00 PM
                 </span>
               </div>
               <h3 class="event-title">Git & GitHub Mastery Workshop</h3>
@@ -646,7 +580,7 @@
               </p>
               <div class="event-details">
                 <div class="detail-item">
-                  <i class="fas fa-users-check"></i>
+                  <i class="fas fa-users"></i>
                   <span>60 participants</span>
                 </div>
                 <div class="detail-item">
@@ -666,152 +600,7 @@
       </div>
     </section>
 
-    <!-- Event Statistics -->
-    <section id="event-stats" class="about-section">
-      <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="section-header text-center">
-          <div class="section-badge">
-            <i class="fas fa-chart-bar"></i>
-            <span>Our Impact</span>
-          </div>
-          <h2 class="section-title">
-            Events by the <span class="text-gradient">Numbers</span>
-          </h2>
-        </div>
-        
-        <div class="stats-grid grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-calendar-check"></i>
-            </div>
-            <div class="stat-number" data-count="50">0</div>
-            <div class="stat-label">Events Conducted</div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-users"></i>
-            </div>
-            <div class="stat-number" data-count="1200">0</div>
-            <div class="stat-label">Participants</div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="stat-number" data-count="15">0</div>
-            <div class="stat-label">Hackathons</div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-trophy"></i>
-            </div>
-            <div class="stat-number" data-count="25">0</div>
-            <div class="stat-label">Competitions</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Event Gallery -->
-    <section id="event-gallery" class="action-section">
-      <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="section-header text-center">
-          <div class="section-badge">
-            <i class="fas fa-images"></i>
-            <span>Gallery</span>
-          </div>
-          <h2 class="section-title">
-            Moments from Our <span class="text-gradient">Events</span>
-          </h2>
-          <p class="section-subtitle max-w-3xl mx-auto">
-            Take a look at the amazing moments captured during our events and see the energy of our community.
-          </p>
-        </div>
-        
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-users"></i>
-                <span>Workshop Session</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>React.js Workshop</h4>
-              <p>Interactive coding session</p>
-            </div>
-          </div>
-          
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-trophy"></i>
-                <span>Competition</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>Coding Championship</h4>
-              <p>Winners celebration</p>
-            </div>
-          </div>
-          
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-microphone"></i>
-                <span>Tech Talk</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>AI Tech Talk</h4>
-              <p>Expert presentation</p>
-            </div>
-          </div>
-          
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-code"></i>
-                <span>Hackathon</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>24hr Hackathon</h4>
-              <p>Team collaboration</p>
-            </div>
-          </div>
-          
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-handshake"></i>
-                <span>Networking</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>Networking Session</h4>
-              <p>Community building</p>
-            </div>
-          </div>
-          
-          <div class="gallery-item">
-            <div class="gallery-image">
-              <div class="gallery-placeholder">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Learning</span>
-              </div>
-            </div>
-            <div class="gallery-overlay">
-              <h4>Learning Together</h4>
-              <p>Knowledge sharing</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Newsletter Signup -->
     <section id="newsletter" class="about-section">
@@ -886,7 +675,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="events.html">Events</a>
-            <a href="posts.html">Technical Posts</a>
+            <a href="posts.html">Technical Posts & Blogs</a>
           </nav>
         </div>
         
@@ -1073,61 +862,35 @@
       });
     }
 
-    // Filter functionality
-    function initEventFilters() {
-      const filterTabs = document.querySelectorAll('.filter-tab');
-      const eventCards = document.querySelectorAll('.event-card');
-
-      filterTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const filter = tab.dataset.filter;
-          
-          // Update active tab
-          filterTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          
-          // Filter events
-          eventCards.forEach(card => {
-            const categories = card.dataset.category.split(' ');
-            if (filter === 'all' || categories.includes(filter)) {
-              card.style.display = 'block';
-              card.style.animation = 'fadeInUp 0.5s ease-out';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-    }
-
-    // Statistics counter animation
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-number');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const counter = entry.target;
-            const target = parseInt(counter.dataset.count);
-            let current = 0;
-            const increment = target / 50;
-            
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                counter.textContent = target;
-                clearInterval(timer);
-              } else {
-                counter.textContent = Math.floor(current);
-              }
-            }, 40);
-            
-            observer.unobserve(counter);
-          }
-        });
+    // Tab switching functionality
+    function switchEventTab(tabType) {
+      // Hide all event sections
+      const eventSections = document.querySelectorAll('.event-section');
+      eventSections.forEach(section => {
+        section.style.display = 'none';
       });
       
-      counters.forEach(counter => observer.observe(counter));
+      // Show selected section with fade in effect
+      const targetSection = document.querySelector(`[data-tab="${tabType}"]`);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+        // Trigger reflow to ensure the animation works
+        void targetSection.offsetWidth;
+      }
+      
+      // Update active tab
+      const tabs = document.querySelectorAll('.event-nav-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      // Activate the correct tab based on tabType
+      if (tabType === 'upcoming') {
+        tabs[0].classList.add('active');
+      } else if (tabType === 'past') {
+        tabs[1].classList.add('active');
+      }
     }
+
+
 
     // Newsletter form handler
     function initNewsletterForm() {
@@ -1153,18 +916,24 @@
       });
     }
 
-    // Load more events
-    function loadMoreEvents() {
-      // Simulate loading more events
-      alert('More events will be loaded here. This would typically fetch data from an API.');
-    }
+
 
     // Initialize everything
     document.addEventListener('DOMContentLoaded', function() {
       initEventsNetworkVisual();
-      initEventFilters();
-      animateCounters();
       initNewsletterForm();
+      
+      // Set default tab state - show upcoming events
+      const upcomingSection = document.querySelector('[data-tab="upcoming"]');
+      const pastSection = document.querySelector('[data-tab="past"]');
+      
+      if (upcomingSection) upcomingSection.style.display = 'block';
+      if (pastSection) pastSection.style.display = 'none';
+      
+      // Ensure the upcoming tab is active
+      const tabs = document.querySelectorAll('.event-nav-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      if (tabs[0]) tabs[0].classList.add('active');
     });
   </script>
 </body>

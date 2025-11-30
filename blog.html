@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/mobile-style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/enhanced-styles.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/mobile-optimized.css">
+    <link rel="stylesheet" href="css/about-styles.css">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-cover {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .blog-cover:hover {
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-meta i {
+            color: #00d4ff;
+        }
+
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #f472b6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .blog-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
+        }
+
+        .blog-tag:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .blog-content-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 80px rgba(0, 212, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00d4ff, #8b5cf6, transparent);
+            opacity: 0.5;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        .blog-content h1, .blog-content h2, .blog-content h3 {
+            color: #ffffff;
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .blog-content h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .blog-content ul li::before {
+            content: '▸';
+            color: #00d4ff;
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+
+        .blog-content strong, .blog-content b {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .blog-content em, .blog-content i {
+            color: #c7d2fe;
+            font-style: italic;
+        }
+
+        .blog-content a {
+            color: #00d4ff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .blog-content a:hover {
+            color: #ffffff;
+            border-bottom-color: #00d4ff;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+        }
+
+        .blog-content code {
+            background: rgba(139, 92, 246, 0.15);
+            color: #8b5cf6;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .blog-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-content pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid #00d4ff;
+            background: rgba(0, 212, 255, 0.08);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #cbd5e1;
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-content img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #00d4ff 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .loading-spinner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            color: #64748b;
+        }
+
+        .loading-spinner i {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-delay {
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        /* Ensure blog content is always visible after loading */
+        .blog-content-wrapper {
+            opacity: 1 !important;
+        }
+
+        #blog-article[style*="display: block"] {
+            opacity: 1 !important;
+        }
+
+        /* Override any animation opacity issues */
+        #blog-article[style*="display: block"] .blog-content-wrapper,
+        #blog-article[style*="display: block"] .blog-content,
+        #blog-article[style*="display: block"] .blog-meta {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Ensure content is visible even during animations */
+        .fade-in-delay {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .fade-in-delay.visible {
+            opacity: 1 !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 1rem;
+            }
+
+            .blog-cover {
+                height: 200px;
+                border-radius: 16px;
+            }
+
+            .blog-content-wrapper {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+
+            .blog-meta {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .blog-title {
+                font-size: clamp(1.5rem, 8vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .blog-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-content-wrapper {
+                padding: 1.5rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particle-bg" id="particle-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+                <div class="navbar-text">
+                    <span class="navbar-title">CODING CLUB</span>
+                    <span class="navbar-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="about.html" class="nav-item">About</a>
+                <a href="events.html" class="nav-item">Events</a>
+                <a href="tech-post.html" class="nav-item">Technical Posts</a>
+                <a href="team.html" class="nav-item">Team</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <div class="navbar-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="join-button" onclick="openJoinModal()">Join Club</button>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav">
+                <a href="index.html" class="mobile-nav-item">Home</a>
+                <a href="about.html" class="mobile-nav-item">About</a>
+                <a href="events.html" class="mobile-nav-item">Events</a>
+                <a href="tech-post.html" class="mobile-nav-item">Technical Posts</a>
+                <a href="team.html" class="mobile-nav-item">Team</a>
+                <a href="contact.html" class="mobile-nav-item">Contact</a>
+            </div>
+            <div class="mobile-actions">
+                <div class="mobile-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content -->
+    <main class="blog-container">
+        <a href="tech-post.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Blogs
+        </a>
+
+        <div id="blog-loading" class="loading-spinner">
+            <div>
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem; color: #00d4ff;"></i>
+                <p>Loading blog post...</p>
+            </div>
+        </div>
+
+        <article id="blog-article" style="display: none;" class="fade-in">
+            <img id="blog-cover" class="blog-cover" src="" alt="Blog cover" onerror="this.style.display='none'" />
+
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="blog-date"></span>
+                </div>
+                <div class="blog-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="blog-read-time"></span>
+                </div>
+            </div>
+
+            <h1 id="blog-title" class="blog-title"></h1>
+
+            <div id="blog-tags" class="blog-tags"></div>
+
+            <div class="blog-content-wrapper fade-in-delay">
+                <div id="blog-content" class="blog-content"></div>
+            </div>
+        </article>
+
+        <div id="blog-error" style="display: none;">
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Blog Post Not Found</h3>
+                <p style="color: #94a3b8; margin-bottom: 1rem;">The blog post you're looking for doesn't exist or couldn't be loaded.</p>
+                <a href="tech-post.html" class="back-button" style="margin-bottom: 0;">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Blogs
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section simple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                        <span class="footer-title">Coding Club PRPCEM</span>
+                    </div>
+                    <p class="footer-desc">
+                        A community of passionate students learning, building, and growing together through the power of technology.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <nav class="footer-nav-list">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="tech-post.html">Technical Posts</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-community">
+                    <h4 class="footer-column-title">Community</h4>
+                    <nav class="footer-nav-list">
+                        <a href="team.html">Meet the Team</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#" onclick="openJoinModal()">Join Club</a>
+                        <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">Get In Touch</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>codingclub@prpcem.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>PRPCEM, Amravati</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-simple">
+                <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+                <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+            </div>
+        </div>
+        <div class="footer-bg-effects">
+            <div class="footer-particles"></div>
+            <div class="footer-grid"></div>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/mobile-app.js"></script>
+   <script>
+document.addEventListener('DOMContentLoaded', async function () {
+    const slug = new URLSearchParams(window.location.search).get('slug');
+    if (!slug) return showError();
+
+    try {
+        const response = await fetch('https://coding-club-blog-api.coding-club.workers.dev/');
+        const pages = await response.json();
+
+        console.log("API response:", pages);
+
+        if (!Array.isArray(pages)) {
+            console.error("ERROR: API did not return an array");
+            return showError();
+        }
+
+        const blogPost = pages.find(page => {
+            const pageSlug =
+                page.properties?.Slug?.rich_text?.[0]?.plain_text ||
+                page.properties?.Slug?.plain_text ||
+                "";
+            return pageSlug === slug;
+        });
+
+        if (!blogPost) return showError();
+        renderBlogPost(blogPost);
+
+    } catch (error) {
+        console.error("Error loading blog:", error);
+        showError();
+    }
+});
+
+
+
+function renderBlogPost(page) {
+    const title = page.properties?.Title?.title?.[0]?.plain_text || "Untitled Blog";
+    const publishDate = page.properties?.["Publish Date"]?.date?.start || "";
+    const tags = page.properties?.Tags?.multi_select?.map(t => t.name) || [];
+    const cover = page.properties?.["Cover Image URL"]?.url || "images/placeholder.png";
+
+    // Update page title for SEO
+    document.title = `${title} | Coding Club PRPCEM`;
+
+    // Convert content blocks with enhanced formatting
+    const contentHTML = convertNotionContentToHTML(page.content || []);
+    const readingTime = calculateReadingTime(page.content || []);
+
+    // Populate content
+    const coverElement = document.getElementById("blog-cover");
+    if (cover && cover !== "images/placeholder.png") {
+        coverElement.src = cover;
+        coverElement.style.display = "block";
+    } else {
+        coverElement.style.display = "none";
+    }
+
+    document.getElementById("blog-title").textContent = title;
+    document.getElementById("blog-date").textContent =
+        publishDate ? new Date(publishDate).toLocaleDateString("en-GB", {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }) : "";
+    
+    document.getElementById("blog-read-time").textContent = `${readingTime} min read`;
+
+    document.getElementById("blog-tags").innerHTML =
+        tags.map(tag => `<span class="blog-tag">${tag}</span>`).join("");
+
+    document.getElementById("blog-content").innerHTML = contentHTML;
+
+    // Show content with animation
+    document.getElementById("blog-loading").style.display = "none";
+    const blogArticle = document.getElementById("blog-article");
+    blogArticle.style.display = "block";
+    
+    // Force visibility and ensure animations complete properly
+    setTimeout(() => {
+        blogArticle.style.opacity = "1";
+        blogArticle.style.visibility = "visible";
+        
+        // Ensure all child elements are also visible
+        const contentWrapper = document.querySelector(".blog-content-wrapper");
+        if (contentWrapper) {
+            contentWrapper.style.opacity = "1";
+            contentWrapper.style.visibility = "visible";
+            contentWrapper.classList.add("visible");
+        }
+    }, 50);
+    
+    // Backup visibility restoration after animation duration
+    setTimeout(() => {
+        blogArticle.style.opacity = "1";
+        blogArticle.style.visibility = "visible";
+        const contentWrapper = document.querySelector(".blog-content-wrapper");
+        if (contentWrapper) {
+            contentWrapper.style.opacity = "1";
+            contentWrapper.style.visibility = "visible";
+            contentWrapper.classList.add("visible");
+        }
+        
+        // Force all animated elements to be visible
+        document.querySelectorAll('.fade-in-delay').forEach(element => {
+            element.style.opacity = "1";
+            element.style.visibility = "visible";
+            element.classList.add("visible");
+        });
+    }, 1200); // After both animations complete (0.8s + 0.2s delay + buffer)
+}
+
+// Enhanced Notion content converter with rich text support
+function convertNotionContentToHTML(blocks = []) {
+    if (!blocks.length) return '<p>Content coming soon...</p>';
+    
+    const groupedBlocks = groupListItems(blocks);
+    
+    return groupedBlocks.map(group => {
+        if (group.type === 'list') {
+            const listTag = group.listType === 'bulleted' ? 'ul' : 'ol';
+            const listItems = group.items.map(item => `<li>${formatRichText(item.content)}</li>`).join('');
+            return `<${listTag}>${listItems}</${listTag}>`;
+        } else {
+            return renderSingleBlock(group.block);
+        }
+    }).join('');
+}
+
+// Group consecutive list items together
+function groupListItems(blocks) {
+    const grouped = [];
+    let currentList = null;
+    
+    blocks.forEach(block => {
+        if (block.type === 'bulleted_list_item' || block.type === 'numbered_list_item') {
+            const listType = block.type === 'bulleted_list_item' ? 'bulleted' : 'numbered';
+            
+            if (!currentList || currentList.listType !== listType) {
+                currentList = {
+                    type: 'list',
+                    listType: listType,
+                    items: []
+                };
+                grouped.push(currentList);
+            }
+            
+            currentList.items.push({
+                content: block[block.type]?.rich_text || []
+            });
+        } else {
+            currentList = null;
+            grouped.push({ type: 'single', block: block });
+        }
+    });
+    
+    return grouped;
+}
+
+// Render individual blocks
+function renderSingleBlock(block) {
+    switch (block.type) {
+        case "paragraph":
+            const pText = formatRichText(block.paragraph?.rich_text || []);
+            return pText ? `<p>${pText}</p>` : '';
+
+        case "heading_1":
+            return `<h1>${formatRichText(block.heading_1?.rich_text || [])}</h1>`;
+
+        case "heading_2":
+            return `<h2>${formatRichText(block.heading_2?.rich_text || [])}</h2>`;
+
+        case "heading_3":
+            return `<h3>${formatRichText(block.heading_3?.rich_text || [])}</h3>`;
+
+        case "quote":
+            return `<blockquote>${formatRichText(block.quote?.rich_text || [])}</blockquote>`;
+
+        case "code":
+            const codeText = block.code?.rich_text?.map(t => t.plain_text).join('') || '';
+            const language = block.code?.language || 'text';
+            return `<pre><code class="language-${language}">${escapeHtml(codeText)}</code></pre>`;
+
+        case "image":
+            const imageUrl = block.image?.external?.url || block.image?.file?.url;
+            if (imageUrl) {
+                const caption = block.image?.caption ? formatRichText(block.image.caption) : '';
+                return `<img src="${imageUrl}" alt="${caption || 'Blog image'}" ${caption ? `title="${caption}"` : ''} />`;
+            }
+            return '';
+
+        default:
+            return "";
+    }
+}
+
+// Format rich text with bold, italic, links, etc.
+function formatRichText(richTextArray = []) {
+    return richTextArray.map(textObj => {
+        let text = escapeHtml(textObj.plain_text || '');
+        
+        // Apply formatting annotations
+        if (textObj.annotations) {
+            if (textObj.annotations.bold) text = `<strong>${text}</strong>`;
+            if (textObj.annotations.italic) text = `<em>${text}</em>`;
+            if (textObj.annotations.underline) text = `<u>${text}</u>`;
+            if (textObj.annotations.strikethrough) text = `<del>${text}</del>`;
+            if (textObj.annotations.code) text = `<code>${text}</code>`;
+        }
+        
+        // Add links
+        if (textObj.href) {
+            text = `<a href="${textObj.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+        }
+        
+        return text;
+    }).join('');
+}
+
+// Calculate reading time
+function calculateReadingTime(blocks = []) {
+    const wordsPerMinute = 200;
+    let wordCount = 0;
+    
+    blocks.forEach(block => {
+        const text = extractTextFromBlock(block);
+        if (text) {
+            wordCount += text.split(/\s+/).filter(word => word.length > 0).length;
+        }
+    });
+    
+    return Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+}
+
+// Extract plain text from any block type
+function extractTextFromBlock(block) {
+    switch (block.type) {
+        case "paragraph":
+            return block.paragraph?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "heading_1":
+            return block.heading_1?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "heading_2":
+            return block.heading_2?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "heading_3":
+            return block.heading_3?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "bulleted_list_item":
+            return block.bulleted_list_item?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "numbered_list_item":
+            return block.numbered_list_item?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "quote":
+            return block.quote?.rich_text?.map(t => t.plain_text).join('') || '';
+        case "code":
+            return block.code?.rich_text?.map(t => t.plain_text).join('') || '';
+        default:
+            return '';
+    }
+}
+
+// Escape HTML characters
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+function showError() {
+    document.getElementById("blog-loading").style.display = "none";
+    document.getElementById("blog-error").style.display = "block";
+}
+</script>
+
+</body>
+
+</html>
