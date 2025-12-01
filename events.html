@@ -109,7 +109,7 @@
           <span class="title-accent">/&gt;</span>
         </h1>
         
-        <p class="page-subtitle">
+        <p class="page-subtitle max-w-2xl">
           Join us for workshops, hackathons, tech talks, and competitions that will elevate your coding journey
         </p>
       </div>
@@ -124,14 +124,14 @@
   <main class="main-content">
 
     <!-- Event Navigation -->
-    <section class="event-nav-section">
+    <section class="event-nav-section py-8">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="event-nav-tabs">
-          <button class="event-nav-tab active" onclick="switchEventTab('upcoming')">
+        <div class="event-nav-tabs flex justify-center gap-4">
+          <button class="event-nav-tab active px-4 py-2 sm:px-6 sm:py-3" onclick="switchEventTab('upcoming')">
             <i class="fas fa-clock"></i>
             <span>Upcoming Events</span>
           </button>
-          <button class="event-nav-tab" onclick="switchEventTab('past')">
+          <button class="event-nav-tab px-4 py-2 sm:px-6 sm:py-3" onclick="switchEventTab('past')">
             <i class="fas fa-history"></i>
             <span>Past Events</span>
           </button>
@@ -140,462 +140,23 @@
     </section>
 
     <!-- Upcoming Events -->
-    <section id="upcoming-events" class="about-section event-section" data-tab="upcoming">
+    <section id="upcoming-events" class="about-section event-section pt-4 pb-12" data-tab="upcoming">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="section-header text-center">
-          <div class="section-badge">
-            <i class="fas fa-clock"></i>
-            <span>Upcoming Events</span>
-          </div>
-          <h2 class="section-title">
-            Upcoming <span class="text-gradient">Events</span>
-          </h2>
-        </div>
-        
-        <!-- Featured Upcoming Event -->
-        <div class="featured-event-card">
-          <div class="event-image">
-            <div class="event-badge featured">Next Big Event</div>
-            <div class="event-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-          </div>
-          <div class="event-content">
-            <div class="event-meta">
-              <span class="event-category hackathon">
-                <i class="fas fa-code"></i>
-                Hackathon
-              </span>
-              <span class="event-date">
-                <i class="fas fa-calendar"></i>
-                January 15-16, 2026
-              </span>
-            </div>
-            <h3 class="event-title">Hackathon '26: Code Revolution</h3>
-            <p class="event-description">
-              Join us for an exciting 48-hour coding marathon where innovation meets creativity. 
-              Build amazing projects, learn new technologies, and connect with fellow developers in 
-              this intensive hackathon experience.
-            </p>
-            <div class="event-details">
-              <div class="detail-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>PRPCEM Campus</span>
-              </div>
-              <div class="detail-item">
-                <i class="fas fa-users"></i>
-                <span>100+ participants</span>
-              </div>
-              <div class="detail-item">
-                <i class="fas fa-trophy"></i>
-                <span>₹30,000 in prizes</span>
-              </div>
-            </div>
-            <div class="event-actions">
-              <a href="hackathon26.html" class="btn-primary">
-                <i class="fas fa-user-plus"></i>
-                <span>Register Now</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Other Upcoming Events -->
-        <div class="section-divider"></div>
-        
         <div class="events-grid" id="upcomingEventsGrid">
-          <!-- Event Card 1 -->
-          <div class="event-card upcoming">
-            <div class="event-image">
-              <div class="event-status-badge upcoming">Upcoming</div>
-              <div class="event-icon">
-                <i class="fab fa-react"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">15</span>
-                <span class="month">Dec</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category workshop">
-                  <i class="fas fa-tools"></i>
-                  Workshop
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  2:00 PM - 5:00 PM
-                </span>
-              </div>
-              <h3 class="event-title">React.js Masterclass</h3>
-              <p class="event-description">
-                Learn modern React development with hooks, context, and best practices. Build a complete project from scratch.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Computer Lab 1</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-users"></i>
-                  <span>30 seats</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=react-workshop" class="btn-primary">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 2 -->
-          <div class="event-card upcoming">
-            <div class="event-image">
-              <div class="event-status-badge upcoming">Upcoming</div>
-              <div class="event-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">20</span>
-                <span class="month">Dec</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category talk">
-                  <i class="fas fa-microphone"></i>
-                  Tech Talk
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  4:00 PM - 5:30 PM
-                </span>
-              </div>
-              <h3 class="event-title">AI in Modern Applications</h3>
-              <p class="event-description">
-                Industry expert will discuss practical applications of AI and machine learning in today's software development.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Seminar Hall</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-user-tie"></i>
-                  <span>Guest Speaker</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=ai-tech-talk" class="btn-primary">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 3 -->
-          <div class="event-card upcoming">
-            <div class="event-image">
-              <div class="event-status-badge upcoming">Upcoming</div>
-              <div class="event-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">28</span>
-                <span class="month">Dec</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category competition">
-                  <i class="fas fa-trophy"></i>
-                  Competition
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  10:00 AM - 4:00 PM
-                </span>
-              </div>
-              <h3 class="event-title">Year-End Coding Championship</h3>
-              <p class="event-description">
-                Test your problem-solving skills in our annual coding competition. Multiple rounds with increasing difficulty.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-trophy"></i>
-                  <span>₹15,000 prizes</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-medal"></i>
-                  <span>Certificates</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=coding-championship" class="btn-primary">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 4 -->
-          <div class="event-card upcoming">
-            <div class="event-image">
-              <div class="event-status-badge upcoming">Upcoming</div>
-              <div class="event-icon">
-                <i class="fab fa-python"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">10</span>
-                <span class="month">Jan</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category workshop">
-                  <i class="fas fa-tools"></i>
-                  Workshop
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  1:00 PM - 6:00 PM
-                </span>
-              </div>
-              <h3 class="event-title">Python for Data Science</h3>
-              <p class="event-description">
-                Introduction to data analysis and visualization using Python. Learn pandas, numpy, and matplotlib.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-laptop"></i>
-                  <span>Hands-on</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-certificate"></i>
-                  <span>Certificate</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=python-data-science" class="btn-primary">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 5 -->
-          <div class="event-card upcoming">
-            <div class="event-image">
-              <div class="event-status-badge upcoming">Upcoming</div>
-              <div class="event-icon">
-                <i class="fas fa-cloud"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">25</span>
-                <span class="month">Jan</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category talk">
-                  <i class="fas fa-microphone"></i>
-                  Tech Talk
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  3:00 PM - 4:30 PM
-                </span>
-              </div>
-              <h3 class="event-title">Cloud Computing Fundamentals</h3>
-              <p class="event-description">
-                Understanding cloud services, deployment models, and getting started with AWS and Azure platforms.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-graduation-cap"></i>
-                  <span>Beginner friendly</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-book"></i>
-                  <span>Resources provided</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=cloud-computing" class="btn-primary">
-                  <i class="fas fa-user-plus"></i>
-                  <span>Register</span>
-                </a>
-              </div>
-            </div>
+          <!-- Dynamic events will be loaded here -->
+          <div class="loading-events" id="eventsLoading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Loading upcoming events...</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Past Events -->
-    <section id="past-events" class="about-section event-section" data-tab="past" style="display: none;">
+    <section id="past-events" class="about-section event-section pt-4 pb-12" data-tab="past" style="display: none;">
       <div class="section-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="section-header text-center">
-          <div class="section-badge">
-            <i class="fas fa-history"></i>
-            <span>Past Events</span>
-          </div>
-          <h2 class="section-title">
-            Our Amazing <span class="text-gradient">Journey</span>
-          </h2>
-          <p class="section-subtitle max-w-3xl mx-auto">
-            Relive the incredible moments and achievements from our previous events.
-          </p>
-        </div>
-        
-        <div class="events-grid">
-          <!-- Hackathon '25 - Past Event -->
-          <div class="event-card past-event">
-            <div class="event-image">
-              <div class="event-status-badge past">Completed</div>
-              <div class="event-icon cyber">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">15</span>
-                <span class="month">Oct</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category hackathon">
-                  <i class="fas fa-code"></i>
-                  Hackathon
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  48 Hours
-                </span>
-              </div>
-              <h3 class="event-title">Hackathon '25: The Matrix Awakens</h3>
-              <p class="event-description">
-                An epic cyberpunk-themed hackathon where teams dived deep into the digital matrix. 
-                48 hours of intense coding with cutting-edge tech and revolutionary solutions.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-users"></i>
-                  <span>85 participants</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-trophy"></i>
-                  <span>₹25,000 distributed</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-project-diagram"></i>
-                  <span>18 projects</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="hackathon25.html" class="btn-secondary past">
-                  <i class="fas fa-eye"></i>
-                  <span>View Gallery & Results</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Technical Quiz 2024 - Past Event -->
-          <div class="event-card past-event">
-            <div class="event-image">
-              <div class="event-status-badge past">Completed</div>
-              <div class="event-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">10</span>
-                <span class="month">Sep</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category competition">
-                  <i class="fas fa-trophy"></i>
-                  Competition
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  3 Hours
-                </span>
-              </div>
-              <h3 class="event-title">Technical Quiz Championship 2024</h3>
-              <p class="event-description">
-                A challenging technical quiz covering programming concepts, algorithms, and emerging technologies.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-users"></i>
-                  <span>120 participants</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-trophy"></i>
-                  <span>₹8,000 prizes</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=tech-quiz-2024" class="btn-secondary past">
-                  <i class="fas fa-eye"></i>
-                  <span>View Results</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Git & GitHub Workshop - Past Event -->
-          <div class="event-card past-event">
-            <div class="event-image">
-              <div class="event-status-badge past">Completed</div>
-              <div class="event-icon">
-                <i class="fab fa-git-alt"></i>
-              </div>
-              <div class="event-date-badge">
-                <span class="day">25</span>
-                <span class="month">Aug</span>
-              </div>
-            </div>
-            <div class="event-content">
-              <div class="event-meta">
-                <span class="event-category workshop">
-                  <i class="fas fa-tools"></i>
-                  Workshop
-                </span>
-                <span class="event-time">
-                  <i class="fas fa-clock"></i>
-                  4:00 PM - 7:00 PM
-                </span>
-              </div>
-              <h3 class="event-title">Git & GitHub Mastery Workshop</h3>
-              <p class="event-description">
-                Comprehensive hands-on workshop covering version control, collaboration, and open source contribution.
-              </p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <i class="fas fa-users"></i>
-                  <span>60 participants</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-certificate"></i>
-                  <span>Certificates awarded</span>
-                </div>
-              </div>
-              <div class="event-actions">
-                <a href="event-detail.html?event=git-github-workshop" class="btn-secondary past">
-                  <i class="fas fa-eye"></i>
-                  <span>View Materials</span>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="events-grid" id="pastEventsGrid">
+          <!-- Dynamic past events will be loaded here -->
         </div>
       </div>
     </section>
@@ -603,7 +164,7 @@
 
 
     <!-- Newsletter Signup -->
-    <section id="newsletter" class="about-section">
+    <section id="newsletter" class="about-section py-12">
       <div class="section-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="newsletter-card">
           <div class="newsletter-content">
@@ -787,6 +348,133 @@
   <script src="js/animations.js"></script>
   <script src="js/mobile-app.js"></script>
   
+  <style>
+    /* Loading and Error States */
+    .loading-events {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #00d4ff;
+      grid-column: 1 / -1;
+    }
+    
+    .loading-events i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: spin 1s linear infinite;
+    }
+    
+    .no-events-message, .error-message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      margin: 2rem auto;
+      max-width: 500px;
+      grid-column: 1 / -1;
+    }
+    
+    .no-events-message i, .error-message i {
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+    
+    .no-events-message h3, .error-message h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .no-events-message p, .error-message p {
+      color: #a0a0a0;
+      margin: 0;
+    }
+    
+    /* Event Card Enhancements */
+    .event-card {
+      transition: all 0.3s ease;
+      height: fit-content;
+    }
+    
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+    }
+    
+    .event-card .event-title {
+      font-size: 1.25rem !important;
+      font-weight: 700 !important;
+      line-height: 1.3 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    
+    .event-card .event-description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    
+    .event-card .event-image img {
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    
+    .event-card .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .event-card .detail-item i {
+      margin-top: 2px;
+    }
+    
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .event-nav-tabs {
+        gap: 0.75rem !important;
+      }
+      
+      .event-nav-tab {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem !important;
+      }
+      
+      .events-grid {
+        gap: 1.25rem;
+      }
+      
+      .event-card {
+        margin-bottom: 0;
+      }
+      
+      .event-card .event-image img {
+        height: 180px;
+      }
+      
+      .newsletter-card {
+        margin-top: 1.5rem;
+      }
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  
   <!-- Events Page Specific Scripts -->
   <script>
     // Events Network Visual
@@ -890,8 +578,6 @@
       }
     }
 
-
-
     // Newsletter form handler
     function initNewsletterForm() {
       const form = document.getElementById('newsletterForm');
@@ -916,24 +602,120 @@
       });
     }
 
+    async function loadEvents() {
+      const upcomingGrid = document.getElementById("upcomingEventsGrid");
+      const pastGrid = document.getElementById("pastEventsGrid");
+      const loading = document.getElementById("eventsLoading");
 
+      try {
+        const apiUrl = "https://codingclub-cms.onrender.com/api/events?populate=*";
+        const res = await fetch(apiUrl);
+        const events = await res.json();
 
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', function() {
+        const eventList = Array.isArray(events) ? events : events.data;
+        console.log("Fetched Events:", eventList);
+
+        if (loading) loading.remove();
+        upcomingGrid.innerHTML = "";
+        pastGrid.innerHTML = "";
+
+        const upcomingEvents = eventList.filter(
+          e => e.statuss?.toLowerCase() === "upcoming"
+        );
+
+        const pastEvents = eventList.filter(
+          e => e.statuss?.toLowerCase() === "completed"
+        );
+
+        renderEvents(upcomingEvents, upcomingGrid, "Upcoming");
+        renderEvents(pastEvents, pastGrid, "Completed");
+
+        if (!upcomingEvents.length) {
+          upcomingGrid.innerHTML = `
+            <div class="no-events-message">
+              <i class="fas fa-calendar-plus"></i>
+              <h3>No upcoming events</h3>
+              <p>Stay tuned for announcements!</p>
+            </div>`;
+        }
+
+        if (!pastEvents.length) {
+          pastGrid.innerHTML = `
+            <div class="no-events-message">
+              <i class="fas fa-calendar-plus"></i>
+              <h3>🎉 No Past Events Yet</h3>
+              <p>Stay tuned for exciting events coming soon!</p>
+            </div>`;
+        }
+
+      } catch (error) {
+        console.error("Error loading events:", error);
+
+        if (loading) loading.remove();
+        upcomingGrid.innerHTML = `
+          <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Failed to fetch events</h3>
+          </div>`;
+      }
+    }
+
+    function renderEvents(events, container, statusLabel) {
+      events.forEach(event => {
+        const imgUrl = event.gallery?.[0]?.url || "images/events.png";
+        const dateObj = new Date(event.date);
+        const day = dateObj.getDate();
+        const month = dateObj.toLocaleString("en-US", { month: "short" });
+        
+        // Truncate description to reasonable length
+        const description = event.subtitle || "";
+        const truncatedDesc = description.length > 80 ? description.substring(0, 80) + "..." : description;
+
+        container.innerHTML += `
+          <div class="event-card ${event.statuss} transition-all duration-300 hover:transform hover:-translate-y-1">
+            <div class="event-image">
+              <img src="${imgUrl}" alt="${event.title}"
+                style="width:100%; height:200px; object-fit:cover; border-radius:12px; aspect-ratio: 16/9;" 
+                loading="lazy" />
+              <div class="event-status-badge ${event.statuss}">
+                ${statusLabel}
+              </div>
+              <div class="event-date-badge">
+                <span class="day">${day}</span>
+                <span class="month">${month}</span>
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <span class="event-time">
+                  <i class="fas fa-clock"></i>
+                  ${event.time || "TBD"}
+                </span>
+              </div>
+              <h3 class="event-title font-bold text-lg leading-tight mb-3">${event.title}</h3>
+              <p class="event-description text-sm leading-relaxed mb-4 line-clamp-2">${truncatedDesc}</p>
+              <div class="event-details mb-4">
+                <div class="detail-item flex items-center gap-2">
+                  <i class="fas fa-map-marker-alt text-blue-400 mt-0.5"></i>
+                  <span class="text-sm">${event.location || "PRPCEM Campus"}</span>
+                </div>
+              </div>
+              <div class="event-actions">
+                <a href="event-detail.html?id=${event.id}" class="btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:scale-105">
+                  <i class="fas fa-eye"></i>
+                  <span>View Details</span>
+                </a>
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
       initEventsNetworkVisual();
       initNewsletterForm();
-      
-      // Set default tab state - show upcoming events
-      const upcomingSection = document.querySelector('[data-tab="upcoming"]');
-      const pastSection = document.querySelector('[data-tab="past"]');
-      
-      if (upcomingSection) upcomingSection.style.display = 'block';
-      if (pastSection) pastSection.style.display = 'none';
-      
-      // Ensure the upcoming tab is active
-      const tabs = document.querySelectorAll('.event-nav-tab');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      if (tabs[0]) tabs[0].classList.add('active');
+      switchEventTab("upcoming");
+      loadEvents();
     });
   </script>
 </body>

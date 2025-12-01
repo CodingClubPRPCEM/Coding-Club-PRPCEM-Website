@@ -110,63 +110,40 @@
         </div>
         
         <div class="event-header-main">
+          <!-- Mobile-First Content Ordering -->
           <div class="event-header-content">
-            <div class="event-category-badge" id="event-category-badge">
-              <i class="fas fa-code" id="event-icon"></i>
-              <span id="event-category-text">Loading...</span>
+            <!-- Status Badge Above Title -->
+            <div class="status-badge-container" id="status-badge-container" style="margin-bottom: 1rem;">
+              <span class="status-badge" id="event-status-badge" style="display: none; padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;"></span>
             </div>
             
-            <h1 class="event-title" id="event-title">
-              <span class="title-accent">&lt;</span>
-              <span class="title-main">Loading Event...</span>
-              <span class="title-accent">/&gt;</span>
-            </h1>
+            <!-- Title and Subtitle Block -->
+            <div class="title-block" style="margin-bottom: 1.5rem;">
+              <h1 id="event-title" class="title-main" style="margin-bottom: 0.75rem; font-size: 1.5rem; line-height: 1.2;"></h1>
+              <p id="event-subtitle" class="title-sub" style="margin-bottom: 0; font-size: 0.95rem; opacity: 0.8; color: #b0b0b0;"></p>
+            </div>
             
-            <p class="event-subtitle" id="event-subtitle">Get ready for an amazing experience with Coding Club PRPCEM</p>
-            
-            <div class="event-meta-grid" id="event-meta">
-              <div class="event-meta-item">
-                <div class="meta-icon">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-                <div class="meta-content">
-                  <span class="meta-label">Date</span>
-                  <span class="meta-value" id="event-date">Loading...</span>
-                </div>
+            <!-- Event Metadata -->
+            <div class="event-meta" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+              <div class="meta-item" style="display: flex; align-items: center; gap: 0.5rem; color: #ffffff;">
+                <i class="fas fa-calendar-alt" style="color: #00d4ff;"></i>
+                <span id="event-date"></span>
               </div>
-              <div class="event-meta-item">
-                <div class="meta-icon">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div class="meta-content">
-                  <span class="meta-label">Time</span>
-                  <span class="meta-value" id="event-time">Loading...</span>
-                </div>
+              <div class="meta-item" style="display: flex; align-items: center; gap: 0.5rem; color: #ffffff;">
+                <i class="fas fa-clock" style="color: #00d4ff;"></i>
+                <span id="event-time"></span>
               </div>
-              <div class="event-meta-item">
-                <div class="meta-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="meta-content">
-                  <span class="meta-label">Location</span>
-                  <span class="meta-value" id="event-location">Loading...</span>
-                </div>
-              </div>
-              <div class="event-meta-item">
-                <div class="meta-icon">
-                  <i class="fas fa-users"></i>
-                </div>
-                <div class="meta-content">
-                  <span class="meta-label">Capacity</span>
-                  <span class="meta-value" id="event-capacity">Loading...</span>
-                </div>
+              <div class="meta-item" style="display: flex; align-items: center; gap: 0.5rem; color: #ffffff;">
+                <i class="fas fa-map-marker-alt" style="color: #00d4ff;"></i>
+                <span id="event-location"></span>
               </div>
             </div>
             
+            <!-- Action Buttons -->
             <div class="event-header-actions">
-              <button class="primary-action-btn" onclick="openRegistrationModal()">
-                <i class="fas fa-user-plus"></i>
-                <span>Register Now</span>
+              <button class="primary-action-btn" id="register-button" onclick="openRegistrationModal()" disabled>
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Loading...</span>
               </button>
               <button class="secondary-action-btn" onclick="shareEvent()">
                 <i class="fas fa-share-alt"></i>
@@ -175,16 +152,11 @@
             </div>
           </div>
           
+          <!-- Poster Image Section -->
           <div class="event-header-visual">
             <div class="event-visual-container">
-              <div class="event-image-preview" id="event-image-preview">
-                <img id="header-event-image" src="images/events.png" alt="Event Preview" />
-                <div class="image-overlay">
-                  <div class="status-badge" id="header-event-status">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Upcoming</span>
-                  </div>
-                </div>
+              <div class="event-image-preview" id="event-image-preview" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);">
+                <img id="event-main-image" class="event-main-image" src="images/events.png" alt="Event Poster" style="width: 100%; height: auto; display: block;" />
               </div>
               <div class="event-stats-preview">
                 <div class="stat-preview">
@@ -223,9 +195,21 @@
                 About This Event
               </h2>
               <div class="event-description" id="event-description">
-                <p>Loading event description...</p>
+                <div class="loading-content">
+                  <i class="fas fa-spinner fa-spin"></i>
+                  <span>Loading event description...</span>
+                </div>
               </div>
             </div>
+
+            <!-- Event Gallery -->
+            <section class="content-card" id="event-gallery-section">
+              <h2 class="content-title">
+                <i class="fas fa-images"></i>
+                Event Gallery
+              </h2>
+              <div id="event-gallery" class="gallery-grid"></div>
+            </section>
 
             <!-- Event Agenda -->
             <div class="content-card">
@@ -234,40 +218,50 @@
                 Event Agenda
               </h2>
               <div class="event-agenda" id="event-agenda">
-                <div class="agenda-item">
-                  <div class="agenda-time">Loading...</div>
-                  <div class="agenda-content">
-                    <h4>Loading agenda...</h4>
-                    <p>Please wait while we load the event details.</p>
-                  </div>
+                <div class="loading-content">
+                  <i class="fas fa-spinner fa-spin"></i>
+                  <span>Loading event agenda...</span>
                 </div>
               </div>
             </div>
 
-            <!-- Prerequisites -->
-            <div class="content-card">
+            <!-- Event Winners -->
+            <div class="content-card" id="winners-section" style="margin-bottom: 2rem;">
               <h2 class="content-title">
-                <i class="fas fa-check-circle"></i>
-                Prerequisites & Requirements
+                <i class="fas fa-trophy"></i>
+                Event Winners
               </h2>
-              <div class="event-prerequisites" id="event-prerequisites">
-                <ul>
-                  <li>Loading prerequisites...</li>
-                </ul>
+              <div class="event-winners" id="event-winners">
+                <div class="loading-content">
+                  <i class="fas fa-spinner fa-spin"></i>
+                  <span>Loading winners...</span>
+                </div>
               </div>
             </div>
-
-            <!-- What You'll Learn -->
-            <div class="content-card">
+            
+            <!-- Event Organizer -->
+            <div class="content-card" style="margin-bottom: 2rem;">
               <h2 class="content-title">
-                <i class="fas fa-graduation-cap"></i>
-                What You'll Learn
+                <i class="fas fa-users"></i>
+                Event Organizer
               </h2>
-              <div class="event-learnings" id="event-learnings">
-                <div class="learning-grid">
-                  <div class="learning-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>Loading learning outcomes...</span>
+              <div class="organizer-info" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;">
+                <div class="organizer-avatar" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+                  <img src="images/logo1.png" alt="Coding Club PRPCEM" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+                <div class="organizer-details" style="flex-grow: 1;">
+                  <h4 style="color: #ffffff; margin: 0 0 0.5rem 0; font-size: 1.1rem;">Coding Club PRPCEM</h4>
+                  <p style="color: #a0a0a0; margin: 0 0 0.75rem 0; font-size: 0.9rem;">Building tomorrow's developers today</p>
+                  <div class="organizer-social" style="display: flex; gap: 0.75rem;">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" style="color: #00d4ff; font-size: 1.1rem; transition: color 0.3s;">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" style="color: #00d4ff; font-size: 1.1rem; transition: color 0.3s;">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" style="color: #00d4ff; font-size: 1.1rem; transition: color 0.3s;">
+                      <i class="fab fa-instagram"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -298,62 +292,6 @@
                   <div class="info-content">
                     <span class="info-label">Location</span>
                     <span class="info-value" id="sidebar-location">Loading...</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-users"></i>
-                  <div class="info-content">
-                    <span class="info-label">Capacity</span>
-                    <span class="info-value" id="sidebar-capacity">Loading...</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-tag"></i>
-                  <div class="info-content">
-                    <span class="info-label">Category</span>
-                    <span class="info-value" id="sidebar-category">Loading...</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Organizer Card -->
-            <div class="sidebar-card">
-              <h3 class="sidebar-title">Event Organizer</h3>
-              <div class="organizer-info">
-                <div class="organizer-avatar">
-                  <img src="images/logo1.png" alt="Coding Club PRPCEM" />
-                </div>
-                <div class="organizer-details">
-                  <h4>Coding Club PRPCEM</h4>
-                  <p>Building tomorrow's developers today</p>
-                  <div class="organizer-social">
-                    <a href="https://github.com/CodingClubPRPCEM" target="_blank">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank">
-                      <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/codingclub_prpcem" target="_blank">
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Related Events -->
-            <div class="sidebar-card">
-              <h3 class="sidebar-title">Related Events</h3>
-              <div class="related-events" id="related-events">
-                <div class="related-event-item">
-                  <div class="related-event-date">
-                    <span class="month">Loading</span>
-                    <span class="day">--</span>
-                  </div>
-                  <div class="related-event-info">
-                    <h5>Loading related events...</h5>
-                    <p>Please wait...</p>
                   </div>
                 </div>
               </div>
@@ -546,5 +484,558 @@
   <script src="js/animations.js"></script>
   <script src="js/enhanced-navigation.js"></script>
   <script src="js/event-detail.js"></script>
+  
+  <style>
+    .loading-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 2rem;
+      color: #00d4ff;
+      font-style: italic;
+    }
+    
+    .loading-content i {
+      animation: spin 1s linear infinite;
+    }
+    
+    .error-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 3rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+    }
+    
+    .error-content i {
+      font-size: 2.5rem;
+      color: #ff6b6b;
+    }
+    
+    .error-content h3 {
+      color: #ffffff;
+      margin: 0;
+    }
+    
+    .error-content p {
+      color: #a0a0a0;
+      margin: 0;
+    }
+    
+    .winner-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .winner-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #00d4ff;
+    }
+    
+    .winner-position {
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .winner-details {
+      flex-grow: 1;
+    }
+    
+    .winner-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+    
+    .winner-details-text {
+      color: #a0a0a0;
+      font-size: 0.9rem;
+    }
+    
+    .winner-prize {
+      color: #00d4ff;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      /* Header Content Mobile Layout */
+      .event-header-main {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .event-header-content {
+        order: 1;
+        text-align: left;
+        max-width: 100%;
+      }
+      
+      .event-header-visual {
+        order: 2;
+        width: 100%;
+        margin: 0;
+      }
+      
+      /* Typography Improvements */
+      .title-main {
+        font-size: 1.75rem !important;
+        line-height: 1.2;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .title-sub {
+        font-size: 1rem !important;
+        opacity: 0.85;
+        color: #b0b0b0 !important;
+        line-height: 1.4;
+      }
+      
+      /* Status Badge Mobile */
+      .status-badge-container {
+        margin-bottom: 0.75rem !important;
+        text-align: left;
+      }
+      
+      .status-badge {
+        padding: 0.375rem 0.875rem !important;
+        font-size: 0.8rem !important;
+      }
+      
+      /* Meta Items Mobile */
+      .event-meta {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        margin-bottom: 1.5rem !important;
+        align-items: flex-start !important;
+      }
+      
+      .meta-item {
+        justify-content: flex-start !important;
+        font-size: 0.9rem !important;
+      }
+      
+      /* Poster Image Mobile */
+      .event-image-preview {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+      }
+      
+      .event-main-image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 250px !important;
+        object-fit: cover !important;
+      }
+      
+      /* Action Buttons Mobile */
+      .event-header-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      
+      .primary-action-btn, .secondary-action-btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      
+      /* Gallery Grid Mobile */
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+      }
+      
+      .gallery-item img {
+        height: 120px !important;
+      }
+      
+      /* Content Cards Mobile */
+      .content-card {
+        margin-bottom: 1.5rem !important;
+        padding: 1.25rem !important;
+      }
+      
+      .content-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      /* Agenda Items Mobile */
+      .agenda-item {
+        padding: 0.875rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      
+      .agenda-icon {
+        width: 35px !important;
+        height: 35px !important;
+        margin-right: 0.75rem !important;
+      }
+      
+      /* Winner Items Mobile */
+      .winner-item {
+        padding: 0.875rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      
+      .winner-position {
+        width: 45px !important;
+        height: 45px !important;
+        margin-right: 0.75rem !important;
+      }
+      
+      /* Organizer Info Mobile */
+      .organizer-info {
+        padding: 0.875rem !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.75rem !important;
+      }
+      
+      .organizer-avatar {
+        align-self: center !important;
+      }
+    }
+    
+    /* Tablet Adjustments */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      
+      .title-main {
+        font-size: 2rem !important;
+      }
+      
+      .title-sub {
+        font-size: 1.1rem !important;
+        opacity: 0.9;
+      }
+    }
+    
+    /* Desktop Improvements */
+    @media (min-width: 1025px) {
+      .title-main {
+        font-size: 2rem !important;
+      }
+      
+      .title-sub {
+        font-size: 1.1rem !important;
+        opacity: 0.85;
+        color: #b0b0b0 !important;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+      
+      /* Container Max-Width */
+      .event-header-content {
+        max-width: 600px;
+      }
+    }
+  </style>
+
+  <!-- Dynamic Event Loading Script -->
+  <script>
+    async function loadEventDetails() {
+      try {
+        const id = new URLSearchParams(window.location.search).get("id");
+        if (!id) {
+          showError("No event ID provided");
+          return;
+        }
+
+        const res = await fetch(`https://codingclub-cms.onrender.com/api/events?populate=*`);
+        const json = await res.json();
+
+        const events = json.data;
+        const event = events.find(e => e.id == id);
+
+        if (!event) {
+          showError("Event not found!");
+          return;
+        }
+
+        console.log("Event Loaded:", event);
+
+        // TITLE + SUBTITLE
+        document.title = `${event.title} | Coding Club PRPCEM`;
+        document.getElementById('event-title').textContent = event.title;
+        document.getElementById("event-subtitle").textContent = event.subtitle || "Join us for this amazing event!";
+        
+        // STATUS BADGE
+        const statusBadge = document.getElementById('event-status-badge');
+        if (statusBadge && event.statuss) {
+          statusBadge.textContent = event.statuss;
+          statusBadge.style.display = 'inline-block';
+          
+          if (event.statuss.toLowerCase() === 'upcoming') {
+            statusBadge.style.backgroundColor = '#10b981';
+            statusBadge.style.color = '#ffffff';
+          } else if (event.statuss.toLowerCase() === 'completed') {
+            statusBadge.style.backgroundColor = '#6b7280';
+            statusBadge.style.color = '#ffffff';
+          }
+        }
+
+        // META INFO
+        const formattedDate = new Date(event.date).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+        
+        document.getElementById("event-date").textContent = formattedDate;
+        document.getElementById("event-time").textContent = event.time || "TBD";
+        document.getElementById("event-location").textContent = event.location || "PRPCEM Campus";
+        
+        // Update sidebar info
+        document.getElementById("sidebar-date").textContent = formattedDate;
+        document.getElementById("sidebar-time").textContent = event.time || 'TBD';
+        document.getElementById("sidebar-location").textContent = event.location || 'PRPCEM Campus';
+        
+        // Update breadcrumb
+        document.getElementById("event-breadcrumb").textContent = event.title;
+
+        // MAIN POSTER IMAGE
+        const posterUrl = event.poster?.url || event.gallery?.[0]?.url || "images/events.png";
+        document.getElementById("event-main-image").src = posterUrl;
+        document.getElementById("event-main-image").alt = event.title;
+        
+        // POPULATE EVENT GALLERY SECTION
+        const galleryContainer = document.getElementById('event-gallery');
+        const gallerySection = document.getElementById('event-gallery-section');
+        
+        if (event.gallery && event.gallery.length > 0) {
+          gallerySection.style.display = 'block';
+          galleryContainer.innerHTML = '';
+          
+          event.gallery.forEach((img, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = img.url || 'images/events.png';
+            imgElement.alt = `Event Gallery Image ${index + 1}`;
+            
+            imgElement.addEventListener('click', () => {
+              document.getElementById('event-main-image').src = img.url;
+            });
+            
+            galleryItem.appendChild(imgElement);
+            galleryContainer.appendChild(galleryItem);
+          });
+        } else {
+          gallerySection.style.display = 'none';
+        }
+
+        // DESCRIPTION
+        document.getElementById("event-description").innerHTML = event.description || "<p>More details coming soon...</p>";
+
+        // ENHANCED AGENDA
+        const agendaElement = document.getElementById("event-agenda");
+        agendaElement.innerHTML = "";
+
+        if (event.agenda?.length > 0) {
+          event.agenda.forEach((item, index) => {
+            agendaElement.innerHTML += `
+              <div class="agenda-item" style="display: flex; align-items: flex-start; padding: 1rem; margin-bottom: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; transition: all 0.3s ease;">
+                <div class="agenda-icon" style="margin-right: 1rem; width: 40px; height: 40px; background: linear-gradient(135deg, #00d4ff, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">
+                  ${index + 1}
+                </div>
+                <div class="agenda-content" style="flex-grow: 1;">
+                  <div class="agenda-time" style="color: #00d4ff; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">${item.time || 'TBD'}</div>
+                  <h4 style="color: #ffffff; margin: 0 0 0.5rem 0; font-size: 1.125rem;">${item.title || 'Session'}</h4>
+                  <p style="color: #a0a0a0; margin: 0; line-height: 1.6;">${item.description || ''}</p>
+                </div>
+              </div>`;
+          });
+        } else {
+          agendaElement.innerHTML = "<p>Agenda will be announced soon.</p>";
+        }
+
+        // ENHANCED WINNERS SECTION
+        const winnersContainer = document.getElementById("event-winners");
+        if (!winnersContainer) return;
+        const winnersSection = document.getElementById("winners-section");
+        
+        if (event.statuss?.toLowerCase() === 'completed') {
+          winnersSection.style.display = 'block';
+          winnersContainer.innerHTML = "";
+          
+          if (event.winners && event.winners.length > 0) {
+            event.winners.forEach((winner, index) => {
+              let positionColor = '#00d4ff';
+              let trophyIcon = '🏆';
+              
+              if (winner.position === '1' || winner.position === '1st') {
+                positionColor = '#ffd700'; // Gold
+                trophyIcon = '🥇';
+              } else if (winner.position === '2' || winner.position === '2nd') {
+                positionColor = '#c0c0c0'; // Silver
+                trophyIcon = '🥈';
+              } else if (winner.position === '3' || winner.position === '3rd') {
+                positionColor = '#cd7f32'; // Bronze
+                trophyIcon = '🥉';
+              }
+              
+              winnersContainer.innerHTML += `
+                <div class="winner-item" style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; margin-bottom: 1rem; transition: all 0.3s ease;">
+                  <div class="winner-position" style="background: ${positionColor}; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0; font-size: 1.2rem;">
+                    ${trophyIcon}
+                  </div>
+                  <div class="winner-details" style="flex-grow: 1;">
+                    <div class="winner-name" style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 0.25rem;">${winner.name || 'Winner'}</div>
+                    <div class="winner-details-text" style="color: #a0a0a0; font-size: 0.9rem;">${winner.details || ''}</div>
+                  </div>
+                  <div class="winner-prize" style="color: ${positionColor}; font-weight: 600; font-size: 1rem;">${winner.prize || ''}</div>
+                </div>`;
+            });
+          } else {
+            winnersContainer.innerHTML = '<p>Results will be updated soon!</p>';
+          }
+        } else {
+          winnersSection.style.display = 'none';
+        }
+
+        // SMART REGISTRATION BUTTON
+        const registerButton = document.getElementById("register-button");
+        registerButton.disabled = false;
+        
+        if (event.statuss?.toLowerCase() === 'upcoming' && event.registrationlink) {
+          registerButton.innerHTML = `
+            <i class="fas fa-user-plus"></i>
+            <span>Register Now</span>
+          `;
+          registerButton.style.opacity = '1';
+          registerButton.style.cursor = 'pointer';
+          registerButton.onclick = () => window.open(event.registrationlink, '_blank');
+        } else if (event.statuss?.toLowerCase() === 'upcoming') {
+          registerButton.innerHTML = `
+            <i class="fas fa-user-plus"></i>
+            <span>Register Now</span>
+          `;
+          registerButton.style.opacity = '1';
+          registerButton.style.cursor = 'pointer';
+          registerButton.onclick = openRegistrationModal;
+        } else {
+          registerButton.innerHTML = `
+            <i class="fas fa-lock"></i>
+            <span>Registration Closed</span>
+          `;
+          registerButton.disabled = true;
+          registerButton.style.opacity = '0.6';
+          registerButton.style.cursor = 'not-allowed';
+        }
+        
+      } catch (error) {
+        console.error("Error loading event:", error);
+        showError("Failed to load event data");
+      }
+    }
+    
+    function showError(message) {
+      const errorContent = `
+        <div class="error-content">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>Event Not Found</h3>
+          <p>${message}</p>
+          <a href="events.html" class="btn-primary" style="margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #00d4ff, #8b5cf6); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Events
+          </a>
+        </div>
+      `;
+      
+      // Show error in main content areas
+      document.getElementById("event-description").innerHTML = errorContent;
+      
+      // Update title safely
+      const titleEl = document.getElementById('event-title');
+      if (titleEl) titleEl.textContent = 'Event Not Found';
+      
+      // Update subtitle safely
+      const subtitleEl = document.getElementById("event-subtitle");
+      if (subtitleEl) subtitleEl.textContent = message;
+      
+      // Hide status badge
+      const statusBadge = document.getElementById('event-status-badge');
+      if (statusBadge) statusBadge.style.display = 'none';
+      
+      // Disable register button
+      const registerButton = document.getElementById("register-button");
+      if (registerButton) {
+        registerButton.disabled = true;
+        registerButton.style.opacity = '0.5';
+        registerButton.innerHTML = `
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Event Not Available</span>
+        `;
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', loadEventDetails);
+  </script>
 </body>
 </html>
