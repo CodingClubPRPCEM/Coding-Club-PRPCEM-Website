@@ -1,4 +1,3 @@
-/* Mobile-First JavaScript for Coding Club PRPCEM */
 
 // Utility Functions
 const $ = (selector) => document.querySelector(selector);
