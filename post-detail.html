@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Loading... | Coding Club PRPCEM</title>
+    <link rel="icon" href="images/logo1.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/mobile-style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/enhanced-styles.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/mobile-optimized.css">
+    <link rel="stylesheet" href="css/about-styles.css">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Loading State */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.2);
+            border-top: 3px solid #00d4ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Post Content */
+        .post-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .post-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .post-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            color: #94a3b8;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .meta-item i {
+            color: #00d4ff;
+        }
+
+        .post-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .post-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            color: #00d4ff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .post-tag:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .post-summary {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* PDF Viewer Section */
+        .pdf-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .pdf-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pdf-title i {
+            color: #00d4ff;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 75vh;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1a1f2e;
+            display: block;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        /* Error State */
+        .error-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .post-meta {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .pdf-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pdf-viewer {
+                height: 60vh;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .post-summary {
+                padding: 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .pdf-section {
+                padding: 1.5rem;
+            }
+
+            .pdf-viewer {
+                height: 50vh;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0f1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00d4ff, #8b5cf6);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #00b8e6, #7c3aed);
+        }
+
+        /* No PDF Available State */
+        .no-pdf-container {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .no-pdf-icon {
+            font-size: 3rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .no-pdf-text {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+
+        /* LinkedIn-style PDF Viewer Enhancements */
+        #pdfViewerContainer {
+            transition: all 0.3s ease;
+        }
+
+        #pdfViewerContainer:fullscreen {
+            background: #0a0f1a;
+            padding: 1rem;
+        }
+
+        #pdfPages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #pdfPages::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        #pdfPages::-webkit-scrollbar-thumb {
+            background: rgba(0, 212, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        #pdfPages::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 212, 255, 0.5);
+        }
+
+        /* PDF Controls Responsive */
+        @media (max-width: 640px) {
+            #pdfViewerContainer .flex {
+                gap: 0.5rem;
+            }
+            
+            #pdfViewerContainer button {
+                padding: 0.5rem;
+            }
+            
+            #pdfViewerContainer .px-4 {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+
+        /* Loading animation for PDF */
+        @keyframes pdfPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        #loadingPdf {
+            animation: pdfPulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particle-bg" id="particle-bg"></div>
+
+    <!-- Simple Modern Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo Section -->
+            <div class="navbar-brand">
+                <img src="images/logo1.png" alt="Coding Club PRPCEM" class="navbar-logo" />
+                <div class="navbar-text">
+                    <span class="navbar-title">CODING CLUB</span>
+                    <span class="navbar-subtitle">PRPCEM</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="about.html" class="nav-item">About</a>
+                <a href="events.html" class="nav-item">Events</a>
+                <a href="posts.html" class="nav-item">Technical Posts</a>
+                <a href="team.html" class="nav-item">Team</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+            
+            <!-- Right Side -->
+            <div class="navbar-actions">
+                <div class="navbar-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <a href="hackathon26.html" class="join-button">Hackathon 26</a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav">
+                <a href="index.html" class="mobile-nav-item">Home</a>
+                <a href="about.html" class="mobile-nav-item">About</a>
+                <a href="events.html" class="mobile-nav-item">Events</a>
+                <a href="posts.html" class="mobile-nav-item">Technical Posts</a>
+                <a href="team.html" class="mobile-nav-item">Team</a>
+                <a href="contact.html" class="mobile-nav-item">Contact</a>
+            </div>
+            <div class="mobile-actions">
+                <div class="mobile-social">
+                    <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="mobile-join-button" onclick="openJoinModal()">Join Our Community</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <a href="index.html">Home</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item">
+                        <i class="fas fa-code"></i>
+                        <a href="posts.html">Technical Posts</a>
+                    </span>
+                    <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="breadcrumb-item active" id="breadcrumb-title">
+                        <i class="fas fa-file-alt"></i>
+                        Loading...
+                    </span>
+                </div>
+
+                <h1 class="page-title">
+                    <span class="title-accent">&lt;</span>
+                    Technical <span class="title-gradient">Post</span>
+                    <span class="title-accent">/&gt;</span>
+                </h1>
+
+                <p class="page-subtitle">
+                    Detailed insights and comprehensive technical documentation.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loading-container" class="loading-container">
+            <div class="loading-spinner"></div>
+            <p style="color: #94a3b8; font-size: 1.1rem;">Loading post details...</p>
+        </div>
+
+        <!-- Post Content -->
+        <div id="post-content" class="post-content" style="display: none;">
+            <!-- Content will be loaded here -->
+        </div>
+
+        <!-- Error State -->
+        <div id="error-container" class="error-container" style="display: none;">
+            <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="error-title">Post Not Found</div>
+            <div class="error-message">
+                The post you're looking for doesn't exist or may have been removed.
+            </div>
+            <div class="nav-buttons" style="margin-top: 2rem;">
+                <a href="posts.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to All Posts
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section simple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo-section">
+                        <img src="images/logo1.png" alt="Coding Club PRPCEM" class="footer-logo" />
+                        <span class="footer-title">Coding Club PRPCEM</span>
+                    </div>
+                    <p class="footer-desc">
+                        A community of passionate students learning, building, and growing together through the power of technology.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/CodingClubPRPCEM" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/coding-club-prpcem/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/codingclub_prpcem" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <nav class="footer-nav-list">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="posts.html">Technical Posts</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-community">
+                    <h4 class="footer-column-title">Community</h4>
+                    <nav class="footer-nav-list">
+                        <a href="team.html">Meet the Team</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="hackathon26.html">Hackathon 26</a>
+                        <a href="https://chat.whatsapp.com/El4P6t9tCVC7e1hRooKENB" target="_blank">WhatsApp Group</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">Get In Touch</h4>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>codingclub@prpcem.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>PRPCEM, Amravati</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-simple">
+                <span>&copy; 2025 Coding Club PRPCEM. All rights reserved.</span>
+                <span class="footer-made-with">Made with <i class="fas fa-heart"></i> by our amazing community</span>
+            </div>
+        </div>
+        <!-- Footer Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particles"></div>
+            <div class="footer-grid"></div>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/mobile-app.js"></script>
+    
+    <script>
+        // Get post ID from URL parameters
+        function getPostIdFromURL() {
+            const postId = new URLSearchParams(window.location.search).get("id");
+            return postId;
+        }
+
+        // Utility function to escape HTML and prevent XSS
+        function escapeHtml(text) {
+            if (typeof text !== 'string') return '';
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-GB', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Load post details
+        async function loadPostDetails(postId) {
+            const loadingContainer = document.getElementById('loading-container');
+            const postContentContainer = document.getElementById('post-content');
+            const errorContainer = document.getElementById('error-container');
+
+            try {
+                const API_BASE = "https://events-edge.coding-club.workers.dev";
+                const res = await fetch(`${API_BASE}/api/posts/${postId}?populate=*`);
+                
+                if (!res.ok) {
+                    throw new Error('Post not found');
+                }
+
+                const json = await res.json();
+                const postObj = json.data;
+                
+                // Handle missing post data
+                if (!postObj) {
+                    document.body.innerHTML = `
+                        <div class="text-center text-red-400 p-10">
+                            Post not found 🚫
+                        </div>`;
+                    return;
+                }
+                
+                // Extract fields properly
+                const title = postObj.title;
+                const summary = postObj.summary;
+                const publishedOn = postObj.publishedOn;
+                const tags = postObj.tags?.map(t => t.tags) || [];
+                const authors = postObj.authors?.map(a => a.name).join(", ") || "";
+                const pdfUrl = postObj.pdf?.url;
+                
+                // Update page title dynamically
+                document.title = `${title} | Coding Club PRPCEM`;
+                
+                // Update breadcrumb safely
+                const breadcrumbTitle = document.getElementById('breadcrumb-title');
+                const trimmedTitle = title && title.length > 30 ? title.substring(0, 30) + '...' : title || 'Post';
+                breadcrumbTitle.innerHTML = `<i class="fas fa-file-alt"></i> ${escapeHtml(trimmedTitle)}`;
+                
+                // Hide loading and show content with fade-in
+                loadingContainer.style.display = 'none';
+                postContentContainer.style.display = 'block';
+                postContentContainer.style.opacity = '0';
+                
+                // Render post content
+                renderPostContent(postObj);
+                
+                // Fade in the content
+                setTimeout(() => {
+                    postContentContainer.style.transition = 'opacity 0.5s ease-in';
+                    postContentContainer.style.opacity = '1';
+                }, 50);
+                
+            } catch (error) {
+                console.error('Error loading post:', error);
+                loadingContainer.style.display = 'none';
+                errorContainer.style.display = 'flex';
+            }
+        }
+
+        // Render post content
+        function renderPostContent(postObj) {
+            const postContentContainer = document.getElementById('post-content');
+            
+            // Extract data safely from Strapi v5 structure
+            const title = postObj.title || 'Untitled Post';
+            const summary = postObj.summary || 'No summary available.';
+            const publishedOn = formatDate(postObj.publishedOn);
+            const authors = postObj.authors && Array.isArray(postObj.authors) 
+                ? postObj.authors.map(a => a.name).join(', ')
+                : 'Anonymous';
+            const tags = postObj.tags && Array.isArray(postObj.tags)
+                ? postObj.tags.map(t => t.tags).filter(Boolean)
+                : [];
+            const pdfUrl = postObj.pdf?.url;
+            
+            postContentContainer.innerHTML = `
+                <div class="post-header">
+                    <h1 class="post-title">${escapeHtml(title)}</h1>
+                    
+                    <div class="post-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>${publishedOn || 'Date not available'}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>By ${escapeHtml(authors)}</span>
+                        </div>
+                        ${pdfUrl ? `
+                            <div class="meta-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>PDF Available</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    ${tags.length > 0 ? `
+                        <div class="post-tags">
+                            ${tags.map(tag => `<span class="post-tag">${escapeHtml(tag)}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="post-summary" id="summary">
+                    
+                </div>
+                
+                <div class="pdf-section">
+                    <div class="pdf-header">
+                        <div class="pdf-title">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Document Preview</span>
+                        </div>
+                        ${pdfUrl ? `
+                            <a href="${pdfUrl}" target="_blank" class="download-btn">
+                                <i class="fas fa-download"></i>
+                                <span>Download PDF</span>
+                            </a>
+                        ` : ''}
+                    </div>
+                    <div id="pdfContainer"></div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <a href="posts.html" class="nav-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to All Posts</span>
+                    </a>
+                </div>
+            `;
+            
+            // Render summary with HTML support (for Markdown/HTML content)
+            document.getElementById("summary").innerHTML = summary || "";
+            
+            // Handle PDF container
+            const pdfContainer = document.getElementById("pdfContainer");
+            
+            if (pdfUrl) {
+                // LinkedIn-style PDF viewer implementation
+                pdfContainer.innerHTML = `
+                    <div id="pdfViewerContainer" class="relative bg-black/40 rounded-xl p-3">
+                        <!-- Controls -->
+                        <div class="flex justify-between items-center bg-gray-900/80 text-white p-3 rounded-md mb-3" style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px);">
+                            <div class="flex gap-3 items-center">
+                                <button id="prevPage" class="px-3 py-2 bg-gray-800/80 rounded-lg hover:bg-gray-700/80 transition-all duration-200 flex items-center gap-2" style="background: rgba(30, 41, 59, 0.8);">
+                                    <i class="fas fa-chevron-left"></i>
+                                    <span class="hidden sm:inline">Previous</span>
+                                </button>
+                                <span id="pageInfo" class="text-sm font-medium px-3 py-2 bg-blue-600/20 rounded-lg border border-blue-500/30" style="color: #00d4ff;"></span>
+                                <button id="nextPage" class="px-3 py-2 bg-gray-800/80 rounded-lg hover:bg-gray-700/80 transition-all duration-200 flex items-center gap-2" style="background: rgba(30, 41, 59, 0.8);">
+                                    <span class="hidden sm:inline">Next</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button id="zoomOut" class="px-3 py-2 bg-gray-800/80 rounded-lg hover:bg-gray-700/80 transition-all duration-200" style="background: rgba(30, 41, 59, 0.8);" title="Zoom Out">
+                                    <i class="fas fa-search-minus"></i>
+                                </button>
+                                <span id="zoomLevel" class="px-2 py-2 text-sm font-medium" style="color: #94a3b8;">100%</span>
+                                <button id="zoomIn" class="px-3 py-2 bg-gray-800/80 rounded-lg hover:bg-gray-700/80 transition-all duration-200" style="background: rgba(30, 41, 59, 0.8);" title="Zoom In">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button id="fullscreenBtn" class="px-3 py-2 bg-gray-800/80 rounded-lg hover:bg-gray-700/80 transition-all duration-200" style="background: rgba(30, 41, 59, 0.8);" title="Fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <a id="downloadBtn" class="px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2" style="background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%); color: white;" target="_blank">
+                                    <i class="fas fa-download"></i>
+                                    <span class="hidden sm:inline">Download</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- PDF Canvas Container -->
+                        <div id="pdfPages" class="flex justify-center items-center h-[75vh] overflow-hidden rounded-lg" style="background: rgba(0, 0, 0, 0.2);">
+                            <div class="flex items-center justify-center h-64" id="loadingPdf">
+                                <div class="text-center">
+                                    <div class="loading-spinner mb-4"></div>
+                                    <p style="color: #94a3b8;">Loading PDF...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Initialize PDF.js viewer
+                initializePDFViewer(pdfUrl);
+                
+            } else {
+                pdfContainer.innerHTML = `
+                    <div class="no-pdf-container">
+                        <div class="no-pdf-icon">
+                            <i class="fas fa-file-times"></i>
+                        </div>
+                        <div class="no-pdf-text">
+                            No PDF available for this post
+                        </div>
+                    </div>`;
+            }
+        }
+
+        // PDF Viewer Logic with PDF.js
+        function initializePDFViewer(pdfUrl) {
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+            let pdfDoc = null;
+            let currentScale = 1.2;
+            let currentPage = 1;
+
+            function updateZoomDisplay() {
+                const zoomLevel = document.getElementById('zoomLevel');
+                if (zoomLevel) {
+                    zoomLevel.textContent = Math.round(currentScale * 100) + '%';
+                }
+            }
+
+            function renderPage(pageNum) {
+                if (!pdfDoc) return;
+                
+                pdfDoc.getPage(pageNum).then((page) => {
+                    const container = document.getElementById("pdfPages");
+                    const loadingElement = document.getElementById("loadingPdf");
+                    
+                    if (loadingElement) {
+                        loadingElement.style.display = 'none';
+                    }
+                    
+                    container.innerHTML = "";
+
+                    // Fit page fully inside viewer height
+                    const viewportTemp = page.getViewport({ scale: 1 });
+                    const scale = Math.min(
+                        (container.clientHeight - 20) / viewportTemp.height,
+                        (container.clientWidth - 20) / viewportTemp.width
+                    );
+
+                    currentScale = scale;
+
+                    const viewport = page.getViewport({ scale });
+                    const canvas = document.createElement("canvas");
+                    const context = canvas.getContext("2d");
+
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    
+                    // Style the canvas for slide-like appearance
+                    canvas.style.maxWidth = '100%';
+                    canvas.style.maxHeight = '100%';
+                    canvas.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.4)';
+                    canvas.style.borderRadius = '8px';
+                    canvas.style.backgroundColor = '#ffffff';
+                    canvas.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+                    
+                    container.appendChild(canvas);
+
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport,
+                    });
+
+                    // Update page info
+                    const pageInfo = document.getElementById("pageInfo");
+                    if (pageInfo) {
+                        pageInfo.textContent = `Page ${pageNum} of ${pdfDoc.numPages}`;
+                    }
+                    
+                    updateZoomDisplay();
+                    
+                    // Update button states
+                    const prevBtn = document.getElementById("prevPage");
+                    const nextBtn = document.getElementById("nextPage");
+                    
+                    if (prevBtn) {
+                        prevBtn.disabled = pageNum === 1;
+                        prevBtn.style.opacity = pageNum === 1 ? '0.5' : '1';
+                    }
+                    
+                    if (nextBtn) {
+                        nextBtn.disabled = pageNum === pdfDoc.numPages;
+                        nextBtn.style.opacity = pageNum === pdfDoc.numPages ? '0.5' : '1';
+                    }
+                });
+            }
+
+            // Load PDF
+            pdfjsLib.getDocument(pdfUrl).promise.then((pdf) => {
+                pdfDoc = pdf;
+                renderPage(currentPage);
+            }).catch((error) => {
+                console.error('Error loading PDF:', error);
+                const pdfPagesContainer = document.getElementById("pdfPages");
+                if (pdfPagesContainer) {
+                    pdfPagesContainer.innerHTML = `
+                        <div class="flex items-center justify-center h-64 text-center">
+                            <div>
+                                <i class="fas fa-exclamation-triangle text-4xl text-yellow-500 mb-4"></i>
+                                <p style="color: #94a3b8;">Error loading PDF document</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            // Event listeners
+            const zoomInBtn = document.getElementById("zoomIn");
+            const zoomOutBtn = document.getElementById("zoomOut");
+            const nextPageBtn = document.getElementById("nextPage");
+            const prevPageBtn = document.getElementById("prevPage");
+            const downloadBtn = document.getElementById("downloadBtn");
+            const fullscreenBtn = document.getElementById("fullscreenBtn");
+            
+            if (zoomInBtn) {
+                zoomInBtn.onclick = () => {
+                    if (!pdfDoc) return;
+                    const container = document.getElementById("pdfPages");
+                    pdfDoc.getPage(currentPage).then((page) => {
+                        const viewportTemp = page.getViewport({ scale: 1 });
+                        const maxScale = Math.min(
+                            (container.clientHeight - 20) / viewportTemp.height,
+                            (container.clientWidth - 20) / viewportTemp.width
+                        );
+                        currentScale = Math.min(currentScale + 0.2, maxScale * 2.5);
+                        renderPage(currentPage);
+                    });
+                };
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.onclick = () => {
+                    if (!pdfDoc) return;
+                    const container = document.getElementById("pdfPages");
+                    pdfDoc.getPage(currentPage).then((page) => {
+                        const viewportTemp = page.getViewport({ scale: 1 });
+                        const minScale = Math.min(
+                            (container.clientHeight - 20) / viewportTemp.height,
+                            (container.clientWidth - 20) / viewportTemp.width
+                        ) * 0.5;
+                        currentScale = Math.max(currentScale - 0.2, minScale);
+                        renderPage(currentPage);
+                    });
+                };
+            }
+
+            if (nextPageBtn) {
+                nextPageBtn.onclick = () => {
+                    if (pdfDoc && currentPage < pdfDoc.numPages) {
+                        currentPage++;
+                        renderPage(currentPage);
+                    }
+                };
+            }
+
+            if (prevPageBtn) {
+                prevPageBtn.onclick = () => {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        renderPage(currentPage);
+                    }
+                };
+            }
+
+            if (downloadBtn) {
+                downloadBtn.href = pdfUrl;
+            }
+            
+            if (fullscreenBtn) {
+                fullscreenBtn.onclick = () => {
+                    const container = document.getElementById('pdfViewerContainer');
+                    if (container) {
+                        if (container.requestFullscreen) {
+                            container.requestFullscreen();
+                        } else if (container.webkitRequestFullscreen) {
+                            container.webkitRequestFullscreen();
+                        } else if (container.msRequestFullscreen) {
+                            container.msRequestFullscreen();
+                        }
+                    }
+                };
+            }
+
+            // Enhanced keyboard navigation for slide viewer
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('pdfViewerContainer')) {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                        case 'PageUp':
+                            e.preventDefault();
+                            if (currentPage > 1) {
+                                currentPage--;
+                                renderPage(currentPage);
+                            }
+                            break;
+                        case 'ArrowRight':
+                        case 'PageDown':
+                        case ' ': // Spacebar
+                            e.preventDefault();
+                            if (pdfDoc && currentPage < pdfDoc.numPages) {
+                                currentPage++;
+                                renderPage(currentPage);
+                            }
+                            break;
+                        case 'Home':
+                            e.preventDefault();
+                            if (pdfDoc && currentPage !== 1) {
+                                currentPage = 1;
+                                renderPage(currentPage);
+                            }
+                            break;
+                        case 'End':
+                            e.preventDefault();
+                            if (pdfDoc && currentPage !== pdfDoc.numPages) {
+                                currentPage = pdfDoc.numPages;
+                                renderPage(currentPage);
+                            }
+                            break;
+                        case '+':
+                        case '=':
+                            e.preventDefault();
+                            if (zoomInBtn) zoomInBtn.click();
+                            break;
+                        case '-':
+                            e.preventDefault();
+                            if (zoomOutBtn) zoomOutBtn.click();
+                            break;
+                        case 'f':
+                        case 'F11':
+                            e.preventDefault();
+                            if (fullscreenBtn) fullscreenBtn.click();
+                            break;
+                    }
+                }
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            const postId = getPostIdFromURL();
+            
+            if (!postId) {
+                // No ID provided, show error
+                document.getElementById('loading-container').style.display = 'none';
+                document.getElementById('error-container').style.display = 'flex';
+                return;
+            }
+            
+            loadPostDetails(postId);
+        });
+    </script>
+</body>
+
+</html>
