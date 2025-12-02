@@ -126,8 +126,8 @@ function updateActiveNavigation() {
 }
 
 // Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
+const animationStyle = document.createElement('style');
+animationStyle.textContent = `
     @keyframes slideInFromLeft {
         from {
             opacity: 0;
@@ -150,7 +150,7 @@ style.textContent = `
         position: absolute !important;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(animationStyle);
 
 // Particle Background Animation
 function initializeParticleBackground() {
@@ -174,8 +174,8 @@ function initializeParticleBackground() {
     }
 
     // Add particle movement animation
-    const style = document.createElement('style');
-    style.textContent = `
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
         @keyframes particleMove {
             0% {
                 transform: translate(0, 0) rotate(0deg);
@@ -193,7 +193,7 @@ function initializeParticleBackground() {
             }
         }
     `;
-    document.head.appendChild(style);
+    document.head.appendChild(particleStyle);
 }
 
 // Code Rain Animation
@@ -736,9 +736,9 @@ const notificationCSS = `
     }
 `;
 
-const style = document.createElement('style');
-style.textContent = notificationCSS;
-document.head.appendChild(style);
+const notificationStyle = document.createElement('style');
+notificationStyle.textContent = notificationCSS;
+document.head.appendChild(notificationStyle);
 
 console.log('🚀 Coding Club PRPCEM - Mobile-First Experience Loaded Successfully!');
 
