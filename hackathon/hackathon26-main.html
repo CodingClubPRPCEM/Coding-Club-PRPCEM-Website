@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon 26 | Coding Club PRPCEM</title>
+    <link rel="icon" href="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" type="image/png">
+    <meta name="description" content="Join Hackathon 26 - A 48-hour coding marathon solving campus and community challenges. Win prizes worth ₹1,00,000+">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        /* Navbar Styles - Matching Club Design */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(12, 17, 32, 0.98) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(15, 23, 42, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.4) 20%, rgba(139, 92, 246, 0.4) 50%, rgba(244, 114, 182, 0.4) 80%, transparent 100%);
+        }
+
+        .navbar-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            height: 45px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+        }
+
+        .navbar-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #00d4ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-subtitle {
+            font-size: 0.8rem;
+            color: #00d4ff;
+            font-weight: 500;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(12, 17, 32, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1rem;
+        }
+
+        .mobile-nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-link:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .mobile-cta {
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .navbar-title {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-subtitle {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Body Adjustment */
+        body {
+            padding-top: 80px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Particle Background */
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Enhanced Timeline Styles */
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.3) 10%, rgba(139, 92, 246, 0.5) 50%, rgba(0, 212, 255, 0.3) 90%, transparent 100%);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            animation: timelinePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes timelinePulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+            }
+        }
+        
+        .timeline-item:nth-child(2)::before {
+            animation-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3)::before {
+            animation-delay: 0.4s;
+        }
+        
+        .timeline-item:nth-child(4)::before {
+            animation-delay: 0.6s;
+        }
+        
+        .timeline-item:nth-child(5)::before {
+            animation-delay: 0.8s;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                display: none;
+            }
+            
+            .timeline-item::before {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .shadow-glow {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        .shadow-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+        
+        .shadow-glow-purple {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .shadow-glow-purple:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+        }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
+        }
+        
+        .glassmorphic {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Enhanced floating animations for different elements */
+        .float-delay-1 {
+            animation: float 3s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .float-delay-2 {
+            animation: float 3s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .float-delay-3 {
+            animation: float 3s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        /* Gradient text animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gradient-text-animated {
+            background: linear-gradient(-45deg, #00d4ff, #8b5cf6, #f472b6, #00d4ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        /* Enhanced card hover effects */
+        .enhanced-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .enhanced-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Modern Card Styles - Inspired by Coding Club */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #8b5cf6, #f472b6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.15);
+        }
+        
+        .modern-card:hover::before {
+            opacity: 1;
+        }
+        
+        .card-header-icon {
+            position: relative;
+            margin: 0 auto 2rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #00d4ff;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .icon-container.purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 114, 182, 0.1));
+            color: #8b5cf6;
+        }
+        
+        .icon-container.green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
+            color: #22c55e;
+        }
+        
+        .modern-card:hover .icon-container {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .modern-card:hover .icon-container.purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(244, 114, 182, 0.2));
+        }
+        
+        .modern-card:hover .icon-container.green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+        }
+        
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .glow-effect.purple {
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent);
+        }
+        
+        .glow-effect.green {
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent);
+        }
+        
+        .modern-card:hover .glow-effect {
+            opacity: 1;
+        }
+        
+        .card-bottom-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+        }
+        
+        /* Modern Timeline Styles */
+        .modern-timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-wrapper {
+            position: relative;
+        }
+        
+        .timeline-vertical-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.5) 20%, rgba(139, 92, 246, 0.5) 50%, rgba(244, 114, 182, 0.5) 80%, transparent 100%);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .timeline-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            animation: timelinePulse 3s ease-in-out infinite;
+        }
+        
+        .timeline-step:nth-child(2) .timeline-number {
+            animation-delay: 0.6s;
+        }
+        
+        .timeline-step:nth-child(3) .timeline-number {
+            animation-delay: 1.2s;
+        }
+        
+        .timeline-step:nth-child(4) .timeline-number {
+            animation-delay: 1.8s;
+        }
+        
+        .timeline-step:nth-child(5) .timeline-number {
+            animation-delay: 2.4s;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 0 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+        }
+        
+        .timeline-phase {
+            font-size: 0.9rem;
+            color: #00d4ff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-date {
+            font-size: 1rem;
+            color: #8b5cf6;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .timeline-description {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d4ff;
+            font-size: 1.2rem;
+        }
+        
+        /* Comprehensive Footer Styles */
+        .comprehensive-footer {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-main {
+            padding: 4rem 0 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-brand .gradient-text-animated {
+            background: linear-gradient(-45deg, #00d4ff, #8b5cf6, #f472b6, #00d4ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .footer-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(45deg, #00d4ff, #8b5cf6);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            padding: 0.25rem 0;
+        }
+        
+        .footer-link:hover {
+            color: #00d4ff;
+            padding-left: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .social-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            transform: translateY(-2px);
+        }
+        
+        .footer-partners {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            color: #64748b;
+            transition: color 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            color: #00d4ff;
+        }
+        
+        .footer-bottom {
+            padding: 1.5rem 0;
+        }
+        
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.03), transparent);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-vertical-line {
+                left: 30px;
+            }
+            
+            .timeline-step {
+                flex-direction: row !important;
+                padding-left: 80px;
+            }
+            
+            .timeline-number {
+                position: absolute;
+                left: 0;
+            }
+            
+            .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .footer-stats {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .hero-logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-prizes {
+                grid-template-columns: 1fr;
+            }
+            
+            .special-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Enhanced Hero Section Styles */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .event-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-text {
+            color: #00d4ff;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .badge-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        .hero-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        .hero-title-wrapper {
+            text-align: left;
+        }
+        
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            line-height: 0.8;
+            margin: 0;
+        }
+        
+        .title-line-1 {
+            display: block;
+            font-size: 3rem;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+        
+        .title-line-2 {
+            display: block;
+            font-size: 6rem;
+            font-weight: 900;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .hero-tagline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-text {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: #00d4ff;
+            padding: 1rem 2rem;
+            border: 2px solid #00d4ff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .hero-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent);
+            animation: floatAround 20s linear infinite;
+        }
+        
+        .element-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .element-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -7s;
+        }
+        
+        .element-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -14s;
+        }
+        
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(20px); }
+            50% { transform: translateY(0px) translateX(40px); }
+            75% { transform: translateY(20px) translateX(20px); }
+        }
+        
+        /* Theme Section Styles */
+        .theme-section {
+            padding: 5rem 0;
+            background: rgba(255, 255, 255, 0.01);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-container {
+            position: relative;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            margin: 2rem 0;
+        }
+        
+        .theme-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .theme-decoration.left {
+            top: -20px;
+            left: -20px;
+            animation-delay: 0s;
+        }
+        
+        .theme-decoration.right {
+            bottom: -20px;
+            right: -20px;
+            animation-delay: 2s;
+        }
+        
+        .theme-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .theme-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .theme-description {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .theme-points {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .point-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+        
+        .point-item i {
+            font-size: 1.2rem;
+        }
+        
+        /* Enhanced Prizes Section */
+        .prizes-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f2e 100%);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ffd700, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+        
+        .main-prizes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .prize-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .prize-card.winner {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.02);
+        }
+        
+        .prize-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .prize-crown {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+        
+        .prize-icon {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+        
+        .prize-rank {
+            font-size: 0.9rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .prize-amount {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .prize-card.winner .prize-amount {
+            color: #ffd700;
+        }
+        
+        .prize-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .prize-description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        .prize-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .prize-card.winner:hover .prize-glow {
+            opacity: 1;
+        }
+        
+        .special-prizes {
+            text-align: center;
+        }
+        
+        .special-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .special-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.2);
+        }
+        
+        .special-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .special-icon.innovation {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
+            color: #22c55e;
+        }
+        
+        .special-icon.design {
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(139, 92, 246, 0.1));
+            color: #f472b6;
+        }
+        
+        .special-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .special-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Particle Background -->
+    <div id="particles-js" class="particle-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26 Logo" class="navbar-logo">
+                <div class="navbar-text">
+                    <div class="navbar-title">Hackathon 26</div>
+                    <div class="navbar-subtitle">CODING CLUB PRPCEM</div>
+                </div>
+            </div>
+                
+            <!-- Desktop Navigation -->
+            <div class="navbar-nav">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#prizes" class="nav-link">Prizes</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+                <a href="https://hack2skill.com/event/hackathon26" class="nav-cta">
+                    Register Now
+                </a>
+            </div>
+                
+            <!-- Mobile Menu Button -->
+            <button class="mobile-toggle" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="#hero" class="mobile-nav-link">Home</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#timeline" class="mobile-nav-link">Timeline</a>
+                <a href="#prizes" class="mobile-nav-link">Prizes</a>
+                <a href="#faqs" class="mobile-nav-link">FAQs</a>
+                <a href="https://hack2skill.com/event/hackathon26" class="mobile-cta">
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section" style="background: linear-gradient(135deg, #0a0f1c 0%, #1a1f35 50%, #0f172a 100%);">
+        <div class="hero-content">
+            <!-- Event Badge -->
+            <div class="event-badge" data-aos="fade-down">
+                <span class="badge-text">Jan 31 - Feb 2, 2026</span>
+                <div class="badge-glow"></div>
+            </div>
+            
+            <!-- Main Hero Content -->
+            <div class="hero-main" data-aos="fade-up">
+                <div class="hero-logo-section">
+                    <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26" class="hero-logo">
+                    <div class="hero-title-wrapper">
+                        <h1 class="hero-title">
+                            <span class="title-line-1">HACKATHON</span>
+                            <span class="title-line-2 gradient-text-animated">26</span>
+                        </h1>
+                        <p class="hero-subtitle">presents</p>
+                    </div>
+                </div>
+                
+                <div class="hero-description">
+                    <h2 class="hero-tagline">
+                        <span class="text-white">Innovate Locally,</span><br>
+                        <span class="gradient-text-animated">Impact Globally</span>
+                    </h2>
+                    <p class="hero-text">
+                        Join the Hackathon 26, a 48-hour challenge where makers, developers, and dreamers turn ideas into real solutions. Build apps that solve campus and community problems using cutting-edge technology.
+                    </p>
+                </div>
+                
+                <!-- Hero Stats -->
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">₹1,00,000+</div>
+                        <div class="stat-label">Prize Pool</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">48</div>
+                        <div class="stat-label">Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Max Team Size</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://hack2skill.com/event/hackathon26" class="cta-primary">
+                        <span class="cta-text">Register Now</span>
+                        <i class="fas fa-arrow-right cta-icon"></i>
+                    </a>
+                    <a href="#about" class="cta-secondary">
+                        <span class="cta-text">Learn More</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Floating Elements -->
+            <div class="hero-floating-elements">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Theme Section -->
+    <section class="theme-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="theme-container">
+                <!-- Decorative Elements -->
+                <div class="theme-decoration left"></div>
+                <div class="theme-decoration right"></div>
+                
+                <div class="theme-content" data-aos="fade-up">
+                    <div class="theme-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h2 class="theme-title">
+                        Open Innovation Challenge
+                    </h2>
+                    <p class="theme-description">
+                        You can develop any solution of your choice focusing on campus and community challenges — there's no theme limitation. It's a completely open innovation challenge. Build your dream idea, bring it to life, and make a real impact on the problems around you.
+                    </p>
+                    
+                    <!-- Key Points -->
+                    <div class="theme-points">
+                        <div class="point-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Any Technology Stack</span>
+                        </div>
+                        <div class="point-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Campus & Community Focus</span>
+                        </div>
+                        <div class="point-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-World Impact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
+                    About <span class="text-cyan-custom">Hackathon 26</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Coding Club PRPCEM's Hackathon 26 challenges participants to build solutions for problems 
+                    affecting their own college or community. It's an open-ended event: use any tech stack or approach.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-animation" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="glow-effect"></div>
+                    </div>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Innovation First</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Focus on creating innovative solutions that address real-world problems in your campus and community. Think outside the box and bring fresh perspectives.
+                    </p>
+                    <div class="card-bottom-line"></div>
+                </div>
+                
+                <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-delay-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header-icon">
+                        <div class="icon-container purple">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="glow-effect purple"></div>
+                    </div>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Team Building</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Work in teams of up to 4 members. Collaborate, learn, and build something amazing together. Perfect opportunity to network and make lasting connections.
+                    </p>
+                    <div class="card-bottom-line"></div>
+                </div>
+                
+                <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-delay-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header-icon">
+                        <div class="icon-container green">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="glow-effect green"></div>
+                    </div>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Win Big</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Compete for exciting prizes and recognition. Multiple categories ensure everyone has a chance to win. Show off your skills and get rewarded.
+                    </p>
+                    <div class="card-bottom-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
+                    Event <span class="text-cyan-custom">Timeline</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Key dates and milestones for Hackathon 26
+                </p>
+            </div>
+            
+            <div class="modern-timeline-container">
+                <div class="timeline-wrapper">
+                    <div class="timeline-vertical-line"></div>
+                    
+                    <div class="timeline-step" data-aos="fade-right" data-aos-delay="100">
+                        <div class="timeline-number">01</div>
+                        <div class="timeline-content">
+                            <div class="timeline-phase">Registration Phase</div>
+                            <h3 class="timeline-title">Registration & Team Formation</h3>
+                            <p class="timeline-date">January 1 - January 15, 2026</p>
+                            <p class="timeline-description">
+                                Register your team and secure your spot in the hackathon. Connect with fellow participants and form teams of up to 4 members.
+                            </p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step" data-aos="fade-left" data-aos-delay="200">
+                        <div class="timeline-number">02</div>
+                        <div class="timeline-content">
+                            <div class="timeline-phase">Evaluation Phase</div>
+                            <h3 class="timeline-title">Team Shortlisting</h3>
+                            <p class="timeline-date">January 20, 2026</p>
+                            <p class="timeline-description">
+                                Selected teams will be announced and receive further instructions. Shortlisted teams get access to exclusive resources and mentorship.
+                            </p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step" data-aos="fade-right" data-aos-delay="300">
+                        <div class="timeline-number">03</div>
+                        <div class="timeline-content">
+                            <div class="timeline-phase">Coding Phase</div>
+                            <h3 class="timeline-title">48-Hour Hack Days</h3>
+                            <p class="timeline-date">January 31 - February 2, 2026</p>
+                            <p class="timeline-description">
+                                48 hours of intense coding, building, and innovation. Access to mentors, workshops, and all the resources you need to bring your ideas to life.
+                            </p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step" data-aos="fade-left" data-aos-delay="400">
+                        <div class="timeline-number">04</div>
+                        <div class="timeline-content">
+                            <div class="timeline-phase">Presentation Phase</div>
+                            <h3 class="timeline-title">Project Judging</h3>
+                            <p class="timeline-date">February 2, 2026</p>
+                            <p class="timeline-description">
+                                Present your solutions to industry experts and mentors. Showcase your innovation, technical implementation, and real-world impact.
+                            </p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step" data-aos="fade-right" data-aos-delay="500">
+                        <div class="timeline-number">05</div>
+                        <div class="timeline-content">
+                            <div class="timeline-phase">Award Ceremony</div>
+                            <h3 class="timeline-title">Results & Awards</h3>
+                            <p class="timeline-date">February 2, 2026</p>
+                            <p class="timeline-description">
+                                Winners announced and prizes distributed. Celebrate achievements, network with industry professionals, and get recognition for your hard work.
+                            </p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Prizes Section -->
+    <section id="prizes" class="prizes-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-trophy"></i>
+                    <span>Prize Pool</span>
+                </div>
+                <h2 class="section-title">
+                    Win <span class="highlight-text">Amazing</span> Prizes
+                </h2>
+                <p class="section-subtitle">
+                    Multiple categories with exciting rewards worth ₹1,00,000+ in total
+                </p>
+            </div>
+            
+            <!-- Main Prizes -->
+            <div class="main-prizes">
+                <div class="prize-card winner" data-aos="fade-up" data-aos-delay="100">
+                    <div class="prize-crown">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="prize-rank">1st Place</div>
+                    <div class="prize-amount">₹50,000</div>
+                    <div class="prize-title">Overall Best Solution</div>
+                    <div class="prize-description">Most innovative and impactful solution</div>
+                    <div class="prize-glow"></div>
+                </div>
+                
+                <div class="prize-card runner-up" data-aos="fade-up" data-aos-delay="200">
+                    <div class="prize-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="prize-rank">2nd Place</div>
+                    <div class="prize-amount">₹30,000</div>
+                    <div class="prize-title">Runner-Up</div>
+                    <div class="prize-description">Second best solution</div>
+                </div>
+                
+                <div class="prize-card third" data-aos="fade-up" data-aos-delay="300">
+                    <div class="prize-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="prize-rank">3rd Place</div>
+                    <div class="prize-amount">₹20,000</div>
+                    <div class="prize-title">Third Prize</div>
+                    <div class="prize-description">Third best solution</div>
+                </div>
+            </div>
+            
+            <!-- Special Categories -->
+            <div class="special-prizes">
+                <h3 class="special-title">Special Recognition Awards</h3>
+                <div class="special-grid">
+                    <div class="special-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="special-icon innovation">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Best Innovation</h4>
+                        <div class="special-amount">₹15,000</div>
+                    </div>
+                    
+                    <div class="special-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="special-icon design">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Best UI/UX</h4>
+                        <div class="special-amount">₹15,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQs Section -->
+    <section id="faqs" class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
+                    Frequently Asked <span class="text-cyan-custom">Questions</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item glassmorphic rounded-lg">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-space font-medium">Who can participate in Hackathon 26?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-300">Any student of PRPCEM (all years, any branch) can participate, individually or in teams up to 4 members.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glassmorphic rounded-lg">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-space font-medium">What is the team size limit?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-300">Teams can have a maximum of 4 members. You can also participate individually if you prefer.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glassmorphic rounded-lg">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-space font-medium">What technologies can we use?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-300">You can use any technology stack, programming language, framework, or tools. The choice is completely yours!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glassmorphic rounded-lg">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-space font-medium">What should our project focus on?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-300">Focus on solving problems that affect your campus or local community. Think about issues students face daily or ways to improve campus life.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glassmorphic rounded-lg">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                        <span class="font-space font-medium">Will there be mentors available?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-300">Yes! Industry experts and senior students will be available throughout the event to guide and mentor participants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sponsors Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
+                    Our <span class="text-cyan-custom">Partners</span>
+                </h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="glassmorphic rounded-lg p-6 text-center">
+                    <div class="text-4xl text-cyan-custom mb-3">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-space font-semibold">Hack2Skill</h3>
+                    <p class="text-sm text-gray-400">Platform Partner</p>
+                </div>
+                
+                <div class="glassmorphic rounded-lg p-6 text-center opacity-50">
+                    <div class="text-4xl text-gray-400 mb-3">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="font-space font-semibold text-gray-400">Sponsor Slot</h3>
+                    <p class="text-sm text-gray-500">Coming Soon</p>
+                </div>
+                
+                <div class="glassmorphic rounded-lg p-6 text-center opacity-50">
+                    <div class="text-4xl text-gray-400 mb-3">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="font-space font-semibold text-gray-400">Sponsor Slot</h3>
+                    <p class="text-sm text-gray-500">Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
+                    Join Our <span class="text-cyan-custom">Community</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Connect with fellow participants, share ideas, and form teams before the event.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all font-space font-medium">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Join WhatsApp Group
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all font-space font-medium">
+                        <i class="fab fa-discord mr-2"></i>
+                        Join Discord Server
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="glassmorphic rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-2xl font-space font-semibold text-white mb-6">
+                    Have a Cool Project Idea? Let Us Know!
+                </h3>
+                <form class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-gray-800/80 text-gray-100 rounded-lg placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-custom">
+                        <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-gray-800/80 text-gray-100 rounded-lg placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-custom">
+                    </div>
+                    <textarea placeholder="Tell us about your project idea..." rows="4" class="w-full px-4 py-3 bg-gray-800/80 text-gray-100 rounded-lg placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-custom"></textarea>
+                    <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-cyan-custom hover:bg-cyan-600 text-white rounded-lg transition-all shadow-glow font-space font-medium">
+                        Submit Idea
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Enhanced Footer -->
+    <footer class="comprehensive-footer">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Brand Section -->
+                    <div class="footer-brand">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26 Logo" class="h-12 w-12 rounded-lg">
+                            <div>
+                                <div class="text-2xl font-space font-bold gradient-text-animated">Hackathon 26</div>
+                                <div class="text-sm text-cyan-custom font-medium">CODING CLUB PRPCEM</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            A 48-hour coding marathon to solve campus and community challenges. Build solutions that matter with cutting-edge technology.
+                        </p>
+                        <div class="footer-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">₹1,00,000+</span>
+                                <span class="stat-label">Prize Pool</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">48</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <div class="footer-links">
+                            <a href="#hero" class="footer-link">Home</a>
+                            <a href="#about" class="footer-link">About</a>
+                            <a href="#timeline" class="footer-link">Timeline</a>
+                            <a href="#prizes" class="footer-link">Prizes</a>
+                            <a href="#faqs" class="footer-link">FAQs</a>
+                            <a href="https://hack2skill.com/event/hackathon26" class="footer-link">Register</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Resources</h3>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link">Event Guidelines</a>
+                            <a href="#" class="footer-link">Judging Criteria</a>
+                            <a href="#" class="footer-link">Code of Conduct</a>
+                            <a href="#" class="footer-link">Mentorship</a>
+                            <a href="#" class="footer-link">Workshops</a>
+                            <a href="#" class="footer-link">API Documentation</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact & Community -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Community</h3>
+                        <div class="footer-links mb-6">
+                            <a href="#" class="footer-link">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                WhatsApp Group
+                            </a>
+                            <a href="#" class="footer-link">
+                                <i class="fab fa-discord mr-2"></i>
+                                Discord Server
+                            </a>
+                            <a href="mailto:hackathon@prpcem.ac.in" class="footer-link">
+                                <i class="fas fa-envelope mr-2"></i>
+                                hackathon@prpcem.ac.in
+                            </a>
+                            <a href="tel:+919876543210" class="footer-link">
+                                <i class="fas fa-phone mr-2"></i>
+                                +91 98765 43210
+                            </a>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="social-links">
+                            <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" target="_blank" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" target="_blank" class="social-link">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Partner Section -->
+        <div class="footer-partners">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-lg font-space font-semibold text-gray-300 mb-4">Powered By</h3>
+                    <div class="flex justify-center items-center space-x-8">
+                        <div class="partner-logo">
+                            <i class="fas fa-laptop-code text-3xl text-cyan-custom"></i>
+                            <span class="ml-2 font-space font-semibold">Hack2Skill</span>
+                        </div>
+                        <div class="partner-logo opacity-60">
+                            <i class="fas fa-university text-2xl text-gray-400"></i>
+                            <span class="ml-2 font-space">PRPCEM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm font-space mb-4 md:mb-0">
+                        © 2025 Coding Club PRPCEM. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-cyan-custom transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-custom transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-custom transition-colors">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Glow Effect -->
+        <div class="footer-glow"></div>
+    </footer>
+    
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#00d4ff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00d4ff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on links
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const button = item.querySelector('button');
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('i');
+            
+            button.addEventListener('click', () => {
+                // Close all other FAQs
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.faq-content').classList.add('hidden');
+                        otherItem.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+                
+                // Toggle current FAQ
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your interest! We\'ll get back to you soon.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>

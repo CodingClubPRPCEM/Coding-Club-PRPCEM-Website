@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon 26 - Coming Soon | Coding Club PRPCEM</title>
+    <meta name="description" content="Hackathon 26 - Solve What Matters. Build for Your Campus, Your Community. Coming January 2026.">
+    <link rel="icon" href="../images/logo1.png" type="image/png">
+    
+    <!-- Google Fonts - Same as main website -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f35 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Particle Container */
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        /* Enhanced Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+        }
+
+        /* Logo and Branding */
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            animation: logoFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+            transition: all 0.3s ease;
+        }
+        
+        .brand-info {
+            text-align: left;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-info {
+                text-align: center;
+            }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .brand-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .brand-subtitle {
+            color: #00d4ff;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-dates {
+            color: #ffd700;
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            display: inline-block;
+        }
+
+        /* Main Title with Modern Effect */
+        .main-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        .title-line {
+            display: block;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .title-highlight {
+            display: block;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        @keyframes titleGlow {
+            0% { 
+                transform: translateY(0);
+            }
+            100% { 
+                transform: translateY(-2px);
+            }
+        }
+
+        /* Subtitle Section */
+        .subtitle-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            color: #cbd5e1;
+            max-width: 700px;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+        
+        /* Event Highlights */
+        .event-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .highlight-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-text {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* Features Section */
+        .features-section {
+            margin: 4rem 0;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .features-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon.innovation {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            color: #00d4ff;
+        }
+        
+        .feature-icon.networking {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            color: #22c55e;
+        }
+        
+        .feature-icon.learning {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+            color: #ffd700;
+        }
+        
+        .feature-icon.recognition {
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(139, 92, 246, 0.2));
+            color: #f472b6;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        
+        /* Features Section */
+        .features-section {
+            margin: 4rem 0;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .features-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon.innovation {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            color: #00d4ff;
+        }
+        
+        .feature-icon.networking {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            color: #22c55e;
+        }
+        
+        .feature-icon.learning {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+            color: #ffd700;
+        }
+        
+        .feature-icon.recognition {
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(139, 92, 246, 0.2));
+            color: #f472b6;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .countdown-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .countdown-number {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 600px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+        
+        .cta-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-title {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .email-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .email-section {
+                flex-direction: row;
+            }
+        }
+        
+        .input-container {
+            position: relative;
+            flex: 1;
+        }
+        
+        .input-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .email-input:focus + .input-glow {
+            opacity: 1;
+        }
+
+        .email-input {
+            flex: 1;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .email-input::placeholder {
+            color: #64748b;
+        }
+
+        .email-input:focus {
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .cta-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 640px) {
+            .cta-benefits {
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .benefit-item i {
+            color: #00d4ff;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 100%);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+            }
+        }
+
+        /* Prize Section */
+        .prize-section {
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .prize-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            animation: prizeGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes prizeGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .prize-label {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prize-amount {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prize-description {
+            color: #cbd5e1;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Social Links */
+        .social-section {
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 1.1s both;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .social-link:hover {
+            color: #00d4ff;
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 1.3s both;
+        }
+
+        .footer-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .brand-info {
+                text-align: center;
+            }
+            
+            .event-highlights {
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .highlight-item {
+                min-width: 100px;
+                padding: 0.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .countdown-container {
+                gap: 1rem;
+            }
+            
+            .countdown-item {
+                padding: 1rem;
+                min-width: 80px;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .cta-benefits {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-container">
+        <div id="particles-js"></div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Logo and Branding Section -->
+        <div class="logo-section">
+            <div class="brand-container">
+                <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26" class="logo">
+                <div class="brand-info">
+                    <div class="brand-title">HACKATHON 26</div>
+                    <div class="brand-subtitle">Coding Club PRPCEM</div>
+                    <div class="event-dates">Jan 31 - Feb 2, 2026</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Title -->
+        <h1 class="main-title">
+            <span class="title-line">Innovate Locally,</span>
+            <span class="title-highlight">Impact Globally</span>
+        </h1>
+        
+        <!-- Subtitle Section -->
+        <div class="subtitle-section">
+            <p class="subtitle">48-hour challenge · Open Innovation · ₹1,00,000+ Prize Pool</p>
+            <p class="description">
+                Join the ultimate hackathon where makers, developers, and dreamers turn ideas into reality.
+                Build solutions that matter for campus and community challenges using cutting-edge technology.
+            </p>
+        </div>
+        
+        <!-- Event Highlights -->
+        <div class="event-highlights">
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="highlight-text">4 Max Team Size</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="highlight-text">Open Innovation</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="highlight-text">₹1L+ Prizes</div>
+            </div>
+        </div>
+        
+        <!-- Countdown Section -->
+        <div class="countdown-section">
+            <h3 class="countdown-title">Registration Opens In</h3>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <div class="countdown-label">DAYS</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <div class="countdown-label">HOURS</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <div class="countdown-label">MINS</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <div class="countdown-label">SECS</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="features-title">Why Participate?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon innovation">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Open Innovation</h3>
+                    <p>Build any solution of your choice focusing on campus and community challenges — no theme limitations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon networking">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Networking</h3>
+                    <p>Connect with like-minded developers, mentors, and industry professionals from across the region.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon learning">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning</h3>
+                    <p>Gain hands-on experience with latest technologies through workshops and mentorship sessions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon recognition">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Recognition</h3>
+                    <p>Showcase your projects to industry experts and gain recognition for your innovative solutions.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-header">
+                <h2 class="cta-title">Get Notified When Registration Opens</h2>
+                <p class="cta-subtitle">Be the first to know when registration goes live. Join our exclusive notification list.</p>
+            </div>
+            
+            <div class="email-section">
+                <div class="input-container">
+                    <input type="email" id="emailInput" class="email-input" placeholder="Enter your email address" required>
+                    <div class="input-glow"></div>
+                </div>
+                <button onclick="notifyMe()" class="btn btn-primary">
+                    <span class="btn-text">Notify Me</span>
+                    <i class="fas fa-bell btn-icon"></i>
+                </button>
+            </div>
+            
+            <div class="cta-benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-check"></i>
+                    <span>Early access to registration</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check"></i>
+                    <span>Exclusive updates & announcements</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check"></i>
+                    <span>Workshop & mentorship details</span>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="button-group" style="margin-top: 2rem;">
+                <a href="https://hack2skill.com/event/hackathon26" class="btn btn-secondary">
+                    Registration Opens Soon
+                </a>
+                <a href="hackathon26-main.html" class="btn btn-outline">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        
+        <!-- Prize Section -->
+        <div class="prize-section">
+            <div class="prize-card">
+                <div class="prize-label">Total Prize Pool</div>
+                <div class="prize-amount">₹1,00,000+</div>
+                <div class="prize-description">Multiple categories & special awards</div>
+            </div>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-section">
+            <div class="social-links">
+                <a href="https://github.com/CodingClubPRPCEM" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">© 2025 Coding Club PRPCEM. All rights reserved.</div>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced Particles.js configuration matching main website
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 120,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00d4ff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00d4ff",
+                    "opacity": 0.15,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Enhanced Countdown Timer
+        const countdownDate = new Date("January 31, 2026 10:00:00").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Animate number changes
+            animateNumber(document.getElementById('days'), days.toString().padStart(2, '0'));
+            animateNumber(document.getElementById('hours'), hours.toString().padStart(2, '0'));
+            animateNumber(document.getElementById('minutes'), minutes.toString().padStart(2, '0'));
+            animateNumber(document.getElementById('seconds'), seconds.toString().padStart(2, '0'));
+        }
+        
+        function animateNumber(element, newValue) {
+            if (element.textContent !== newValue) {
+                element.style.transform = 'scale(1.1)';
+                element.style.transition = 'transform 0.3s ease';
+                
+                setTimeout(() => {
+                    element.textContent = newValue;
+                    element.style.transform = 'scale(1)';
+                }, 150);
+            }
+        }
+        
+        // Start countdown
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Enhanced Notify Me function
+        function notifyMe() {
+            const emailInput = document.getElementById('emailInput');
+            const email = emailInput.value.trim();
+            
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                showNotification('Please enter your email address.', 'error');
+                emailInput.focus();
+                return;
+            }
+            
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                emailInput.focus();
+                return;
+            }
+            
+            // Success animation
+            emailInput.style.transform = 'scale(1.05)';
+            emailInput.style.transition = 'transform 0.3s ease';
+            
+            setTimeout(() => {
+                emailInput.style.transform = 'scale(1)';
+                emailInput.value = '';
+                emailInput.placeholder = 'Successfully registered!';
+                showNotification('Thank you! We\'ll notify you when registration opens.', 'success');
+                
+                // Reset placeholder after 3 seconds
+                setTimeout(() => {
+                    emailInput.placeholder = 'Enter your email address';
+                }, 3000);
+            }, 300);
+        }
+        
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            
+            // Notification styles
+            Object.assign(notification.style, {
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                padding: '1rem 1.5rem',
+                borderRadius: '12px',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontWeight: '500',
+                fontSize: '0.9rem',
+                zIndex: '10000',
+                transform: 'translateX(400px)',
+                transition: 'all 0.4s ease',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
+            });
+            
+            // Set colors based on type
+            if (type === 'success') {
+                notification.style.background = 'linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(139, 92, 246, 0.9))';
+                notification.style.color = 'white';
+            } else if (type === 'error') {
+                notification.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(220, 38, 127, 0.9))';
+                notification.style.color = 'white';
+            } else {
+                notification.style.background = 'rgba(255, 255, 255, 0.1)';
+                notification.style.color = '#cbd5e1';
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => notification.remove(), 400);
+            }, 4000);
+        }
+        
+        // Enhanced Enter key handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('emailInput');
+            
+            emailInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    notifyMe();
+                }
+            });
+            
+            // Add focus effects
+            emailInput.addEventListener('focus', () => {
+                emailInput.style.transform = 'scale(1.02)';
+                emailInput.style.transition = 'transform 0.3s ease';
+            });
+            
+            emailInput.addEventListener('blur', () => {
+                emailInput.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Add scroll parallax effect to particles
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.getElementById('particles-js');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+        
+        // Add floating animation to logo on hover
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('.logo');
+            
+            if (logo) {
+                logo.addEventListener('mouseenter', () => {
+                    logo.style.transform = 'translateY(-15px) scale(1.05)';
+                    logo.style.filter = 'drop-shadow(0 0 30px rgba(0, 212, 255, 0.8))';
+                    logo.style.transition = 'all 0.3s ease';
+                });
+                
+                logo.addEventListener('mouseleave', () => {
+                    logo.style.transform = 'translateY(0) scale(1)';
+                    logo.style.filter = 'drop-shadow(0 0 20px rgba(0, 212, 255, 0.5))';
+                });
+            }
+        });
+        
+        // Add typing effect to subtitle
+        function typeEffect() {
+            const subtitle = document.querySelector('.subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            const typeTimer = setInterval(() => {
+                subtitle.textContent += text.charAt(i);
+                i++;
+                if (i >= text.length) {
+                    clearInterval(typeTimer);
+                }
+            }, 100);
+        }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeEffect, 2000);
+        });
+        
+        // Add performance monitoring
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                } else {
+                    entry.target.style.animationPlayState = 'paused';
+                }
+            });
+        });
+        
+        // Observe animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('[class*="animate"]');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
