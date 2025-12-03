@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackathon 26 | Coding Club PRPCEM</title>
+    <title>TECHELONS 2026 — Hackathon '26 | Coding Club PRPCEM</title>
     <link rel="icon" href="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" type="image/png">
-    <meta name="description" content="Join Hackathon 26 - A 48-hour coding marathon solving campus and community challenges. Win prizes worth ₹1,00,000+">
+    <meta name="description" content="Join TECHELONS 2026 — Hackathon '26 - 12-hour national-level hackathon focused on Automation & Optimization. Code. Create. Conquer. Win prizes worth ₹2,05,000!">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,6 +23,39 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <style>
+        /* CSS Variables for Theme */
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #1a1f35;
+            --bg-tertiary: #0f172a;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #8b5cf6;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --navbar-bg: rgba(12, 17, 32, 0.98);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #e2e8f0;
+            --bg-tertiary: #cbd5e1;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-primary: #0284c7;
+            --accent-secondary: #7c3aed;
+            --glass-bg: rgba(0, 0, 0, 0.02);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --navbar-bg: rgba(248, 250, 252, 0.98);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
         /* Navbar Styles - Matching Club Design */
         .navbar {
             position: fixed;
@@ -141,6 +174,37 @@
             width: 80%;
         }
 
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.4);
+            color: #00d4ff;
+            transform: scale(1.05);
+        }
+
+        .theme-toggle i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(180deg);
+        }
+
         .nav-cta {
             background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
             color: white;
@@ -221,6 +285,15 @@
             color: #00d4ff;
             background: rgba(0, 212, 255, 0.1);
         }
+        
+        .theme-toggle-mobile {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
         .mobile-cta {
             background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
@@ -249,6 +322,121 @@
             
             .navbar-subtitle {
                 font-size: 0.7rem;
+            }
+            
+            /* Comprehensive Mobile Improvements */
+            .hero-section {
+                padding: 1rem;
+                min-height: 90vh;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                margin: 2rem 0;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+            }
+            
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            /* Timeline Mobile Fixes */
+            .timeline-container {
+                padding: 1rem 0;
+            }
+            
+            .timeline-step {
+                margin-bottom: 2rem;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+            }
+            
+            /* Prize Cards Mobile */
+            .prize-card {
+                padding: 1.5rem;
+            }
+            
+            .prize-amount {
+                font-size: 2rem !important;
+                word-break: keep-all;
+            }
+            
+            /* Section Padding Reduction */
+            .py-20 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            .theme-section {
+                padding: 3rem 0;
+            }
+            
+            .prizes-section {
+                padding: 3rem 0;
+            }
+            
+            /* Fix text wrapping */
+            .hero-tagline {
+                line-height: 1.1 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero-text {
+                line-height: 1.4 !important;
+                margin-bottom: 2rem !important;
+            }
+        }
+        
+        /* Sticky Register Button for Mobile */
+        .sticky-register-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .sticky-register-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+        }
+        
+        .sticky-register-btn.show {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .sticky-register-btn {
+                display: flex;
             }
         }
 
@@ -399,20 +587,63 @@
             animation: float 3s ease-in-out infinite;
         }
         
-        /* Enhanced floating animations for different elements */
-        .float-delay-1 {
-            animation: float 3s ease-in-out infinite;
-            animation-delay: 0.5s;
+        /* Additional mobile optimizations and accessibility */
+        .faq-item button:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
         }
         
-        .float-delay-2 {
-            animation: float 3s ease-in-out infinite;
-            animation-delay: 1s;
+        .faq-content {
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
         
-        .float-delay-3 {
-            animation: float 3s ease-in-out infinite;
-            animation-delay: 1.5s;
+        .faq-content.hidden {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-content:not(.hidden) {
+            max-height: 200px;
+            opacity: 1;
+        }
+        
+        /* Improved CTA button responsiveness */
+        .cta-primary, .cta-secondary {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Better color contrast for accessibility */
+        .text-cyan-custom {
+            color: #00d4ff;
+        }
+        
+        /* Defer heavy animations on mobile */
+        @media (max-width: 768px) {
+            .floating-element {
+                animation: none;
+            }
+            
+            .timeline-number {
+                animation: none;
+                box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            }
+        }
+        
+        /* Semantic heading structure */
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.25rem; }
         }
         
         /* Gradient text animation */
@@ -877,9 +1108,71 @@
             .special-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Mobile typography optimizations */
+            .title-line-1 {
+                font-size: 2rem !important;
+            }
+            
+            .title-line-2 {
+                font-size: 3.5rem !important;
+            }
+            
+            .hero-tagline {
+                font-size: 1.75rem !important;
+            }
+            
+            .hero-text {
+                font-size: 1rem !important;
+            }
+            
+            .theme-badge {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            /* Reduce glow effects on mobile */
+            .modern-card:hover {
+                box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1);
+            }
+            
+            .navbar-nav {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .navbar-title {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-subtitle {
+                font-size: 0.7rem;
+            }
         }
         
-        /* Enhanced Hero Section Styles */
+        /* Enhanced Glassmorphic Design */
+        .glassmorphic {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+        
+        /* Theme Icons Enhancement */
+        .theme-icon {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .icon-container {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
+            color: var(--accent-primary);
+        }
+        
+        [data-theme="light"] .icon-container {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(124, 58, 237, 0.1));
+        }
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -888,6 +1181,50 @@
             position: relative;
             overflow: hidden;
             padding: 2rem;
+        }
+        
+        /* Theme Badge */
+        .theme-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-badge i {
+            color: #00d4ff;
+            font-size: 1rem;
+        }
+        
+        .theme-badge span {
+            color: #00d4ff;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .theme-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        /* Improved navbar with scroll shadow */
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, rgba(12, 17, 32, 0.99) 0%, rgba(30, 41, 59, 0.98) 50%, rgba(15, 23, 42, 0.99) 100%);
         }
         
         .hero-content {
@@ -1425,10 +1762,10 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-brand">
-                <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26 Logo" class="navbar-logo">
+                <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="TECHELONS 2026 Logo" class="navbar-logo">
                 <div class="navbar-text">
-                    <div class="navbar-title">Hackathon 26</div>
-                    <div class="navbar-subtitle">CODING CLUB PRPCEM</div>
+                    <div class="navbar-title">TECHELONS 2026</div>
+                    <div class="navbar-subtitle">HACKATHON '26</div>
                 </div>
             </div>
                 
@@ -1439,6 +1776,9 @@
                 <a href="#timeline" class="nav-link">Timeline</a>
                 <a href="#prizes" class="nav-link">Prizes</a>
                 <a href="#faqs" class="nav-link">FAQs</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun" id="themeIcon"></i>
+                </button>
                 <a href="https://hack2skill.com/event/hackathon26" class="nav-cta">
                     Register Now
                 </a>
@@ -1460,6 +1800,9 @@
                 <a href="#timeline" class="mobile-nav-link">Timeline</a>
                 <a href="#prizes" class="mobile-nav-link">Prizes</a>
                 <a href="#faqs" class="mobile-nav-link">FAQs</a>
+                <button class="mobile-nav-link theme-toggle-mobile" onclick="document.getElementById('themeToggle').click()">
+                    <i class="fas fa-sun" id="mobileThemeIcon"></i> Theme
+                </button>
                 <a href="https://hack2skill.com/event/hackathon26" class="mobile-cta">
                     Register Now
                 </a>
@@ -1472,45 +1815,51 @@
         <div class="hero-content">
             <!-- Event Badge -->
             <div class="event-badge" data-aos="fade-down">
-                <span class="badge-text">Jan 31 - Feb 2, 2026</span>
+                <span class="badge-text">Date & Time: TBA</span>
                 <div class="badge-glow"></div>
             </div>
             
             <!-- Main Hero Content -->
             <div class="hero-main" data-aos="fade-up">
                 <div class="hero-logo-section">
-                    <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26" class="hero-logo">
+                    <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="TECHELONS 2026" class="hero-logo">
                     <div class="hero-title-wrapper">
                         <h1 class="hero-title">
                             <span class="title-line-1">HACKATHON</span>
                             <span class="title-line-2 gradient-text-animated">26</span>
                         </h1>
-                        <p class="hero-subtitle">presents</p>
+                        <p class="hero-subtitle">TECHELONS 2026</p>
                     </div>
+                </div>
+                
+                <!-- Theme Badge -->
+                <div class="theme-badge" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fas fa-cogs"></i>
+                    <span>Automation & Optimization</span>
                 </div>
                 
                 <div class="hero-description">
                     <h2 class="hero-tagline">
-                        <span class="text-white">Innovate Locally,</span><br>
-                        <span class="gradient-text-animated">Impact Globally</span>
+                        <span class="gradient-text-animated">Code. Create. Conquer.</span>
                     </h2>
                     <p class="hero-text">
-                        Join the Hackathon 26, a 48-hour challenge where makers, developers, and dreamers turn ideas into real solutions. Build apps that solve campus and community problems using cutting-edge technology.
+                        <strong>Make Systems Smarter. Make Life Easier.</strong><br>
+                        The Ultimate National-Level Hackathon! Join us for 12 hours of intense coding, innovation, and automation challenges.
                     </p>
                 </div>
                 
                 <!-- Hero Stats -->
                 <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
                     <div class="stat-card">
-                        <div class="stat-number">₹1,00,000+</div>
+                        <div class="stat-number">₹1,80,000</div>
                         <div class="stat-label">Prize Pool</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">48</div>
+                        <div class="stat-number">12</div>
                         <div class="stat-label">Hours</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">4</div>
+                        <div class="stat-number">5</div>
                         <div class="stat-label">Max Team Size</div>
                     </div>
                 </div>
@@ -1546,28 +1895,28 @@
                 
                 <div class="theme-content" data-aos="fade-up">
                     <div class="theme-icon">
-                        <i class="fas fa-lightbulb"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
                     <h2 class="theme-title">
-                        Open Innovation Challenge
+                        Automation & Optimization Challenge
                     </h2>
                     <p class="theme-description">
-                        You can develop any solution of your choice focusing on campus and community challenges — there's no theme limitation. It's a completely open innovation challenge. Build your dream idea, bring it to life, and make a real impact on the problems around you.
+                        Build intelligent solutions that automate repetitive tasks, optimize workflows, and boost efficiency. Whether it's streamlining campus processes, reducing manual effort in daily operations, or creating smart systems that learn and adapt — your automation solution can transform how we work and live.
                     </p>
                     
                     <!-- Key Points -->
                     <div class="theme-points">
                         <div class="point-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Any Technology Stack</span>
+                            <i class="fas fa-robot"></i>
+                            <span>Smart Automation</span>
                         </div>
                         <div class="point-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Campus & Community Focus</span>
+                            <i class="fas fa-chart-line"></i>
+                            <span>Process Optimization</span>
                         </div>
                         <div class="point-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Real-World Impact</span>
+                            <i class="fas fa-bolt"></i>
+                            <span>Efficiency Boost</span>
                         </div>
                     </div>
                 </div>
@@ -1580,11 +1929,10 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
-                    About <span class="text-cyan-custom">Hackathon 26</span>
+                    About <span class="text-cyan-custom">TECHELONS 2026</span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-4xl mx-auto">
-                    Coding Club PRPCEM's Hackathon 26 challenges participants to build solutions for problems 
-                    affecting their own college or community. It's an open-ended event: use any tech stack or approach.
+                    The Ultimate National-Level Hackathon! TECHELONS 2026 challenges participants to build automation solutions that optimize workflows, eliminate manual bottlenecks, and boost productivity. Focus on AI, IoT, Robotics, and Smart Campus solutions.
                 </p>
             </div>
             
@@ -1592,13 +1940,13 @@
                 <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-animation" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-header-icon">
                         <div class="icon-container">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="fas fa-robot"></i>
                         </div>
                         <div class="glow-effect"></div>
                     </div>
-                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Innovation First</h3>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">AI & Robotics 🤖</h3>
                     <p class="text-gray-300 leading-relaxed">
-                        Focus on creating innovative solutions that address real-world problems in your campus and community. Think outside the box and bring fresh perspectives.
+                        Build intelligent systems using AI, Machine Learning, and Robotics that automate complex tasks and create smart automation solutions.
                     </p>
                     <div class="card-bottom-line"></div>
                 </div>
@@ -1606,13 +1954,13 @@
                 <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-delay-1" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-header-icon">
                         <div class="icon-container purple">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-network-wired"></i>
                         </div>
                         <div class="glow-effect purple"></div>
                     </div>
-                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Team Building</h3>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">IoT & Cloud ☁️</h3>
                     <p class="text-gray-300 leading-relaxed">
-                        Work in teams of up to 4 members. Collaborate, learn, and build something amazing together. Perfect opportunity to network and make lasting connections.
+                        Work in teams of up to 5 members. Create IoT solutions, cloud-based automation, and smart campus systems for enhanced connectivity.
                     </p>
                     <div class="card-bottom-line"></div>
                 </div>
@@ -1620,13 +1968,13 @@
                 <div class="modern-card glassmorphic rounded-2xl p-6 text-center float-delay-2" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-header-icon">
                         <div class="icon-container green">
-                            <i class="fas fa-trophy"></i>
+                            <i class="fas fa-cogs"></i>
                         </div>
                         <div class="glow-effect green"></div>
                     </div>
-                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Win Big</h3>
+                    <h3 class="text-xl font-space font-semibold mb-4 text-white">Workflow Optimization ⚙️</h3>
                     <p class="text-gray-300 leading-relaxed">
-                        Compete for exciting prizes and recognition. Multiple categories ensure everyone has a chance to win. Show off your skills and get rewarded.
+                        Identify bottlenecks and create workflow automation solutions that boost productivity and deliver measurable performance improvements.
                     </p>
                     <div class="card-bottom-line"></div>
                 </div>
@@ -1642,7 +1990,7 @@
                     Event <span class="text-cyan-custom">Timeline</span>
                 </h2>
                 <p class="text-xl text-gray-300">
-                    Key dates and milestones for Hackathon 26
+                    12-Hour National-Level Hackathon Flow | Venue: Swami Vivekanand Hall
                 </p>
             </div>
             
@@ -1654,10 +2002,10 @@
                         <div class="timeline-number">01</div>
                         <div class="timeline-content">
                             <div class="timeline-phase">Registration Phase</div>
-                            <h3 class="timeline-title">Registration & Team Formation</h3>
-                            <p class="timeline-date">January 1 - January 15, 2026</p>
+                            <h3 class="timeline-title">Team Registration</h3>
+                            <p class="timeline-date">Registration Fee: ₹99 per team</p>
                             <p class="timeline-description">
-                                Register your team and secure your spot in the hackathon. Connect with fellow participants and form teams of up to 4 members.
+                                Register your team online and secure your spot. Max 5 members per team. Faculty Coordinators: Prof. A. A. Tayade (8862037114), Prof. A. D. Chaukhate (8862037114)
                             </p>
                             <div class="timeline-icon">
                                 <i class="fas fa-user-plus"></i>
@@ -1668,14 +2016,14 @@
                     <div class="timeline-step" data-aos="fade-left" data-aos-delay="200">
                         <div class="timeline-number">02</div>
                         <div class="timeline-content">
-                            <div class="timeline-phase">Evaluation Phase</div>
-                            <h3 class="timeline-title">Team Shortlisting</h3>
-                            <p class="timeline-date">January 20, 2026</p>
+                            <div class="timeline-phase">Team Building</div>
+                            <h3 class="timeline-title">Team Formation & Ideas</h3>
+                            <p class="timeline-date">Platform Partner: Hack2Skill</p>
                             <p class="timeline-description">
-                                Selected teams will be announced and receive further instructions. Shortlisted teams get access to exclusive resources and mentorship.
+                                Complete team formation and optionally submit initial project ideas. Get acquainted with your team members and start brainstorming automation solutions.
                             </p>
                             <div class="timeline-icon">
-                                <i class="fas fa-list-check"></i>
+                                <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
                     </div>
@@ -1683,14 +2031,14 @@
                     <div class="timeline-step" data-aos="fade-right" data-aos-delay="300">
                         <div class="timeline-number">03</div>
                         <div class="timeline-content">
-                            <div class="timeline-phase">Coding Phase</div>
-                            <h3 class="timeline-title">48-Hour Hack Days</h3>
-                            <p class="timeline-date">January 31 - February 2, 2026</p>
+                            <div class="timeline-phase">Selection Phase</div>
+                            <h3 class="timeline-title">Team Shortlisting</h3>
+                            <p class="timeline-date">Date: TBA</p>
                             <p class="timeline-description">
-                                48 hours of intense coding, building, and innovation. Access to mentors, workshops, and all the resources you need to bring your ideas to life.
+                                Selected teams will be announced based on registration and initial ideas. Shortlisted teams get access to exclusive resources and mentorship for the main event.
                             </p>
                             <div class="timeline-icon">
-                                <i class="fas fa-code"></i>
+                                <i class="fas fa-list-check"></i>
                             </div>
                         </div>
                     </div>
@@ -1698,14 +2046,14 @@
                     <div class="timeline-step" data-aos="fade-left" data-aos-delay="400">
                         <div class="timeline-number">04</div>
                         <div class="timeline-content">
-                            <div class="timeline-phase">Presentation Phase</div>
-                            <h3 class="timeline-title">Project Judging</h3>
-                            <p class="timeline-date">February 2, 2026</p>
+                            <div class="timeline-phase">Main Event</div>
+                            <h3 class="timeline-title">12-Hour Onsite Hackathon</h3>
+                            <p class="timeline-date">Venue: Swami Vivekanand Hall | Date: TBA</p>
                             <p class="timeline-description">
-                                Present your solutions to industry experts and mentors. Showcase your innovation, technical implementation, and real-world impact.
+                                12 hours of intense coding, building, and innovation. Access to mentors, workshops, and all the resources you need to create automation solutions.
                             </p>
                             <div class="timeline-icon">
-                                <i class="fas fa-gavel"></i>
+                                <i class="fas fa-code"></i>
                             </div>
                         </div>
                     </div>
@@ -1713,11 +2061,11 @@
                     <div class="timeline-step" data-aos="fade-right" data-aos-delay="500">
                         <div class="timeline-number">05</div>
                         <div class="timeline-content">
-                            <div class="timeline-phase">Award Ceremony</div>
-                            <h3 class="timeline-title">Results & Awards</h3>
-                            <p class="timeline-date">February 2, 2026</p>
+                            <div class="timeline-phase">Finale</div>
+                            <h3 class="timeline-title">Judging & Awards Ceremony</h3>
+                            <p class="timeline-date">Same Day | Prize Pool: ₹2,05,000</p>
                             <p class="timeline-description">
-                                Winners announced and prizes distributed. Celebrate achievements, network with industry professionals, and get recognition for your hard work.
+                                Present your automation solutions, get judged by industry experts, and celebrate achievements. Winners announced with prizes distributed on the spot!
                             </p>
                             <div class="timeline-icon">
                                 <i class="fas fa-trophy"></i>
@@ -1742,7 +2090,7 @@
                     Win <span class="highlight-text">Amazing</span> Prizes
                 </h2>
                 <p class="section-subtitle">
-                    Multiple categories with exciting rewards worth ₹1,00,000+ in total
+                    Multiple categories with exciting rewards worth ₹2,05,000 total prize pool
                 </p>
             </div>
             
@@ -1753,9 +2101,9 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <div class="prize-rank">1st Place</div>
-                    <div class="prize-amount">₹50,000</div>
-                    <div class="prize-title">Overall Best Solution</div>
-                    <div class="prize-description">Most innovative and impactful solution</div>
+                    <div class="prize-amount">₹1,00,000</div>
+                    <div class="prize-title">Overall Best Automation Project</div>
+                    <div class="prize-description">Most innovative and impactful automation solution</div>
                     <div class="prize-glow"></div>
                 </div>
                 
@@ -1764,9 +2112,9 @@
                         <i class="fas fa-medal"></i>
                     </div>
                     <div class="prize-rank">2nd Place</div>
-                    <div class="prize-amount">₹30,000</div>
-                    <div class="prize-title">Runner-Up</div>
-                    <div class="prize-description">Second best solution</div>
+                    <div class="prize-amount">₹50,000</div>
+                    <div class="prize-title">High-Impact Optimization Project</div>
+                    <div class="prize-description">Outstanding optimization solution</div>
                 </div>
                 
                 <div class="prize-card third" data-aos="fade-up" data-aos-delay="300">
@@ -1774,9 +2122,9 @@
                         <i class="fas fa-award"></i>
                     </div>
                     <div class="prize-rank">3rd Place</div>
-                    <div class="prize-amount">₹20,000</div>
-                    <div class="prize-title">Third Prize</div>
-                    <div class="prize-description">Third best solution</div>
+                    <div class="prize-amount">₹25,000</div>
+                    <div class="prize-title">Best Execution & Performance</div>
+                    <div class="prize-description">Excellent technical implementation</div>
                 </div>
             </div>
             
@@ -1846,11 +2194,11 @@
                 
                 <div class="faq-item glassmorphic rounded-lg">
                     <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-                        <span class="font-space font-medium">What should our project focus on?</span>
+                        <span class="font-space font-medium">What should our automation project focus on?</span>
                         <i class="fas fa-chevron-down transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-4 hidden">
-                        <p class="text-gray-300">Focus on solving problems that affect your campus or local community. Think about issues students face daily or ways to improve campus life.</p>
+                        <p class="text-gray-300">Build solutions that automate repetitive tasks, optimize workflows, or improve efficiency. Examples include automated attendance systems, smart scheduling tools, process optimization dashboards, or intelligent resource management systems.</p>
                     </div>
                 </div>
                 
@@ -1874,31 +2222,29 @@
                 <h2 class="text-4xl md:text-5xl font-space font-bold text-white mb-6">
                     Our <span class="text-cyan-custom">Partners</span>
                 </h2>
+                <p class="text-lg text-gray-300">
+                    Proud to partner with leading organizations
+                </p>
             </div>
             
             <div class="flex flex-wrap justify-center items-center gap-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="glassmorphic rounded-lg p-6 text-center">
-                    <div class="text-4xl text-cyan-custom mb-3">
+                <div class="glassmorphic rounded-lg p-8 text-center shadow-glow">
+                    <div class="text-5xl text-cyan-custom mb-4">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="font-space font-semibold">Hack2Skill</h3>
-                    <p class="text-sm text-gray-400">Platform Partner</p>
+                    <h3 class="font-space font-bold text-xl text-white mb-2">Hack2Skill</h3>
+                    <p class="text-sm text-cyan-custom font-semibold">Platform Partner</p>
                 </div>
                 
-                <div class="glassmorphic rounded-lg p-6 text-center opacity-50">
-                    <div class="text-4xl text-gray-400 mb-3">
-                        <i class="fas fa-building"></i>
+                <div class="glassmorphic rounded-lg p-8 text-center border-2 border-dashed border-gray-600">
+                    <div class="text-4xl text-gray-400 mb-4">
+                        <i class="fas fa-plus-circle"></i>
                     </div>
-                    <h3 class="font-space font-semibold text-gray-400">Sponsor Slot</h3>
-                    <p class="text-sm text-gray-500">Coming Soon</p>
-                </div>
-                
-                <div class="glassmorphic rounded-lg p-6 text-center opacity-50">
-                    <div class="text-4xl text-gray-400 mb-3">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="font-space font-semibold text-gray-400">Sponsor Slot</h3>
-                    <p class="text-sm text-gray-500">Coming Soon</p>
+                    <h3 class="font-space font-semibold text-gray-300 mb-2">More Sponsors Coming Soon</h3>
+                    <p class="text-sm text-gray-500">Interested in partnering?</p>
+                    <a href="mailto:hackathon@prpotepatilengg.ac.in" class="inline-block mt-3 text-cyan-custom hover:text-cyan-300 transition-colors">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -1955,23 +2301,27 @@
                     <!-- Brand Section -->
                     <div class="footer-brand">
                         <div class="flex items-center space-x-3 mb-6">
-                            <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="Hackathon 26 Logo" class="h-12 w-12 rounded-lg">
+                            <img src="https://res.cloudinary.com/dgyefxprx/image/upload/v1764655030/hackathon_logo_smfbve.png" alt="TECHELONS 2026 Logo" class="h-12 w-12 rounded-lg">
                             <div>
-                                <div class="text-2xl font-space font-bold gradient-text-animated">Hackathon 26</div>
-                                <div class="text-sm text-cyan-custom font-medium">CODING CLUB PRPCEM</div>
+                                <div class="text-2xl font-space font-bold gradient-text-animated">TECHELONS 2026</div>
+                                <div class="text-sm text-cyan-custom font-medium">HACKATHON '26</div>
                             </div>
                         </div>
                         <p class="text-gray-400 leading-relaxed mb-6">
-                            A 48-hour coding marathon to solve campus and community challenges. Build solutions that matter with cutting-edge technology.
+                            The Ultimate National-Level Hackathon! 12 hours of intense coding to create automation solutions that make systems smarter and life easier.
                         </p>
                         <div class="footer-stats">
                             <div class="stat-item">
-                                <span class="stat-number">₹1,00,000+</span>
+                                <span class="stat-number">₹2,05,000</span>
                                 <span class="stat-label">Prize Pool</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">48</span>
+                                <span class="stat-number">12</span>
                                 <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">Max Team Size</span>
                             </div>
                         </div>
                     </div>
@@ -2004,23 +2354,23 @@
                     
                     <!-- Contact & Community -->
                     <div class="footer-section">
-                        <h3 class="footer-title">Community</h3>
+                        <h3 class="footer-title">Contact & Venue</h3>
                         <div class="footer-links mb-6">
                             <a href="#" class="footer-link">
-                                <i class="fab fa-whatsapp mr-2"></i>
-                                WhatsApp Group
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Swami Vivekanand Hall
                             </a>
-                            <a href="#" class="footer-link">
-                                <i class="fab fa-discord mr-2"></i>
-                                Discord Server
+                            <a href="tel:8862037114" class="footer-link">
+                                <i class="fas fa-phone mr-2"></i>
+                                Prof. A. A. Tayade - 8862037114
+                            </a>
+                            <a href="tel:8862037114" class="footer-link">
+                                <i class="fas fa-phone mr-2"></i>
+                                Prof. A. D. Chaukhate - 8862037114
                             </a>
                             <a href="mailto:hackathon@prpotepatilengg.ac.in" class="footer-link">
                                 <i class="fas fa-envelope mr-2"></i>
                                 hackathon@prpotepatilengg.ac.in
-                            </a>
-                            <a href="tel:+919876543210" class="footer-link">
-                                <i class="fas fa-phone mr-2"></i>
-                                +91 98765 43210
                             </a>
                         </div>
                         
@@ -2030,16 +2380,13 @@
                                 <i class="fab fa-github"></i>
                             </a>
                             <a href="https://linkedin.com/company/coding-club-prpcem" target="_blank" class="social-link">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" target="_blank" class="social-link">
+                            <a href="https://instagram.com/codingclub_prpcem" target="_blank" class="social-link">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-youtube"></i>
+                            <a href="https://hack2skill.com/event/hackathon26" target="_blank" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -2090,7 +2437,12 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     
     <script>
-        // Initialize Particles.js
+        // Performance optimization - defer heavy scripts on mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        // Initialize particles only on desktop for better performance
+        if (!isMobile) {
+            // Initialize Particles.js
         particlesJS('particles-js', {
             particles: {
                 number: {
@@ -2193,6 +2545,7 @@
             },
             retina_detect: true
         });
+        } // End of desktop-only particles
         
         // Initialize AOS
         AOS.init({
@@ -2200,29 +2553,168 @@
             once: true,
             offset: 100
         });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
         
+        // Load saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+        
+        function updateThemeIcon(theme) {
+            const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-moon';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun';
+            }
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+        }
+
+        // Enhanced Navbar scroll effect with active link highlighting
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active navigation links
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+            
+            lastScrollTop = scrollTop;
+        }
+        
+        // Throttled scroll event
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Number animation function
+        function animateNumber(element, target, duration = 2000, prefix = '', suffix = '') {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+            }, 16);
+        }
+
+        // Animate numbers when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            triggerOnce: true
+        };
+
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const text = element.textContent;
+                    
+                    // Hero stats animations
+                    if (text.includes('₹2,05,000')) {
+                        animateNumber(element, 205000, 2500, '₹', ',000');
+                    } else if (text.includes('12')) {
+                        animateNumber(element, 12, 1200, '', '');
+                    } else if (text.includes('5')) {
+                        animateNumber(element, 5, 1000, '', '');
+                    } 
+                    // Prize amounts animations
+                    else if (text.includes('₹1,00,000')) {
+                        animateNumber(element, 100000, 3000, '₹', ',000');
+                    } else if (text.includes('₹50,000')) {
+                        animateNumber(element, 50000, 2500, '₹', ',000');
+                    } else if (text.includes('₹25,000')) {
+                        animateNumber(element, 25000, 2000, '₹', ',000');
+                    } else if (text.includes('₹15,000')) {
+                        animateNumber(element, 15000, 1800, '₹', ',000');
+                    }
+                    
+                    numberObserver.unobserve(element);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all stat numbers
+        document.addEventListener('DOMContentLoaded', () => {
+            const statNumbers = document.querySelectorAll('.stat-number, .prize-amount');
+            statNumbers.forEach(number => numberObserver.observe(number));
+        });
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on links
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
             });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
+
+            // Close mobile menu when clicking on links
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
         
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
@@ -2270,6 +2762,48 @@
                 form.reset();
             });
         }
+        
+        // Sticky Register Button for Mobile
+        const stickyBtn = document.getElementById('stickyRegisterBtn');
+        if (stickyBtn) {
+            window.addEventListener('scroll', () => {
+                const heroSection = document.getElementById('hero');
+                const heroHeight = heroSection ? heroSection.offsetHeight : 800;
+                
+                if (window.scrollY > heroHeight * 0.8) {
+                    stickyBtn.classList.add('show');
+                } else {
+                    stickyBtn.classList.remove('show');
+                }
+            });
+        }
+        
+        // Performance: Reduce animations on mobile for better performance
+        if (window.innerWidth <= 768) {
+            // Disable heavy particle animations on mobile
+            const particles = document.getElementById('particles-js');
+            if (particles) {
+                particles.style.display = 'none';
+            }
+            
+            // Reduce animation intensity
+            document.documentElement.style.setProperty('--animation-duration', '0.3s');
+        }
+        
+        // Lazy load optimization for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            });
+        }
     </script>
+    
+    <!-- Sticky Register Button for Mobile -->
+    <a href="https://hack2skill.com/event/hackathon26" class="sticky-register-btn" id="stickyRegisterBtn">
+        <span>Register Now</span>
+        <i class="fas fa-rocket"></i>
+    </a>
 </body>
 </html>
