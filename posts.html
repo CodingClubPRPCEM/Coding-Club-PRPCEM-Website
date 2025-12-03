@@ -1253,7 +1253,8 @@
             
             // Extract data
             const title = post.title || 'Untitled Post';
-            const summary = post.summary || 'No summary available.';
+            const rawSummary = post.summary || '';
+            const plainSummary = rawSummary ? rawSummary.replace(/[#_*`>-]/g, "").slice(0, 150) + "..." : "No description available";
             const publishedOn = post.publishedOn ? new Date(post.publishedOn).getFullYear() : '';
             const authors = post.authors && Array.isArray(post.authors) 
                 ? post.authors.map(author => author.name).join(', ')
@@ -1284,7 +1285,7 @@
                 
                 <div class="card-content">
                     <h3>${escapeHtml(title)}</h3>
-                    <p>${escapeHtml(summary.substring(0, 120))}${summary.length > 120 ? '...' : ''}</p>
+                    <p>${escapeHtml(plainSummary)}</p>
                     
                     <div class="project-stats">
                         <div class="stat-item">
@@ -1366,14 +1367,14 @@
                             block.paragraph?.rich_text?.length > 0
                         );
                         if (block) {
-                            description = block.paragraph.rich_text
+                            const rawText = block.paragraph.rich_text
                                 .map(t => t.plain_text)
-                                .join('')
-                                .substring(0, 150);
+                                .join('');
+                            description = rawText.replace(/[#_*`>-]/g, "").slice(0, 150) + "...";
                         }
                     }
-                    if (description === "") {
-                        description = "Discover insights and stories from our community...";
+                    if (description === "" || description === "...") {
+                        description = "No description available";
                     }
 
                     const blogCard = document.createElement('div');
@@ -1460,6 +1461,8 @@
         const authors = (post.authors || []).map(a => a.name).join(", ");
         const tags = (post.tags || []).map(t => t.tags).join(", ");
         const year = post.publishedOn ? new Date(post.publishedOn).getFullYear() : "";
+        const rawSummary = post.summary || '';
+        const plainSummary = rawSummary ? rawSummary.replace(/[#_*`>-]/g, "").slice(0, 150) + "..." : "No description available";
 
         const card = document.createElement("div");
         card.className = "project-card";
@@ -1476,7 +1479,7 @@
           <div class="card-content">
             <div class="text-sm text-gray-400 mb-1">${year}</div>
             <h3>${post.title}</h3>
-            <p>${post.summary || ""}</p>
+            <p>${plainSummary}</p>
             <p class="text-xs text-gray-400 mb-3">
               ${authors ? `By ${authors}` : ""}
             </p>

@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="stylesheet" href="css/mobile-style.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/enhanced-styles.css" />
@@ -194,7 +195,7 @@
                 <i class="fas fa-info-circle"></i>
                 About This Event
               </h2>
-              <div class="event-description" id="event-description">
+              <div class="event-description prose prose-invert max-w-none" id="event-description">
                 <div class="loading-content">
                   <i class="fas fa-spinner fa-spin"></i>
                   <span>Loading event description...</span>
@@ -793,6 +794,75 @@
         max-width: 600px;
       }
     }
+    
+    /* Custom Prose Styling for Dark Theme */
+    .prose-invert {
+      color: #e5e7eb;
+    }
+    
+    .prose-invert h1,
+    .prose-invert h2,
+    .prose-invert h3,
+    .prose-invert h4,
+    .prose-invert h5,
+    .prose-invert h6 {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    
+    .prose-invert strong {
+      color: #00d4ff;
+      font-weight: 600;
+    }
+    
+    .prose-invert code {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-size: 0.875em;
+    }
+    
+    .prose-invert pre {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+    }
+    
+    .prose-invert pre code {
+      background: transparent;
+      color: #e5e7eb;
+    }
+    
+    .prose-invert ul > li::marker {
+      color: #00d4ff;
+    }
+    
+    .prose-invert ol > li::marker {
+      color: #00d4ff;
+    }
+    
+    .prose-invert blockquote {
+      border-left-color: #00d4ff;
+      background: rgba(0, 212, 255, 0.05);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .prose-invert a {
+      color: #00d4ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    
+    .prose-invert a:hover {
+      color: #8b5cf6;
+    }
+    
+    .prose-invert hr {
+      border-color: rgba(255, 255, 255, 0.2);
+      margin: 2rem 0;
+    }
   </style>
 
   <!-- Dynamic Event Loading Script -->
@@ -890,7 +960,10 @@
         }
 
         // DESCRIPTION
-        document.getElementById("event-description").innerHTML = event.description || "<p>More details coming soon...</p>";
+        const descEl = document.getElementById("event-description");
+        const parsedHTML = marked.parse(event.description || "More details coming soon...");
+        descEl.innerHTML = parsedHTML;
+        descEl.classList.add("prose", "prose-invert", "max-w-none");
 
         // ENHANCED AGENDA
         const agendaElement = document.getElementById("event-agenda");
