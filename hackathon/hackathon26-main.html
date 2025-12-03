@@ -539,6 +539,37 @@
             }
         }
         
+        /* Mobile Timeline Fix - Ensures proper visibility and alignment */
+        @media (max-width: 768px) {
+            .timeline-step {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                position: relative;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+            }
+
+            .timeline-number {
+                left: 0 !important;
+                transform: translateX(0) !important;
+                margin-bottom: 1rem;
+                position: relative !important;
+                display: inline-flex !important;
+                justify-content: center;
+                align-items: center;
+                box-shadow: none !important; /* prevents clipping */
+            }
+
+            .timeline-vertical-line {
+                display: none !important;
+            }
+
+            .timeline-content {
+                margin: 0 !important;
+                width: 100% !important;
+            }
+        }
+        
         body {
             font-family: 'Space Grotesk', sans-serif;
         }
