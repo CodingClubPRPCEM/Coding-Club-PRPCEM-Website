@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Club PRPCEM | Coming Soon</title>
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f35 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Particle Background */
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        /* Main Container */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: logoGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes logoGlow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Typography */
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .coming-soon {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+            100% { text-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(139, 92, 246, 0.3); }
+        }
+
+        /* Typing Animation Container */
+        .typing-container {
+            margin-bottom: 3rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typed-text {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+
+        .cursor {
+            display: inline-block;
+            background-color: #00d4ff;
+            margin-left: 3px;
+            width: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .countdown-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Notification Form */
+        .notify-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .notify-input {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .notify-input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .notify-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .notify-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        .footer-text {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .countdown-item {
+                padding: 0.8rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .logo-glow {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .countdown-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-container" id="particleContainer"></div>
+    
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-glow"></div>
+            <img src="images/logo1.png" alt="Coding Club PRPCEM" class="logo">
+        </div>
+
+        <!-- Main Content -->
+        <h1 class="main-title">CODING CLUB</h1>
+        <p class="subtitle">PRPCEM</p>
+        
+        <div class="coming-soon">COMING SOON</div>
+        
+        <!-- Typing Animation -->
+        <div class="typing-container">
+            <span class="typed-text" id="typedText"></span>
+            <span class="cursor">&nbsp;</span>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com/CodingClubPRPCEM" class="social-link" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://linkedin.com/company/coding-club-prpcem" class="social-link" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter fa-lg"></i>
+            </a>
+        </div>
+
+
+        <!-- Footer -->
+        <p class="footer-text">Think Beyond the Syntax</p>
+    </div>
+
+    <script>
+        // 1. Particle Animation System
+        class ParticleSystem {
+            constructor() {
+                this.container = document.getElementById('particleContainer');
+                this.particles = [];
+                this.maxParticles = 50;
+                this.init();
+            }
+
+            init() {
+                for (let i = 0; i < this.maxParticles; i++) {
+                    this.createParticle();
+                }
+                this.animate();
+            }
+
+            createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.top = Math.random() * window.innerHeight + 'px';
+                
+                // Random properties
+                const size = Math.random() * 3 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Random color
+                const colors = ['#00d4ff', '#8b5cf6', '#06d6a0', '#f72585'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                this.container.appendChild(particle);
+                
+                this.particles.push({
+                    element: particle,
+                    x: parseFloat(particle.style.left),
+                    y: parseFloat(particle.style.top),
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    life: Math.random() * 100 + 100
+                });
+            }
+
+            animate() {
+                this.particles.forEach((particle, index) => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    particle.life--;
+
+                    // Boundary check
+                    if (particle.x < 0 || particle.x > window.innerWidth ||
+                        particle.y < 0 || particle.y > window.innerHeight ||
+                        particle.life <= 0) {
+                        particle.element.remove();
+                        this.particles.splice(index, 1);
+                        this.createParticle();
+                        return;
+                    }
+
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // 2. Typing Animation
+        class TypingAnimation {
+            constructor() {
+                this.textElement = document.getElementById('typedText');
+                this.texts = [
+                    'Building Tomorrow\'s Innovators...',
+                    'Code. Create. Collaborate...',
+                    'Where Ideas Meet Implementation...',
+                    'Join the Programming Revolution...',
+                    'Think Beyond the Syntax...'
+                ];
+                this.textIndex = 0;
+                this.charIndex = 0;
+                this.isDeleting = false;
+                this.typeSpeed = 100;
+                this.deleteSpeed = 50;
+                this.pauseTime = 2000;
+                this.init();
+            }
+
+            init() {
+                this.type();
+            }
+
+            type() {
+                const currentText = this.texts[this.textIndex];
+                
+                if (this.isDeleting) {
+                    this.textElement.textContent = currentText.substring(0, this.charIndex - 1);
+                    this.charIndex--;
+                } else {
+                    this.textElement.textContent = currentText.substring(0, this.charIndex + 1);
+                    this.charIndex++;
+                }
+
+                let typeSpeed = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
+
+                if (!this.isDeleting && this.charIndex === currentText.length) {
+                    typeSpeed = this.pauseTime;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.charIndex === 0) {
+                    this.isDeleting = false;
+                    this.textIndex = (this.textIndex + 1) % this.texts.length;
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        // 3. Countdown Timer
+        class CountdownTimer {
+            constructor() {
+                // Set launch date to 30 days from now
+                this.launchDate = new Date();
+                this.launchDate.setDate(this.launchDate.getDate() + 30);
+                
+                this.daysElement = document.getElementById('days');
+                this.hoursElement = document.getElementById('hours');
+                this.minutesElement = document.getElementById('minutes');
+                this.secondsElement = document.getElementById('seconds');
+                
+                this.init();
+            }
+
+            init() {
+                this.updateCountdown();
+                setInterval(() => this.updateCountdown(), 1000);
+            }
+
+            updateCountdown() {
+                const now = new Date().getTime();
+                const distance = this.launchDate.getTime() - now;
+
+                if (distance > 0) {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    this.daysElement.textContent = this.pad(days);
+                    this.hoursElement.textContent = this.pad(hours);
+                    this.minutesElement.textContent = this.pad(minutes);
+                    this.secondsElement.textContent = this.pad(seconds);
+                } else {
+                    this.daysElement.textContent = '00';
+                    this.hoursElement.textContent = '00';
+                    this.minutesElement.textContent = '00';
+                    this.secondsElement.textContent = '00';
+                }
+            }
+
+            pad(num) {
+                return num < 10 ? '0' + num : num;
+            }
+        }
+
+        // Email notification form handler
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Simple validation and feedback
+            if (email) {
+                alert('Thank you! We\'ll notify you when we launch.');
+                this.reset();
+            }
+        });
+
+        // Window resize handler for particles
+        window.addEventListener('resize', function() {
+            // Remove existing particles and recreate for new dimensions
+            const existingParticles = document.querySelectorAll('.particle');
+            existingParticles.forEach(particle => particle.remove());
+        });
+
+        // Initialize all animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            new ParticleSystem();
+            new TypingAnimation();
+            new CountdownTimer();
+        });
+
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('mousemove', function(e) {
+            const logo = document.querySelector('.logo');
+            const rect = logo.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const moveX = x * 0.01;
+            const moveY = y * 0.01;
+            
+            logo.style.transform = `translate(${moveX}px, ${moveY}px) rotateX(${moveY}deg) rotateY(${moveX}deg)`;
+        });
+
+        // Add click animations to social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95) translateY(-5px)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
